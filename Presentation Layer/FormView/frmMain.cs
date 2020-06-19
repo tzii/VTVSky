@@ -22,7 +22,7 @@ namespace Presentation_Layer.FormView
         public frmMain()
         {
             InitializeComponent();
-            //this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
 
             Control.CheckForIllegalCrossThreadCalls = false;
 
@@ -165,5 +165,9 @@ namespace Presentation_Layer.FormView
             ShowChildForm(new frmHome());
         }
 
+        private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
