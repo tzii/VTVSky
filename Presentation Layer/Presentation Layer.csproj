@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2B4D51A4-544C-4549-A4E9-AB4B7888D45A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Presentation_Layer</RootNamespace>
+    <AssemblyName>Presentation Layer</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Guna.UI">
+      <HintPath>C:\Users\Kyo-Jounin\Desktop\Guna.UI-Framework-Lib-master\Guna.UI-Framework-Lib-master\Guna.UI_WinForms\.net 4.0\Guna.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2">
+      <HintPath>C:\Users\Kyo-Jounin\Desktop\Guna.UI-Framework-Lib-master\Guna.UI-Framework-Lib-master\Guna.UI2_WinFroms\.net 4.0\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FormView\CustomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDigital\frmFlightEditing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDigital\frmFlightEditing.Designer.cs">
+      <DependentUpon>frmFlightEditing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDigital\frmSuccess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDigital\frmSuccess.Designer.cs">
+      <DependentUpon>frmSuccess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDigital\frmWarning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDigital\frmWarning.Designer.cs">
+      <DependentUpon>frmWarning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormView\frmAirports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormView\frmAirports.Designer.cs">
+      <DependentUpon>frmAirports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormView\frmBookTicket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormView\frmBookTicket.Designer.cs">
+      <DependentUpon>frmBookTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormView\frmBuyTicket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormView\frmBuyTicket.Designer.cs">
+      <DependentUpon>frmBuyTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormView\frmFlights.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormView\frmFlights.Designer.cs">
+      <DependentUpon>frmFlights.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormView\frmFlightsList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormView\frmFlightsList.Designer.cs">
+      <DependentUpon>frmFlightsList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormView\frmHangVe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormView\frmHangVe.Designer.cs">
+      <DependentUpon>frmHangVe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormView\frmHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormView\frmHome.Designer.cs">
+      <DependentUpon>frmHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormView\frmInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormView\frmInfo.Designer.cs">
+      <DependentUpon>frmInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormView\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormView\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormView\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormView\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormView\frmManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormView\frmManager.Designer.cs">
+      <DependentUpon>frmManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormView\frmReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormView\frmReports.Designer.cs">
+      <DependentUpon>frmReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormView\frmSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormView\frmSettings.Designer.cs">
+      <DependentUpon>frmSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormView\frmSystem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormView\frmSystem.Designer.cs">
+      <DependentUpon>frmSystem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormView\frmTickets.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormView\frmTickets.Designer.cs">
+      <DependentUpon>frmTickets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormView\frmTuyenBay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormView\frmTuyenBay.Designer.cs">
+      <DependentUpon>frmTuyenBay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormDigital\frmFlightEditing.resx">
+      <DependentUpon>frmFlightEditing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDigital\frmSuccess.resx">
+      <DependentUpon>frmSuccess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDigital\frmWarning.resx">
+      <DependentUpon>frmWarning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormView\frmAirports.resx">
+      <DependentUpon>frmAirports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormView\frmBookTicket.resx">
+      <DependentUpon>frmBookTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormView\frmBuyTicket.resx">
+      <DependentUpon>frmBuyTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormView\frmFlights.resx">
+      <DependentUpon>frmFlights.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormView\frmFlightsList.resx">
+      <DependentUpon>frmFlightsList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormView\frmHome.resx">
+      <DependentUpon>frmHome.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormView\frmInfo.resx">
+      <DependentUpon>frmInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormView\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormView\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormView\frmManager.resx">
+      <DependentUpon>frmManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormView\frmReports.resx">
+      <DependentUpon>frmReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormView\frmSettings.resx">
+      <DependentUpon>frmSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormView\frmTickets.resx">
+      <DependentUpon>frmTickets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormView\frmTuyenBay.resx">
+      <DependentUpon>frmTuyenBay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Business Logic Layer\Business Logic Layer.csproj">
+      <Project>{38aa4b57-9c05-4987-ae9e-d37b89bf772d}</Project>
+      <Name>Business Logic Layer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data Transfer Objects\Data Transfer Objects.csproj">
+      <Project>{c2403435-d197-4e9c-9fb0-31b9bfcce218}</Project>
+      <Name>Data Transfer Objects</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dashboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Flight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Setting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ticket.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
