@@ -93,28 +93,7 @@ namespace Presentation_Layer.FormView
                 return;
             }
             timer.Start();
-            if (tbPassword.Text != BLL_UserLogin.GetPassword(tbUsername.Text))
-            {
-                saveLogin(tbUsername.Text, "", false);
-                lbNoti.Text = "Sai tài khoản hoặc mật khẩu";
-                lbNoti.Show();
-                timer.Stop();
-                btnLogin.Checked = false;
-                btnLogin.Text = ls[0];
-            }
-            else
-            {
-
-                if (checkBox.Checked) saveLogin(tbUsername.Text, tbPassword.Text, checkBox.Checked);
-                else saveLogin(tbUsername.Text, "", checkBox.Checked);
-
-                //lbNoti.Text = "Đăng nhập thành công!";
-                //lbNoti.Show();
-                frmMain frm = new frmMain();
-                frm.Show();
-                this.BringToFront();
-                backgroundWorker.RunWorkerAsync();
-            }
+            backgroundWorker1.RunWorkerAsync();
         }
         private bool InvalidInfo()
         {
@@ -168,6 +147,43 @@ namespace Presentation_Layer.FormView
         {
             btnLogin.Text = ls[pos];
             pos = (pos + 1) % ls.Count;
+        }
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            if (tbPassword.Text != BLL_UserLogin.GetPassword(tbUsername.Text))
+            {
+                saveLogin(tbUsername.Text, "", false);
+                backgroundWorker1.ReportProgress(0);
+                
+            }
+            else
+            {
+
+                if (checkBox.Checked) saveLogin(tbUsername.Text, tbPassword.Text, checkBox.Checked);
+                else saveLogin(tbUsername.Text, "", checkBox.Checked);
+                backgroundWorker1.ReportProgress(1);
+            }
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            if (e.ProgressPercentage == 0)
+            {
+                lbNoti.Text = "Sai tài khoản hoặc mật khẩu";
+                lbNoti.Show();
+                timer.Stop();
+                btnLogin.Checked = false;
+                btnLogin.Text = ls[0];
+            }
+            else if (e.ProgressPercentage == 1)
+            {
+                lbNoti.Text = "Đăng nhập thành công!";
+                lbNoti.Show();
+                frmMain frm = new frmMain();
+                frm.Show();
+                this.BringToFront();
+                backgroundWorker.RunWorkerAsync();
+            }
         }
     }
 }
