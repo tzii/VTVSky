@@ -17,7 +17,7 @@ namespace Presentation_Layer.FormView
     public partial class frmMain : Form
     {
         private Guna2Button currentButton;
-        private Form currentChildForm;
+        private CustomForm currentChildForm;
 
         public frmMain()
         {
@@ -39,11 +39,13 @@ namespace Presentation_Layer.FormView
             {
                 WindowState = FormWindowState.Maximized;
                 resizeControl.Hide();
+                currentChildForm.SizeChange();
             }
             else if (WindowState == FormWindowState.Maximized)
             {
                 WindowState = FormWindowState.Normal;
                 resizeControl.Show();
+                currentChildForm.SizeChange();
             }
         }
 
@@ -59,12 +61,10 @@ namespace Presentation_Layer.FormView
             if (btn.Checked == true) return;
             ActivateButton(sender);
             ShowChildForm(new frmHome());
-            Notification.Show(pnDesktop.Size.ToString());
         }
 
         private void btnManager_Click(object sender, EventArgs e)
         {
-            Notification.Show("check Manager");
             var btn = (Guna2Button)sender;
             if (btn.Checked == true) return;
             ActivateButton(sender);
@@ -139,7 +139,7 @@ namespace Presentation_Layer.FormView
             currentButton.FillColor = Color.FromArgb(44, 54, 79);
             currentButton.ImageAlign = HorizontalAlignment.Left;
         }
-        private void ShowChildForm(Form senderForm)
+        private void ShowChildForm(CustomForm senderForm)
         {
             if (senderForm == null) return;
             HideChildForm();
@@ -160,8 +160,6 @@ namespace Presentation_Layer.FormView
         private void frmMain_Load(object sender, EventArgs e)
         {
             Notification.lbNoti = lbNoti;
-            //Notification.Show("123");
-
             ActivateButton(btnHome);
             ShowChildForm(new frmHome());
         }
@@ -169,6 +167,20 @@ namespace Presentation_Layer.FormView
         private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void frmMain_ResizeEnd(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Maximized)
+            {
+                resizeControl.Hide();
+                currentChildForm.SizeChange();
+            }
+            else if (WindowState == FormWindowState.Normal)
+            {
+                resizeControl.Show();
+                currentChildForm.SizeChange();
+            }
         }
     }
 }

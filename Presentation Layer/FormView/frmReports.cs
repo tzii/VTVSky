@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Presentation_Layer.FormView
 {
-    public partial class frmReports : Form
+    public partial class frmReports : CustomForm
     {
         private Guna2Button currentBtn;
         private CustomForm currentChildForm;

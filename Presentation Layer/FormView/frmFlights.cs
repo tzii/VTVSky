@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Presentation_Layer.FormView
 {
-    public partial class frmFlights : Form
+    public partial class frmFlights : CustomForm
     {
         private CustomForm currentChildForm;
         public frmFlights()

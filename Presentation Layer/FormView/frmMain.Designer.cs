@@ -104,6 +104,7 @@
             this.resizeControl.Name = "resizeControl";
             this.resizeControl.Size = new System.Drawing.Size(20, 25);
             this.resizeControl.TabIndex = 0;
+            this.resizeControl.TabStop = false;
             this.resizeControl.TargetControl = this;
             // 
             // panel2
@@ -483,6 +484,7 @@
             this.Text = "v";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMain_FormClosed);
             this.Load += new System.EventHandler(this.frmMain_Load);
+            this.ResizeEnd += new System.EventHandler(this.frmMain_ResizeEnd);
             this.pnStatusBar.ResumeLayout(false);
             this.pnStatusBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbNoti)).EndInit();
