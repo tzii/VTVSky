@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Presentation_Layer.FormView
 {
-    public partial class frmManager : Form
+    public partial class frmManager : CustomForm
     {
         private Guna2Button currentBtn;
         private CustomForm currentChildForm;
@@ -111,7 +111,10 @@ namespace Presentation_Layer.FormView
         {
             currentChildForm.RefreshData();
         }
+        public override void SizeChange()
+        {
+            currentChildForm.SizeChange();
+        }
 
-        
     }
 }

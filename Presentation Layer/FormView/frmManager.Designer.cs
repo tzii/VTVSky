@@ -30,11 +30,10 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
-            this.btnCreateNew = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.btnHangVe = new Guna.UI2.WinForms.Guna2Button();
             this.btnAirport = new Guna.UI2.WinForms.Guna2Button();
             this.btnTuyenBay = new Guna.UI2.WinForms.Guna2Button();
             this.pnDesktop = new System.Windows.Forms.Panel();
-            this.btnHangVe = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,7 +41,6 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.btnRefresh);
-            this.panel1.Controls.Add(this.btnCreateNew);
             this.panel1.Controls.Add(this.btnHangVe);
             this.panel1.Controls.Add(this.btnAirport);
             this.panel1.Controls.Add(this.btnTuyenBay);
@@ -73,26 +71,27 @@
             this.btnRefresh.TabIndex = 3;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // btnCreateNew
+            // btnHangVe
             // 
-            this.btnCreateNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCreateNew.Animated = true;
-            this.btnCreateNew.BackColor = System.Drawing.Color.Transparent;
-            this.btnCreateNew.BorderRadius = 8;
-            this.btnCreateNew.CheckedState.Parent = this.btnCreateNew;
-            this.btnCreateNew.CustomImages.Parent = this.btnCreateNew;
-            this.btnCreateNew.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateNew.ForeColor = System.Drawing.Color.White;
-            this.btnCreateNew.HoverState.Parent = this.btnCreateNew;
-            this.btnCreateNew.Location = new System.Drawing.Point(832, 7);
-            this.btnCreateNew.Name = "btnCreateNew";
-            this.btnCreateNew.ShadowDecoration.BorderRadius = 8;
-            this.btnCreateNew.ShadowDecoration.Enabled = true;
-            this.btnCreateNew.ShadowDecoration.Parent = this.btnCreateNew;
-            this.btnCreateNew.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
-            this.btnCreateNew.Size = new System.Drawing.Size(160, 31);
-            this.btnCreateNew.TabIndex = 2;
-            this.btnCreateNew.Text = "Create New";
+            this.btnHangVe.BorderRadius = 10;
+            this.btnHangVe.CheckedState.Parent = this.btnHangVe;
+            this.btnHangVe.CustomImages.Parent = this.btnHangVe;
+            this.btnHangVe.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(178)))), ((int)(((byte)(185)))));
+            this.btnHangVe.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHangVe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.btnHangVe.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(141)))), ((int)(((byte)(188)))));
+            this.btnHangVe.HoverState.Parent = this.btnHangVe;
+            this.btnHangVe.Location = new System.Drawing.Point(394, 8);
+            this.btnHangVe.Name = "btnHangVe";
+            this.btnHangVe.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(46)))));
+            this.btnHangVe.ShadowDecoration.BorderRadius = 10;
+            this.btnHangVe.ShadowDecoration.Parent = this.btnHangVe;
+            this.btnHangVe.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 5, 5);
+            this.btnHangVe.Size = new System.Drawing.Size(180, 45);
+            this.btnHangVe.TabIndex = 0;
+            this.btnHangVe.TabStop = false;
+            this.btnHangVe.Text = "Hạng Vé";
+            this.btnHangVe.Click += new System.EventHandler(this.btnHangVe_Click);
             // 
             // btnAirport
             // 
@@ -149,28 +148,6 @@
             this.pnDesktop.Size = new System.Drawing.Size(1100, 570);
             this.pnDesktop.TabIndex = 1;
             // 
-            // btnHangVe
-            // 
-            this.btnHangVe.BorderRadius = 10;
-            this.btnHangVe.CheckedState.Parent = this.btnHangVe;
-            this.btnHangVe.CustomImages.Parent = this.btnHangVe;
-            this.btnHangVe.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(178)))), ((int)(((byte)(185)))));
-            this.btnHangVe.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHangVe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
-            this.btnHangVe.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(141)))), ((int)(((byte)(188)))));
-            this.btnHangVe.HoverState.Parent = this.btnHangVe;
-            this.btnHangVe.Location = new System.Drawing.Point(394, 8);
-            this.btnHangVe.Name = "btnHangVe";
-            this.btnHangVe.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(46)))));
-            this.btnHangVe.ShadowDecoration.BorderRadius = 10;
-            this.btnHangVe.ShadowDecoration.Parent = this.btnHangVe;
-            this.btnHangVe.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 5, 5);
-            this.btnHangVe.Size = new System.Drawing.Size(180, 45);
-            this.btnHangVe.TabIndex = 0;
-            this.btnHangVe.TabStop = false;
-            this.btnHangVe.Text = "Hạng Vé";
-            this.btnHangVe.Click += new System.EventHandler(this.btnHangVe_Click);
-            // 
             // frmManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
@@ -196,7 +173,6 @@
         private Guna.UI2.WinForms.Guna2Button btnTuyenBay;
         private Guna.UI2.WinForms.Guna2Button btnAirport;
         private System.Windows.Forms.Panel pnDesktop;
-        private Guna.UI2.WinForms.Guna2GradientButton btnCreateNew;
         private Guna.UI2.WinForms.Guna2Button btnRefresh;
         private Guna.UI2.WinForms.Guna2Button btnHangVe;
     }

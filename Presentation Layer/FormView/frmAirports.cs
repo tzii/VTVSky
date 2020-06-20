@@ -17,7 +17,7 @@ namespace Presentation_Layer.FormView
 {
     public partial class frmAirports : CustomForm
     {
-        private PanelScrollHelper scrollHelper;
+
         private List<SanBay> sanBays;
         private SortableBindingList<SanBay> bl;
         private Color lastColor;
@@ -28,7 +28,7 @@ namespace Presentation_Layer.FormView
         #region Other functions
         private void UpdateHeightDgv()
         {
-            pnView.Height = 50 + 40 + 24 * dgvAirports.RowCount;
+            pnContain.Height = Math.Min(40 + 24 * dgvAirports.RowCount, Height - 38 - 50);
         }
         private DataGridViewButtonColumn ButtonColumn(string text)
         {
@@ -44,13 +44,13 @@ namespace Presentation_Layer.FormView
         }
         private void CustomDgv()
         {
-            dgvAirports.Columns.Add(ButtonColumn("Detail"));
-            dgvAirports.Columns.Add(ButtonColumn("Edit"));
-            dgvAirports.Columns.Add(ButtonColumn("Delete"));
+            //dgvAirports.Columns.Add(ButtonColumn("Detail"));
+            //dgvAirports.Columns.Add(ButtonColumn("Edit"));
+            //dgvAirports.Columns.Add(ButtonColumn("Delete"));
 
             dgvAirports.Columns["MaSB"].HeaderText = "Mã";
             dgvAirports.Columns["MaSB"].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvAirports.Columns["MaSB"].Width = 200;
+            dgvAirports.Columns["MaSB"].Width = 100;
 
             dgvAirports.Columns["TenSB"].HeaderText = "Tên Sân Bay";
         }
@@ -65,44 +65,6 @@ namespace Presentation_Layer.FormView
             return res;
         }
         #endregion
-
-
-        private void frmAirports_Load(object sender, EventArgs e)
-        {
-            cbSearch.DataSource = sources();
-            cbSearch.DisplayMember = "Name";
-            cbSearch.ValueMember = "ID";
-
-            sanBays = BLL_SanBay.GetSanBays();
-            bl = new SortableBindingList<SanBay>(sanBays);
-            dgvAirports.DataSource = bl;
-            CustomDgv();
-
-            //if (sanBays == null) Notification.Show(Status.ACCESS, "NULL");
-
-            //Update scrollbar
-            scrollHelper = new PanelScrollHelper(pnScroll, sb, false);
-            scrollHelper.UpdateScrollBar();
-        }
-
-        private void pnScroll_Resize(object sender, EventArgs e)
-        {
-            if (scrollHelper != null)
-                scrollHelper.UpdateScrollBar();
-        }
-
-        public override void RefreshData()
-        {
-            sanBays = BLL_SanBay.GetSanBays();
-            bl = new SortableBindingList<SanBay>(sanBays);
-            dgvAirports.DataSource = bl;
-            Notification.Show("Làm mới danh sách sân bay");
-        }
-
-        public override void Create()
-        {
-            //var frm = new f
-        }
         #region Chỉnh sửa hiển thị của dgvAirports
         private void dgvAirports_DataSourceChanged(object sender, EventArgs e)
         {
@@ -124,16 +86,46 @@ namespace Presentation_Layer.FormView
 
         private void dgvAirports_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.RowIndex >=0) dgvAirports.Rows[e.RowIndex].Selected = true;
+            if (e.RowIndex >= 0) dgvAirports.Rows[e.RowIndex].Selected = true;
+        }
+
+        private void frmAirports_SizeChanged(object sender, EventArgs e)
+        {
+            UpdateHeightDgv();
         }
         #endregion
-
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void frmAirports_Load(object sender, EventArgs e)
         {
-            if (cbSearch.SelectedValue.ToString() == "MaSB") sanBays = BLL_SanBay.SearchMaSB(tbSearch.Text);
-            else if (cbSearch.SelectedValue.ToString() == "TenSB") sanBays = BLL_SanBay.SearchTenSB(tbSearch.Text);
+            //cbSearch.DataSource = sources();
+            //cbSearch.DisplayMember = "Name";
+            //cbSearch.ValueMember = "ID";
+
+            sanBays = BLL_SanBay.GetSanBays();
             bl = new SortableBindingList<SanBay>(sanBays);
             dgvAirports.DataSource = bl;
+            CustomDgv();
         }
+
+        public override void RefreshData()
+        {
+            sanBays = BLL_SanBay.GetSanBays();
+            bl = new SortableBindingList<SanBay>(sanBays);
+            dgvAirports.DataSource = bl;
+            Notification.Show("Làm mới danh sách sân bay");
+            UpdateHeightDgv();
+        }
+        public override void SizeChange()
+        {
+            UpdateHeightDgv();
+        }
+        
+       
+        //private void btnSearch_Click(object sender, EventArgs e)
+        //{
+        //    if (cbSearch.SelectedValue.ToString() == "MaSB") sanBays = BLL_SanBay.SearchMaSB(tbSearch.Text);
+        //    else if (cbSearch.SelectedValue.ToString() == "TenSB") sanBays = BLL_SanBay.SearchTenSB(tbSearch.Text);
+        //    bl = new SortableBindingList<SanBay>(sanBays);
+        //    dgvAirports.DataSource = bl;
+        //}
     }
 }
