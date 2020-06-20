@@ -1,4 +1,5 @@
-﻿using Guna.UI2.WinForms;
+﻿using Data_Transfer_Objects;
+using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,10 +15,30 @@ namespace Presentation_Layer.FormView
     public partial class frmTickets : Form
     {
         private Guna2Button currentBtn;
-        private Form currentChildForm;
+        private CustomForm currentChildForm;
+        private CustomForm formBookTicket;
+        private CustomForm formBuyTicket;
         public frmTickets()
         {
             InitializeComponent();
+        }
+
+        private void frmTickets_Load(object sender, EventArgs e)
+        {
+            formBookTicket = new frmBookTicket();
+            formBuyTicket = new frmBuyTicket();
+
+            formBookTicket.TopLevel = false;
+            formBookTicket.Dock = DockStyle.Fill;
+            pnDesktop.Controls.Add(formBookTicket);
+
+            formBuyTicket.TopLevel = false;
+            formBuyTicket.Dock = DockStyle.Fill;
+            pnDesktop.Controls.Add(formBuyTicket);
+
+
+            ActivateButton(btnDatVe);
+            ShowChildForm(formBookTicket);
         }
 
         #region Other Functions
@@ -31,52 +52,53 @@ namespace Presentation_Layer.FormView
             //Active current button
             currentBtn.FillColor = Color.FromArgb(96, 141, 188);
             currentBtn.Checked = true;
+            currentBtn.ShadowDecoration.Enabled = true;
         }
         private void DisableButton()
         {
             if (currentBtn == null) return;
             currentBtn.Checked = false;
             currentBtn.FillColor = Color.FromArgb(170, 178, 185);
+            currentBtn.ShadowDecoration.Enabled = false;
         }
         private void ShowChildForm(Form senderForm)
         {
             if (senderForm == null) return;
             HideChildForm();
-            currentChildForm = senderForm;
-            currentChildForm.TopLevel = false;
-            currentChildForm.Dock = DockStyle.Fill;
-            pnDesktop.Controls.Add(currentChildForm);
+            currentChildForm = senderForm as CustomForm;
             currentChildForm.BringToFront();
             currentChildForm.Show();
         }
         private void HideChildForm()
         {
             if (currentChildForm == null) return;
-            currentChildForm.Close();
+            currentChildForm.Hide();
         }
         #endregion
 
         #region Tab control
-        private void btnBookTicket_Click(object sender, EventArgs e)
+        private void btnBanVe_Click(object sender, EventArgs e)
         {
             var btn = (Guna2Button)sender;
             if (btn.Checked == true) return;
             ActivateButton(sender);
-            ShowChildForm(new frmBookTicket());
+            ShowChildForm(formBuyTicket);
         }
 
-        private void btnBuyTicket_Click(object sender, EventArgs e)
+        private void btnDatVe_Click(object sender, EventArgs e)
         {
             var btn = (Guna2Button)sender;
             if (btn.Checked == true) return;
             ActivateButton(sender);
-            ShowChildForm(new frmBuyTicket());
+            ShowChildForm(formBookTicket);
         }
         #endregion
 
-        private void frmTickets_Load(object sender, EventArgs e)
+        private void btnRefresh_Click(object sender, EventArgs e)
         {
-            ShowChildForm(new frmBookTicket());
+            currentChildForm.RefreshData();
         }
+
+        
     }
 }

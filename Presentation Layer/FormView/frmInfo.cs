@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Presentation_Layer.FormView
 {
-    public partial class frmInfo : Form
+    public partial class frmInfo : CustomForm
     {
         public frmInfo()
         {

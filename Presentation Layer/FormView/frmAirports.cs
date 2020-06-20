@@ -19,7 +19,7 @@ namespace Presentation_Layer.FormView
     {
         private PanelScrollHelper scrollHelper;
         private List<SanBay> sanBays;
-        SortableBindingList<SanBay> bl;
+        private SortableBindingList<SanBay> bl;
         private Color lastColor;
         public frmAirports()
         {
@@ -73,8 +73,8 @@ namespace Presentation_Layer.FormView
             cbSearch.DisplayMember = "Name";
             cbSearch.ValueMember = "ID";
 
-            List<SanBay> sanBays = BLL_SanBay.GetSanBays();
-            SortableBindingList<SanBay> bl = new SortableBindingList<SanBay>(sanBays);
+            sanBays = BLL_SanBay.GetSanBays();
+            bl = new SortableBindingList<SanBay>(sanBays);
             dgvAirports.DataSource = bl;
             CustomDgv();
 

@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.btnBuyTicket = new Guna.UI2.WinForms.Guna2Button();
-            this.btnBookTicket = new Guna.UI2.WinForms.Guna2Button();
+            this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
+            this.btnCreateNew = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.btnBanVe = new Guna.UI2.WinForms.Guna2Button();
+            this.btnDatVe = new Guna.UI2.WinForms.Guna2Button();
             this.pnDesktop = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -39,79 +40,103 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.guna2GradientButton1);
-            this.panel1.Controls.Add(this.btnBuyTicket);
-            this.panel1.Controls.Add(this.btnBookTicket);
+            this.panel1.Controls.Add(this.btnRefresh);
+            this.panel1.Controls.Add(this.btnCreateNew);
+            this.panel1.Controls.Add(this.btnBanVe);
+            this.panel1.Controls.Add(this.btnDatVe);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1100, 45);
             this.panel1.TabIndex = 0;
             // 
-            // guna2GradientButton1
+            // btnRefresh
             // 
-            this.guna2GradientButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2GradientButton1.Animated = true;
-            this.guna2GradientButton1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2GradientButton1.BorderRadius = 8;
-            this.guna2GradientButton1.CheckedState.Parent = this.guna2GradientButton1;
-            this.guna2GradientButton1.CustomImages.Parent = this.guna2GradientButton1;
-            this.guna2GradientButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2GradientButton1.ForeColor = System.Drawing.Color.White;
-            this.guna2GradientButton1.HoverState.Parent = this.guna2GradientButton1;
-            this.guna2GradientButton1.Location = new System.Drawing.Point(871, 7);
-            this.guna2GradientButton1.Name = "guna2GradientButton1";
-            this.guna2GradientButton1.ShadowDecoration.BorderRadius = 8;
-            this.guna2GradientButton1.ShadowDecoration.Enabled = true;
-            this.guna2GradientButton1.ShadowDecoration.Parent = this.guna2GradientButton1;
-            this.guna2GradientButton1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
-            this.guna2GradientButton1.Size = new System.Drawing.Size(160, 31);
-            this.guna2GradientButton1.TabIndex = 3;
-            this.guna2GradientButton1.Text = "Create New";
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefresh.AutoRoundedCorners = true;
+            this.btnRefresh.BackColor = System.Drawing.Color.Transparent;
+            this.btnRefresh.BorderRadius = 14;
+            this.btnRefresh.CheckedState.Parent = this.btnRefresh;
+            this.btnRefresh.CustomImages.Parent = this.btnRefresh;
+            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.HoverState.Parent = this.btnRefresh;
+            this.btnRefresh.Location = new System.Drawing.Point(1010, 7);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.ShadowDecoration.BorderRadius = 14;
+            this.btnRefresh.ShadowDecoration.Enabled = true;
+            this.btnRefresh.ShadowDecoration.Parent = this.btnRefresh;
+            this.btnRefresh.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.btnRefresh.Size = new System.Drawing.Size(31, 31);
+            this.btnRefresh.TabIndex = 3;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // btnBuyTicket
+            // btnCreateNew
             // 
-            this.btnBuyTicket.BorderRadius = 10;
-            this.btnBuyTicket.CheckedState.Parent = this.btnBuyTicket;
-            this.btnBuyTicket.CustomImages.Parent = this.btnBuyTicket;
-            this.btnBuyTicket.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(178)))), ((int)(((byte)(185)))));
-            this.btnBuyTicket.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuyTicket.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
-            this.btnBuyTicket.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(141)))), ((int)(((byte)(188)))));
-            this.btnBuyTicket.HoverState.Parent = this.btnBuyTicket;
-            this.btnBuyTicket.Location = new System.Drawing.Point(208, 8);
-            this.btnBuyTicket.Name = "btnBuyTicket";
-            this.btnBuyTicket.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(46)))));
-            this.btnBuyTicket.ShadowDecoration.Parent = this.btnBuyTicket;
-            this.btnBuyTicket.Size = new System.Drawing.Size(180, 45);
-            this.btnBuyTicket.TabIndex = 0;
-            this.btnBuyTicket.TabStop = false;
-            this.btnBuyTicket.Text = "Bán Vé";
-            this.btnBuyTicket.Click += new System.EventHandler(this.btnBuyTicket_Click);
+            this.btnCreateNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCreateNew.Animated = true;
+            this.btnCreateNew.BackColor = System.Drawing.Color.Transparent;
+            this.btnCreateNew.BorderRadius = 8;
+            this.btnCreateNew.CheckedState.Parent = this.btnCreateNew;
+            this.btnCreateNew.CustomImages.Parent = this.btnCreateNew;
+            this.btnCreateNew.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateNew.ForeColor = System.Drawing.Color.White;
+            this.btnCreateNew.HoverState.Parent = this.btnCreateNew;
+            this.btnCreateNew.Location = new System.Drawing.Point(832, 7);
+            this.btnCreateNew.Name = "btnCreateNew";
+            this.btnCreateNew.ShadowDecoration.BorderRadius = 8;
+            this.btnCreateNew.ShadowDecoration.Enabled = true;
+            this.btnCreateNew.ShadowDecoration.Parent = this.btnCreateNew;
+            this.btnCreateNew.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.btnCreateNew.Size = new System.Drawing.Size(160, 31);
+            this.btnCreateNew.TabIndex = 2;
+            this.btnCreateNew.Text = "Create New";
             // 
-            // btnBookTicket
+            // btnBanVe
             // 
-            this.btnBookTicket.BackColor = System.Drawing.Color.Transparent;
-            this.btnBookTicket.BorderRadius = 10;
-            this.btnBookTicket.CheckedState.Parent = this.btnBookTicket;
-            this.btnBookTicket.CustomImages.Parent = this.btnBookTicket;
-            this.btnBookTicket.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(141)))), ((int)(((byte)(188)))));
-            this.btnBookTicket.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBookTicket.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.btnBookTicket.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(141)))), ((int)(((byte)(188)))));
-            this.btnBookTicket.HoverState.Parent = this.btnBookTicket;
-            this.btnBookTicket.Location = new System.Drawing.Point(22, 8);
-            this.btnBookTicket.Name = "btnBookTicket";
-            this.btnBookTicket.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(46)))));
-            this.btnBookTicket.ShadowDecoration.BorderRadius = 10;
-            this.btnBookTicket.ShadowDecoration.Enabled = true;
-            this.btnBookTicket.ShadowDecoration.Parent = this.btnBookTicket;
-            this.btnBookTicket.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 5, 5);
-            this.btnBookTicket.Size = new System.Drawing.Size(180, 45);
-            this.btnBookTicket.TabIndex = 0;
-            this.btnBookTicket.TabStop = false;
-            this.btnBookTicket.Text = "Đặt Vé";
-            this.btnBookTicket.Click += new System.EventHandler(this.btnBookTicket_Click);
+            this.btnBanVe.BorderRadius = 10;
+            this.btnBanVe.CheckedState.Parent = this.btnBanVe;
+            this.btnBanVe.CustomImages.Parent = this.btnBanVe;
+            this.btnBanVe.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(178)))), ((int)(((byte)(185)))));
+            this.btnBanVe.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBanVe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
+            this.btnBanVe.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(141)))), ((int)(((byte)(188)))));
+            this.btnBanVe.HoverState.Parent = this.btnBanVe;
+            this.btnBanVe.Location = new System.Drawing.Point(208, 8);
+            this.btnBanVe.Name = "btnBanVe";
+            this.btnBanVe.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(46)))));
+            this.btnBanVe.ShadowDecoration.BorderRadius = 10;
+            this.btnBanVe.ShadowDecoration.Parent = this.btnBanVe;
+            this.btnBanVe.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 5, 5);
+            this.btnBanVe.Size = new System.Drawing.Size(180, 45);
+            this.btnBanVe.TabIndex = 0;
+            this.btnBanVe.TabStop = false;
+            this.btnBanVe.Text = "Bán Vé";
+            this.btnBanVe.Click += new System.EventHandler(this.btnBanVe_Click);
+            // 
+            // btnDatVe
+            // 
+            this.btnDatVe.BackColor = System.Drawing.Color.Transparent;
+            this.btnDatVe.BorderRadius = 10;
+            this.btnDatVe.CheckedState.Parent = this.btnDatVe;
+            this.btnDatVe.CustomImages.Parent = this.btnDatVe;
+            this.btnDatVe.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(141)))), ((int)(((byte)(188)))));
+            this.btnDatVe.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDatVe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.btnDatVe.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(141)))), ((int)(((byte)(188)))));
+            this.btnDatVe.HoverState.Parent = this.btnDatVe;
+            this.btnDatVe.Location = new System.Drawing.Point(22, 8);
+            this.btnDatVe.Name = "btnDatVe";
+            this.btnDatVe.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(32)))), ((int)(((byte)(46)))));
+            this.btnDatVe.ShadowDecoration.BorderRadius = 10;
+            this.btnDatVe.ShadowDecoration.Enabled = true;
+            this.btnDatVe.ShadowDecoration.Parent = this.btnDatVe;
+            this.btnDatVe.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 5, 5);
+            this.btnDatVe.Size = new System.Drawing.Size(180, 45);
+            this.btnDatVe.TabIndex = 0;
+            this.btnDatVe.TabStop = false;
+            this.btnDatVe.Text = "Đặt Vé";
+            this.btnDatVe.Click += new System.EventHandler(this.btnDatVe_Click);
             // 
             // pnDesktop
             // 
@@ -144,9 +169,10 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private Guna.UI2.WinForms.Guna2Button btnBookTicket;
-        private Guna.UI2.WinForms.Guna2Button btnBuyTicket;
+        private Guna.UI2.WinForms.Guna2Button btnDatVe;
+        private Guna.UI2.WinForms.Guna2Button btnBanVe;
         private System.Windows.Forms.Panel pnDesktop;
-        private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
+        private Guna.UI2.WinForms.Guna2GradientButton btnCreateNew;
+        private Guna.UI2.WinForms.Guna2Button btnRefresh;
     }
 }

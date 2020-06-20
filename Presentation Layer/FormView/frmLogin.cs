@@ -104,7 +104,7 @@ namespace Presentation_Layer.FormView
             if (Regex.IsMatch(tbUsername.Text, patternUsername) && Regex.IsMatch(tbPassword.Text, patternPassword)) return true;
             return false;
         }
-
+        #region Xử lí BackgroundWorker
         private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             Thread.Sleep(1000);
@@ -128,10 +128,11 @@ namespace Presentation_Layer.FormView
         {
             timer.Stop();
         }
+        #endregion
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            pos = 1;
+            pos = 2;
             ls = new List<string>();
             ls.Add("Login");
             ls.Add("Login .");
@@ -148,6 +149,7 @@ namespace Presentation_Layer.FormView
             btnLogin.Text = ls[pos];
             pos = (pos + 1) % ls.Count;
         }
+        #region Xử lí backgroundworker1
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             if (tbPassword.Text != BLL_UserLogin.GetPassword(tbUsername.Text))
@@ -185,5 +187,6 @@ namespace Presentation_Layer.FormView
                 backgroundWorker.RunWorkerAsync();
             }
         }
+        #endregion
     }
 }
