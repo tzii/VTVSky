@@ -33,7 +33,6 @@
             this.lbNoti = new System.Windows.Forms.Label();
             this.pbNoti = new System.Windows.Forms.PictureBox();
             this.resizeControl = new Guna.UI2.WinForms.Guna2ResizeBox();
-            this.pnControl = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnSetting = new Guna.UI2.WinForms.Guna2Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -53,11 +52,12 @@
             this.pnDesktop = new System.Windows.Forms.Panel();
             this.pnShadow = new System.Windows.Forms.Panel();
             this.pnShadow1 = new System.Windows.Forms.Panel();
+            this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.pnStatusBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbNoti)).BeginInit();
-            this.pnControl.SuspendLayout();
             this.pnDrag.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbChildForm)).BeginInit();
+            this.guna2CustomGradientPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnStatusBar
@@ -104,24 +104,6 @@
             this.resizeControl.TabIndex = 0;
             this.resizeControl.TargetControl = this;
             // 
-            // pnControl
-            // 
-            this.pnControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
-            this.pnControl.Controls.Add(this.panel2);
-            this.pnControl.Controls.Add(this.btnSetting);
-            this.pnControl.Controls.Add(this.panel1);
-            this.pnControl.Controls.Add(this.btnReports);
-            this.pnControl.Controls.Add(this.btnTickets);
-            this.pnControl.Controls.Add(this.btnFlights);
-            this.pnControl.Controls.Add(this.btnManager);
-            this.pnControl.Controls.Add(this.btnHome);
-            this.pnControl.Controls.Add(this.panel3);
-            this.pnControl.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnControl.Location = new System.Drawing.Point(0, 0);
-            this.pnControl.Name = "pnControl";
-            this.pnControl.Size = new System.Drawing.Size(200, 675);
-            this.pnControl.TabIndex = 1;
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(188)))), ((int)(((byte)(156)))));
@@ -158,6 +140,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 665);
             this.panel1.Name = "panel1";
@@ -297,6 +280,7 @@
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
@@ -446,6 +430,28 @@
             this.pnShadow1.Size = new System.Drawing.Size(1097, 3);
             this.pnShadow1.TabIndex = 0;
             // 
+            // guna2CustomGradientPanel1
+            // 
+            this.guna2CustomGradientPanel1.Controls.Add(this.panel2);
+            this.guna2CustomGradientPanel1.Controls.Add(this.btnSetting);
+            this.guna2CustomGradientPanel1.Controls.Add(this.panel1);
+            this.guna2CustomGradientPanel1.Controls.Add(this.btnReports);
+            this.guna2CustomGradientPanel1.Controls.Add(this.btnTickets);
+            this.guna2CustomGradientPanel1.Controls.Add(this.btnFlights);
+            this.guna2CustomGradientPanel1.Controls.Add(this.btnManager);
+            this.guna2CustomGradientPanel1.Controls.Add(this.btnHome);
+            this.guna2CustomGradientPanel1.Controls.Add(this.panel3);
+            this.guna2CustomGradientPanel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.guna2CustomGradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
+            this.guna2CustomGradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
+            this.guna2CustomGradientPanel1.FillColor3 = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(90)))), ((int)(((byte)(130)))));
+            this.guna2CustomGradientPanel1.FillColor4 = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(90)))), ((int)(((byte)(130)))));
+            this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
+            this.guna2CustomGradientPanel1.ShadowDecoration.Parent = this.guna2CustomGradientPanel1;
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(200, 675);
+            this.guna2CustomGradientPanel1.TabIndex = 0;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
@@ -456,7 +462,7 @@
             this.Controls.Add(this.pnShadow);
             this.Controls.Add(this.pnDesktop);
             this.Controls.Add(this.pnDrag);
-            this.Controls.Add(this.pnControl);
+            this.Controls.Add(this.guna2CustomGradientPanel1);
             this.Controls.Add(this.pnStatusBar);
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -470,10 +476,10 @@
             this.pnStatusBar.ResumeLayout(false);
             this.pnStatusBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbNoti)).EndInit();
-            this.pnControl.ResumeLayout(false);
             this.pnDrag.ResumeLayout(false);
             this.pnDrag.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbChildForm)).EndInit();
+            this.guna2CustomGradientPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -481,7 +487,6 @@
         #endregion
 
         private System.Windows.Forms.Panel pnStatusBar;
-        private System.Windows.Forms.Panel pnControl;
         private System.Windows.Forms.Panel pnDrag;
         private Guna.UI2.WinForms.Guna2DragControl DragPanel;
         private System.Windows.Forms.Panel panel3;
@@ -504,5 +509,6 @@
         private System.Windows.Forms.Panel pnShadow1;
         public System.Windows.Forms.PictureBox pbNoti;
         public System.Windows.Forms.Label lbNoti;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
     }
 }

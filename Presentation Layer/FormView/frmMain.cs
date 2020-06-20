@@ -59,6 +59,7 @@ namespace Presentation_Layer.FormView
             if (btn.Checked == true) return;
             ActivateButton(sender);
             ShowChildForm(new frmHome());
+            Notification.Show(pnDesktop.Size.ToString());
         }
 
         private void btnManager_Click(object sender, EventArgs e)
