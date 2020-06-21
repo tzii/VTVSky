@@ -15,7 +15,7 @@ namespace Data_Transfer_Objects
         public static int TGDungToiDa { set; get; }
         public static int TGDatVeChamNhat { set; get; }
         public static int TGHuyDatVe { set; get; }
-        public ThamSo() { };
+        public ThamSo() { }
         public ThamSo(int _TGBTT, int _SLSBTG,int _TGDTT,int _TGDTD,int _TGDVChamNhat,int _TGHuyDatVe)
         {
             TGBayToiThieu = _TGBTT;
