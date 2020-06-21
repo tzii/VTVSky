@@ -40,6 +40,7 @@ namespace Presentation_Layer.FormView
                 WindowState = FormWindowState.Maximized;
                 resizeControl.Hide();
                 currentChildForm.SizeChange();
+                Notification.Show(pnDesktop.Size.ToString());
             }
             else if (WindowState == FormWindowState.Maximized)
             {
