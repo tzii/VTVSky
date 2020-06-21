@@ -29,9 +29,9 @@ namespace Data_Transfer_Objects
             return null;
         }
 
-        public static List<ChuyenBay> SearchMaTB(string maTB)
+        public static List<ChuyenBay> SearchMaCB(string maCB)
         {
-            string cmdText = String.Format("select * from CHUYENBAY where MaTB like '%{0}%'", maTB == "" ? maTB : DataProvider.ConvertToInt(maTB));
+            string cmdText = String.Format("select * from CHUYENBAY where MaCB like '%{0}%'", maCB == "" ? maCB : DataProvider.ConvertToInt(maCB));
             DataTable dt = DataProvider.ExecuteReader(cmdText);
             if (dt != null && dt.Rows.Count > 0)
             {
