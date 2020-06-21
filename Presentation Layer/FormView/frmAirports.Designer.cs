@@ -60,7 +60,6 @@
             this.lbMaSB = new System.Windows.Forms.Label();
             this.tbTenSB = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbMaSB = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.btnEdit = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAirports)).BeginInit();
@@ -123,7 +122,7 @@
             this.dgvAirports.RowTemplate.Height = 24;
             this.dgvAirports.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAirports.ShowCellToolTips = false;
-            this.dgvAirports.Size = new System.Drawing.Size(557, 432);
+            this.dgvAirports.Size = new System.Drawing.Size(557, 482);
             this.dgvAirports.TabIndex = 2;
             this.dgvAirports.TabStop = false;
             this.dgvAirports.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.GreenSea;
@@ -152,6 +151,7 @@
             this.dgvAirports.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAirports_CellMouseDown);
             this.dgvAirports.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAirports_CellMouseEnter);
             this.dgvAirports.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAirports_CellMouseLeave);
+            this.dgvAirports.SelectionChanged += new System.EventHandler(this.dgvAirports_SelectionChanged);
             // 
             // cmt
             // 
@@ -201,6 +201,7 @@
             // 
             // editToolStripMenuItem
             // 
+            this.editToolStripMenuItem.Enabled = false;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(155, 24);
             this.editToolStripMenuItem.Text = "Detail";
@@ -231,7 +232,7 @@
             this.pnContain.ShadowDecoration.Enabled = true;
             this.pnContain.ShadowDecoration.Parent = this.pnContain;
             this.pnContain.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 7, 7);
-            this.pnContain.Size = new System.Drawing.Size(557, 432);
+            this.pnContain.Size = new System.Drawing.Size(557, 482);
             this.pnContain.TabIndex = 3;
             // 
             // guna2Elipse1
@@ -400,6 +401,7 @@
             this.btnSearch.Size = new System.Drawing.Size(126, 36);
             this.btnSearch.TabIndex = 24;
             this.btnSearch.Text = "Search";
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // pnEdit
             // 
@@ -420,7 +422,6 @@
             this.guna2Panel2.Controls.Add(this.lbMaSB);
             this.guna2Panel2.Controls.Add(this.tbTenSB);
             this.guna2Panel2.Controls.Add(this.tbMaSB);
-            this.guna2Panel2.Controls.Add(this.btnCancel);
             this.guna2Panel2.Controls.Add(this.btnAdd);
             this.guna2Panel2.Controls.Add(this.btnEdit);
             this.guna2Transition1.SetDecoration(this.guna2Panel2, Guna.UI2.AnimatorNS.DecorationType.None);
@@ -513,24 +514,6 @@
             this.tbMaSB.Size = new System.Drawing.Size(278, 36);
             this.tbMaSB.TabIndex = 22;
             // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.Color.Transparent;
-            this.btnCancel.BorderRadius = 6;
-            this.btnCancel.CheckedState.Parent = this.btnCancel;
-            this.btnCancel.CustomImages.Parent = this.btnCancel;
-            this.guna2Transition1.SetDecoration(this.btnCancel, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.btnCancel.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.HoverState.Parent = this.btnCancel;
-            this.btnCancel.Location = new System.Drawing.Point(310, 152);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.ShadowDecoration.Parent = this.btnCancel;
-            this.btnCancel.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
-            this.btnCancel.Size = new System.Drawing.Size(126, 36);
-            this.btnCancel.TabIndex = 24;
-            this.btnCancel.Text = "Cancel";
-            // 
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.Transparent;
@@ -541,13 +524,14 @@
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.HoverState.Parent = this.btnAdd;
-            this.btnAdd.Location = new System.Drawing.Point(165, 152);
+            this.btnAdd.Location = new System.Drawing.Point(76, 152);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.ShadowDecoration.Parent = this.btnAdd;
             this.btnAdd.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.btnAdd.Size = new System.Drawing.Size(126, 36);
             this.btnAdd.TabIndex = 24;
             this.btnAdd.Text = "Add";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnEdit
             // 
@@ -559,13 +543,14 @@
             this.btnEdit.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.White;
             this.btnEdit.HoverState.Parent = this.btnEdit;
-            this.btnEdit.Location = new System.Drawing.Point(20, 152);
+            this.btnEdit.Location = new System.Drawing.Point(255, 152);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.ShadowDecoration.Parent = this.btnEdit;
             this.btnEdit.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.btnEdit.Size = new System.Drawing.Size(126, 36);
             this.btnEdit.TabIndex = 24;
             this.btnEdit.Text = "Edit";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // frmAirports
             // 
@@ -624,7 +609,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2TextBox tbMaSB;
         private Guna.UI2.WinForms.Guna2Button btnEdit;
-        private Guna.UI2.WinForms.Guna2Button btnCancel;
         private Guna.UI2.WinForms.Guna2Button btnAdd;
         private System.Windows.Forms.Label lbMaSB;
         private System.Windows.Forms.Label label1;
