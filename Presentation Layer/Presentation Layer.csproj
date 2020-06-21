@@ -218,6 +218,9 @@
     <EmbeddedResource Include="FormView\frmFlightsList.resx">
       <DependentUpon>frmFlightsList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormView\frmHangVe.resx">
+      <DependentUpon>frmHangVe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormView\frmHome.resx">
       <DependentUpon>frmHome.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -227,6 +230,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormView\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FormView\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -311,6 +315,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BGLogin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
