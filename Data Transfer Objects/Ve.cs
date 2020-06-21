@@ -9,19 +9,26 @@ namespace Data_Transfer_Objects
     public class Ve
     {
         private int maVe;
-        private ChuyenBay maCB;
+        private ChuyenBay cb;
         private string tenHK;
-        private string cMND;
+        private string cmnd;
         private string dienThoai;
         private DateTime thoiGian;
-        private HangVe maHV;
+        private HangVe hv;
         private int giaVe;
-        private bool tinhTrang;
+
         public string MaVe
         {
             get
             {
-                return ConvertToString(maVe);
+                return ConvertToString(maVe, "VE");
+            }
+        }
+        public string MaCB
+        {
+            get
+            {
+                return cb.MaCB;
             }
         }
         public string TenHK
@@ -57,12 +64,22 @@ namespace Data_Transfer_Objects
                 return dienThoai;
             }
         }
-        public int MaHV
+        public DateTime ThoiGian
         {
-           
+            set
+            {
+                thoiGian = value;
+            }
             get
             {
-                return maVe;
+                return thoiGian;
+            }
+        }
+        public string TenHV
+        {
+            get
+            {
+                return hv.TenHV;
             }
         }
         public int GiaVe
@@ -76,24 +93,25 @@ namespace Data_Transfer_Objects
                 return giaVe;
             }
         }
-        
-        //public PhieuDatcho() { }
-        public Ve(int _maVe, ChuyenBay _maCB, string _tenHK, string _cMND, string _dienThoai, HangVe _maHV, int _giaVe)
+
+        public Ve() { }
+        public Ve(int _maDatCho, int _maVe, ChuyenBay _cb, string _tenHK, string _cmnd, string _dienThoai, DateTime _thoiGian, HangVe _hv, int _giaVe)
         {
             maVe = _maVe;
-            maCB = _maCB;
+            cb = _cb;
             tenHK = _tenHK;
-            cMND = _cMND;
+            cmnd = _cmnd;
             dienThoai = _dienThoai;
-            maHV = _maHV;
+            thoiGian = _thoiGian;
+            hv = _hv;
             giaVe = _giaVe;
-           
+
         }
-        private string ConvertToString(int x)
+        private string ConvertToString(int x, string pre)
         {
-            string res = "SB000000";
+            string res = "000000";
             string s = x.ToString();
-            return res.Remove(res.Length - s.Length) + s;
+            return pre + res.Remove(res.Length - s.Length) + s;
         }
         public int getMaVe()
         {
