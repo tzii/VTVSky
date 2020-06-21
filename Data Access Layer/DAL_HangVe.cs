@@ -9,7 +9,7 @@ using System.Net;
 using System.Runtime.InteropServices.WindowsRuntime;
 
 
-namespace namespace Data_Access_Layer
+namespace Data_Access_Layer
 {
     public class DAL_HangVe
     {

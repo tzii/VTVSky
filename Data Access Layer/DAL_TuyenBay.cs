@@ -21,8 +21,8 @@ namespace Data_Access_Layer
                 List<TuyenBay> TuyenBay = new List<TuyenBay>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    TuyenBay tb = new TuyenBay((int)dt.Rows[i]["MaTB"], (int)dt.Rows[i]["MaSBDi"], (int)dt.Rows[i]["MaSBDen"]);
-                    TuyenBay.Add(tb);
+                    //TuyenBay tb = new TuyenBay((int)dt.Rows[i]["MaTB"], (int)dt.Rows[i]["MaSBDi"], (int)dt.Rows[i]["MaSBDen"]);
+                    //TuyenBay.Add(tb);
                 }
                 return TuyenBay;
             }
@@ -38,8 +38,8 @@ namespace Data_Access_Layer
                 List<TuyenBay> TuyenBay = new List<TuyenBay>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    TuyenBay tb = new TuyenBay((int)dt.Rows[i]["MaTB"], (int)dt.Rows[i]["MaSBDi"],, (int)dt.Rows[i]["MaSBDen"]);
-                    TuyenBay.Add(tb);
+                    //TuyenBay tb = new TuyenBay((int)dt.Rows[i]["MaTB"], (int)dt.Rows[i]["MaSBDi"],, (int)dt.Rows[i]["MaSBDen"]);
+                    //TuyenBay.Add(tb);
                 }
                 return TuyenBay;
             }
@@ -54,8 +54,8 @@ namespace Data_Access_Layer
                 List<TuyenBay> TuyenBay = new List<TuyenBay>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    TuyenBay tb = new TuyenBay((int)dt.Rows[i]["MaTB"], (int)dt.Rows[i]["MaSBDi"],, (int)dt.Rows[i]["MaSBDen"]);
-                    TuyenBay.Add(tb);
+                    //TuyenBay tb = new TuyenBay((int)dt.Rows[i]["MaTB"], (int)dt.Rows[i]["MaSBDi"],, (int)dt.Rows[i]["MaSBDen"]);
+                    //TuyenBay.Add(tb);
                 }
                 return TuyenBay;
             }
@@ -70,8 +70,8 @@ namespace Data_Access_Layer
                 List<TuyenBay> TuyenBay = new List<TuyenBay>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    TuyenBay tb = new TuyenBay((int)dt.Rows[i]["MaTB"], (int)dt.Rows[i]["MaSBDi"],, (int)dt.Rows[i]["MaSBDen"]);
-                    TuyenBay.Add(tb);
+                    //TuyenBay tb = new TuyenBay((int)dt.Rows[i]["MaTB"], (int)dt.Rows[i]["MaSBDi"],, (int)dt.Rows[i]["MaSBDen"]);
+                    //TuyenBay.Add(tb);
                 }
                 return TuyenBay;
             }
