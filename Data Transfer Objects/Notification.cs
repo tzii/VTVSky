@@ -43,4 +43,10 @@ namespace Data_Transfer_Objects
         ACCESS,
         WARNING
     }
+    public enum Actions
+    {
+        NOTHING,
+        EDIT,
+        ADD
+    }
 }
