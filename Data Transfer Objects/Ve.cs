@@ -9,7 +9,7 @@ namespace Data_Transfer_Objects
     public class Ve
     {
         private int maVe;
-        private ChuyenBay cb;
+        private int maCB;
         private string tenHK;
         private string cmnd;
         private string dienThoai;
@@ -28,7 +28,7 @@ namespace Data_Transfer_Objects
         {
             get
             {
-                return cb.MaCB;
+                return ConvertToString(maCB, "CB");
             }
         }
         public string TenHK
@@ -95,10 +95,10 @@ namespace Data_Transfer_Objects
         }
 
         public Ve() { }
-        public Ve(int _maDatCho, int _maVe, ChuyenBay _cb, string _tenHK, string _cmnd, string _dienThoai, DateTime _thoiGian, HangVe _hv, int _giaVe)
+        public Ve(int _maDatCho, int _maVe, int _maCB, string _tenHK, string _cmnd, string _dienThoai, DateTime _thoiGian, HangVe _hv, int _giaVe)
         {
             maVe = _maVe;
-            cb = _cb;
+            maCB = _maCB;
             tenHK = _tenHK;
             cmnd = _cmnd;
             dienThoai = _dienThoai;
@@ -116,6 +116,10 @@ namespace Data_Transfer_Objects
         public int getMaVe()
         {
             return maVe;
+        }
+        public int GetMaCB()
+        {
+            return maCB;
         }
     }
 }
