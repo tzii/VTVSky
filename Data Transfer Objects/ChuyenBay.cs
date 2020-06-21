@@ -82,7 +82,7 @@ namespace Data_Transfer_Objects
             }
         }
         public ChuyenBay() { }
-        public ChuyenBay(int _maCB,TuyenBay _tb,DateTime _thoiGian,int _thoiLuong, int _soGheTrong, int _soGheDat)
+        public ChuyenBay(int _maCB,TuyenBay _tb,DateTime _thoiGian,int _thoiLuong, int _soGheTrong, int _soGheDat,int _donGia)
         {
             maCB = _maCB;
             TB = _tb;
@@ -90,6 +90,7 @@ namespace Data_Transfer_Objects
             thoiLuong = _thoiLuong;
             soGheTrong = _soGheTrong;
             soGheDat = _soGheDat;
+            donGia = _donGia;
         }
 
         private string ConvertToString(int x)

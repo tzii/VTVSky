@@ -1,6 +1,7 @@
 ﻿using Business_Logic_Layer;
 using Data_Transfer_Objects;
 using Guna.UI2.WinForms.Helpers;
+using Presentation_Layer.FormDigital;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,10 +18,11 @@ namespace Presentation_Layer.FormView
 {
     public partial class frmAirports : CustomForm
     {
-        private PanelScrollHelper scrollHelper;
+
         private List<SanBay> sanBays;
-        SortableBindingList<SanBay> bl;
+        private SortableBindingList<SanBay> bl;
         private Color lastColor;
+        private Actions action;
         public frmAirports()
         {
             InitializeComponent();
@@ -28,7 +30,7 @@ namespace Presentation_Layer.FormView
         #region Other functions
         private void UpdateHeightDgv()
         {
-            pnView.Height = 50 + 40 + 24 * dgvAirports.RowCount;
+            pnContain.Height = Math.Min(40 + 24 * dgvAirports.RowCount, Height - 38 - 50);
         }
         private DataGridViewButtonColumn ButtonColumn(string text)
         {
@@ -44,13 +46,9 @@ namespace Presentation_Layer.FormView
         }
         private void CustomDgv()
         {
-            dgvAirports.Columns.Add(ButtonColumn("Detail"));
-            dgvAirports.Columns.Add(ButtonColumn("Edit"));
-            dgvAirports.Columns.Add(ButtonColumn("Delete"));
-
             dgvAirports.Columns["MaSB"].HeaderText = "Mã";
             dgvAirports.Columns["MaSB"].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvAirports.Columns["MaSB"].Width = 200;
+            dgvAirports.Columns["MaSB"].Width = 100;
 
             dgvAirports.Columns["TenSB"].HeaderText = "Tên Sân Bay";
         }
@@ -65,44 +63,6 @@ namespace Presentation_Layer.FormView
             return res;
         }
         #endregion
-
-
-        private void frmAirports_Load(object sender, EventArgs e)
-        {
-            cbSearch.DataSource = sources();
-            cbSearch.DisplayMember = "Name";
-            cbSearch.ValueMember = "ID";
-
-            List<SanBay> sanBays = BLL_SanBay.GetSanBays();
-            SortableBindingList<SanBay> bl = new SortableBindingList<SanBay>(sanBays);
-            dgvAirports.DataSource = bl;
-            CustomDgv();
-
-            //if (sanBays == null) Notification.Show(Status.ACCESS, "NULL");
-
-            //Update scrollbar
-            scrollHelper = new PanelScrollHelper(pnScroll, sb, false);
-            scrollHelper.UpdateScrollBar();
-        }
-
-        private void pnScroll_Resize(object sender, EventArgs e)
-        {
-            if (scrollHelper != null)
-                scrollHelper.UpdateScrollBar();
-        }
-
-        public override void RefreshData()
-        {
-            sanBays = BLL_SanBay.GetSanBays();
-            bl = new SortableBindingList<SanBay>(sanBays);
-            dgvAirports.DataSource = bl;
-            Notification.Show("Làm mới danh sách sân bay");
-        }
-
-        public override void Create()
-        {
-            //var frm = new f
-        }
         #region Chỉnh sửa hiển thị của dgvAirports
         private void dgvAirports_DataSourceChanged(object sender, EventArgs e)
         {
@@ -112,7 +72,7 @@ namespace Presentation_Layer.FormView
         private void dgvAirports_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
 
-            if (e.RowIndex <= 0) return;
+            if (e.RowIndex < 0) return;
             lastColor = dgvAirports.Rows[e.RowIndex].DefaultCellStyle.BackColor;
             dgvAirports.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.FromArgb(99, 191, 173);
         }
@@ -124,9 +84,65 @@ namespace Presentation_Layer.FormView
 
         private void dgvAirports_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.RowIndex >=0) dgvAirports.Rows[e.RowIndex].Selected = true;
+            if (e.RowIndex >= 0) dgvAirports.Rows[e.RowIndex].Selected = true;
+        }
+
+        private void frmAirports_SizeChanged(object sender, EventArgs e)
+        {
+            UpdateHeightDgv();
+        }
+        private void dgvAirports_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvAirports.SelectedRows.Count > 0)
+            {
+                if (action != Actions.NOTHING)
+                {
+                    var dialog = new frmWarning("Cảnh Báo", "Bạn có muốn hủy bỏ chỉnh sửa?");
+                    DialogResult res = dialog.ShowDialog();
+                    if (res == DialogResult.OK)
+                    {
+                        DisablePanelEdit();
+                    }
+                    else if (res == DialogResult.Cancel)
+                    {
+                        return;
+                    }
+                }
+                tbMaSB.Text = dgvAirports.SelectedRows[0].Cells["MaSB"].Value.ToString();
+                tbTenSB.Text = dgvAirports.SelectedRows[0].Cells["TenSB"].Value.ToString();
+            }
         }
         #endregion
+        private void frmAirports_Load(object sender, EventArgs e)
+        {
+            cbSearch.DataSource = sources();
+            cbSearch.DisplayMember = "Name";
+            cbSearch.ValueMember = "ID";
+
+            sanBays = BLL_SanBay.GetSanBays();
+            bl = new SortableBindingList<SanBay>(sanBays);
+            dgvAirports.DataSource = bl;
+            for (int i = 0; i < sanBays.Count; i++)
+            {
+                dgvAirports.Rows[i].Tag = sanBays[i];
+            }
+            CustomDgv();
+
+            action = Actions.NOTHING;
+        }
+
+        public override void RefreshData()
+        {
+            sanBays = BLL_SanBay.GetSanBays();
+            bl = new SortableBindingList<SanBay>(sanBays);
+            dgvAirports.DataSource = bl;
+            Notification.Show("Làm mới danh sách sân bay");
+        }
+        public override void SizeChange()
+        {
+            UpdateHeightDgv();
+        }
+
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
@@ -135,5 +151,49 @@ namespace Presentation_Layer.FormView
             bl = new SortableBindingList<SanBay>(sanBays);
             dgvAirports.DataSource = bl;
         }
+        #region panel Edit
+        private void ActivePanelEdit(Actions x)
+        {
+            action = x;
+            tbTenSB.Enabled = true;
+            btnAdd.Text = "OK";
+            btnEdit.Text = "Cancel";
+        }
+        private void DisablePanelEdit()
+        {
+            action = Actions.NOTHING;
+            tbTenSB.Enabled = false;
+            btnAdd.Text = "Add";
+            btnEdit.Text = "Edit";
+        }
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (action == Actions.NOTHING)
+            {
+                ActivePanelEdit(Actions.ADD);
+            }
+            else if (action == Actions.ADD)
+            {
+                Notification.Show("Add");
+                DisablePanelEdit();
+            }
+            else if (action == Actions.EDIT)
+            {
+                Notification.Show("Edit");
+                DisablePanelEdit();
+            }
+        }
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (action == Actions.NOTHING)
+            {
+                ActivePanelEdit(Actions.EDIT);
+            }
+            else
+            {
+                DisablePanelEdit();
+            }
+        }
+        #endregion
     }
 }

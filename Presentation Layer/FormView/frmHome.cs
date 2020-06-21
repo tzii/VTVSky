@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Presentation_Layer.FormView
 {
-    public partial class frmHome : Form
+    public partial class frmHome : CustomForm
     {
         public frmHome()
         {

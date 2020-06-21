@@ -1,5 +1,4 @@
-﻿using Data_Transfer_Objects;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Presentation_Layer.FormView
 {
-    public partial class frmInfo : CustomForm
+    public partial class frmBCThang : CustomForm
     {
-        public frmInfo()
+        public frmBCThang()
         {
             InitializeComponent();
-        }
-
-        private void frmInfo_Load(object sender, EventArgs e)
-        {
-            
         }
     }
 }

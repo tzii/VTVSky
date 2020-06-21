@@ -1,5 +1,5 @@
 ﻿using Data_Transfer_Objects;
-using Presentation_Layer.FormDigital;
+using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,37 +12,31 @@ using System.Windows.Forms;
 
 namespace Presentation_Layer.FormView
 {
-    public partial class frmFlights : Form
+    public partial class frmFlights : CustomForm
     {
-        private Form currentChildForm;
+        private CustomForm currentChildForm;
         public frmFlights()
         {
             InitializeComponent();
+        }
+
+        private void frmFlights_Load(object sender, EventArgs e)
+        {
             currentChildForm = new frmFlightsList();
+
             currentChildForm.TopLevel = false;
             currentChildForm.Dock = DockStyle.Fill;
-            pnView.Controls.Add(currentChildForm);
+            pnDesktop.Controls.Add(currentChildForm);
             currentChildForm.BringToFront();
             currentChildForm.Show();
-        }
 
-        private void guna2GradientButton1_Click(object sender, EventArgs e)
+            btnChuyenBay.Checked = true;
+        }
+        private void btnRefresh_Click(object sender, EventArgs e)
         {
-            var frm = new frmSuccess();
-            DialogResult res = frm.ShowDialog();
-            if (res == DialogResult.OK)
-            {
-                Notification.Show("OK");
-            }
-            else if (res == DialogResult.Cancel)
-            {
-                Notification.Show("Cancel");
-            }
+            currentChildForm.RefreshData();
         }
 
-        private void licensing1_Load(object sender, EventArgs e)
-        {
 
-        }
     }
 }

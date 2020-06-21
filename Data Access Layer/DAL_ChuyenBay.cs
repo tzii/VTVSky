@@ -21,8 +21,8 @@ namespace Data_Transfer_Objects
                 List<ChuyenBay> chuyenBay = new List<ChuyenBay>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    ChuyenBay cb = new ChuyenBay((int)dt.Rows[i]["MaCB"], (TuyenBay)dt.Rows[i]["MaTB"],  (DateTime)dt.Rows[i]["ThoiGian"], (int)dt.Rows[i]["ThoiLuong"], (int)dt.Rows[i]["SoGheTrong"], (int)dt.Rows[i]["SoGheDat"]);
-                    chuyenBay.Add(cb);
+                    //ChuyenBay cb = new ChuyenBay((int)dt.Rows[i]["MaCB"], (TuyenBay)dt.Rows[i]["MaTB"],  (DateTime)dt.Rows[i]["ThoiGian"], (int)dt.Rows[i]["ThoiLuong"], (int)dt.Rows[i]["SoGheTrong"], (int)dt.Rows[i]["SoGheDat"]);
+                    //chuyenBay.Add(cb);
                 }
                 return chuyenBay;
             }
@@ -38,8 +38,8 @@ namespace Data_Transfer_Objects
                 List<ChuyenBay> chuyenBay = new List<ChuyenBay>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    ChuyenBay cb = new ChuyenBay((int)dt.Rows[i]["MaCB"], (TuyenBay)dt.Rows[i]["MaTB"],  (DateTime)dt.Rows[i]["ThoiGian"], (int)dt.Rows[i]["ThoiLuong"], (int)dt.Rows[i]["SoGheTrong"], (int)dt.Rows[i]["SoGheDat"]);
-                    chuyenBay.Add(cb);
+                    //ChuyenBay cb = new ChuyenBay((int)dt.Rows[i]["MaCB"], (TuyenBay)dt.Rows[i]["MaTB"],  (DateTime)dt.Rows[i]["ThoiGian"], (int)dt.Rows[i]["ThoiLuong"], (int)dt.Rows[i]["SoGheTrong"], (int)dt.Rows[i]["SoGheDat"]);
+                    //chuyenBay.Add(cb);
                 }
                 return chuyenBay;
             }
@@ -54,8 +54,8 @@ namespace Data_Transfer_Objects
                 List<ChuyenBay> chuyenBay = new List<ChuyenBay>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    ChuyenBay cb = new ChuyenBay((int)dt.Rows[i]["MaCB"], (TuyenBay)dt.Rows[i]["MaTB"],  (DateTime)dt.Rows[i]["ThoiGian"], (int)dt.Rows[i]["ThoiLuong"], (int)dt.Rows[i]["SoGheTrong"], (int)dt.Rows[i]["SoGheDat"]);
-                    chuyenBay.Add(cb);
+                    //ChuyenBay cb = new ChuyenBay((int)dt.Rows[i]["MaCB"], (TuyenBay)dt.Rows[i]["MaTB"],  (DateTime)dt.Rows[i]["ThoiGian"], (int)dt.Rows[i]["ThoiLuong"], (int)dt.Rows[i]["SoGheTrong"], (int)dt.Rows[i]["SoGheDat"]);
+                    //chuyenBay.Add(cb);
                 }
                 return chuyenBay;
             }

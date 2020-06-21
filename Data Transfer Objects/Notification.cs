@@ -12,33 +12,41 @@ namespace Data_Transfer_Objects
     {
         public static PictureBox pbNoti;
         public static Label lbNoti;
-        private static string lastMess;
+        private static int last;
         public static void Show(string _message, Status _status)
         {
-            Thread th = new Thread(() => ShowNoti(_message));
+            Random ran = new Random();
+            Thread th = new Thread(() => ShowNoti(_message, ran.Next(1, 1000)));
             th.IsBackground = true;
             th.Start();
         }
         public static void Show(string _message)
         {
-            Thread th = new Thread(() => ShowNoti(_message));
+            Random ran = new Random();
+            Thread th = new Thread(() => ShowNoti(_message, ran.Next(1, 1000)));
             th.IsBackground = true;
             th.Start();
         }
-        public static void ShowNoti(string _message)
+        public static void ShowNoti(string _message, int x)
         {
             if (lbNoti != null)
             {
                 lbNoti.Text = _message;
-                lastMess = _message;
+                last = x;
             }
             Thread.Sleep(10000);
-            if (lastMess == _message) lbNoti.Text = "Ready";
+            if (last == x) lbNoti.Text = "Ready";
         }
     }
     public enum Status
     {
         ACCESS,
         WARNING
+    }
+    public enum Actions
+    {
+        NOTHING,
+        EDIT,
+        ADD
     }
 }

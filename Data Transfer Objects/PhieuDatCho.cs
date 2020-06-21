@@ -8,20 +8,36 @@ namespace Data_Transfer_Objects
 {
     public class PhieuDatCho
     {
+        private int maDatCho;
         private int maVe;
-        private ChuyenBay maCB;
+        private ChuyenBay cb;
         private string tenHK;
-        private string cMND;
+        private string cmnd;
         private string dienThoai;
         private DateTime thoiGian;
-        private HangVe maHV;
+        private HangVe hv;
         private int giaVe;
-        private bool tinhTrang;
+        private int tinhTrang;
+
+        public string MaDatCho
+        {
+            get
+            {
+                return ConvertToString(maDatCho, "DC");
+            }
+        }
         public string MaVe
         {
             get
             {
-                return ConvertToString(maVe);
+                return ConvertToString(maVe,"VE");
+            }
+        }
+        public string MaCB
+        {
+            get
+            {
+                return cb.MaCB;
             }
         }
         public string TenHK
@@ -57,11 +73,22 @@ namespace Data_Transfer_Objects
                 return dienThoai;
             }
         }
-        public int MaHV
+        public DateTime ThoiGian
+        {
+            set
+            {
+                thoiGian = value;
+            }
+            get
+            {
+                return thoiGian;
+            }
+        }
+        public string TenHV
         {
             get
             {
-                return maVe;
+                return hv.TenHV;
             }
         }
         public int GiaVe
@@ -75,39 +102,43 @@ namespace Data_Transfer_Objects
                 return giaVe;
             }
         }
-        public bool TinhTrang
+        public string TinhTrang
         {
-            set
-            {
-                tinhTrang = value;
-            }
             get
             {
-                return tinhTrang;
+                if (tinhTrang == 1) return "Đặt";
+                else if (tinhTrang == 2) return "Đã bán";
+                else return "Đã hủy";
             }
         }
-        //public PhieuDatcho() { }
-        public PhieuDatCho(int _maVe, ChuyenBay _maCB, string _tenHK, string _cMND,string _dienThoai,HangVe _maHV, int _giaVe, bool _tinhTrang)
+        public PhieuDatCho() { }
+        public PhieuDatCho(int _maDatCho,int _maVe, ChuyenBay _cb, string _tenHK, string _cmnd, string _dienThoai,DateTime _thoiGian, HangVe _hv, int _giaVe, int _tinhTrang)
         {
+            maDatCho = _maDatCho;
             maVe = _maVe;
-            maCB = _maCB;
+            cb = _cb;
             tenHK = _tenHK;
-            cMND = _cMND;
+            cmnd = _cmnd;
             dienThoai = _dienThoai;
-            maHV = _maHV;
+            thoiGian = _thoiGian;
+            hv = _hv;
             giaVe = _giaVe;
             tinhTrang = _tinhTrang;
 
         }
-        private string ConvertToString(int x)
+        private string ConvertToString(int x, string pre)
         {
-            string res = "SB000000";
+            string res = "000000";
             string s = x.ToString();
-            return res.Remove(res.Length - s.Length) + s;
+            return pre + res.Remove(res.Length - s.Length) + s;
         }
         public int getMaVe()
         {
             return maVe;
+        }
+        public int GetMaDatCho()
+        {
+            return maDatCho;
         }
     }
 }

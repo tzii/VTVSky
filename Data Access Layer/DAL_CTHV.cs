@@ -29,7 +29,7 @@ namespace Data_Access_Layer
             return null;
         }
 
-        public static List<CTCB> SearchMaCB(string maCB)
+        public static List<CTHV> SearchMaCB(string maCB)
         {
             string cmdText = String.Format("select * from CTHV where MaCB like '%{0}%'", maCB == "" ? maCB : DataProvider.ConvertToInt(maCB));
             DataTable dt = DataProvider.ExecuteReader(cmdText);
@@ -45,7 +45,7 @@ namespace Data_Access_Layer
             }
             return null;
         }
-        public static List<CTCB> SearchMaHV(string maHV)
+        public static List<CTHV> SearchMaHV(string maHV)
         {
             string cmdText = String.Format("select * from CTHV where MaCB like '%{0}%'", maHV == "" ? maHV : DataProvider.ConvertToInt(maHV));
             DataTable dt = DataProvider.ExecuteReader(cmdText);

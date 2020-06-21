@@ -33,7 +33,6 @@
             this.lbNoti = new System.Windows.Forms.Label();
             this.pbNoti = new System.Windows.Forms.PictureBox();
             this.resizeControl = new Guna.UI2.WinForms.Guna2ResizeBox();
-            this.pnControl = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnSetting = new Guna.UI2.WinForms.Guna2Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -53,11 +52,14 @@
             this.pnDesktop = new System.Windows.Forms.Panel();
             this.pnShadow = new System.Windows.Forms.Panel();
             this.pnShadow1 = new System.Windows.Forms.Panel();
+            this.pnControl1 = new System.Windows.Forms.Panel();
+            this.pnControl = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.pnStatusBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbNoti)).BeginInit();
-            this.pnControl.SuspendLayout();
             this.pnDrag.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbChildForm)).BeginInit();
+            this.pnControl1.SuspendLayout();
+            this.pnControl.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnStatusBar
@@ -102,25 +104,8 @@
             this.resizeControl.Name = "resizeControl";
             this.resizeControl.Size = new System.Drawing.Size(20, 25);
             this.resizeControl.TabIndex = 0;
+            this.resizeControl.TabStop = false;
             this.resizeControl.TargetControl = this;
-            // 
-            // pnControl
-            // 
-            this.pnControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
-            this.pnControl.Controls.Add(this.panel2);
-            this.pnControl.Controls.Add(this.btnSetting);
-            this.pnControl.Controls.Add(this.panel1);
-            this.pnControl.Controls.Add(this.btnReports);
-            this.pnControl.Controls.Add(this.btnTickets);
-            this.pnControl.Controls.Add(this.btnFlights);
-            this.pnControl.Controls.Add(this.btnManager);
-            this.pnControl.Controls.Add(this.btnHome);
-            this.pnControl.Controls.Add(this.panel3);
-            this.pnControl.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnControl.Location = new System.Drawing.Point(0, 0);
-            this.pnControl.Name = "pnControl";
-            this.pnControl.Size = new System.Drawing.Size(200, 675);
-            this.pnControl.TabIndex = 1;
             // 
             // panel2
             // 
@@ -158,6 +143,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 665);
             this.panel1.Name = "panel1";
@@ -297,6 +283,7 @@
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
@@ -446,6 +433,36 @@
             this.pnShadow1.Size = new System.Drawing.Size(1097, 3);
             this.pnShadow1.TabIndex = 0;
             // 
+            // pnControl1
+            // 
+            this.pnControl1.BackColor = System.Drawing.Color.Transparent;
+            this.pnControl1.Controls.Add(this.panel2);
+            this.pnControl1.Controls.Add(this.btnSetting);
+            this.pnControl1.Controls.Add(this.panel1);
+            this.pnControl1.Controls.Add(this.btnReports);
+            this.pnControl1.Controls.Add(this.btnTickets);
+            this.pnControl1.Controls.Add(this.btnFlights);
+            this.pnControl1.Controls.Add(this.btnManager);
+            this.pnControl1.Controls.Add(this.btnHome);
+            this.pnControl1.Controls.Add(this.panel3);
+            this.pnControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnControl1.Location = new System.Drawing.Point(0, 0);
+            this.pnControl1.Name = "pnControl1";
+            this.pnControl1.Size = new System.Drawing.Size(200, 675);
+            this.pnControl1.TabIndex = 9;
+            // 
+            // pnControl
+            // 
+            this.pnControl.Controls.Add(this.pnControl1);
+            this.pnControl.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnControl.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
+            this.pnControl.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(90)))), ((int)(((byte)(130)))));
+            this.pnControl.Location = new System.Drawing.Point(0, 0);
+            this.pnControl.Name = "pnControl";
+            this.pnControl.ShadowDecoration.Parent = this.pnControl;
+            this.pnControl.Size = new System.Drawing.Size(200, 675);
+            this.pnControl.TabIndex = 9;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
@@ -465,14 +482,17 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "v";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMain_FormClosed);
             this.Load += new System.EventHandler(this.frmMain_Load);
+            this.ResizeEnd += new System.EventHandler(this.frmMain_ResizeEnd);
             this.pnStatusBar.ResumeLayout(false);
             this.pnStatusBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbNoti)).EndInit();
-            this.pnControl.ResumeLayout(false);
             this.pnDrag.ResumeLayout(false);
             this.pnDrag.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbChildForm)).EndInit();
+            this.pnControl1.ResumeLayout(false);
+            this.pnControl.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -480,7 +500,6 @@
         #endregion
 
         private System.Windows.Forms.Panel pnStatusBar;
-        private System.Windows.Forms.Panel pnControl;
         private System.Windows.Forms.Panel pnDrag;
         private Guna.UI2.WinForms.Guna2DragControl DragPanel;
         private System.Windows.Forms.Panel panel3;
@@ -503,5 +522,7 @@
         private System.Windows.Forms.Panel pnShadow1;
         public System.Windows.Forms.PictureBox pbNoti;
         public System.Windows.Forms.Label lbNoti;
+        private System.Windows.Forms.Panel pnControl1;
+        private Guna.UI2.WinForms.Guna2GradientPanel pnControl;
     }
 }
