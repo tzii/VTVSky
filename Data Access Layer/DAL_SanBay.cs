@@ -62,8 +62,17 @@ namespace Data_Transfer_Objects
             }
             return null;
         }
-
         public static bool InsertSanBay(SanBay sanBay)
+        {
+
+            return true;
+        }
+
+        public static bool UpdateSanBay(SanBay sanBay)
+        {
+            return true;
+        }
+        public static bool DeleteSanBay(SanBay sanBay)
         {
             return true;
         }
