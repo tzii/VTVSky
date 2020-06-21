@@ -46,7 +46,7 @@
     <Compile Include="ChuyenBay.cs" />
     <Compile Include="CTCB.cs" />
     <Compile Include="CTHV.cs" />
-    <Compile Include="DatCho.cs" />
+    <Compile Include="PhieuDatCho.cs" />
     <Compile Include="HangVe.cs" />
     <Compile Include="Notification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

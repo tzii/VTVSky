@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Data_Transfer_Objects
 {
-    public class DatCho
+    public class PhieuDatCho
     {
         private int maVe;
         private int maCB;
@@ -111,8 +111,8 @@ namespace Data_Transfer_Objects
         {
             return maCB;
         }
-        public DatCho() { }
-        public DatCho(int _maVe, int _maCB, string _tenHK, string _cmnd, string _dienThoai, DateTime _thoiGian, HangVe _hv, int _giaVe, int _tinhTrang)
+        public PhieuDatCho() { }
+        public PhieuDatCho(int _maVe, int _maCB, string _tenHK, string _cmnd, string _dienThoai, DateTime _thoiGian, HangVe _hv, int _giaVe, int _tinhTrang)
         {
             maVe = _maVe;
             maCB = _maCB;

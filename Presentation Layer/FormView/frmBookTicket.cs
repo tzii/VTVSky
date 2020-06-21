@@ -16,8 +16,8 @@ namespace Presentation_Layer.FormView
     public partial class frmBookTicket : CustomForm
     {
         private PanelScrollHelper scrollHelper;
-        private List<DatCho> datChos;
-        private SortableBindingList<DatCho> bl;
+        private List<PhieuDatCho> datChos;
+        private SortableBindingList<PhieuDatCho> bl;
         private Color lastColor;
         public frmBookTicket()
         {
@@ -91,8 +91,8 @@ namespace Presentation_Layer.FormView
             cbSearch.ValueMember = "ID";
 
             //datChos= BLL_ChuyenBay.GetSanBays();
-            datChos = new List<DatCho>();
-            bl = new SortableBindingList<DatCho>(datChos);
+            datChos = new List<PhieuDatCho>();
+            bl = new SortableBindingList<PhieuDatCho>(datChos);
             dgvBookTicket.DataSource = bl;
             CustomDgv();
 
@@ -116,7 +116,7 @@ namespace Presentation_Layer.FormView
         public override void RefreshData()
         {
             //datChos = BLL_ChuyenBay.GetSanBays();
-            bl = new SortableBindingList<DatCho>(datChos);
+            bl = new SortableBindingList<PhieuDatCho>(datChos);
             dgvBookTicket.DataSource = bl;
             Notification.Show("Làm mới danh sách sân bay");
         }
