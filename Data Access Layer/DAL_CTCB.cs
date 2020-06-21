@@ -29,9 +29,9 @@ namespace Data_Access_Layer
             return null;
         }
 
-        public static List<CTCB> SearchMaCB(string maCB)
+        public static List<CTCB> SearchMaCB(int maCB)
         {
-            string cmdText = String.Format("select * from CTCB where MaCB like '%{0}%'", maCB == "" ? maCB : DataProvider.ConvertToInt(maCB));
+            string cmdText = String.Format("select * from CTCB where MaCB = %{0}%", maCB);
             DataTable dt = DataProvider.ExecuteReader(cmdText);
             if (dt != null && dt.Rows.Count > 0)
             {

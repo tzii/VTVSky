@@ -32,6 +32,7 @@
             this.btnLogin = new Guna.UI2.WinForms.Guna2GradientButton();
             this.DragForm = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.pbBG = new System.Windows.Forms.PictureBox();
             this.checkBox = new Guna.UI2.WinForms.Guna2CheckBox();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.gunaCirclePictureBox1 = new Guna.UI.WinForms.GunaCirclePictureBox();
@@ -41,7 +42,9 @@
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2GradientPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,6 +88,7 @@
             // guna2GradientPanel1
             // 
             this.guna2GradientPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2GradientPanel1.Controls.Add(this.pbBG);
             this.guna2GradientPanel1.Controls.Add(this.checkBox);
             this.guna2GradientPanel1.Controls.Add(this.btnClose);
             this.guna2GradientPanel1.Controls.Add(this.gunaCirclePictureBox1);
@@ -101,6 +105,18 @@
             this.guna2GradientPanel1.ShadowDecoration.Parent = this.guna2GradientPanel1;
             this.guna2GradientPanel1.Size = new System.Drawing.Size(900, 600);
             this.guna2GradientPanel1.TabIndex = 6;
+            // 
+            // pbBG
+            // 
+            this.pbBG.BackgroundImage = global::Presentation_Layer.Properties.Resources.BGLogin;
+            this.pbBG.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbBG.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pbBG.ImageLocation = "";
+            this.pbBG.Location = new System.Drawing.Point(0, 0);
+            this.pbBG.Name = "pbBG";
+            this.pbBG.Size = new System.Drawing.Size(488, 600);
+            this.pbBG.TabIndex = 6;
+            this.pbBG.TabStop = false;
             // 
             // checkBox
             // 
@@ -176,8 +192,9 @@
             this.tbPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbPassword.HoverState.Parent = this.tbPassword;
+            this.tbPassword.IconLeft = global::Presentation_Layer.Properties.Resources._lock;
             this.tbPassword.IconLeftOffset = new System.Drawing.Point(10, 0);
-            this.tbPassword.IconLeftSize = new System.Drawing.Size(30, 30);
+            this.tbPassword.IconLeftSize = new System.Drawing.Size(25, 25);
             this.tbPassword.Location = new System.Drawing.Point(544, 359);
             this.tbPassword.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.tbPassword.Name = "tbPassword";
@@ -185,7 +202,6 @@
             this.tbPassword.PlaceholderText = "Password";
             this.tbPassword.SelectedText = "";
             this.tbPassword.ShadowDecoration.BorderRadius = 21;
-            this.tbPassword.ShadowDecoration.Enabled = true;
             this.tbPassword.ShadowDecoration.Parent = this.tbPassword;
             this.tbPassword.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.tbPassword.Size = new System.Drawing.Size(300, 44);
@@ -212,8 +228,9 @@
             this.tbUsername.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbUsername.HoverState.Parent = this.tbUsername;
+            this.tbUsername.IconLeft = global::Presentation_Layer.Properties.Resources.user;
             this.tbUsername.IconLeftOffset = new System.Drawing.Point(10, 0);
-            this.tbUsername.IconLeftSize = new System.Drawing.Size(30, 30);
+            this.tbUsername.IconLeftSize = new System.Drawing.Size(25, 25);
             this.tbUsername.Location = new System.Drawing.Point(544, 301);
             this.tbUsername.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
             this.tbUsername.Name = "tbUsername";
@@ -221,7 +238,6 @@
             this.tbUsername.PlaceholderText = "Username";
             this.tbUsername.SelectedText = "";
             this.tbUsername.ShadowDecoration.BorderRadius = 21;
-            this.tbUsername.ShadowDecoration.Enabled = true;
             this.tbUsername.ShadowDecoration.Parent = this.tbUsername;
             this.tbUsername.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.tbUsername.Size = new System.Drawing.Size(300, 44);
@@ -258,6 +274,12 @@
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
             // 
+            // guna2DragControl1
+            // 
+            this.guna2DragControl1.DragEndTransparencyValue = 0.95D;
+            this.guna2DragControl1.TargetControl = this.pbBG;
+            this.guna2DragControl1.UseTransparentDrag = true;
+            // 
             // frmLogin
             // 
             this.AcceptButton = this.btnLogin;
@@ -276,6 +298,7 @@
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2GradientPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBG)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -295,6 +318,8 @@
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
         private System.Windows.Forms.Timer timer;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.PictureBox pbBG;
+        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
     }
 }
 

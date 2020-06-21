@@ -122,10 +122,6 @@ namespace Presentation_Layer.FormView
             sanBays = BLL_SanBay.GetSanBays();
             bl = new SortableBindingList<SanBay>(sanBays);
             dgvAirports.DataSource = bl;
-            for (int i = 0; i < sanBays.Count; i++)
-            {
-                dgvAirports.Rows[i].Tag = sanBays[i];
-            }
             CustomDgv();
 
             action = Actions.NOTHING;
