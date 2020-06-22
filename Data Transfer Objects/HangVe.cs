@@ -8,10 +8,10 @@ namespace Data_Transfer_Objects
 {
     public class HangVe
     {
-        private int maHV;
+        public int maHV { set; get; }
         private string tenHV;
         private float tiLe;
-        public string MaHV
+        public string strMaHV
         {
             get
             {
@@ -52,10 +52,6 @@ namespace Data_Transfer_Objects
             string res = "HV000000";
             string s = x.ToString();
             return res.Remove(res.Length - s.Length) + s;
-        }
-        public int getMaHV()
-        {
-            return maHV;
         }
     }
 }

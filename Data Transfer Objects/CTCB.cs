@@ -8,12 +8,11 @@ namespace Data_Transfer_Objects
 {
     public class CTCB
     {
-        private int maCB;
-        private SanBay sbTG;
+        public int maCB { set; get; }
+        public SanBay SBTG { set; get; }
         private int tgDung;
         private string ghiChu;
-
-        public string MaCB
+        public string strMaCB
         {
             get
             {
@@ -24,7 +23,7 @@ namespace Data_Transfer_Objects
         {
             get
             {
-                return sbTG.TenSB;
+                return SBTG.TenSB;
             }
         }
         public int TGDung
@@ -49,11 +48,11 @@ namespace Data_Transfer_Objects
                 return ghiChu;
             }
         }
-        public CTCB() { }
+        public CTCB() {}
         public CTCB(int _maCB, SanBay _sbtg, int _tgDung, string _ghiChu) 
         {
             maCB = _maCB;
-            sbTG = _sbtg;
+            SBTG = _sbtg;
             tgDung = _tgDung;
             ghiChu = _ghiChu;
         }
@@ -62,10 +61,6 @@ namespace Data_Transfer_Objects
             string res = "CB000000";
             string s = x.ToString();
             return res.Remove(res.Length - s.Length) + s;
-        }
-        public int getMaCB()
-        {
-            return maCB;
         }
     }
 }
