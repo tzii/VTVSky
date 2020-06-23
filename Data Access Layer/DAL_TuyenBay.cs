@@ -12,7 +12,7 @@ namespace Data_Access_Layer
 {
     public class DAL_TuyenBay
     {
-        public static List<TuyenBay> GetTuyenBay()
+        public static List<TuyenBay> GetTuyenBays()
         {
             string cmdText = @"select * from TuyenBay";
             DataTable dt = DataProvider.ExecuteReader(cmdText);
@@ -21,10 +21,22 @@ namespace Data_Access_Layer
                 List<TuyenBay> TuyenBay = new List<TuyenBay>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    TuyenBay tb = new TuyenBay((int)dt.Rows[i]["MaTB"], (SanBay)dt.Rows[i]["MaSBDi"], (SanBay)dt.Rows[i]["MaSBDen"]);
+                    TuyenBay tb = new TuyenBay((int)dt.Rows[i]["MaTB"], DAL_SanBay.GetSanBay((int)dt.Rows[i]["MaSBDi"]), DAL_SanBay.GetSanBay((int)dt.Rows[i]["MaSBDen"]));
                     TuyenBay.Add(tb);
                 }
                 return TuyenBay;
+            }
+            return null;
+        }
+
+        public static TuyenBay GetTuyenBay(int MaTB)
+        {
+            string cmdText = @"select * from TUYENBAY Where MaTB=@MaTB";
+            DataTable dt = DataProvider.ExecuteReader(cmdText);
+            if (dt != null)
+            {
+                TuyenBay tb = new TuyenBay((int)dt.Rows[0]["MaTB"], DAL_SanBay.GetSanBay((int)dt.Rows[0]["MaSBDi"]), DAL_SanBay.GetSanBay((int)dt.Rows[0]["MaSBDen"]));
+                return tb;
             }
             return null;
         }
@@ -38,7 +50,7 @@ namespace Data_Access_Layer
                 List<TuyenBay> TuyenBay = new List<TuyenBay>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    TuyenBay tb = new TuyenBay((int)dt.Rows[i]["MaTB"], (SanBay)dt.Rows[i]["MaSBDi"], (SanBay)dt.Rows[i]["MaSBDen"]);
+                    TuyenBay tb = new TuyenBay((int)dt.Rows[i]["MaTB"], DAL_SanBay.GetSanBay ((int)dt.Rows[i]["MaSBDi"]), DAL_SanBay.GetSanBay((int)dt.Rows[i]["MaSBDen"]));
                     TuyenBay.Add(tb);
                 }
                 return TuyenBay;
@@ -54,7 +66,7 @@ namespace Data_Access_Layer
                 List<TuyenBay> TuyenBay = new List<TuyenBay>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    TuyenBay tb = new TuyenBay((int)dt.Rows[i]["MaTB"], (SanBay)dt.Rows[i]["MaSBDi"], (SanBay)dt.Rows[i]["MaSBDen"]);
+                    TuyenBay tb = new TuyenBay((int)dt.Rows[i]["MaTB"], DAL_SanBay.GetSanBay((int)dt.Rows[i]["MaSBDi"]), DAL_SanBay.GetSanBay((int)dt.Rows[i]["MaSBDen"]));
                     TuyenBay.Add(tb);
                 }
                 return TuyenBay;
@@ -70,7 +82,7 @@ namespace Data_Access_Layer
                 List<TuyenBay> TuyenBay = new List<TuyenBay>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    TuyenBay tb = new TuyenBay((int)dt.Rows[i]["MaTB"], (SanBay)dt.Rows[i]["MaSBDi"], (SanBay)dt.Rows[i]["MaSBDen"]);
+                    TuyenBay tb = new TuyenBay((int)dt.Rows[i]["MaTB"], DAL_SanBay.GetSanBay((int)dt.Rows[i]["MaSBDi"]), DAL_SanBay.GetSanBay((int)dt.Rows[i]["MaSBDen"]));
                     TuyenBay.Add(tb);
                 }
                 return TuyenBay;

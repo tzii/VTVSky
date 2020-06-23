@@ -13,7 +13,7 @@ namespace Data_Access_Layer
 {
     public class DAL_HangVe
     {
-        public static List<HangVe> GetHangVe()
+        public static List<HangVe> GetHangVes()
         {
             string cmdText = @"select * from HANGVE";
             DataTable dt = DataProvider.ExecuteReader(cmdText);
@@ -26,6 +26,18 @@ namespace Data_Access_Layer
                     HangVe.Add(hv);
                 }
                 return HangVe;
+            }
+            return null;
+        }
+
+        public static HangVe GetHangVe(int MaHV)
+        {
+            string cmdText = @"select * from HANGVE Where MaHV=@MaSHV";
+            DataTable dt = DataProvider.ExecuteReader(cmdText);
+            if (dt != null)
+            {
+                HangVe hv = new HangVe((int)dt.Rows[0]["MaHV"], dt.Rows[0]["TenHV"].ToString(), (double)dt.Rows[0]["TiLe"]);
+                return hv;
             }
             return null;
         }

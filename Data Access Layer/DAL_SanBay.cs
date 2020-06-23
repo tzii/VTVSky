@@ -1,4 +1,5 @@
 ﻿using Data_Transfer_Objects;
+using Data_Access_Layer;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,7 +9,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data_Transfer_Objects
+namespace Data_Access_Layer
 {
     public class DAL_SanBay
     {
@@ -25,6 +26,18 @@ namespace Data_Transfer_Objects
                     sanBays.Add(sb);
                 }
                 return sanBays;
+            }
+            return null;
+        }
+
+        public static SanBay GetSanBay(int MaSB)
+        {
+            string cmdText = @"select * from SANBAY Where MaSB=@MaSB";
+            DataTable dt = DataProvider.ExecuteReader(cmdText);
+            if (dt != null)
+            {
+                SanBay sb = new SanBay((int)dt.Rows[0]["MaSB"], dt.Rows[0]["TenSB"].ToString());
+                return sb;
             }
             return null;
         }

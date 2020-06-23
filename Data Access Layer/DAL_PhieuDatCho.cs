@@ -8,7 +8,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data_Transfer_Objects
+namespace Data_Access_Layer
 {
     public class DAL_PhieuDatCho
     {
@@ -21,8 +21,8 @@ namespace Data_Transfer_Objects
                 List<PhieuDatCho> phieudatcho = new List<PhieuDatCho>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    //PhieuDatCho pdc = new PhieuDatCho((int)dt.Rows[i]["MaVe"], (ChuyenBay)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"], (bool)dt.Rows[i]["TinhTrang"]);
-                    //phieudatcho.Add(pdc);
+                    PhieuDatCho pdc = new PhieuDatCho((int)dt.Rows[i]["MaVe"],(int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"],(HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"], (int)dt.Rows[i]["TinhTrang"]);
+                    phieudatcho.Add(pdc);
                 }
                 return phieudatcho;
             }
@@ -38,8 +38,8 @@ namespace Data_Transfer_Objects
                 List<PhieuDatCho> phieudatcho = new List<PhieuDatCho>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    //PhieuDatCho pdc = new PhieuDatCho((int)dt.Rows[i]["MaVe"], (ChuyenBay)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"], (bool)dt.Rows[i]["TinhTrang"]);
-                    //phieudatcho.Add(pdc);
+                    PhieuDatCho pdc = new PhieuDatCho((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"], (int)dt.Rows[i]["TinhTrang"]);
+                    phieudatcho.Add(pdc);
                 }
                 return phieudatcho;
             }
@@ -55,8 +55,8 @@ namespace Data_Transfer_Objects
                 List<PhieuDatCho> phieudatcho = new List<PhieuDatCho>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    //PhieuDatCho pdc = new PhieuDatCho((int)dt.Rows[i]["MaVe"], (ChuyenBay)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"], (bool)dt.Rows[i]["TinhTrang"]);
-                    //phieudatcho.Add(pdc);
+                    PhieuDatCho pdc = new PhieuDatCho((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"], (int)dt.Rows[i]["TinhTrang"]);
+                    phieudatcho.Add(pdc);
                 }
                 return phieudatcho;
             }
@@ -71,8 +71,8 @@ namespace Data_Transfer_Objects
                 List<PhieuDatCho> phieudatcho = new List<PhieuDatCho>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    //PhieuDatCho pdc = new PhieuDatCho((int)dt.Rows[i]["MaVe"], (ChuyenBay)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"], (bool)dt.Rows[i]["TinhTrang"]);
-                    //phieudatcho.Add(pdc);
+                    PhieuDatCho pdc = new PhieuDatCho((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"], (int)dt.Rows[i]["TinhTrang"]);
+                    phieudatcho.Add(pdc);
                 }
                 return phieudatcho;
             }
@@ -87,8 +87,8 @@ namespace Data_Transfer_Objects
                 List<PhieuDatCho> phieudatcho = new List<PhieuDatCho>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    //PhieuDatCho pdc = new PhieuDatCho((int)dt.Rows[i]["MaVe"], (ChuyenBay)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"], (bool)dt.Rows[i]["TinhTrang"]);
-                    //phieudatcho.Add(pdc);
+                    PhieuDatCho pdc = new PhieuDatCho((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"], (int)dt.Rows[i]["TinhTrang"]);
+                    phieudatcho.Add(pdc);
                 }
                 return phieudatcho;
             }
@@ -103,8 +103,8 @@ namespace Data_Transfer_Objects
                 List<PhieuDatCho> phieudatcho = new List<PhieuDatCho>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    //PhieuDatCho pdc = new PhieuDatCho((int)dt.Rows[i]["MaVe"], (ChuyenBay)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"], (bool)dt.Rows[i]["TinhTrang"]);
-                    //phieudatcho.Add(pdc);
+                    PhieuDatCho pdc = new PhieuDatCho((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"], (int)dt.Rows[i]["TinhTrang"]);
+                    phieudatcho.Add(pdc);
                 }
                 return phieudatcho;
             }
@@ -119,28 +119,45 @@ namespace Data_Transfer_Objects
                 List<PhieuDatCho> phieudatcho = new List<PhieuDatCho>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    //PhieuDatCho pdc = new PhieuDatCho((int)dt.Rows[i]["MaVe"], (ChuyenBay)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"], (bool)dt.Rows[i]["TinhTrang"]);
-                    //phieudatcho.Add(pdc);
+                    PhieuDatCho pdc = new PhieuDatCho((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"], (int)dt.Rows[i]["TinhTrang"]);
+                    phieudatcho.Add(pdc);
                 }
                 return phieudatcho;
             }
             return null;
         }
-        
-
-        public static bool InsertSanBay(SanBay sanBay)
+        public static List<PhieuDatCho> SearchThoiGian(string thoiGian)
         {
-
-            return true;
+            string cmdText = String.Format("select * from PHIEUDATCHO where ThoiGian=@thoiGian");
+            DataTable dt = DataProvider.ExecuteReader(cmdText);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                List<PhieuDatCho> phieudatcho = new List<PhieuDatCho>();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    PhieuDatCho pdc = new PhieuDatCho((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"], (int)dt.Rows[i]["TinhTrang"]);
+                    phieudatcho.Add(pdc);
+                }
+                return phieudatcho;
+            }
+            return null;
+        }
+        public static List<PhieuDatCho> SearchTinhTrang(string tinhTrang)
+        {
+            string cmdText = String.Format("select * from PHIEUDATCHO where TinhTrang=@tinhTrang");
+            DataTable dt = DataProvider.ExecuteReader(cmdText);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                List<PhieuDatCho> phieudatcho = new List<PhieuDatCho>();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    PhieuDatCho pdc = new PhieuDatCho((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"], (int)dt.Rows[i]["TinhTrang"]);
+                    phieudatcho.Add(pdc);
+                }
+                return phieudatcho;
+            }
+            return null;
         }
 
-        public static bool UpdateSanBay(SanBay sanBay)
-        {
-            return true;
-        }
-        public static bool DeleteSanBay(SanBay sanBay)
-        {
-            return true;
-        }
     }
 }
