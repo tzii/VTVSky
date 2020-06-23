@@ -1,6 +1,8 @@
 ﻿using Business_Logic_Layer;
+using Data_Transfer_Objects;
 using Guna.UI2.AnimatorNS;
 using Microsoft.VisualBasic;
+using Presentation_Layer.FormDigital;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -59,6 +61,40 @@ namespace Presentation_Layer.FormView
             btnLogin.Checked = false;
             btnLogin.Text = ls[0];
         }
+        private bool checkDB()
+        {
+            if (Presentation_Layer.Properties.Settings.Default.ServerName == "") return false;
+            if (Presentation_Layer.Properties.Settings.Default.ServerLogin == "") return false;
+            if (Presentation_Layer.Properties.Settings.Default.ServerPassword == "") return false;
+            if (Presentation_Layer.Properties.Settings.Default.DatabaseName == "") return false;
+            return true;
+        }
+        private void showDBSetup(bool _noti)
+        {
+            var a = Presentation_Layer.Properties.Settings.Default.ServerName;
+            var b = Presentation_Layer.Properties.Settings.Default.ServerLogin;
+            var c = Presentation_Layer.Properties.Settings.Default.ServerPassword;
+            var d = Presentation_Layer.Properties.Settings.Default.DatabaseName;
+            var dbSetup = new frmServerSetup(a, b, c, d, _noti);
+            DialogResult res = dbSetup.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                Presentation_Layer.Properties.Settings.Default.ServerName = dbSetup.serverName;
+                Presentation_Layer.Properties.Settings.Default.ServerLogin = dbSetup.login;
+                Presentation_Layer.Properties.Settings.Default.ServerPassword = dbSetup.password;
+                Presentation_Layer.Properties.Settings.Default.DatabaseName = dbSetup.dbName;
+                Presentation_Layer.Properties.Settings.Default.Save();
+
+                loadInforServer();
+            }
+        }
+        private void loadInforServer()
+        {
+            Server.ServerName = Presentation_Layer.Properties.Settings.Default.ServerName;
+            Server.Login = Presentation_Layer.Properties.Settings.Default.ServerLogin;
+            Server.Password = Presentation_Layer.Properties.Settings.Default.ServerPassword;
+            Server.DBName = Presentation_Layer.Properties.Settings.Default.DatabaseName;
+        }
         #endregion
         public frmLogin()
         {
@@ -73,6 +109,11 @@ namespace Presentation_Layer.FormView
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            if (!checkDB())
+            {
+                showDBSetup(true);
+                return;
+            }
             if (btnLogin.Checked) return;
             btnLogin.Checked = true;
             btnLogin.Text = ls[1];
@@ -132,6 +173,7 @@ namespace Presentation_Layer.FormView
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
+            loadInforServer();
             pos = 2;
             ls = new List<string>();
             ls.Add("Login");
@@ -156,7 +198,7 @@ namespace Presentation_Layer.FormView
             {
                 saveLogin(tbUsername.Text, "", false);
                 backgroundWorker1.ReportProgress(0);
-                
+
             }
             else
             {
@@ -188,5 +230,10 @@ namespace Presentation_Layer.FormView
             }
         }
         #endregion
+
+        private void lbDB_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            showDBSetup(false);
+        }
     }
 }

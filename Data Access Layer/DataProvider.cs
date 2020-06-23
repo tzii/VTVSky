@@ -13,7 +13,7 @@ namespace Data_Transfer_Objects
     {
         private static SqlConnection Connection()
         {
-            string connectionString = @"Server=tcp:vtvsky.database.windows.net,1433;Initial Catalog=CNPM;Persist Security Info=False;User ID=vtvsky;Password=maituanvu1!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            string connectionString = String.Format("Server={0},1433;Initial Catalog={1};Persist Security Info=False;User ID={2};Password={3};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;", Server.ServerName, Server.DBName, Server.Login, Server.Password);
             SqlConnection conn = new SqlConnection(connectionString);
             return conn;
         }

@@ -32,6 +32,7 @@
             this.btnLogin = new Guna.UI2.WinForms.Guna2GradientButton();
             this.DragForm = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.lbDB = new System.Windows.Forms.LinkLabel();
             this.pbBG = new System.Windows.Forms.PictureBox();
             this.checkBox = new Guna.UI2.WinForms.Guna2CheckBox();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
@@ -88,6 +89,7 @@
             // guna2GradientPanel1
             // 
             this.guna2GradientPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2GradientPanel1.Controls.Add(this.lbDB);
             this.guna2GradientPanel1.Controls.Add(this.pbBG);
             this.guna2GradientPanel1.Controls.Add(this.checkBox);
             this.guna2GradientPanel1.Controls.Add(this.btnClose);
@@ -105,6 +107,18 @@
             this.guna2GradientPanel1.ShadowDecoration.Parent = this.guna2GradientPanel1;
             this.guna2GradientPanel1.Size = new System.Drawing.Size(900, 600);
             this.guna2GradientPanel1.TabIndex = 6;
+            // 
+            // lbDB
+            // 
+            this.lbDB.AutoSize = true;
+            this.lbDB.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.lbDB.Location = new System.Drawing.Point(751, 563);
+            this.lbDB.Name = "lbDB";
+            this.lbDB.Size = new System.Drawing.Size(93, 28);
+            this.lbDB.TabIndex = 3;
+            this.lbDB.TabStop = true;
+            this.lbDB.Text = "Database";
+            this.lbDB.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lbDB_LinkClicked);
             // 
             // pbBG
             // 
@@ -177,9 +191,8 @@
             // tbPassword
             // 
             this.tbPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbPassword.AutoRoundedCorners = true;
             this.tbPassword.BackColor = System.Drawing.Color.Transparent;
-            this.tbPassword.BorderRadius = 21;
+            this.tbPassword.BorderRadius = 12;
             this.tbPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbPassword.DefaultText = "";
             this.tbPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -187,10 +200,10 @@
             this.tbPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbPassword.DisabledState.Parent = this.tbPassword;
             this.tbPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.tbPassword.FocusedState.Parent = this.tbPassword;
             this.tbPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.tbPassword.HoverState.Parent = this.tbPassword;
             this.tbPassword.IconLeft = global::Presentation_Layer.Properties.Resources._lock;
             this.tbPassword.IconLeftOffset = new System.Drawing.Point(10, 0);
@@ -213,9 +226,8 @@
             this.tbUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.tbUsername.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.tbUsername.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
-            this.tbUsername.AutoRoundedCorners = true;
             this.tbUsername.BackColor = System.Drawing.Color.Transparent;
-            this.tbUsername.BorderRadius = 21;
+            this.tbUsername.BorderRadius = 12;
             this.tbUsername.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbUsername.DefaultText = "";
             this.tbUsername.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -223,10 +235,10 @@
             this.tbUsername.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbUsername.DisabledState.Parent = this.tbUsername;
             this.tbUsername.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbUsername.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.tbUsername.FocusedState.Parent = this.tbUsername;
             this.tbUsername.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbUsername.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.tbUsername.HoverState.Parent = this.tbUsername;
             this.tbUsername.IconLeft = global::Presentation_Layer.Properties.Resources.user;
             this.tbUsername.IconLeftOffset = new System.Drawing.Point(10, 0);
@@ -251,7 +263,7 @@
             this.lbNoti.ForeColor = System.Drawing.Color.Red;
             this.lbNoti.Location = new System.Drawing.Point(544, 513);
             this.lbNoti.Name = "lbNoti";
-            this.lbNoti.Size = new System.Drawing.Size(300, 65);
+            this.lbNoti.Size = new System.Drawing.Size(300, 50);
             this.lbNoti.TabIndex = 4;
             this.lbNoti.Text = "Sai tài khoản hoặc mật khẩu";
             this.lbNoti.Visible = false;
@@ -320,6 +332,7 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.PictureBox pbBG;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
+        private System.Windows.Forms.LinkLabel lbDB;
     }
 }
 
