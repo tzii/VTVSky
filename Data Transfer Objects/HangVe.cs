@@ -10,7 +10,7 @@ namespace Data_Transfer_Objects
     {
         public int maHV { set; get; }
         private string tenHV;
-        private float tiLe;
+        private double tiLe;
         public string strMaHV
         {
             get
@@ -29,7 +29,7 @@ namespace Data_Transfer_Objects
                 return tenHV;
             }
         }
-        public float TiLe
+        public double TiLe
         {
             set
             {
@@ -41,7 +41,7 @@ namespace Data_Transfer_Objects
             }
         }
         public HangVe() { }
-        public HangVe(int _maHV, string _tenHV, float _tiLe)
+        public HangVe(int _maHV, string _tenHV, double _tiLe)
         {
             maHV = _maHV;
             tenHV = _tenHV;
