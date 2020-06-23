@@ -46,9 +46,10 @@ namespace Presentation_Layer.FormView
         }
         private void CustomDgv()
         {
-            dgvAirports.Columns["MaSB"].HeaderText = "Mã";
-            dgvAirports.Columns["MaSB"].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvAirports.Columns["MaSB"].Width = 100;
+            dgvAirports.Columns["MaSB"].Visible = false;
+            dgvAirports.Columns["strMaSB"].HeaderText = "Mã";
+            dgvAirports.Columns["strMaSB"].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvAirports.Columns["strMaSB"].Width = 100;
 
             dgvAirports.Columns["TenSB"].HeaderText = "Tên Sân Bay";
         }
@@ -108,7 +109,7 @@ namespace Presentation_Layer.FormView
                         return;
                     }
                 }
-                tbMaSB.Text = dgvAirports.SelectedRows[0].Cells["MaSB"].Value.ToString();
+                tbMaSB.Text = dgvAirports.SelectedRows[0].Cells["strMaSB"].Value.ToString();
                 tbTenSB.Text = dgvAirports.SelectedRows[0].Cells["TenSB"].Value.ToString();
             }
         }
