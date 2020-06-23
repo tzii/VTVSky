@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            Guna.UI2.AnimatorNS.Animation animation2 = new Guna.UI2.AnimatorNS.Animation();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            Guna.UI2.AnimatorNS.Animation animation1 = new Guna.UI2.AnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHangVe));
             this.dgvHangVe = new Guna.UI2.WinForms.Guna2DataGridView();
             this.cmt = new Guna.UI.WinForms.GunaContextMenuStrip();
@@ -61,7 +61,7 @@
             this.lbMaHV = new System.Windows.Forms.Label();
             this.tbTiLe = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbTenHV = new Guna.UI2.WinForms.Guna2TextBox();
-            this.tbMaSB = new Guna.UI2.WinForms.Guna2TextBox();
+            this.tbMaHV = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.btnEdit = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHangVe)).BeginInit();
@@ -82,33 +82,33 @@
             this.dgvHangVe.AllowUserToDeleteRows = false;
             this.dgvHangVe.AllowUserToResizeColumns = false;
             this.dgvHangVe.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(226)))), ((int)(((byte)(218)))));
-            this.dgvHangVe.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(226)))), ((int)(((byte)(218)))));
+            this.dgvHangVe.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvHangVe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvHangVe.BackgroundColor = System.Drawing.Color.White;
             this.dgvHangVe.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvHangVe.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvHangVe.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(160)))), ((int)(((byte)(133)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(160)))), ((int)(((byte)(133)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvHangVe.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(160)))), ((int)(((byte)(133)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(160)))), ((int)(((byte)(133)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvHangVe.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvHangVe.ColumnHeadersHeight = 40;
             this.dgvHangVe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvHangVe.ContextMenuStrip = this.cmt;
             this.guna2Transition1.SetDecoration(this.dgvHangVe, Guna.UI2.AnimatorNS.DecorationType.None);
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(235)))), ((int)(((byte)(230)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(191)))), ((int)(((byte)(173)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvHangVe.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(235)))), ((int)(((byte)(230)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(191)))), ((int)(((byte)(173)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvHangVe.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvHangVe.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvHangVe.EnableHeadersVisualStyles = false;
             this.dgvHangVe.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(224)))), ((int)(((byte)(216)))));
@@ -149,12 +149,11 @@
             this.dgvHangVe.ThemeStyle.RowsStyle.Height = 24;
             this.dgvHangVe.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(191)))), ((int)(((byte)(173)))));
             this.dgvHangVe.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvHangVe.DataSourceChanged += new System.EventHandler(this.dgvAirports_DataSourceChanged);
-            this.dgvHangVe.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAirports_CellMouseDown);
-            this.dgvHangVe.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAirports_CellMouseEnter);
-            this.dgvHangVe.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAirports_CellMouseLeave);
-            this.dgvHangVe.SelectionChanged += new System.EventHandler(this.dgvAirports_SelectionChanged);
-            // 
+            this.dgvHangVe.DataSourceChanged += new System.EventHandler(this.dgvHangVe_DataSourceChanged);
+            this.dgvHangVe.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvHangVe_CellMouseDown);
+            this.dgvHangVe.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHangVe_CellMouseEnter);
+            this.dgvHangVe.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHangVe_CellMouseLeave);
+            this.dgvHangVe.SelectionChanged += new System.EventHandler(this.dgvHangVe_SelectionChanged);
             // cmt
             // 
             this.guna2Transition1.SetDecoration(this.cmt, Guna.UI2.AnimatorNS.DecorationType.None);
@@ -245,22 +244,22 @@
             // guna2Transition1
             // 
             this.guna2Transition1.Cursor = null;
-            animation2.AnimateOnlyDifferences = true;
-            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
-            animation2.LeafCoeff = 0F;
-            animation2.MaxTime = 1F;
-            animation2.MinTime = 0F;
-            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
-            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
-            animation2.MosaicSize = 0;
-            animation2.Padding = new System.Windows.Forms.Padding(0);
-            animation2.RotateCoeff = 0F;
-            animation2.RotateLimit = 0F;
-            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
-            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
-            animation2.TimeCoeff = 0F;
-            animation2.TransparencyCoeff = 0F;
-            this.guna2Transition1.DefaultAnimation = animation2;
+            animation1.AnimateOnlyDifferences = true;
+            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
+            animation1.LeafCoeff = 0F;
+            animation1.MaxTime = 1F;
+            animation1.MinTime = 0F;
+            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
+            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
+            animation1.MosaicSize = 0;
+            animation1.Padding = new System.Windows.Forms.Padding(0);
+            animation1.RotateCoeff = 0F;
+            animation1.RotateLimit = 0F;
+            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
+            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
+            animation1.TimeCoeff = 0F;
+            animation1.TransparencyCoeff = 0F;
+            this.guna2Transition1.DefaultAnimation = animation1;
             // 
             // tableLayoutPanel1
             // 
@@ -426,7 +425,7 @@
             this.guna2Panel2.Controls.Add(this.lbMaHV);
             this.guna2Panel2.Controls.Add(this.tbTiLe);
             this.guna2Panel2.Controls.Add(this.tbTenHV);
-            this.guna2Panel2.Controls.Add(this.tbMaSB);
+            this.guna2Panel2.Controls.Add(this.tbMaHV);
             this.guna2Panel2.Controls.Add(this.btnAdd);
             this.guna2Panel2.Controls.Add(this.btnEdit);
             this.guna2Transition1.SetDecoration(this.guna2Panel2, Guna.UI2.AnimatorNS.DecorationType.None);
@@ -528,35 +527,35 @@
             this.tbTenHV.Size = new System.Drawing.Size(278, 36);
             this.tbTenHV.TabIndex = 22;
             // 
-            // tbMaSB
+            // tbMaHV
             // 
-            this.tbMaSB.BackColor = System.Drawing.Color.Transparent;
-            this.tbMaSB.BorderRadius = 6;
-            this.tbMaSB.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2Transition1.SetDecoration(this.tbMaSB, Guna.UI2.AnimatorNS.DecorationType.None);
-            this.tbMaSB.DefaultText = "#####";
-            this.tbMaSB.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tbMaSB.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tbMaSB.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbMaSB.DisabledState.Parent = this.tbMaSB;
-            this.tbMaSB.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbMaSB.Enabled = false;
-            this.tbMaSB.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbMaSB.FocusedState.Parent = this.tbMaSB;
-            this.tbMaSB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbMaSB.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbMaSB.HoverState.Parent = this.tbMaSB;
-            this.tbMaSB.Location = new System.Drawing.Point(159, 30);
-            this.tbMaSB.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
-            this.tbMaSB.Name = "tbMaSB";
-            this.tbMaSB.PasswordChar = '\0';
-            this.tbMaSB.PlaceholderText = "";
-            this.tbMaSB.SelectedText = "";
-            this.tbMaSB.SelectionStart = 5;
-            this.tbMaSB.ShadowDecoration.Parent = this.tbMaSB;
-            this.tbMaSB.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
-            this.tbMaSB.Size = new System.Drawing.Size(278, 36);
-            this.tbMaSB.TabIndex = 22;
+            this.tbMaHV.BackColor = System.Drawing.Color.Transparent;
+            this.tbMaHV.BorderRadius = 6;
+            this.tbMaHV.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2Transition1.SetDecoration(this.tbMaHV, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.tbMaHV.DefaultText = "#####";
+            this.tbMaHV.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbMaHV.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbMaHV.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbMaHV.DisabledState.Parent = this.tbMaHV;
+            this.tbMaHV.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbMaHV.Enabled = false;
+            this.tbMaHV.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbMaHV.FocusedState.Parent = this.tbMaHV;
+            this.tbMaHV.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMaHV.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbMaHV.HoverState.Parent = this.tbMaHV;
+            this.tbMaHV.Location = new System.Drawing.Point(159, 30);
+            this.tbMaHV.Margin = new System.Windows.Forms.Padding(6, 7, 6, 7);
+            this.tbMaHV.Name = "tbMaHV";
+            this.tbMaHV.PasswordChar = '\0';
+            this.tbMaHV.PlaceholderText = "";
+            this.tbMaHV.SelectedText = "";
+            this.tbMaHV.SelectionStart = 5;
+            this.tbMaHV.ShadowDecoration.Parent = this.tbMaHV;
+            this.tbMaHV.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.tbMaHV.Size = new System.Drawing.Size(278, 36);
+            this.tbMaHV.TabIndex = 22;
             // 
             // btnAdd
             // 
@@ -653,7 +652,7 @@
         private Guna.UI2.WinForms.Guna2Button btnSearch;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private Guna.UI2.WinForms.Guna2TextBox tbMaSB;
+        private Guna.UI2.WinForms.Guna2TextBox tbMaHV;
         private Guna.UI2.WinForms.Guna2Button btnEdit;
         private Guna.UI2.WinForms.Guna2Button btnAdd;
         private System.Windows.Forms.Label lbMaHV;

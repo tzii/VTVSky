@@ -46,9 +46,10 @@ namespace Presentation_Layer.FormView
         }
         private void CustomDgv()
         {
-            dgvHangVe.Columns["MaHV"].HeaderText = "Mã";
-            dgvHangVe.Columns["MaHV"].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvHangVe.Columns["MaHV"].Width = 100;
+            dgvHangVe.Columns["MaHV"].Visible = false;
+            dgvHangVe.Columns["strMaHV"].HeaderText = "Mã";
+            dgvHangVe.Columns["strMaHV"].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvHangVe.Columns["strMaHV"].Width = 100;
 
             dgvHangVe.Columns["TenHV"].HeaderText = "Tên Sân Bay";
             dgvHangVe.Columns["TiLe"].HeaderText = "Tỉ Lệ";
@@ -64,13 +65,13 @@ namespace Presentation_Layer.FormView
             return res;
         }
         #endregion
-        #region Chỉnh sửa hiển thị của dgvAirports
-        private void dgvAirports_DataSourceChanged(object sender, EventArgs e)
+        #region Chỉnh sửa hiển thị của dgvHangVe
+        private void dgvHangVe_DataSourceChanged(object sender, EventArgs e)
         {
             UpdateHeightDgv();
         }
 
-        private void dgvAirports_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        private void dgvHangVe_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
 
             if (e.RowIndex < 0) return;
@@ -78,12 +79,12 @@ namespace Presentation_Layer.FormView
             dgvHangVe.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.FromArgb(99, 191, 173);
         }
 
-        private void dgvAirports_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        private void dgvHangVe_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0) dgvHangVe.Rows[e.RowIndex].DefaultCellStyle.BackColor = lastColor;
         }
 
-        private void dgvAirports_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        private void dgvHangVe_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.RowIndex >= 0) dgvHangVe.Rows[e.RowIndex].Selected = true;
         }
@@ -92,7 +93,7 @@ namespace Presentation_Layer.FormView
         {
             UpdateHeightDgv();
         }
-        private void dgvAirports_SelectionChanged(object sender, EventArgs e)
+        private void dgvHangVe_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvHangVe.SelectedRows.Count > 0)
             {
@@ -109,8 +110,9 @@ namespace Presentation_Layer.FormView
                         return;
                     }
                 }
-                tbMaSB.Text = dgvHangVe.SelectedRows[0].Cells["MaSB"].Value.ToString();
-                tbTenHV.Text = dgvHangVe.SelectedRows[0].Cells["TenSB"].Value.ToString();
+                tbMaHV.Text = dgvHangVe.SelectedRows[0].Cells["strMaHV"].Value.ToString();
+                tbTenHV.Text = dgvHangVe.SelectedRows[0].Cells["TenHV"].Value.ToString();
+                tbTiLe.Text = dgvHangVe.SelectedRows[0].Cells["TiLe"].Value.ToString();
             }
         }
         #endregion
@@ -120,8 +122,7 @@ namespace Presentation_Layer.FormView
             cbSearch.DisplayMember = "Name";
             cbSearch.ValueMember = "ID";
 
-            //hangVes = BLL_SanBay.GetSanBays();
-            hangVes = new List<HangVe>();
+            hangVes = BLL_HangVe.GetHangVes();
             bl = new SortableBindingList<HangVe>(hangVes);
             dgvHangVe.DataSource = bl;
             CustomDgv();
@@ -131,8 +132,7 @@ namespace Presentation_Layer.FormView
 
         public override void RefreshData()
         {
-            //hangVes = BLL_SanBay.GetSanBays();
-            hangVes = new List<HangVe>();
+            hangVes = BLL_HangVe.GetHangVes();
             bl = new SortableBindingList<HangVe>(hangVes);
             dgvHangVe.DataSource = bl;
             Notification.Show("Làm mới danh sách sân bay");

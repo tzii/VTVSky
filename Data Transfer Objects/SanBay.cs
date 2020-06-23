@@ -8,9 +8,9 @@ namespace Data_Transfer_Objects
 {
     public class SanBay
     {
-        private int maSB;
+        public int maSB { set; get; }
         private string tenSB;
-        public string MaSB
+        public string strMaSB
         {
             get
             {
@@ -39,10 +39,6 @@ namespace Data_Transfer_Objects
             string res = "SB000000";
             string s = x.ToString();
             return res.Remove(res.Length - s.Length) + s;
-        }
-        public int getMaSB()
-        {
-            return maSB;
         }
     }
 }

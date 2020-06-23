@@ -22,7 +22,7 @@ namespace Data_Access_Layer
                 List<HangVe> HangVe = new List<HangVe>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    HangVe hv = new HangVe((int)dt.Rows[i]["MaHV"], dt.Rows[i]["TenHV"].ToString(), (float)dt.Rows[i]["TiLe"]);
+                    HangVe hv = new HangVe((int)dt.Rows[i]["MaHV"], dt.Rows[i]["TenHV"].ToString(), (double)dt.Rows[i]["TiLe"]);
                     HangVe.Add(hv);
                 }
                 return HangVe;

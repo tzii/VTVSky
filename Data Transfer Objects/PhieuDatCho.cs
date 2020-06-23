@@ -8,36 +8,27 @@ namespace Data_Transfer_Objects
 {
     public class PhieuDatCho
     {
-        private int maDatCho;
-        private int maVe;
-        private ChuyenBay cb;
+        public int maVe { set; get; }
+        public int maCB { set; get; }
         private string tenHK;
         private string cmnd;
         private string dienThoai;
         private DateTime thoiGian;
-        private HangVe hv;
+        public HangVe HV { set; get; }
         private int giaVe;
-        private int tinhTrang;
-
-        public string MaDatCho
-        {
-            get
-            {
-                return ConvertToString(maDatCho, "DC");
-            }
-        }
-        public string MaVe
+        public int tinhTrang { set; get; }
+        public string strMaVe
         {
             get
             {
                 return ConvertToString(maVe,"VE");
             }
         }
-        public string MaCB
+        public string strMaCB
         {
             get
             {
-                return cb.MaCB;
+                return ConvertToString(maCB, "CB");
             }
         }
         public string TenHK
@@ -88,7 +79,7 @@ namespace Data_Transfer_Objects
         {
             get
             {
-                return hv.TenHV;
+                return HV.TenHV;
             }
         }
         public int GiaVe
@@ -102,7 +93,7 @@ namespace Data_Transfer_Objects
                 return giaVe;
             }
         }
-        public string TinhTrang
+        public string strTinhTrang
         {
             get
             {
@@ -112,16 +103,15 @@ namespace Data_Transfer_Objects
             }
         }
         public PhieuDatCho() { }
-        public PhieuDatCho(int _maDatCho,int _maVe, ChuyenBay _cb, string _tenHK, string _cmnd, string _dienThoai,DateTime _thoiGian, HangVe _hv, int _giaVe, int _tinhTrang)
+        public PhieuDatCho(int _maVe, int _maCB, string _tenHK, string _cmnd, string _dienThoai,DateTime _thoiGian, HangVe _hv, int _giaVe, int _tinhTrang)
         {
-            maDatCho = _maDatCho;
             maVe = _maVe;
-            cb = _cb;
+            maCB = _maCB;
             tenHK = _tenHK;
             cmnd = _cmnd;
             dienThoai = _dienThoai;
             thoiGian = _thoiGian;
-            hv = _hv;
+            HV = _hv;
             giaVe = _giaVe;
             tinhTrang = _tinhTrang;
 
@@ -131,14 +121,6 @@ namespace Data_Transfer_Objects
             string res = "000000";
             string s = x.ToString();
             return pre + res.Remove(res.Length - s.Length) + s;
-        }
-        public int getMaVe()
-        {
-            return maVe;
-        }
-        public int GetMaDatCho()
-        {
-            return maDatCho;
         }
     }
 }

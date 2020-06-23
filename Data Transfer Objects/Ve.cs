@@ -8,23 +8,22 @@ namespace Data_Transfer_Objects
 {
     public class Ve
     {
-        private int maVe;
-        private int maCB;
+        public int maVe { set; get; }
+        public int maCB { set; get; }
         private string tenHK;
         private string cmnd;
         private string dienThoai;
         private DateTime thoiGian;
-        private HangVe hv;
+        public HangVe HV { set; get; }
         private int giaVe;
-
-        public string MaVe
+        public string strMaVe
         {
             get
             {
                 return ConvertToString(maVe, "VE");
             }
         }
-        public string MaCB
+        public string strMaCB
         {
             get
             {
@@ -79,7 +78,7 @@ namespace Data_Transfer_Objects
         {
             get
             {
-                return hv.TenHV;
+                return HV.TenHV;
             }
         }
         public int GiaVe
@@ -93,9 +92,8 @@ namespace Data_Transfer_Objects
                 return giaVe;
             }
         }
-
         public Ve() { }
-        public Ve(int _maDatCho, int _maVe, int _maCB, string _tenHK, string _cmnd, string _dienThoai, DateTime _thoiGian, HangVe _hv, int _giaVe)
+        public Ve(int _maVe, int _maCB, string _tenHK, string _cmnd, string _dienThoai, DateTime _thoiGian, HangVe _hv, int _giaVe)
         {
             maVe = _maVe;
             maCB = _maCB;
@@ -103,7 +101,7 @@ namespace Data_Transfer_Objects
             cmnd = _cmnd;
             dienThoai = _dienThoai;
             thoiGian = _thoiGian;
-            hv = _hv;
+            HV = _hv;
             giaVe = _giaVe;
 
         }
@@ -112,14 +110,6 @@ namespace Data_Transfer_Objects
             string res = "000000";
             string s = x.ToString();
             return pre + res.Remove(res.Length - s.Length) + s;
-        }
-        public int getMaVe()
-        {
-            return maVe;
-        }
-        public int GetMaCB()
-        {
-            return maCB;
         }
     }
 }
