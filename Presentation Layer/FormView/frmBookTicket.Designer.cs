@@ -136,10 +136,10 @@
             this.dgvBookTicket.ThemeStyle.RowsStyle.Height = 24;
             this.dgvBookTicket.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(191)))), ((int)(((byte)(173)))));
             this.dgvBookTicket.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvBookTicket.DataSourceChanged += new System.EventHandler(this.dgvFlightsList_DataSourceChanged);
-            this.dgvBookTicket.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvFlights_CellMouseDown);
-            this.dgvBookTicket.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFlightsList_CellMouseEnter);
-            this.dgvBookTicket.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFlightsList_CellMouseLeave);
+            this.dgvBookTicket.DataSourceChanged += new System.EventHandler(this.dgvBookTicket_DataSourceChanged);
+            this.dgvBookTicket.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvBookTicket_CellMouseDown);
+            this.dgvBookTicket.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBookTicket_CellMouseEnter);
+            this.dgvBookTicket.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBookTicket_CellMouseLeave);
             // 
             // cmt
             // 

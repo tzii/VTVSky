@@ -46,9 +46,13 @@ namespace Presentation_Layer.FormView
         }
         private void CustomDgv()
         {
-            dgvTuyenBays.Columns["MaTB"].HeaderText = "Mã";
-            dgvTuyenBays.Columns["MaTB"].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvTuyenBays.Columns["MaTB"].Width = 100;
+            dgvTuyenBays.Columns["MaTB"].Visible = false;
+            dgvTuyenBays.Columns["SBDi"].Visible = false;
+            dgvTuyenBays.Columns["SBDen"].Visible = false;
+
+            dgvTuyenBays.Columns["strMaTB"].HeaderText = "Mã";
+            dgvTuyenBays.Columns["strMaTB"].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvTuyenBays.Columns["strMaTB"].Width = 100;
 
             dgvTuyenBays.Columns["TenSBDi"].HeaderText = "Sân Bay Đi";
             dgvTuyenBays.Columns["TenSBDen"].HeaderText = "Sân Bay Đến";
@@ -64,13 +68,13 @@ namespace Presentation_Layer.FormView
             return res;
         }
         #endregion
-        #region Chỉnh sửa hiển thị của dgvAirports
-        private void dgvAirports_DataSourceChanged(object sender, EventArgs e)
+        #region Chỉnh sửa hiển thị của dgvTuyenBays
+        private void dgvTuyenBays_DataSourceChanged(object sender, EventArgs e)
         {
             UpdateHeightDgv();
         }
 
-        private void dgvAirports_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        private void dgvTuyenBays_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
 
             if (e.RowIndex < 0) return;
@@ -78,12 +82,12 @@ namespace Presentation_Layer.FormView
             dgvTuyenBays.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.FromArgb(99, 191, 173);
         }
 
-        private void dgvAirports_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        private void dgvTuyenBays_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0) dgvTuyenBays.Rows[e.RowIndex].DefaultCellStyle.BackColor = lastColor;
         }
 
-        private void dgvAirports_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        private void dgvTuyenBays_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.RowIndex >= 0) dgvTuyenBays.Rows[e.RowIndex].Selected = true;
         }
@@ -92,7 +96,7 @@ namespace Presentation_Layer.FormView
         {
             UpdateHeightDgv();
         }
-        private void dgvAirports_SelectionChanged(object sender, EventArgs e)
+        private void dgvTuyenBays_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvTuyenBays.SelectedRows.Count > 0)
             {

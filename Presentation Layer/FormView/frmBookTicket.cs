@@ -46,13 +46,18 @@ namespace Presentation_Layer.FormView
             dgvBookTicket.Columns.Add(ButtonColumn("Edit"));
             dgvBookTicket.Columns.Add(ButtonColumn("Delete"));
 
-            dgvBookTicket.Columns["MaVe"].HeaderText = "Mã Vé";
-            dgvBookTicket.Columns["MaVe"].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvBookTicket.Columns["MaVe"].Width = 100;
+            dgvBookTicket.Columns["MaVe"].Visible = false;
+            dgvBookTicket.Columns["MaCB"].Visible = false;
+            dgvBookTicket.Columns["HV"].Visible = false;
+            dgvBookTicket.Columns["TinhTrang"].Visible = false;
 
-            dgvBookTicket.Columns["MaCB"].HeaderText = "Mã Chuyến Bay";
-            dgvBookTicket.Columns["MaCB"].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvBookTicket.Columns["MaCB"].Width = 100;
+            dgvBookTicket.Columns["strMaVe"].HeaderText = "Mã Vé";
+            dgvBookTicket.Columns["strMaVe"].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvBookTicket.Columns["strMaVe"].Width = 100;
+
+            dgvBookTicket.Columns["strMaCB"].HeaderText = "Mã Chuyến Bay";
+            dgvBookTicket.Columns["strMaCB"].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvBookTicket.Columns["strMaCB"].Width = 100;
 
             dgvBookTicket.Columns["TenHK"].HeaderText = "Tên Hành Khách";
             dgvBookTicket.Columns["CMND"].HeaderText = "CMND";
@@ -60,7 +65,7 @@ namespace Presentation_Layer.FormView
             dgvBookTicket.Columns["ThoiGian"].HeaderText = "Thời Gian";
             dgvBookTicket.Columns["TenHV"].HeaderText = "Hạng Vé";
             dgvBookTicket.Columns["GiaVe"].HeaderText = "Giá Vé";
-            dgvBookTicket.Columns["TinhTrang"].HeaderText = "Tình Trạng";
+            dgvBookTicket.Columns["strTinhTrang"].HeaderText = "Tình Trạng";
 
         }
 
@@ -103,7 +108,7 @@ namespace Presentation_Layer.FormView
             scrollHelper.UpdateScrollBar();
         }
 
-        private void dgvFlights_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        private void dgvBookTicket_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.RowIndex >= 0) dgvBookTicket.Rows[e.RowIndex].Selected = true;
         }
@@ -128,20 +133,20 @@ namespace Presentation_Layer.FormView
         {
 
         }
-        #region Chỉnh sửa hiển thị của dgvAirports
-        private void dgvFlightsList_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        #region Chỉnh sửa hiển thị của dgvBookTicket
+        private void dgvBookTicket_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0) dgvBookTicket.Rows[e.RowIndex].DefaultCellStyle.BackColor = lastColor;
 
         }
-        private void dgvFlightsList_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        private void dgvBookTicket_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex <= 0) return;
             lastColor = dgvBookTicket.Rows[e.RowIndex].DefaultCellStyle.BackColor;
             dgvBookTicket.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.FromArgb(99, 191, 173);
         }
 
-        private void dgvFlightsList_DataSourceChanged(object sender, EventArgs e)
+        private void dgvBookTicket_DataSourceChanged(object sender, EventArgs e)
         {
             UpdateHeightDgv();
         }

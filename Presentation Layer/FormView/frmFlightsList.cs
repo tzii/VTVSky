@@ -46,11 +46,20 @@ namespace Presentation_Layer.FormView
             //dgvFlightsList.Columns.Add(ButtonColumn("Edit"));
             //dgvFlightsList.Columns.Add(ButtonColumn("Delete"));
 
-            //dgvFlightsList.Columns["MaSB"].HeaderText = "Mã";
-            //dgvFlightsList.Columns["MaSB"].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            //dgvFlightsList.Columns["MaSB"].Width = 200;
+            dgvFlightsList.Columns["MaCB"].Visible = false;
+            dgvFlightsList.Columns["TB"].Visible = false;
 
-            //dgvFlightsList.Columns["TenSB"].HeaderText = "Tên Sân Bay";
+            dgvFlightsList.Columns["strMaCB"].HeaderText = "Mã";
+            dgvFlightsList.Columns["strMaCB"].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvFlightsList.Columns["strMaCB"].Width = 100;
+
+            dgvFlightsList.Columns["TenSBDi"].HeaderText = "Sân Bay Đi";
+            dgvFlightsList.Columns["TenSBDen"].HeaderText = "Sân Bay Đến";
+            dgvFlightsList.Columns["DonGia"].HeaderText = "Đơn giá";
+            dgvFlightsList.Columns["ThoiGian"].HeaderText = "Khởi hành";
+            dgvFlightsList.Columns["ThoiLuong"].HeaderText = "Thời lượng";
+            dgvFlightsList.Columns["SoGheTrong"].HeaderText = "Số ghế trống";
+            dgvFlightsList.Columns["SoGheDat"].HeaderText = "Số ghế đặt";
         }
 
         private List<CBSource> sources()

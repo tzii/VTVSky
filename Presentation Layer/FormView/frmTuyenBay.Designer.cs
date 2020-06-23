@@ -149,11 +149,11 @@
             this.dgvTuyenBays.ThemeStyle.RowsStyle.Height = 24;
             this.dgvTuyenBays.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(191)))), ((int)(((byte)(173)))));
             this.dgvTuyenBays.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvTuyenBays.DataSourceChanged += new System.EventHandler(this.dgvAirports_DataSourceChanged);
-            this.dgvTuyenBays.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAirports_CellMouseDown);
-            this.dgvTuyenBays.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAirports_CellMouseEnter);
-            this.dgvTuyenBays.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAirports_CellMouseLeave);
-            this.dgvTuyenBays.SelectionChanged += new System.EventHandler(this.dgvAirports_SelectionChanged);
+            this.dgvTuyenBays.DataSourceChanged += new System.EventHandler(this.dgvTuyenBays_DataSourceChanged);
+            this.dgvTuyenBays.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvTuyenBays_CellMouseDown);
+            this.dgvTuyenBays.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTuyenBays_CellMouseEnter);
+            this.dgvTuyenBays.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTuyenBays_CellMouseLeave);
+            this.dgvTuyenBays.SelectionChanged += new System.EventHandler(this.dgvTuyenBays_SelectionChanged);
             // 
             // cmt
             // 

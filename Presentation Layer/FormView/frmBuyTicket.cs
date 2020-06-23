@@ -46,13 +46,17 @@ namespace Presentation_Layer.FormView
             dgvBuyTicket.Columns.Add(ButtonColumn("Edit"));
             dgvBuyTicket.Columns.Add(ButtonColumn("Delete"));
 
-            dgvBuyTicket.Columns["MaVe"].HeaderText = "Mã Vé";
-            dgvBuyTicket.Columns["MaVe"].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvBuyTicket.Columns["MaVe"].Width = 100;
+            dgvBuyTicket.Columns["MaVe"].Visible = false;
+            dgvBuyTicket.Columns["MaCB"].Visible = false;
+            dgvBuyTicket.Columns["HV"].Visible = false;
 
-            dgvBuyTicket.Columns["MaCB"].HeaderText = "Mã Chuyến Bay";
-            dgvBuyTicket.Columns["MaCB"].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvBuyTicket.Columns["MaCB"].Width = 100;
+            dgvBuyTicket.Columns["strMaVe"].HeaderText = "Mã Vé";
+            dgvBuyTicket.Columns["strMaVe"].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvBuyTicket.Columns["strMaVe"].Width = 100;
+
+            dgvBuyTicket.Columns["strMaCB"].HeaderText = "Mã Chuyến Bay";
+            dgvBuyTicket.Columns["strMaCB"].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvBuyTicket.Columns["strMaCB"].Width = 100;
 
             dgvBuyTicket.Columns["TenHK"].HeaderText = "Tên Hành Khách";
             dgvBuyTicket.Columns["CMND"].HeaderText = "CMND";
