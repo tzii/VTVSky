@@ -10,12 +10,6 @@ namespace Business_Logic_Layer
 {
     public class BLL_CTCB
     {
-        public static List<CTCB> GetCTCBs()
-        {
-            var ctcbs = DAL_CTCB.GetCTCB();
-            if (ctcbs == null) return new List<CTCB>();
-            return ctcbs;
-        }
         public static List<CTCB> GetCTCBs(int maCB)
         {
             var ctcbs = DAL_CTCB.SearchMaCB(maCB);
