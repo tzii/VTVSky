@@ -27,6 +27,7 @@ namespace Data_Transfer_Objects
         {
             get
             {
+                if (TB == null) return "#";
                 return TB.TenSBDi;
             }
         }
@@ -34,6 +35,7 @@ namespace Data_Transfer_Objects
         {
             get
             {
+                if (TB == null) return "#";
                 return TB.TenSBDen;
             }
         }

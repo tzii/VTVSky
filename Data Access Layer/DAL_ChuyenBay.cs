@@ -21,7 +21,7 @@ namespace Data_Access_Layer
                 List<ChuyenBay> chuyenBay = new List<ChuyenBay>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    ChuyenBay cb = new ChuyenBay((int)dt.Rows[i]["MaCB"], DAL_TuyenBay.GetTuyenBay((int)dt.Rows[i]["MaTB"]), (int)dt.Rows[i]["DonGia"],(DateTime)dt.Rows[i]["ThoiGian"], (int)dt.Rows[i]["ThoiLuong"], (int)dt.Rows[i]["SoGheTrong"], (int)dt.Rows[i]["SoGheDat"]);
+                    ChuyenBay cb = new ChuyenBay((int)dt.Rows[i]["MaCB"], DAL_TuyenBay.GetTuyenBay((int)dt.Rows[i]["MaTB"]), (int)dt.Rows[i]["DonGia"],(DateTime)dt.Rows[i]["ThoiGian"], (int)dt.Rows[i]["ThoiLuong"], (int)dt.Rows[i]["SLGheTrong"], (int)dt.Rows[i]["SLGheDat"]);
                     chuyenBay.Add(cb);
                 }
                 return chuyenBay;
@@ -38,7 +38,7 @@ namespace Data_Access_Layer
                 List<ChuyenBay> chuyenBay = new List<ChuyenBay>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    ChuyenBay cb = new ChuyenBay((int)dt.Rows[i]["MaCB"], DAL_TuyenBay.GetTuyenBay((int)dt.Rows[i]["MaTB"]), (int)dt.Rows[i]["DonGia"], (DateTime)dt.Rows[i]["ThoiGian"], (int)dt.Rows[i]["ThoiLuong"], (int)dt.Rows[i]["SoGheTrong"], (int)dt.Rows[i]["SoGheDat"]);
+                    ChuyenBay cb = new ChuyenBay((int)dt.Rows[i]["MaCB"], DAL_TuyenBay.GetTuyenBay((int)dt.Rows[i]["MaTB"]), (int)dt.Rows[i]["DonGia"], (DateTime)dt.Rows[i]["ThoiGian"], (int)dt.Rows[i]["ThoiLuong"], (int)dt.Rows[i]["SLGheTrong"], (int)dt.Rows[i]["SLGheDat"]);
                     chuyenBay.Add(cb);
                 }
                 return chuyenBay;
@@ -46,16 +46,16 @@ namespace Data_Access_Layer
             return null;
         }
 
-        public static List<ChuyenBay> SearchMaSBDi(string maSBDi)
+        public static List<ChuyenBay> SearchTenSBDi(string tenSBDi)
         {
-            string cmdText = String.Format("select * from CHUYENBAY where MaSBDI like '%{0}%'", maSBDi == "" ? maSBDi : DataProvider.ConvertToInt(maSBDi));
+            string cmdText = String.Format("select * from CHUYENBAY where MaSBDI like '%{0}%'", tenSBDi == "" ? tenSBDi : DataProvider.ConvertToInt(tenSBDi));
             DataTable dt = DataProvider.ExecuteReader(cmdText);
             if (dt != null && dt.Rows.Count > 0)
             {
                 List<ChuyenBay> chuyenBay = new List<ChuyenBay>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    ChuyenBay cb = new ChuyenBay((int)dt.Rows[i]["MaCB"], DAL_TuyenBay.GetTuyenBay((int)dt.Rows[i]["MaTB"]), (int)dt.Rows[i]["DonGia"], (DateTime)dt.Rows[i]["ThoiGian"], (int)dt.Rows[i]["ThoiLuong"], (int)dt.Rows[i]["SoGheTrong"], (int)dt.Rows[i]["SoGheDat"]);
+                    ChuyenBay cb = new ChuyenBay((int)dt.Rows[i]["MaCB"], DAL_TuyenBay.GetTuyenBay((int)dt.Rows[i]["MaTB"]), (int)dt.Rows[i]["DonGia"], (DateTime)dt.Rows[i]["ThoiGian"], (int)dt.Rows[i]["ThoiLuong"], (int)dt.Rows[i]["SLGheTrong"], (int)dt.Rows[i]["SLGheDat"]);
                     chuyenBay.Add(cb);
                 }
                 return chuyenBay;
@@ -63,16 +63,16 @@ namespace Data_Access_Layer
             return null;
         }
 
-        public static List<ChuyenBay> SearchMaSBDen(string maSBDen)
+        public static List<ChuyenBay> SearchTenSBDen(string tenSBDen)
         {
-            string cmdText = String.Format("select * from CHUYENBAY where MaSBDen like '%{0}%'", maSBDen == "" ? maSBDen : DataProvider.ConvertToInt(maSBDen));
+            string cmdText = String.Format("select * from CHUYENBAY where MaSBDen like '%{0}%'", tenSBDen == "" ? tenSBDen : DataProvider.ConvertToInt(tenSBDen));
             DataTable dt = DataProvider.ExecuteReader(cmdText);
             if (dt != null && dt.Rows.Count > 0)
             {
                 List<ChuyenBay> chuyenBay = new List<ChuyenBay>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    ChuyenBay cb = new ChuyenBay((int)dt.Rows[i]["MaCB"], DAL_TuyenBay.GetTuyenBay((int)dt.Rows[i]["MaTB"]), (int)dt.Rows[i]["DonGia"], (DateTime)dt.Rows[i]["ThoiGian"], (int)dt.Rows[i]["ThoiLuong"], (int)dt.Rows[i]["SoGheTrong"], (int)dt.Rows[i]["SoGheDat"]);
+                    ChuyenBay cb = new ChuyenBay((int)dt.Rows[i]["MaCB"], DAL_TuyenBay.GetTuyenBay((int)dt.Rows[i]["MaTB"]), (int)dt.Rows[i]["DonGia"], (DateTime)dt.Rows[i]["ThoiGian"], (int)dt.Rows[i]["ThoiLuong"], (int)dt.Rows[i]["SLGheTrong"], (int)dt.Rows[i]["SLGheDat"]);
                     chuyenBay.Add(cb);
                 }
                 return chuyenBay;

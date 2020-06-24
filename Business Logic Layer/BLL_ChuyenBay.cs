@@ -1,4 +1,5 @@
-﻿using Data_Transfer_Objects;
+﻿using Data_Access_Layer;
+using Data_Transfer_Objects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,13 +12,25 @@ namespace Business_Logic_Layer
     {
         public static List<ChuyenBay> GetChuyenBays()
         {
-            var chuyenBays = DAL_ChuyenBay.GetChuyenBay();
+            var chuyenBays = DAL_ChuyenBay.GetChuyenBays();
             if (chuyenBays == null) return new List<ChuyenBay>();
             return chuyenBays;
         }
         public static List<ChuyenBay> SearchMaCB(string maCB)
         {
             var chuyenBays = DAL_ChuyenBay.SearchMaCB(maCB);
+            if (chuyenBays == null) return new List<ChuyenBay>();
+            return chuyenBays;
+        }
+        public static List<ChuyenBay> SearchTenSBDi(string tenSB)
+        {
+            var chuyenBays = DAL_ChuyenBay.SearchTenSBDi(tenSB);
+            if (chuyenBays == null) return new List<ChuyenBay>();
+            return chuyenBays;
+        }
+        public static List<ChuyenBay> SearchTenSBDen(string tenSB)
+        {
+            var chuyenBays = DAL_ChuyenBay.SearchTenSBDen(tenSB);
             if (chuyenBays == null) return new List<ChuyenBay>();
             return chuyenBays;
         }
