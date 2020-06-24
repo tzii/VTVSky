@@ -9,6 +9,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Data_Access_Layer
 {
     public class DAL_SanBay
@@ -77,18 +78,28 @@ namespace Data_Access_Layer
         }
         public static bool InsertSanBay(SanBay sanBay)
         {
-
-
-            return true;
+            string cmdText = string.Format("INSERT INTO SANBAY(TenSB) VALUES ('{0}')", sanBay.TenSB);
+            bool insert = DataProvider.ExecuteNonQuery(cmdText);
+            if (insert == true)
+                return true;
+            return false;
         }
 
         public static bool UpdateSanBay(SanBay sanBay)
         {
-            return true;
+            string cmdText = string.Format("UPDATE SANBAY SET TenSB = '{0}' WHERE MaSB = {1}", sanBay.TenSB,sanBay.maSB);
+            bool update = DataProvider.ExecuteNonQuery(cmdText);
+            if (update == true)
+                return true;
+            return false;
         }
         public static bool DeleteSanBay(SanBay sanBay)
         {
-            return true;
+            string cmdText = string.Format("DELETE FROM SANBAY WHERE MaSB = {0})", sanBay.maSB);
+            bool update = DataProvider.ExecuteNonQuery(cmdText);
+            if (update == true)
+                return true;
+            return false;
         }
     }
 }

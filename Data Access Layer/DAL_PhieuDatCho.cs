@@ -159,5 +159,23 @@ namespace Data_Access_Layer
             return null;
         }
 
+        public static bool InsertPhieuDatCho(PhieuDatCho phieuDatCho)
+        {
+            string cmdText = string.Format("INSERT INTO PHIEUDATCHO(MaCB,TenHK,CMND,DienThoai,ThoiGian,MaHV,GiaVe,TinhTrang) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')", phieuDatCho.maCB,phieuDatCho.TenHK,phieuDatCho.CMND,phieuDatCho.DienThoai,phieuDatCho.ThoiGian,phieuDatCho.TenHV,phieuDatCho.GiaVe,phieuDatCho.tinhTrang);
+            bool insert = DataProvider.ExecuteNonQuery(cmdText);
+            if (insert == true)
+                return true;
+            return false;
+        }
+
+        public static bool UpdatePhieuDatCho(PhieuDatCho phieuDatCho)
+        {
+            string cmdText = string.Format("UPDATE PHIEUDATCHO SET MaCB= '{0}',TenHK= '{1}',CMND= '{2}',DienThoai= '{3}',ThoiGian= '{4}',MaHV= '{5}',GiaVe= '{6}',TinhTrang= '{7}' WHERE MaVe = {8}", phieuDatCho.maCB, phieuDatCho.TenHK, phieuDatCho.CMND, phieuDatCho.DienThoai, phieuDatCho.ThoiGian, phieuDatCho.TenHV, phieuDatCho.GiaVe, phieuDatCho.tinhTrang,phieuDatCho.maVe);
+            bool update = DataProvider.ExecuteNonQuery(cmdText);
+            if (update == true)
+                return true;
+            return false;
+        }
+
     }
 }

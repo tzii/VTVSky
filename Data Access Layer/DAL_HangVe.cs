@@ -75,6 +75,23 @@ namespace Data_Access_Layer
             }
             return null;
         }
+        public static bool InsertHangVe(HangVe hangVe)
+        {
+            string cmdText = string.Format("INSERT INTO HANGVE(TenHV,TiLe) VALUES ('{0}','{1}')", hangVe.TenHV,hangVe.TiLe);
+            bool insert = DataProvider.ExecuteNonQuery(cmdText);
+            if (insert == true)
+                return true;
+            return false;
+        }
+
+        public static bool UpdateHangVe(HangVe hangVe)
+        {
+            string cmdText = string.Format("UPDATE HANGVE SET TenHV = '{0}',TiLe='{1}' WHERE MaHV = {2}", hangVe.TenHV,hangVe.TiLe,hangVe.maHV);
+            bool update = DataProvider.ExecuteNonQuery(cmdText);
+            if (update == true)
+                return true;
+            return false;
+        }
     }
 }
 
