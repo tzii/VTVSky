@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.Design;
 
 namespace Presentation_Layer.FormView
 {
@@ -54,7 +55,13 @@ namespace Presentation_Layer.FormView
 
         private void frmHeTHong_Load(object sender, EventArgs e)
         {
-            tbServerName.Text = Server.ServerName;
+            tbServerName.Text = Server.ServerName.ToString();
+            tbTGBayToiThieu.Text = ThamSo.TGBayToiThieu.ToString();
+            tbSLSBTG.Text = ThamSo.SLSBTG.ToString();
+            tbTGDungToiThieu.Text = ThamSo.TGDungToiThieu.ToString();
+            tbTGDungToiDa.Text = ThamSo.TGDungToiDa.ToString();
+            tbTGDatVeChamNhat.Text = ThamSo.TGDatVeChamNhat.ToString();
+            tbTGHuyDatVe.Text = ThamSo.TGHuyDatVe.ToString();
         }
     }
 }

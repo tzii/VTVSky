@@ -63,6 +63,7 @@ namespace Presentation_Layer.FormView
         }
         private bool checkDB()
         {
+            if (Presentation_Layer.Properties.Settings.Default.ServerName == "(local)" && Presentation_Layer.Properties.Settings.Default.DatabaseName != "") return true;
             if (Presentation_Layer.Properties.Settings.Default.ServerName == "") return false;
             if (Presentation_Layer.Properties.Settings.Default.ServerLogin == "") return false;
             if (Presentation_Layer.Properties.Settings.Default.ServerPassword == "") return false;
@@ -174,6 +175,8 @@ namespace Presentation_Layer.FormView
         private void frmLogin_Load(object sender, EventArgs e)
         {
             loadInforServer();
+            User.setDefault();
+
             pos = 2;
             ls = new List<string>();
             ls.Add("Login");
@@ -221,6 +224,10 @@ namespace Presentation_Layer.FormView
             }
             else if (e.ProgressPercentage == 1)
             {
+                BLL_UserLogin.LoadUserLogin(tbUsername.Text, tbPassword.Text);
+                BLL_UserLogin.LoadUserPer();
+                BLL_UserLogin.LoadUserInfor();
+                BLL_ThamSo.LoadThamSo();
                 lbNoti.Text = "Đăng nhập thành công!";
                 lbNoti.Show();
                 frmMain frm = new frmMain();

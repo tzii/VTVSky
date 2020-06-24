@@ -24,8 +24,19 @@ namespace Data_Transfer_Objects
                 if (Per == "ADMIN") return "Admin";
                 if (Per == "MANAGER") return "Quản Lý";
                 if (Per == "STAFF") return "Nhân Viên";
-                return "######";
+                return "#########";
             }
+        }
+        public static void setDefault()
+        {
+            id = 0;
+            Username = "#########";
+            Password = "#########";
+            Per = "#########";
+            Name = "#########";
+            NgaySinh = DateTime.Today;
+            QueQuan = "#########";
+            DienThoai = "#########";
         }
     }
 }

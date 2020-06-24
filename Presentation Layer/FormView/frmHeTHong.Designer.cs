@@ -260,36 +260,36 @@
             this.lbTGHuyDatVe.AutoSize = true;
             this.lbTGHuyDatVe.Location = new System.Drawing.Point(18, 338);
             this.lbTGHuyDatVe.Name = "lbTGHuyDatVe";
-            this.lbTGHuyDatVe.Size = new System.Drawing.Size(255, 28);
+            this.lbTGHuyDatVe.Size = new System.Drawing.Size(289, 28);
             this.lbTGHuyDatVe.TabIndex = 2;
-            this.lbTGHuyDatVe.Text = "Thời gian hủy vé chậm nhất:";
+            this.lbTGHuyDatVe.Text = "Thời gian hủy vé chậm nhất (m):";
             // 
             // lbTGDatVeChamNhat
             // 
             this.lbTGDatVeChamNhat.AutoSize = true;
             this.lbTGDatVeChamNhat.Location = new System.Drawing.Point(18, 288);
             this.lbTGDatVeChamNhat.Name = "lbTGDatVeChamNhat";
-            this.lbTGDatVeChamNhat.Size = new System.Drawing.Size(252, 28);
+            this.lbTGDatVeChamNhat.Size = new System.Drawing.Size(286, 28);
             this.lbTGDatVeChamNhat.TabIndex = 2;
-            this.lbTGDatVeChamNhat.Text = "Thời gian đặt vé chậm nhất:";
+            this.lbTGDatVeChamNhat.Text = "Thời gian đặt vé chậm nhất (m):";
             // 
             // bTGDungToiDa
             // 
             this.bTGDungToiDa.AutoSize = true;
             this.bTGDungToiDa.Location = new System.Drawing.Point(18, 238);
             this.bTGDungToiDa.Name = "bTGDungToiDa";
-            this.bTGDungToiDa.Size = new System.Drawing.Size(205, 28);
+            this.bTGDungToiDa.Size = new System.Drawing.Size(239, 28);
             this.bTGDungToiDa.TabIndex = 2;
-            this.bTGDungToiDa.Text = "Thời gian dừng tối đa:";
+            this.bTGDungToiDa.Text = "Thời gian dừng tối đa (m):";
             // 
             // lbTGDungToiThieu
             // 
             this.lbTGDungToiThieu.AutoSize = true;
             this.lbTGDungToiThieu.Location = new System.Drawing.Point(18, 192);
             this.lbTGDungToiThieu.Name = "lbTGDungToiThieu";
-            this.lbTGDungToiThieu.Size = new System.Drawing.Size(227, 28);
+            this.lbTGDungToiThieu.Size = new System.Drawing.Size(261, 28);
             this.lbTGDungToiThieu.TabIndex = 2;
-            this.lbTGDungToiThieu.Text = "Thời gian dừng tối thiểu:";
+            this.lbTGDungToiThieu.Text = "Thời gian dừng tối thiểu (m):";
             // 
             // lbSLSBTG
             // 
@@ -316,9 +316,9 @@
             this.lbTGBayToiThieu.AutoSize = true;
             this.lbTGBayToiThieu.Location = new System.Drawing.Point(18, 100);
             this.lbTGBayToiThieu.Name = "lbTGBayToiThieu";
-            this.lbTGBayToiThieu.Size = new System.Drawing.Size(212, 28);
+            this.lbTGBayToiThieu.Size = new System.Drawing.Size(246, 28);
             this.lbTGBayToiThieu.TabIndex = 2;
-            this.lbTGBayToiThieu.Text = "Thời gian bay tối thiểu:";
+            this.lbTGBayToiThieu.Text = "Thời gian bay tối thiểu (m):";
             // 
             // tbTGHuyDatVe
             // 

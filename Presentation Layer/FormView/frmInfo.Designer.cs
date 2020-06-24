@@ -111,6 +111,7 @@
             // 
             // tbDienThoai
             // 
+            this.tbDienThoai.BorderRadius = 6;
             this.tbDienThoai.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbDienThoai.DefaultText = "#########";
             this.tbDienThoai.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
@@ -241,12 +242,12 @@
             // 
             // lbChucVu
             // 
-            this.lbChucVu.AutoSize = true;
-            this.lbChucVu.Location = new System.Drawing.Point(176, 183);
+            this.lbChucVu.Location = new System.Drawing.Point(0, 183);
             this.lbChucVu.Name = "lbChucVu";
-            this.lbChucVu.Size = new System.Drawing.Size(120, 28);
+            this.lbChucVu.Size = new System.Drawing.Size(452, 35);
             this.lbChucVu.TabIndex = 2;
             this.lbChucVu.Text = "#########";
+            this.lbChucVu.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // pbAvatar
             // 
@@ -262,6 +263,7 @@
             // 
             // tbQueQuan
             // 
+            this.tbQueQuan.BorderRadius = 6;
             this.tbQueQuan.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbQueQuan.DefaultText = "#########";
             this.tbQueQuan.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
@@ -289,6 +291,7 @@
             // 
             // tbNgaySinh
             // 
+            this.tbNgaySinh.BorderRadius = 6;
             this.tbNgaySinh.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbNgaySinh.DefaultText = "#########";
             this.tbNgaySinh.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
@@ -315,6 +318,7 @@
             // 
             // tbHoTen
             // 
+            this.tbHoTen.BorderRadius = 6;
             this.tbHoTen.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbHoTen.DefaultText = "#########";
             this.tbHoTen.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
@@ -361,6 +365,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmInfo";
             this.Text = "frmHome";
+            this.Load += new System.EventHandler(this.frmInfo_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.pnView.ResumeLayout(false);
             this.guna2Panel2.ResumeLayout(false);

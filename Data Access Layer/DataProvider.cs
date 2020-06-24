@@ -13,7 +13,9 @@ namespace Data_Transfer_Objects
     {
         private static SqlConnection Connection()
         {
-            string connectionString = String.Format("Server={0},1433;Initial Catalog={1};Persist Security Info=False;User ID={2};Password={3};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;", Server.ServerName, Server.DBName, Server.Login, Server.Password);
+
+            string connectionString = String.Format("Server={0};Database={1};Trusted_Connection=True;", Server.ServerName, Server.DBName);
+            if (Server.ServerName != "(local)") connectionString = String.Format("Server={0},1433;Initial Catalog={1};Persist Security Info=False;User ID={2};Password={3};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;", Server.ServerName, Server.DBName, Server.Login, Server.Password);
             SqlConnection conn = new SqlConnection(connectionString);
             return conn;
         }
