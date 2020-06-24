@@ -63,7 +63,9 @@ namespace Presentation_Layer.FormView
             var res = new List<CBSource>();
             CBSource i = new CBSource("MaSB", "Mã");
             res.Add(i);
-            i = new CBSource("TenSB", "Tên Sân Bay");
+            i = new CBSource("SBDi", "Sân Bay Đi");
+            res.Add(i);
+            i = new CBSource("SBDen", "Sân Bay Đến");
             res.Add(i);
             return res;
         }
@@ -113,7 +115,11 @@ namespace Presentation_Layer.FormView
                         return;
                     }
                 }
-                tbMaSB.Text = dgvTuyenBays.SelectedRows[0].Cells["MaTB"].Value.ToString();
+                var sbDi = dgvTuyenBays.SelectedRows[0].Cells["SBDi"].Value as SanBay;
+                var sbDen = dgvTuyenBays.SelectedRows[0].Cells["SBDen"].Value as SanBay;
+                tbMaTB.Text = dgvTuyenBays.SelectedRows[0].Cells["strMaTB"].Value.ToString();
+                cbSBDi.SelectedValue = sbDi.maSB;
+                cbSBDen.SelectedValue = sbDen.maSB;
             }
         }
         #endregion
@@ -123,22 +129,28 @@ namespace Presentation_Layer.FormView
             cbSearch.DisplayMember = "Name";
             cbSearch.ValueMember = "ID";
 
-            //tuyenBays = BLL_SanBay.GetSanBays();
-            tuyenBays = new List<TuyenBay>();
+            tuyenBays = BLL_TuyenBay.GetTuyenBays();
             bl = new SortableBindingList<TuyenBay>(tuyenBays);
             dgvTuyenBays.DataSource = bl;
             CustomDgv();
+
+            cbSBDi.DataSource = BLL_SanBay.GetSanBays();
+            cbSBDi.DisplayMember = "TenSB";
+            cbSBDi.ValueMember = "MaSB";
+
+            cbSBDen.DataSource = BLL_SanBay.GetSanBays();
+            cbSBDen.DisplayMember = "TenSB";
+            cbSBDen.ValueMember = "MaSB";
 
             action = Actions.NOTHING;
         }
 
         public override void RefreshData()
         {
-            //tuyenBays = BLL_SanBay.GetSanBays();
-            tuyenBays = new List<TuyenBay>();
+            tuyenBays = BLL_TuyenBay.GetTuyenBays();
             bl = new SortableBindingList<TuyenBay>(tuyenBays);
             dgvTuyenBays.DataSource = bl;
-            Notification.Show("Làm mới danh sách sân bay");
+            Notification.Show("Làm mới danh sách tuyến bay");
         }
         public override void SizeChange()
         {
@@ -148,8 +160,9 @@ namespace Presentation_Layer.FormView
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            //if (cbSearch.SelectedValue.ToString() == "MaSB") tuyenBays = BLL_SanBay.SearchMaSB(tbSearch.Text);
-            //else if (cbSearch.SelectedValue.ToString() == "TenSB") tuyenBays = BLL_SanBay.SearchTenSB(tbSearch.Text);
+            if (cbSearch.SelectedValue.ToString() == "MaSB") tuyenBays = BLL_TuyenBay.searchMaTB(tbSearch.Text);
+            else if (cbSearch.SelectedValue.ToString() == "SBDi") tuyenBays = BLL_TuyenBay.searchTenSBDi(tbSearch.Text);
+            else if (cbSearch.SelectedValue.ToString() == "SBDen") tuyenBays = BLL_TuyenBay.searchTenSBDen(tbSearch.Text);
             bl = new SortableBindingList<TuyenBay>(tuyenBays);
             dgvTuyenBays.DataSource = bl;
         }
