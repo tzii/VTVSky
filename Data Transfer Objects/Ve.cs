@@ -45,11 +45,11 @@ namespace Data_Transfer_Objects
         {
             set
             {
-                CMND = value;
+                cmnd = value;
             }
             get
             {
-                return CMND;
+                return cmnd;
             }
         }
         public string DienThoai
@@ -78,6 +78,7 @@ namespace Data_Transfer_Objects
         {
             get
             {
+                if (HV == null) return "#";
                 return HV.TenHV;
             }
         }

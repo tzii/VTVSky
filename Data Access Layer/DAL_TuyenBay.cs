@@ -31,9 +31,9 @@ namespace Data_Access_Layer
 
         public static TuyenBay GetTuyenBay(int MaTB)
         {
-            string cmdText = @"select * from TUYENBAY Where MaTB=@MaTB";
+            string cmdText = String.Format("select * from TUYENBAY Where MaTB={0}",MaTB);
             DataTable dt = DataProvider.ExecuteReader(cmdText);
-            if (dt != null)
+            if (dt != null && dt.Rows.Count > 0)
             {
                 TuyenBay tb = new TuyenBay((int)dt.Rows[0]["MaTB"], DAL_SanBay.GetSanBay((int)dt.Rows[0]["MaSBDi"]), DAL_SanBay.GetSanBay((int)dt.Rows[0]["MaSBDen"]));
                 return tb;
@@ -57,9 +57,9 @@ namespace Data_Access_Layer
             }
             return null;
         }
-        public static List<TuyenBay> SearchMaSBDi(string maSBDi)
+        public static List<TuyenBay> SearchTenSBDi(string tenSBDi)
         {
-            string cmdText = String.Format("select * from TUYENBAY where MaSBDi like '%{0}%'", maSBDi == "" ? maSBDi : DataProvider.ConvertToInt(maSBDi));
+            string cmdText = String.Format("select * from TUYENBAY where MaSBDi like '%{0}%'", tenSBDi == "" ? tenSBDi : DataProvider.ConvertToInt(tenSBDi));
             DataTable dt = DataProvider.ExecuteReader(cmdText);
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -73,9 +73,9 @@ namespace Data_Access_Layer
             }
             return null;
         }
-        public static List<TuyenBay> SearchMaSBDen(string maSBDen)
+        public static List<TuyenBay> SearchTenSBDen(string tenSBDen)
         {
-            string cmdText = String.Format("select * from TUYENBAY where MaSBDen like '%{0}%'", maSBDen == "" ? maSBDen : DataProvider.ConvertToInt(maSBDen));
+            string cmdText = String.Format("select * from TUYENBAY where MaSBDen like '%{0}%'", tenSBDen == "" ? tenSBDen : DataProvider.ConvertToInt(tenSBDen));
             DataTable dt = DataProvider.ExecuteReader(cmdText);
             if (dt != null && dt.Rows.Count > 0)
             {

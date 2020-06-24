@@ -54,9 +54,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropertyComparer.cs" />
     <Compile Include="SanBay.cs" />
+    <Compile Include="Server.cs" />
     <Compile Include="SortableBindingList.cs" />
     <Compile Include="ThamSo.cs" />
     <Compile Include="TuyenBay.cs" />
+    <Compile Include="User.cs" />
     <Compile Include="Ve.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

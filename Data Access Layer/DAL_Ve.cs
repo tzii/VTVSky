@@ -12,7 +12,7 @@ namespace Data_Access_Layer
 {
     public class DAL_Ve
     {
-        public static List<Ve> GetVe()
+        public static List<Ve> GetVes()
         {
             string cmdText = @"select * from Ve";
             DataTable dt = DataProvider.ExecuteReader(cmdText);
@@ -21,7 +21,7 @@ namespace Data_Access_Layer
                 List<Ve> Ve = new List<Ve>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    Ve ve = new Ve((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"]);
+                    Ve ve = new Ve((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], DAL_HangVe.GetHangVe((int)dt.Rows[i]["MaHV"]), (int)dt.Rows[i]["GiaVe"]);
                     Ve.Add(ve);
                 }
                 return Ve;
@@ -38,7 +38,7 @@ namespace Data_Access_Layer
                 List<Ve> Ve = new List<Ve>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    Ve ve = new Ve((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"]);
+                    Ve ve = new Ve((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], DAL_HangVe.GetHangVe((int)dt.Rows[i]["MaHV"]), (int)dt.Rows[i]["GiaVe"]);
                     Ve.Add(ve);
                 }
                 return Ve;
@@ -55,7 +55,7 @@ namespace Data_Access_Layer
                 List<Ve> Ve = new List<Ve>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    Ve ve = new Ve((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"]);
+                    Ve ve = new Ve((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], DAL_HangVe.GetHangVe((int)dt.Rows[i]["MaHV"]), (int)dt.Rows[i]["GiaVe"]);
                     Ve.Add(ve);
                 }
                 return Ve;
@@ -64,14 +64,14 @@ namespace Data_Access_Layer
         }
         public static List<Ve> SearchTenHK(string tenHK)
         {
-            string cmdText = String.Format("select * from Ve where TenHK like '%{0}%'", tenHK == "" ? tenHK : DataProvider.ConvertToInt(tenHK));
+            string cmdText = String.Format("select * from Ve where TenHK like N'%{0}%'", tenHK);
             DataTable dt = DataProvider.ExecuteReader(cmdText);
             if (dt != null && dt.Rows.Count > 0)
             {
                 List<Ve> Ve = new List<Ve>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    Ve ve = new Ve((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"]);
+                    Ve ve = new Ve((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], DAL_HangVe.GetHangVe((int)dt.Rows[i]["MaHV"]), (int)dt.Rows[i]["GiaVe"]);
                     Ve.Add(ve);
                 }
                 return Ve;
@@ -80,30 +80,30 @@ namespace Data_Access_Layer
         }
         public static List<Ve> SearchCMND(string cMND)
         {
-            string cmdText = String.Format("select * from Ve where CMND like '%{0}%'", cMND == "" ? cMND : DataProvider.ConvertToInt(cMND));
+            string cmdText = String.Format("select * from Ve where CMND like '%{0}%'", cMND);
             DataTable dt = DataProvider.ExecuteReader(cmdText);
             if (dt != null && dt.Rows.Count > 0)
             {
                 List<Ve> Ve = new List<Ve>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    Ve ve = new Ve((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"]);
+                    Ve ve = new Ve((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], DAL_HangVe.GetHangVe((int)dt.Rows[i]["MaHV"]), (int)dt.Rows[i]["GiaVe"]);
                     Ve.Add(ve);
                 }
                 return Ve;
             }
             return null;
         }
-        public static List<Ve> SearchDienThoai(string dienThoai)
+        public static List<Ve> SearchSDT(string dienThoai)
         {
-            string cmdText = String.Format("select * from Ve where DienThoai like '%{0}%'", dienThoai == "" ? dienThoai : DataProvider.ConvertToInt(dienThoai));
+            string cmdText = String.Format("select * from Ve where DienThoai like '%{0}%'", dienThoai);
             DataTable dt = DataProvider.ExecuteReader(cmdText);
             if (dt != null && dt.Rows.Count > 0)
             {
                 List<Ve> Ve = new List<Ve>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    Ve ve = new Ve((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"]);
+                    Ve ve = new Ve((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], DAL_HangVe.GetHangVe((int)dt.Rows[i]["MaHV"]), (int)dt.Rows[i]["GiaVe"]);
                     Ve.Add(ve);
                 }
                 return Ve;
@@ -119,7 +119,7 @@ namespace Data_Access_Layer
                 List<Ve> Ve = new List<Ve>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    Ve ve = new Ve((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"]);
+                    Ve ve = new Ve((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], DAL_HangVe.GetHangVe((int)dt.Rows[i]["MaHV"]), (int)dt.Rows[i]["GiaVe"]);
                     Ve.Add(ve);
                 }
                 return Ve;
@@ -128,14 +128,14 @@ namespace Data_Access_Layer
         }
         public static List<Ve> SearchThoiGian(string thoiGian)
         {
-            string cmdText = String.Format("select * from VE where ThoiGian = @thoiGian");
+            string cmdText = String.Format("select * from VE where day(ThoiGian) like '%{0}%' or month(ThoiGian) like '%{0}%' or year(ThoiGian) like '%{0}%'", thoiGian);
             DataTable dt = DataProvider.ExecuteReader(cmdText);
             if (dt != null && dt.Rows.Count > 0)
             {
                 List<Ve> Ve = new List<Ve>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    Ve ve = new Ve((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"]);
+                    Ve ve = new Ve((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], DAL_HangVe.GetHangVe((int)dt.Rows[i]["MaHV"]), (int)dt.Rows[i]["GiaVe"]);
                     Ve.Add(ve);
                 }
                 return Ve;
@@ -151,7 +151,7 @@ namespace Data_Access_Layer
                 List<Ve> Ve = new List<Ve>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    Ve ve = new Ve((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"]);
+                    Ve ve = new Ve((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], DAL_HangVe.GetHangVe((int)dt.Rows[i]["MaHV"]), (int)dt.Rows[i]["GiaVe"]);
                     Ve.Add(ve);
                 }
                 return Ve;

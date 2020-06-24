@@ -63,6 +63,12 @@
     <Compile Include="FormDigital\frmPhieuDatChoEditing.Designer.cs">
       <DependentUpon>frmPhieuDatChoEditing.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDigital\frmServerSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDigital\frmServerSetup.Designer.cs">
+      <DependentUpon>frmServerSetup.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormDigital\frmVeEditing.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +218,9 @@
     <EmbeddedResource Include="FormDigital\frmPhieuDatChoEditing.resx">
       <DependentUpon>frmPhieuDatChoEditing.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormDigital\frmServerSetup.resx">
+      <DependentUpon>frmServerSetup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDigital\frmSuccess.resx">
       <DependentUpon>frmSuccess.cs</DependentUpon>
     </EmbeddedResource>
@@ -238,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormView\frmHangVe.resx">
       <DependentUpon>frmHangVe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormView\frmHeTHong.resx">
+      <DependentUpon>frmHeTHong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormView\frmHome.resx">
       <DependentUpon>frmHome.cs</DependentUpon>
@@ -342,6 +354,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\accept.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

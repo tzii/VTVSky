@@ -13,5 +13,9 @@ namespace Business_Logic_Layer
         {
             DAL_ThamSo.LoadThamSo();
         }
+        public static bool UpdateThamSo()
+        {
+            return false;
+        }
     }
 }

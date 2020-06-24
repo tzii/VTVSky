@@ -20,7 +20,12 @@ namespace Presentation_Layer.FormView
 
         private void frmInfo_Load(object sender, EventArgs e)
         {
-            
+            string x = User.Name;
+            lbChucVu.Text = User.Permission;
+            tbHoTen.Text = User.Name;
+            tbDienThoai.Text = User.DienThoai;
+            tbNgaySinh.Text = User.NgaySinh.ToString("dd/MM/yyyy");
+            tbQueQuan.Text = User.QueQuan;
         }
     }
 }

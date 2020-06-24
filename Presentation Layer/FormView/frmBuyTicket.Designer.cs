@@ -84,7 +84,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvBuyTicket.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvBuyTicket.ColumnHeadersHeight = 40;
+            this.dgvBuyTicket.ColumnHeadersHeight = 60;
             this.dgvBuyTicket.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvBuyTicket.ContextMenuStrip = this.cmt;
             this.guna2Transition1.SetDecoration(this.dgvBuyTicket, Guna.UI2.AnimatorNS.DecorationType.None);
@@ -111,7 +111,7 @@
             this.dgvBuyTicket.RowTemplate.Height = 24;
             this.dgvBuyTicket.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBuyTicket.ShowCellToolTips = false;
-            this.dgvBuyTicket.Size = new System.Drawing.Size(1048, 40);
+            this.dgvBuyTicket.Size = new System.Drawing.Size(1048, 60);
             this.dgvBuyTicket.TabIndex = 2;
             this.dgvBuyTicket.TabStop = false;
             this.dgvBuyTicket.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.GreenSea;
@@ -127,7 +127,7 @@
             this.dgvBuyTicket.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvBuyTicket.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dgvBuyTicket.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvBuyTicket.ThemeStyle.HeaderStyle.Height = 40;
+            this.dgvBuyTicket.ThemeStyle.HeaderStyle.Height = 60;
             this.dgvBuyTicket.ThemeStyle.ReadOnly = true;
             this.dgvBuyTicket.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(235)))), ((int)(((byte)(230)))));
             this.dgvBuyTicket.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -220,7 +220,7 @@
             this.pnContain.ShadowDecoration.Enabled = true;
             this.pnContain.ShadowDecoration.Parent = this.pnContain;
             this.pnContain.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 7, 7);
-            this.pnContain.Size = new System.Drawing.Size(1048, 40);
+            this.pnContain.Size = new System.Drawing.Size(1048, 60);
             this.pnContain.TabIndex = 3;
             // 
             // pnView
@@ -231,7 +231,7 @@
             this.guna2Transition1.SetDecoration(this.pnView, Guna.UI2.AnimatorNS.DecorationType.None);
             this.pnView.Location = new System.Drawing.Point(23, 100);
             this.pnView.Name = "pnView";
-            this.pnView.Size = new System.Drawing.Size(1055, 90);
+            this.pnView.Size = new System.Drawing.Size(1055, 110);
             this.pnView.TabIndex = 4;
             // 
             // pnScroll

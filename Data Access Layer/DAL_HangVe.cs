@@ -15,7 +15,7 @@ namespace Data_Access_Layer
     {
         public static List<HangVe> GetHangVes()
         {
-            string cmdText = @"select * from HANGVE";
+            string cmdText = @"select * from HANGVE where ISDELETE = 0";
             DataTable dt = DataProvider.ExecuteReader(cmdText);
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -32,9 +32,9 @@ namespace Data_Access_Layer
 
         public static HangVe GetHangVe(int MaHV)
         {
-            string cmdText = @"select * from HANGVE Where MaHV=@MaSHV";
+            string cmdText = String.Format("select * from HANGVE Where MaHV={0}",MaHV);
             DataTable dt = DataProvider.ExecuteReader(cmdText);
-            if (dt != null)
+            if (dt != null && dt.Rows.Count > 0)
             {
                 HangVe hv = new HangVe((int)dt.Rows[0]["MaHV"], dt.Rows[0]["TenHV"].ToString(), (double)dt.Rows[0]["TiLe"]);
                 return hv;
@@ -51,7 +51,7 @@ namespace Data_Access_Layer
                 List<HangVe> HangVe = new List<HangVe>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    HangVe hv = new HangVe((int)dt.Rows[i]["MaHV"], dt.Rows[i]["TenHV"].ToString(), (float)dt.Rows[i]["TiLe"]);
+                    HangVe hv = new HangVe((int)dt.Rows[i]["MaHV"], dt.Rows[i]["TenHV"].ToString(), (double)dt.Rows[i]["TiLe"]);
                     HangVe.Add(hv);
                 }
                 return HangVe;
@@ -68,7 +68,7 @@ namespace Data_Access_Layer
                 List<HangVe> HangVe = new List<HangVe>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    HangVe hv = new HangVe((int)dt.Rows[i]["MaHV"], dt.Rows[i]["TenHV"].ToString(), (float)dt.Rows[i]["TiLe"]);
+                    HangVe hv = new HangVe((int)dt.Rows[i]["MaHV"], dt.Rows[i]["TenHV"].ToString(), (double)dt.Rows[i]["TiLe"]);
                     HangVe.Add(hv);
                 }
                 return HangVe;

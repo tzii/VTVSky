@@ -26,7 +26,7 @@ namespace Presentation_Layer.FormView
         #region Other functions
         private void UpdateHeightDgv()
         {
-            pnView.Height = 50 + 40 + 24 * dgvBuyTicket.RowCount;
+            pnView.Height = 50 + 60 + 24 * dgvBuyTicket.RowCount;
         }
         private DataGridViewButtonColumn ButtonColumn(string text)
         {
@@ -46,20 +46,35 @@ namespace Presentation_Layer.FormView
             dgvBuyTicket.Columns.Add(ButtonColumn("Edit"));
             dgvBuyTicket.Columns.Add(ButtonColumn("Delete"));
 
-            dgvBuyTicket.Columns["MaVe"].HeaderText = "Mã Vé";
-            dgvBuyTicket.Columns["MaVe"].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvBuyTicket.Columns["MaVe"].Width = 100;
+            dgvBuyTicket.Columns["MaVe"].Visible = false;
+            dgvBuyTicket.Columns["MaCB"].Visible = false;
+            dgvBuyTicket.Columns["HV"].Visible = false;
 
-            dgvBuyTicket.Columns["MaCB"].HeaderText = "Mã Chuyến Bay";
-            dgvBuyTicket.Columns["MaCB"].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvBuyTicket.Columns["MaCB"].Width = 100;
+            dgvBuyTicket.Columns["strMaVe"].Width = 80;
+            dgvBuyTicket.Columns["strMaCB"].Width = 90;
+            dgvBuyTicket.Columns["CMND"].Width = 90;
+            dgvBuyTicket.Columns["DienThoai"].Width = 90;
+            dgvBuyTicket.Columns["ThoiGian"].Width = 80;
+            dgvBuyTicket.Columns["TenHV"].Width = 120;
+            dgvBuyTicket.Columns["GiaVe"].Width = 90;
 
-            dgvBuyTicket.Columns["TenHK"].HeaderText = "Tên Hành Khách";
+            dgvBuyTicket.Columns["strMaVe"].HeaderText = "Mã Vé";
+            dgvBuyTicket.Columns["strMaCB"].HeaderText = "Mã\nChuyến Bay";
+            dgvBuyTicket.Columns["TenHK"].HeaderText = "Tên\nHành Khách";
             dgvBuyTicket.Columns["CMND"].HeaderText = "CMND";
-            dgvBuyTicket.Columns["DienThoai"].HeaderText = "Số Điện Thoại";
+            dgvBuyTicket.Columns["DienThoai"].HeaderText = "Số\nĐiện Thoại";
             dgvBuyTicket.Columns["ThoiGian"].HeaderText = "Thời Gian";
             dgvBuyTicket.Columns["TenHV"].HeaderText = "Hạng Vé";
-            dgvBuyTicket.Columns["GiaVe"].HeaderText = "Giá Vé";
+            dgvBuyTicket.Columns["GiaVe"].HeaderText = "Giá\n(VND)";
+
+            dgvBuyTicket.Columns["GiaVe"].DefaultCellStyle.Format = "### ### ###";
+
+            dgvBuyTicket.Columns["strMaVe"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvBuyTicket.Columns["strMaCB"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvBuyTicket.Columns["CMND"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvBuyTicket.Columns["DienThoai"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvBuyTicket.Columns["ThoiGian"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvBuyTicket.Columns["GiaVe"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
         }
 
@@ -68,13 +83,13 @@ namespace Presentation_Layer.FormView
             var res = new List<CBSource>();
             CBSource i = new CBSource("MaVe", "Mã Vé");
             res.Add(i);
-            i = new CBSource("CB", "Mã Chuyến Bay");
+            i = new CBSource("MaCB", "Mã Chuyến Bay");
             res.Add(i);
             i = new CBSource("TenHK", "Tên Hành Khách");
             res.Add(i);
             i = new CBSource("CMND", "CMND");
             res.Add(i);
-            i = new CBSource("DT", "Số Điện Thoại");
+            i = new CBSource("SDT", "Số Điện Thoại");
             res.Add(i);
             i = new CBSource("TG", "Thời Gian");
             res.Add(i);
@@ -87,13 +102,10 @@ namespace Presentation_Layer.FormView
             cbSearch.DisplayMember = "Name";
             cbSearch.ValueMember = "ID";
 
-            //ves= BLL_ChuyenBay.GetSanBays();
-            ves = new List<Ve>();
+            ves = BLL_Ve.GetVes();
             bl = new SortableBindingList<Ve>(ves);
             dgvBuyTicket.DataSource = bl;
             CustomDgv();
-
-            //if (sanBays == null) Notification.Show(Status.ACCESS, "NULL");
 
             //Update scrollbar
             scrollHelper = new PanelScrollHelper(pnScroll, sb, false);
@@ -123,17 +135,23 @@ namespace Presentation_Layer.FormView
         }
         private void btnSearch_Click(object sender, EventArgs e)
         {
-
+            if (cbSearch.SelectedValue.ToString() == "MaVe") ves = BLL_Ve.SearchMaVe(tbSearch.Text);
+            else if (cbSearch.SelectedValue.ToString() == "MaCB") ves = BLL_Ve.SearchMaCB(tbSearch.Text);
+            else if (cbSearch.SelectedValue.ToString() == "TenHK") ves = BLL_Ve.SearchTenHK(tbSearch.Text);
+            else if (cbSearch.SelectedValue.ToString() == "CMND") ves = BLL_Ve.SearchCMND(tbSearch.Text);
+            else if (cbSearch.SelectedValue.ToString() == "SDT") ves = BLL_Ve.SearchSDT(tbSearch.Text);
+            else if (cbSearch.SelectedValue.ToString() == "TG") ves = BLL_Ve.SearchThoiGian(tbSearch.Text);
+            bl = new SortableBindingList<Ve>(ves);
+            dgvBuyTicket.DataSource = bl;
         }
         #region Chỉnh sửa hiển thị của dgvAirports
         private void dgvFlightsList_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0) dgvBuyTicket.Rows[e.RowIndex].DefaultCellStyle.BackColor = lastColor;
-
         }
         private void dgvFlightsList_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex <= 0) return;
+            if (e.RowIndex < 0) return;
             lastColor = dgvBuyTicket.Rows[e.RowIndex].DefaultCellStyle.BackColor;
             dgvBuyTicket.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.FromArgb(99, 191, 173);
         }
