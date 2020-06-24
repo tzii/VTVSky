@@ -31,9 +31,9 @@ namespace Data_Access_Layer
 
         public static TuyenBay GetTuyenBay(int MaTB)
         {
-            string cmdText = @"select * from TUYENBAY Where MaTB=@MaTB";
+            string cmdText = String.Format("select * from TUYENBAY Where MaTB={0}",MaTB);
             DataTable dt = DataProvider.ExecuteReader(cmdText);
-            if (dt != null)
+            if (dt != null && dt.Rows.Count > 0)
             {
                 TuyenBay tb = new TuyenBay((int)dt.Rows[0]["MaTB"], DAL_SanBay.GetSanBay((int)dt.Rows[0]["MaSBDi"]), DAL_SanBay.GetSanBay((int)dt.Rows[0]["MaSBDen"]));
                 return tb;
