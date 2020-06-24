@@ -1,4 +1,5 @@
-﻿using Data_Transfer_Objects;
+﻿using Data_Access_Layer;
+using Data_Transfer_Objects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,35 +13,55 @@ namespace Business_Logic_Layer
     {
         public static List<PhieuDatCho> GetPhieuDatChos()
         {
-            return new List<PhieuDatCho>();
+            var phieuDatChos = DAL_PhieuDatCho.GetPhieuDatChos();
+            if (phieuDatChos == null) return new List<PhieuDatCho>();
+            return phieuDatChos;
         }
         public static List<PhieuDatCho> SearchMaVe(string maVe)
         {
-            return new List<PhieuDatCho>();
+            var phieuDatChos = DAL_PhieuDatCho.SearchMaVe(maVe);
+            if (phieuDatChos == null) return new List<PhieuDatCho>();
+            return phieuDatChos;
         }
         public static List<PhieuDatCho> SearchMaCB(string maCB)
         {
-            return new List<PhieuDatCho>();
+            var phieuDatChos = DAL_PhieuDatCho.SearchMaCB(maCB);
+            if (phieuDatChos == null) return new List<PhieuDatCho>();
+            return phieuDatChos;
         }
         public static List<PhieuDatCho> SearchTenHK(string tenHK)
         {
-            return new List<PhieuDatCho>();
+            var phieuDatChos = DAL_PhieuDatCho.SearchTenHK(tenHK);
+            if (phieuDatChos == null) return new List<PhieuDatCho>();
+            return phieuDatChos;
         }
         public static List<PhieuDatCho> SearchCMND(string cmnd)
         {
-            return new List<PhieuDatCho>();
+            var phieuDatChos = DAL_PhieuDatCho.SearchCMND(cmnd);
+            if (phieuDatChos == null) return new List<PhieuDatCho>();
+            return phieuDatChos;
         }
         public static List<PhieuDatCho> SearchSDT(string sdt)
         {
-            return new List<PhieuDatCho>();
+            var phieuDatChos = DAL_PhieuDatCho.SearchDienThoai(sdt);
+            if (phieuDatChos == null) return new List<PhieuDatCho>();
+            return phieuDatChos;
         }
         public static List<PhieuDatCho> SearchThoiGian(string thoiGian)
         {
-            return new List<PhieuDatCho>();
+            var phieuDatChos = DAL_PhieuDatCho.SearchThoiGian(thoiGian);
+            if (phieuDatChos == null) return new List<PhieuDatCho>();
+            return phieuDatChos;
         }
         public static List<PhieuDatCho> SearchTinhTrang(string tinhTrang)
         {
-            return new List<PhieuDatCho>();
+            int temp = 0;
+            if (tinhTrang == "Đặt") temp = 1;
+            else if (tinhTrang == "Đã Bán") temp = 2;
+            else if (tinhTrang == "Đã Hủy") temp = 3;
+            var phieuDatChos = DAL_PhieuDatCho.SearchTinhTrang(temp);
+            if (phieuDatChos == null) return new List<PhieuDatCho>();
+            return phieuDatChos;
         }
     }
 }

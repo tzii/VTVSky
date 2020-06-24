@@ -84,7 +84,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvBookTicket.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvBookTicket.ColumnHeadersHeight = 40;
+            this.dgvBookTicket.ColumnHeadersHeight = 60;
             this.dgvBookTicket.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvBookTicket.ContextMenuStrip = this.cmt;
             this.guna2Transition1.SetDecoration(this.dgvBookTicket, Guna.UI2.AnimatorNS.DecorationType.None);
@@ -111,7 +111,7 @@
             this.dgvBookTicket.RowTemplate.Height = 24;
             this.dgvBookTicket.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBookTicket.ShowCellToolTips = false;
-            this.dgvBookTicket.Size = new System.Drawing.Size(1048, 40);
+            this.dgvBookTicket.Size = new System.Drawing.Size(1048, 60);
             this.dgvBookTicket.TabIndex = 2;
             this.dgvBookTicket.TabStop = false;
             this.dgvBookTicket.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.GreenSea;
@@ -127,7 +127,7 @@
             this.dgvBookTicket.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvBookTicket.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dgvBookTicket.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvBookTicket.ThemeStyle.HeaderStyle.Height = 40;
+            this.dgvBookTicket.ThemeStyle.HeaderStyle.Height = 60;
             this.dgvBookTicket.ThemeStyle.ReadOnly = true;
             this.dgvBookTicket.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(235)))), ((int)(((byte)(230)))));
             this.dgvBookTicket.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -220,7 +220,7 @@
             this.pnContain.ShadowDecoration.Enabled = true;
             this.pnContain.ShadowDecoration.Parent = this.pnContain;
             this.pnContain.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 7, 7);
-            this.pnContain.Size = new System.Drawing.Size(1048, 40);
+            this.pnContain.Size = new System.Drawing.Size(1048, 60);
             this.pnContain.TabIndex = 3;
             // 
             // pnView
@@ -231,7 +231,7 @@
             this.guna2Transition1.SetDecoration(this.pnView, Guna.UI2.AnimatorNS.DecorationType.None);
             this.pnView.Location = new System.Drawing.Point(23, 100);
             this.pnView.Name = "pnView";
-            this.pnView.Size = new System.Drawing.Size(1055, 90);
+            this.pnView.Size = new System.Drawing.Size(1055, 110);
             this.pnView.TabIndex = 4;
             // 
             // pnScroll

@@ -12,7 +12,7 @@ namespace Data_Access_Layer
 {
     public class DAL_PhieuDatCho
     {
-        public static List<PhieuDatCho> GetPhieuDatCho()
+        public static List<PhieuDatCho> GetPhieuDatChos()
         {
             string cmdText = @"select * from PHIEUDATCHO";
             DataTable dt = DataProvider.ExecuteReader(cmdText);
@@ -21,7 +21,7 @@ namespace Data_Access_Layer
                 List<PhieuDatCho> phieudatcho = new List<PhieuDatCho>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    PhieuDatCho pdc = new PhieuDatCho((int)dt.Rows[i]["MaVe"],(int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"],(HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"], (int)dt.Rows[i]["TinhTrang"]);
+                    PhieuDatCho pdc = new PhieuDatCho((int)dt.Rows[i]["MaVe"],(int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], DAL_HangVe.GetHangVe((int)dt.Rows[i]["MaHV"]), (int)dt.Rows[i]["GiaVe"], (int)dt.Rows[i]["TinhTrang"]);
                     phieudatcho.Add(pdc);
                 }
                 return phieudatcho;
@@ -38,7 +38,7 @@ namespace Data_Access_Layer
                 List<PhieuDatCho> phieudatcho = new List<PhieuDatCho>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    PhieuDatCho pdc = new PhieuDatCho((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"], (int)dt.Rows[i]["TinhTrang"]);
+                    PhieuDatCho pdc = new PhieuDatCho((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], DAL_HangVe.GetHangVe((int)dt.Rows[i]["MaHV"]), (int)dt.Rows[i]["GiaVe"], (int)dt.Rows[i]["TinhTrang"]);
                     phieudatcho.Add(pdc);
                 }
                 return phieudatcho;
@@ -55,7 +55,7 @@ namespace Data_Access_Layer
                 List<PhieuDatCho> phieudatcho = new List<PhieuDatCho>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    PhieuDatCho pdc = new PhieuDatCho((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"], (int)dt.Rows[i]["TinhTrang"]);
+                    PhieuDatCho pdc = new PhieuDatCho((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], DAL_HangVe.GetHangVe((int)dt.Rows[i]["MaHV"]), (int)dt.Rows[i]["GiaVe"], (int)dt.Rows[i]["TinhTrang"]);
                     phieudatcho.Add(pdc);
                 }
                 return phieudatcho;
@@ -64,14 +64,14 @@ namespace Data_Access_Layer
         }
         public static List<PhieuDatCho> SearchTenHK(string tenHK)
         {
-            string cmdText = String.Format("select * from PHIEUDATCHO where TenHK like '%{0}%'", tenHK == "" ? tenHK : DataProvider.ConvertToInt(tenHK));
+            string cmdText = String.Format("select * from PHIEUDATCHO where TenHK like N'%{0}%'", tenHK);
             DataTable dt = DataProvider.ExecuteReader(cmdText);
             if (dt != null && dt.Rows.Count > 0)
             {
                 List<PhieuDatCho> phieudatcho = new List<PhieuDatCho>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    PhieuDatCho pdc = new PhieuDatCho((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"], (int)dt.Rows[i]["TinhTrang"]);
+                    PhieuDatCho pdc = new PhieuDatCho((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], DAL_HangVe.GetHangVe((int)dt.Rows[i]["MaHV"]), (int)dt.Rows[i]["GiaVe"], (int)dt.Rows[i]["TinhTrang"]);
                     phieudatcho.Add(pdc);
                 }
                 return phieudatcho;
@@ -80,14 +80,14 @@ namespace Data_Access_Layer
         }
         public static List<PhieuDatCho> SearchCMND(string cMND)
         {
-            string cmdText = String.Format("select * from PHIEUDATCHO where CMND like '%{0}%'", cMND == "" ? cMND : DataProvider.ConvertToInt(cMND));
+            string cmdText = String.Format("select * from PHIEUDATCHO where CMND like '%{0}%'", cMND);
             DataTable dt = DataProvider.ExecuteReader(cmdText);
             if (dt != null && dt.Rows.Count > 0)
             {
                 List<PhieuDatCho> phieudatcho = new List<PhieuDatCho>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    PhieuDatCho pdc = new PhieuDatCho((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"], (int)dt.Rows[i]["TinhTrang"]);
+                    PhieuDatCho pdc = new PhieuDatCho((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], DAL_HangVe.GetHangVe((int)dt.Rows[i]["MaHV"]), (int)dt.Rows[i]["GiaVe"], (int)dt.Rows[i]["TinhTrang"]);
                     phieudatcho.Add(pdc);
                 }
                 return phieudatcho;
@@ -96,14 +96,14 @@ namespace Data_Access_Layer
         }
         public static List<PhieuDatCho> SearchDienThoai(string dienThoai)
         {
-            string cmdText = String.Format("select * from PHIEUDATCHO where DienThoai like '%{0}%'", dienThoai == "" ? dienThoai : DataProvider.ConvertToInt(dienThoai));
+            string cmdText = String.Format("select * from PHIEUDATCHO where DienThoai like '%{0}%'", dienThoai);
             DataTable dt = DataProvider.ExecuteReader(cmdText);
             if (dt != null && dt.Rows.Count > 0)
             {
                 List<PhieuDatCho> phieudatcho = new List<PhieuDatCho>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    PhieuDatCho pdc = new PhieuDatCho((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"], (int)dt.Rows[i]["TinhTrang"]);
+                    PhieuDatCho pdc = new PhieuDatCho((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], DAL_HangVe.GetHangVe((int)dt.Rows[i]["MaHV"]), (int)dt.Rows[i]["GiaVe"], (int)dt.Rows[i]["TinhTrang"]);
                     phieudatcho.Add(pdc);
                 }
                 return phieudatcho;
@@ -119,7 +119,7 @@ namespace Data_Access_Layer
                 List<PhieuDatCho> phieudatcho = new List<PhieuDatCho>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    PhieuDatCho pdc = new PhieuDatCho((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"], (int)dt.Rows[i]["TinhTrang"]);
+                    PhieuDatCho pdc = new PhieuDatCho((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], DAL_HangVe.GetHangVe((int)dt.Rows[i]["MaHV"]), (int)dt.Rows[i]["GiaVe"], (int)dt.Rows[i]["TinhTrang"]);
                     phieudatcho.Add(pdc);
                 }
                 return phieudatcho;
@@ -128,30 +128,30 @@ namespace Data_Access_Layer
         }
         public static List<PhieuDatCho> SearchThoiGian(string thoiGian)
         {
-            string cmdText = String.Format("select * from PHIEUDATCHO where ThoiGian=@thoiGian");
+            string cmdText = String.Format("select * from PHIEUDATCHO where day(ThoiGian) like '%{0}%' or month(ThoiGian) like '%{0}%' or year(ThoiGian) like '%{0}%'",thoiGian);
             DataTable dt = DataProvider.ExecuteReader(cmdText);
             if (dt != null && dt.Rows.Count > 0)
             {
                 List<PhieuDatCho> phieudatcho = new List<PhieuDatCho>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    PhieuDatCho pdc = new PhieuDatCho((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"], (int)dt.Rows[i]["TinhTrang"]);
+                    PhieuDatCho pdc = new PhieuDatCho((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], DAL_HangVe.GetHangVe((int)dt.Rows[i]["MaHV"]), (int)dt.Rows[i]["GiaVe"], (int)dt.Rows[i]["TinhTrang"]);
                     phieudatcho.Add(pdc);
                 }
                 return phieudatcho;
             }
             return null;
         }
-        public static List<PhieuDatCho> SearchTinhTrang(string tinhTrang)
+        public static List<PhieuDatCho> SearchTinhTrang(int tinhTrang)
         {
-            string cmdText = String.Format("select * from PHIEUDATCHO where TinhTrang=@tinhTrang");
+            string cmdText = String.Format("select * from PHIEUDATCHO where TinhTrang=",tinhTrang);
             DataTable dt = DataProvider.ExecuteReader(cmdText);
             if (dt != null && dt.Rows.Count > 0)
             {
                 List<PhieuDatCho> phieudatcho = new List<PhieuDatCho>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    PhieuDatCho pdc = new PhieuDatCho((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"], (int)dt.Rows[i]["TinhTrang"]);
+                    PhieuDatCho pdc = new PhieuDatCho((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], DAL_HangVe.GetHangVe((int)dt.Rows[i]["MaHV"]), (int)dt.Rows[i]["GiaVe"], (int)dt.Rows[i]["TinhTrang"]);
                     phieudatcho.Add(pdc);
                 }
                 return phieudatcho;

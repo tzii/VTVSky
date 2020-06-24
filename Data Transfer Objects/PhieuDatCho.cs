@@ -79,6 +79,7 @@ namespace Data_Transfer_Objects
         {
             get
             {
+                if (HV == null) return "#";
                 return HV.TenHV;
             }
         }

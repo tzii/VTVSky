@@ -16,7 +16,7 @@ namespace Presentation_Layer.FormView
     public partial class frmBookTicket : CustomForm
     {
         private PanelScrollHelper scrollHelper;
-        private List<PhieuDatCho> datChos;
+        private List<PhieuDatCho> phieuDatChos;
         private SortableBindingList<PhieuDatCho> bl;
         private Color lastColor;
         public frmBookTicket()
@@ -26,7 +26,7 @@ namespace Presentation_Layer.FormView
         #region Other functions
         private void UpdateHeightDgv()
         {
-            pnView.Height = 50 + 40 + 24 * dgvBookTicket.RowCount;
+            pnView.Height = 50 + 60 + 24 * dgvBookTicket.RowCount;
         }
         private DataGridViewButtonColumn ButtonColumn(string text)
         {
@@ -51,22 +51,34 @@ namespace Presentation_Layer.FormView
             dgvBookTicket.Columns["HV"].Visible = false;
             dgvBookTicket.Columns["TinhTrang"].Visible = false;
 
+            dgvBookTicket.Columns["strMaVe"].Width = 80;
+            dgvBookTicket.Columns["strMaCB"].Width = 90;
+            dgvBookTicket.Columns["CMND"].Width = 90;
+            dgvBookTicket.Columns["DienThoai"].Width = 90;
+            dgvBookTicket.Columns["ThoiGian"].Width = 80;
+            dgvBookTicket.Columns["TenHV"].Width = 120;
+            dgvBookTicket.Columns["GiaVe"].Width = 90;
+            dgvBookTicket.Columns["strTinhTrang"].Width = 80;
+
             dgvBookTicket.Columns["strMaVe"].HeaderText = "Mã Vé";
-            dgvBookTicket.Columns["strMaVe"].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvBookTicket.Columns["strMaVe"].Width = 100;
-
-            dgvBookTicket.Columns["strMaCB"].HeaderText = "Mã Chuyến Bay";
-            dgvBookTicket.Columns["strMaCB"].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvBookTicket.Columns["strMaCB"].Width = 100;
-
-            dgvBookTicket.Columns["TenHK"].HeaderText = "Tên Hành Khách";
+            dgvBookTicket.Columns["strMaCB"].HeaderText = "Mã\nChuyến Bay";
+            dgvBookTicket.Columns["TenHK"].HeaderText = "Tên\nHành Khách";
             dgvBookTicket.Columns["CMND"].HeaderText = "CMND";
-            dgvBookTicket.Columns["DienThoai"].HeaderText = "Số Điện Thoại";
+            dgvBookTicket.Columns["DienThoai"].HeaderText = "Số\nĐiện Thoại";
             dgvBookTicket.Columns["ThoiGian"].HeaderText = "Thời Gian";
             dgvBookTicket.Columns["TenHV"].HeaderText = "Hạng Vé";
-            dgvBookTicket.Columns["GiaVe"].HeaderText = "Giá Vé";
+            dgvBookTicket.Columns["GiaVe"].HeaderText = "Giá\n(VND)";
             dgvBookTicket.Columns["strTinhTrang"].HeaderText = "Tình Trạng";
 
+            dgvBookTicket.Columns["GiaVe"].DefaultCellStyle.Format = "### ### ###";
+
+            dgvBookTicket.Columns["strMaVe"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvBookTicket.Columns["strMaCB"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvBookTicket.Columns["CMND"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvBookTicket.Columns["DienThoai"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvBookTicket.Columns["ThoiGian"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvBookTicket.Columns["GiaVe"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvBookTicket.Columns["strTinhTrang"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
         private List<CBSource> sources()
@@ -74,13 +86,13 @@ namespace Presentation_Layer.FormView
             var res = new List<CBSource>();
             CBSource i = new CBSource("MaVe", "Mã Vé");
             res.Add(i);
-            i = new CBSource("CB", "Mã Chuyến Bay");
+            i = new CBSource("MaCB", "Mã Chuyến Bay");
             res.Add(i);
             i = new CBSource("TenHK", "Tên Hành Khách");
             res.Add(i);
             i = new CBSource("CMND", "CMND");
             res.Add(i);
-            i = new CBSource("DT", "Số Điện Thoại");
+            i = new CBSource("SDT", "Số Điện Thoại");
             res.Add(i);
             i = new CBSource("TG", "Thời Gian");
             res.Add(i);
@@ -95,13 +107,10 @@ namespace Presentation_Layer.FormView
             cbSearch.DisplayMember = "Name";
             cbSearch.ValueMember = "ID";
 
-            //datChos= BLL_ChuyenBay.GetSanBays();
-            datChos = new List<PhieuDatCho>();
-            bl = new SortableBindingList<PhieuDatCho>(datChos);
+            phieuDatChos = BLL_PhieuDatCho.GetPhieuDatChos();
+            bl = new SortableBindingList<PhieuDatCho>(phieuDatChos);
             dgvBookTicket.DataSource = bl;
             CustomDgv();
-
-            //if (sanBays == null) Notification.Show(Status.ACCESS, "NULL");
 
             //Update scrollbar
             scrollHelper = new PanelScrollHelper(pnScroll, sb, false);
@@ -120,8 +129,8 @@ namespace Presentation_Layer.FormView
         }
         public override void RefreshData()
         {
-            //datChos = BLL_ChuyenBay.GetSanBays();
-            bl = new SortableBindingList<PhieuDatCho>(datChos);
+            phieuDatChos = BLL_PhieuDatCho.GetPhieuDatChos();
+            bl = new SortableBindingList<PhieuDatCho>(phieuDatChos);
             dgvBookTicket.DataSource = bl;
             Notification.Show("Làm mới danh sách sân bay");
         }
@@ -131,17 +140,24 @@ namespace Presentation_Layer.FormView
         }
         private void btnSearch_Click(object sender, EventArgs e)
         {
-
+            if (cbSearch.SelectedValue.ToString() == "MaVe") phieuDatChos = BLL_PhieuDatCho.SearchMaVe(tbSearch.Text);
+            else if (cbSearch.SelectedValue.ToString() == "MaCB") phieuDatChos = BLL_PhieuDatCho.SearchMaCB(tbSearch.Text);
+            else if (cbSearch.SelectedValue.ToString() == "TenHK") phieuDatChos = BLL_PhieuDatCho.SearchTenHK(tbSearch.Text);
+            else if (cbSearch.SelectedValue.ToString() == "CMND") phieuDatChos = BLL_PhieuDatCho.SearchCMND(tbSearch.Text);
+            else if (cbSearch.SelectedValue.ToString() == "SDT") phieuDatChos = BLL_PhieuDatCho.SearchSDT(tbSearch.Text);
+            else if (cbSearch.SelectedValue.ToString() == "TG") phieuDatChos = BLL_PhieuDatCho.SearchThoiGian(tbSearch.Text);
+            else if (cbSearch.SelectedValue.ToString() == "TT") phieuDatChos = BLL_PhieuDatCho.SearchTinhTrang(tbSearch.Text);
+            bl = new SortableBindingList<PhieuDatCho>(phieuDatChos);
+            dgvBookTicket.DataSource = bl;
         }
         #region Chỉnh sửa hiển thị của dgvBookTicket
         private void dgvBookTicket_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0) dgvBookTicket.Rows[e.RowIndex].DefaultCellStyle.BackColor = lastColor;
-
         }
         private void dgvBookTicket_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex <= 0) return;
+            if (e.RowIndex < 0) return;
             lastColor = dgvBookTicket.Rows[e.RowIndex].DefaultCellStyle.BackColor;
             dgvBookTicket.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.FromArgb(99, 191, 173);
         }
