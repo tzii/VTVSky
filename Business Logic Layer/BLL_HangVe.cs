@@ -12,7 +12,23 @@ namespace Business_Logic_Layer
     {
         public static List<HangVe> GetHangVes()
         {
-            var hangves = DAL_HangVe.GetHangVe();
+            var hangves = DAL_HangVe.GetHangVes();
+            if (hangves == null) return new List<HangVe>();
+            return hangves;
+        }
+        public static HangVe GetHangVe(int maHV)
+        {
+            return DAL_HangVe.GetHangVe(maHV);
+        }
+        public static List<HangVe> SearchMaHV(string maHV)
+        {
+            var hangves = DAL_HangVe.SearchMaHV(maHV);
+            if (hangves == null) return new List<HangVe>();
+            return hangves;
+        }
+        public static List<HangVe> SearchTenHV(string tenHV)
+        {
+            var hangves = DAL_HangVe.SearchTenHV(tenHV);
             if (hangves == null) return new List<HangVe>();
             return hangves;
         }

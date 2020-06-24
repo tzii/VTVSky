@@ -135,7 +135,7 @@ namespace Presentation_Layer.FormView
             hangVes = BLL_HangVe.GetHangVes();
             bl = new SortableBindingList<HangVe>(hangVes);
             dgvHangVe.DataSource = bl;
-            Notification.Show("Làm mới danh sách sân bay");
+            Notification.Show("Làm mới danh sách Hạng vé");
         }
         public override void SizeChange()
         {
@@ -145,9 +145,8 @@ namespace Presentation_Layer.FormView
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            //if (cbSearch.SelectedValue.ToString() == "MaSB") hangVes = BLL_SanBay.SearchMaSB(tbSearch.Text);
-            //else if (cbSearch.SelectedValue.ToString() == "TenSB") hangVes = BLL_SanBay.SearchTenSB(tbSearch.Text);
-            hangVes = new List<HangVe>();
+            if (cbSearch.SelectedValue.ToString() == "MaHV") hangVes = BLL_HangVe.SearchMaHV(tbSearch.Text);
+            else if (cbSearch.SelectedValue.ToString() == "TenHV") hangVes = BLL_HangVe.SearchTenHV(tbSearch.Text);
             bl = new SortableBindingList<HangVe>(hangVes);
             dgvHangVe.DataSource = bl;
         }
