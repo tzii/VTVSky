@@ -32,9 +32,9 @@ namespace Data_Access_Layer
 
         public static SanBay GetSanBay(int MaSB)
         {
-            string cmdText = @"select * from SANBAY Where MaSB=@MaSB";
+            string cmdText = String.Format("select * from SANBAY Where MaSB={0}",MaSB);
             DataTable dt = DataProvider.ExecuteReader(cmdText);
-            if (dt != null)
+            if (dt != null&&dt.Rows.Count > 0)
             {
                 SanBay sb = new SanBay((int)dt.Rows[0]["MaSB"], dt.Rows[0]["TenSB"].ToString());
                 return sb;

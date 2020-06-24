@@ -1,4 +1,5 @@
-﻿using Data_Transfer_Objects;
+﻿using Data_Access_Layer;
+using Data_Transfer_Objects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,10 @@ namespace Business_Logic_Layer
             if (sanBays == null) return new List<SanBay>();
             else return sanBays;
         }
-
+        public static SanBay GetSanBay(int maSB)
+        {
+            return new SanBay();
+        }
         public static bool InsertSanBay(SanBay sanBay)
         {
             return DAL_SanBay.InsertSanBay(sanBay);
