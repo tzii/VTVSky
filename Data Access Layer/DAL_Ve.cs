@@ -21,8 +21,8 @@ namespace Data_Access_Layer
                 List<Ve> Ve = new List<Ve>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    //Ve ve = new Ve((int)dt.Rows[i]["MaVe"], (ChuyenBay)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"]);
-                    //Ve.Add(ve);
+                    Ve ve = new Ve((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"]);
+                    Ve.Add(ve);
                 }
                 return Ve;
             }
@@ -38,8 +38,8 @@ namespace Data_Access_Layer
                 List<Ve> Ve = new List<Ve>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    //Ve ve = new Ve((int)dt.Rows[i]["MaVe"], (ChuyenBay)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"]);
-                    //Ve.Add(ve);
+                    Ve ve = new Ve((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"]);
+                    Ve.Add(ve);
                 }
                 return Ve;
             }
@@ -55,8 +55,8 @@ namespace Data_Access_Layer
                 List<Ve> Ve = new List<Ve>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    //Ve ve = new Ve((int)dt.Rows[i]["MaVe"], (ChuyenBay)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"]);
-                    //Ve.Add(ve);
+                    Ve ve = new Ve((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"]);
+                    Ve.Add(ve);
                 }
                 return Ve;
             }
@@ -71,8 +71,8 @@ namespace Data_Access_Layer
                 List<Ve> Ve = new List<Ve>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    //Ve ve = new Ve((int)dt.Rows[i]["MaVe"], (ChuyenBay)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"]);
-                    //Ve.Add(ve);
+                    Ve ve = new Ve((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"]);
+                    Ve.Add(ve);
                 }
                 return Ve;
             }
@@ -87,8 +87,8 @@ namespace Data_Access_Layer
                 List<Ve> Ve = new List<Ve>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    //Ve ve = new Ve((int)dt.Rows[i]["MaVe"], (ChuyenBay)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"]);
-                    //Ve.Add(ve);
+                    Ve ve = new Ve((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"]);
+                    Ve.Add(ve);
                 }
                 return Ve;
             }
@@ -103,8 +103,8 @@ namespace Data_Access_Layer
                 List<Ve> Ve = new List<Ve>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    //Ve ve = new Ve((int)dt.Rows[i]["MaVe"], (ChuyenBay)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"]);
-                    //Ve.Add(ve);
+                    Ve ve = new Ve((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"]);
+                    Ve.Add(ve);
                 }
                 return Ve;
             }
@@ -119,13 +119,45 @@ namespace Data_Access_Layer
                 List<Ve> Ve = new List<Ve>();
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    //Ve ve = new Ve((int)dt.Rows[i]["MaVe"], (ChuyenBay)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"]);
-                    //Ve.Add(ve);
+                    Ve ve = new Ve((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"]);
+                    Ve.Add(ve);
                 }
                 return Ve;
             }
             return null;
         }
-        
+        public static List<Ve> SearchThoiGian(string thoiGian)
+        {
+            string cmdText = String.Format("select * from VE where ThoiGian = @thoiGian");
+            DataTable dt = DataProvider.ExecuteReader(cmdText);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                List<Ve> Ve = new List<Ve>();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    Ve ve = new Ve((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"]);
+                    Ve.Add(ve);
+                }
+                return Ve;
+            }
+            return null;
+        }
+        public static List<Ve> SearchDonGia(string donGia)
+        {
+            string cmdText = String.Format("select * from VE where DonGia = @donGia");
+            DataTable dt = DataProvider.ExecuteReader(cmdText);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                List<Ve> Ve = new List<Ve>();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    Ve ve = new Ve((int)dt.Rows[i]["MaVe"], (int)dt.Rows[i]["MaCB"], dt.Rows[i]["TenHK"].ToString(), dt.Rows[i]["CMND"].ToString(), dt.Rows[i]["DienThoai"].ToString(), (DateTime)dt.Rows[i]["ThoiGian"], (HangVe)dt.Rows[i]["MaHV"], (int)dt.Rows[i]["GiaVe"]);
+                    Ve.Add(ve);
+                }
+                return Ve;
+            }
+            return null;
+        }
+
     }
 }
