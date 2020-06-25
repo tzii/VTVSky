@@ -97,20 +97,16 @@ namespace Data_Access_Layer
         }
         public static bool InsertChuyenBay(ChuyenBay chuyenBay)
         {
-            string cmdText = string.Format("INSERT INTO CHUYENBAY(MaTB,DonGia,ThoiGian,ThoiLuong,SoGheTrong,SoGheDat) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}')", chuyenBay.TB,chuyenBay.DonGia,chuyenBay.ThoiGian,chuyenBay.ThoiLuong,chuyenBay.SoGheTrong,chuyenBay.SoGheDat);
+            string cmdText = string.Format("INSERT INTO CHUYENBAY(MaTB,DonGia,ThoiGian,ThoiLuong,SoGheTrong,SoGheDat) VALUES ({0},{1},'{2}',{3},{4},{5})", chuyenBay.TB,chuyenBay.DonGia,chuyenBay.ThoiGian,chuyenBay.ThoiLuong,chuyenBay.SoGheTrong,chuyenBay.SoGheDat);
             bool insert = DataProvider.ExecuteNonQuery(cmdText);
-            if (insert == true)
-                return true;
-            return false;
+            return insert;
         }
 
         public static bool UpdateChuyenBay(ChuyenBay chuyenBay)
         {
-            string cmdText = string.Format("UPDATE CHUYENBAY SET MaTB= '{0}',DonGia= '{1}',ThoiGian= '{2}',ThoiLuong= '{3}',SoGheTrong= '{4}',SoGheDat= '{5}' WHERE MaCB = {6}", chuyenBay.TB, chuyenBay.DonGia, chuyenBay.ThoiGian, chuyenBay.ThoiLuong, chuyenBay.SoGheTrong, chuyenBay.SoGheDat,chuyenBay.maCB);
+            string cmdText = string.Format("UPDATE CHUYENBAY SET MaTB= {0},DonGia= {1},ThoiGian= '{2}',ThoiLuong= {3},SoGheTrong= {4},SoGheDat= {5} WHERE MaCB = {6}", chuyenBay.TB, chuyenBay.DonGia, chuyenBay.ThoiGian, chuyenBay.ThoiLuong, chuyenBay.SoGheTrong, chuyenBay.SoGheDat,chuyenBay.maCB);
             bool update = DataProvider.ExecuteNonQuery(cmdText);
-            if (update == true)
-                return true;
-            return false;
+            return update;
         }
     }
 }

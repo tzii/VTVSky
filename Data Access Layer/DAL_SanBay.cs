@@ -78,28 +78,22 @@ namespace Data_Access_Layer
         }
         public static bool InsertSanBay(SanBay sanBay)
         {
-            string cmdText = string.Format("INSERT INTO SANBAY(TenSB) VALUES ('{0}')", sanBay.TenSB);
+            string cmdText = string.Format("INSERT INTO SANBAY(TenSB) VALUES (N'{0}')", sanBay.TenSB);
             bool insert = DataProvider.ExecuteNonQuery(cmdText);
-            if (insert == true)
-                return true;
-            return false;
+            return insert;
         }
 
         public static bool UpdateSanBay(SanBay sanBay)
         {
-            string cmdText = string.Format("UPDATE SANBAY SET TenSB = '{0}' WHERE MaSB = {1}", sanBay.TenSB,sanBay.maSB);
+            string cmdText = string.Format("UPDATE SANBAY SET TenSB = N'{0}' WHERE MaSB = {1}", sanBay.TenSB,sanBay.maSB);
             bool update = DataProvider.ExecuteNonQuery(cmdText);
-            if (update == true)
-                return true;
-            return false;
+            return update;
         }
         public static bool DeleteSanBay(SanBay sanBay)
         {
             string cmdText = string.Format("DELETE FROM SANBAY WHERE MaSB = {0})", sanBay.maSB);
-            bool update = DataProvider.ExecuteNonQuery(cmdText);
-            if (update == true)
-                return true;
-            return false;
+            bool delete = DataProvider.ExecuteNonQuery(cmdText);
+            return delete;
         }
     }
 }

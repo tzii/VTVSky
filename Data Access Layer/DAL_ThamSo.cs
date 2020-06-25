@@ -30,11 +30,9 @@ namespace Data_Transfer_Objects
 
         public static bool UpdateThamSo(ThamSo thamSo)
         {
-            string cmdText = string.Format("UPDATE THAMSO SET TGBayToiThieu = '{0}',SLSBTG = '{1}',TGDungToiThieu = '{2}',TGDungToiDa = '{3}',TGDatVeChamNhat = '{4}',TGHuyDatVe = '{5}' WHERE TGBayToiThieu>0",thamSo.TGBayToiThieu,thamSo.SLSBTG,thamSo.TGDungToiThieu,thamSo.TGDungToiDa,thamSo.TGDatVeChamNhat,thamSo.TGHuyDatVe,thamSo.TGBayToiThieu);
+            string cmdText = string.Format("UPDATE THAMSO SET TGBayToiThieu = {0},SLSBTG = {1},TGDungToiThieu = {2},TGDungToiDa = {3},TGDatVeChamNhat = {4},TGHuyDatVe = {5} WHERE TGBayToiThieu>0",thamSo.TGBayToiThieu,thamSo.SLSBTG,thamSo.TGDungToiThieu,thamSo.TGDungToiDa,thamSo.TGDatVeChamNhat,thamSo.TGHuyDatVe,thamSo.TGBayToiThieu);
             bool update = DataProvider.ExecuteNonQuery(cmdText);
-            if (update == true)
-                return true;
-            return false;
+            return update;
         }
     }
 }

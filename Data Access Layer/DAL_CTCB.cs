@@ -47,20 +47,17 @@ namespace Data_Access_Layer
         }
         public static bool InsertCTCB(CTCB cTCB)
         {
-            string cmdText = string.Format("INSERT INTO CTCB(MaCB,MaSBTG,TGDung,GhiChu) VALUES ('{0}','{1}','{2}','{3}')", cTCB.maCB,cTCB.SBTG,cTCB.TGDung,cTCB.GhiChu);
+            string cmdText = string.Format("INSERT INTO CTCB(MaCB,MaSBTG,TGDung,GhiChu) VALUES ({0},'{1}',{2},N'{3}')", cTCB.maCB,cTCB.SBTG,cTCB.TGDung,cTCB.GhiChu);
             bool insert = DataProvider.ExecuteNonQuery(cmdText);
-            if (insert == true)
-                return true;
-            return false;
+            return insert;
         }
 
         public static bool UpdateCTCB(CTCB cTCB)
         {
-            string cmdText = string.Format("UPDATE CTCB SET TGDung= '{0}',GhiChu= '{1}' WHERE MaCB = {2} and MaSBTG = {3}", cTCB.TGDung, cTCB.GhiChu, cTCB.maCB, cTCB.SBTG);
+            string cmdText = string.Format("UPDATE CTCB SET TGDung= {0},GhiChu= N'{1}' WHERE MaCB = {2} and MaSBTG = {3}", cTCB.TGDung, cTCB.GhiChu, cTCB.maCB, cTCB.SBTG);
             bool update = DataProvider.ExecuteNonQuery(cmdText);
-            if (update == true)
-                return true;
-            return false;
+            return update;
         }
     }
 }
+

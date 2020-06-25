@@ -49,29 +49,27 @@ namespace Data_Access_Layer
         {
             string cmdText = String.Format("UPDATE USER_LOGIN SET Password = '{0}' WHERE ID = {1}", User.Password,User.id);
             bool update = DataProvider.ExecuteNonQuery(cmdText);
-            if (update == true)
-                return true;
-            return false;
+            return update;
         }
         public static bool UpdateUserPer()
         {
             string cmdText = String.Format("UPDATE USER_PER SET Per = '{0}' WHERE ID = {1}", User.Per, User.id);
             bool update = DataProvider.ExecuteNonQuery(cmdText);
-            if (update == true)
-                return true;
-            return false;
+            return update;
         }
         public static bool UpdateUserInFor()
         {
             string cmdText = String.Format("UPDATE USER_INFOR SET Name='{0}',NgaySinh='{1}',QueQuan='{2}',DienThoai='{3}' WHERE ID = {4}", User.Name,User.NgaySinh,User.QueQuan,User.DienThoai, User.id);
             bool update = DataProvider.ExecuteNonQuery(cmdText);
-            if (update == true)
-                return true;
-            return false;
+            return update;
         }
         public static bool CheckUsername(string username)
         {
-            return false;
+            string cmdText = String.Format("Select * from USER_LOGIN where USERNAME = '{0}'", username);
+            string check= DataProvider.ExecuteScalar(cmdText);
+            if (check != null)
+                return false;
+            return true;
         }
 
     }

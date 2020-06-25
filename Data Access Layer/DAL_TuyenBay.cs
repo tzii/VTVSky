@@ -92,20 +92,16 @@ namespace Data_Access_Layer
 
         public static bool InsertTuyenBay(TuyenBay tuyenBay)
         {
-            string cmdText = string.Format("INSERT INTO TUYENBAY(MaSBDi,MaSBDen) VALUES ('{0}','{1}')", tuyenBay.SBDi,tuyenBay.SBDen);
+            string cmdText = string.Format("INSERT INTO TUYENBAY(MaSBDi,MaSBDen) VALUES ({0},{1})", tuyenBay.SBDi,tuyenBay.SBDen);
             bool insert = DataProvider.ExecuteNonQuery(cmdText);
-            if (insert == true)
-                return true;
-            return false;
+            return insert;
         }
 
         public static bool UpdateTuyenBay(TuyenBay tuyenBay)
         {
-            string cmdText = string.Format("UPDATE TUYENBAY SET MaSBDi = '{0}',MaSBDen='{1}' WHERE MaTB = {2}",tuyenBay.SBDen,tuyenBay.SBDen,tuyenBay.maTB);
+            string cmdText = string.Format("UPDATE TUYENBAY SET MaSBDi = {0},MaSBDen={1} WHERE MaTB = {2}",tuyenBay.SBDen,tuyenBay.SBDen,tuyenBay.maTB);
             bool update = DataProvider.ExecuteNonQuery(cmdText);
-            if (update == true)
-                return true;
-            return false;
+            return update;
         }
     }
 }
