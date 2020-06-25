@@ -42,7 +42,6 @@
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnContain = new Guna.UI2.WinForms.Guna2Panel();
             this.pnView = new System.Windows.Forms.Panel();
             this.pnScroll = new System.Windows.Forms.Panel();
@@ -151,8 +150,7 @@
             this.refreshToolStripMenuItem,
             this.toolStripMenuItem4,
             this.editToolStripMenuItem,
-            this.editToolStripMenuItem1,
-            this.deleteToolStripMenuItem});
+            this.editToolStripMenuItem1});
             this.cmt.Name = "cmt";
             this.cmt.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.cmt.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
@@ -163,47 +161,44 @@
             this.cmt.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.cmt.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.cmt.RenderStyle.TextRenderingHint = Guna.UI.WinForms.DrawingTextRenderingHint.SystemDefault;
-            this.cmt.Size = new System.Drawing.Size(156, 136);
+            this.cmt.Size = new System.Drawing.Size(211, 140);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(155, 24);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(210, 24);
             this.toolStripMenuItem1.Text = "Create New";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(207, 6);
             // 
             // refreshToolStripMenuItem
             // 
             this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(155, 24);
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.refreshToolStripMenuItem.Text = "Refresh";
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(152, 6);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(207, 6);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(155, 24);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.editToolStripMenuItem.Text = "Detail";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem1
             // 
             this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
-            this.editToolStripMenuItem1.Size = new System.Drawing.Size(155, 24);
+            this.editToolStripMenuItem1.Size = new System.Drawing.Size(210, 24);
             this.editToolStripMenuItem1.Text = "Edit";
-            // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(155, 24);
-            this.deleteToolStripMenuItem.Text = "Delete";
+            this.editToolStripMenuItem1.Click += new System.EventHandler(this.editToolStripMenuItem1_Click);
             // 
             // pnContain
             // 
@@ -428,7 +423,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2Transition guna2Transition1;
         private System.Windows.Forms.Panel pnSearch;

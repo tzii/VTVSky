@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Business_Logic_Layer;
+using Data_Transfer_Objects;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,64 @@ namespace Presentation_Layer.FormDigital
 {
     public partial class frmVeEditing : Form
     {
+        private List<ChuyenBay> chuyenBays = BLL_ChuyenBay.GetChuyenBays();
+        private List<HangVe> hangVes = BLL_HangVe.GetHangVes();
+        public Ve ve;
+        private void Loadcb()
+        {
+            chuyenBays = BLL_ChuyenBay.GetChuyenBays();
+            hangVes = BLL_HangVe.GetHangVes();
+
+            cbMaCB.DataSource = chuyenBays;
+            cbMaCB.DisplayMember = "strMaCB";
+            cbMaCB.ValueMember = "MaCB";
+
+            cbHangVe.DataSource = hangVes;
+            cbHangVe.DisplayMember = "TenHV";
+            cbHangVe.ValueMember = "MaHV";
+        }
+        private void checkState()
+        {
+            if (AppState.state == Actions.EDIT|| AppState.state == Actions.ADD)
+            {
+                cbMaCB.Enabled = true;
+                tbTenHK.Enabled = true;
+                cbHangVe.Enabled = true;
+                tbCMND.Enabled = true;
+                tbDienThoai.Enabled = true;
+            }
+            else
+            {
+
+                cbMaCB.Enabled = false;
+                tbTenHK.Enabled = false;
+                cbHangVe.Enabled = false;
+                tbCMND.Enabled = false;
+                tbDienThoai.Enabled = false;
+            }
+        }
         public frmVeEditing()
         {
             InitializeComponent();
+            Loadcb();
+            checkState();
+        }
+        public frmVeEditing(Ve x)
+        {
+            InitializeComponent();
+            Loadcb();
+            checkState();
+            ve = x;
+            Notification.Show(ve.strMaVe);
+            tbMaVe.Text = ve.strMaVe;
+            cbMaCB.SelectedValue = ve.maCB;
+            tbGiaVe.Text = ve.GiaVe.ToString("###,###,### VND");
+            tbNgayGio.Text = ve.ThoiGian.ToString("hh:mm tt dd/MM/yyyy");
+            tbTenHK.Text = ve.TenHK;
+            cbHangVe.SelectedValue = ve.HV.maHV;
+            tbCMND.Text = ve.CMND;
+            tbDienThoai.Text = ve.DienThoai;
+            
         }
         private void frmVeEditing_Load(object sender, EventArgs e)
         {
@@ -24,6 +81,32 @@ namespace Presentation_Layer.FormDigital
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            button1.PerformClick();
+            
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            button2.PerformClick();
+        }
+
+        private void cbMaCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbMaCB.SelectedItem == null) return;
+            tbNgayGio.Text = ((ChuyenBay)cbMaCB.SelectedItem).ThoiGian.ToString("hh:mm tt dd/MM/yyyy");
+            if (cbHangVe.SelectedItem == null) return;
+            tbGiaVe.Text = (((ChuyenBay)cbMaCB.SelectedItem).DonGia * ((HangVe)cbHangVe.SelectedItem).TiLe).ToString("###,###,### VND");
+        }
+
+        private void cbHangVe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbHangVe.SelectedItem == null) return;
+            if (cbMaCB.SelectedItem == null) return;
+            tbGiaVe.Text = (((ChuyenBay)cbMaCB.SelectedItem).DonGia * ((HangVe)cbHangVe.SelectedItem).TiLe).ToString("###,###,### VND");
         }
     }
 }

@@ -47,6 +47,7 @@ namespace Data_Transfer_Objects
     {
         NOTHING,
         EDIT,
-        ADD
+        ADD,
+        LOAD
     }
 }

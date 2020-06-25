@@ -99,6 +99,9 @@ namespace Presentation_Layer.FormView
             currentChildForm.RefreshData();
         }
 
-        
+        private void btnCreateNew_Click(object sender, EventArgs e)
+        {
+            currentChildForm.Create();
+        }
     }
 }

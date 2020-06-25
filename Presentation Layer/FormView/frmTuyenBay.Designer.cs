@@ -447,6 +447,7 @@
             this.guna2Transition1.SetDecoration(this.cbSBDen, Guna.UI2.AnimatorNS.DecorationType.None);
             this.cbSBDen.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbSBDen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSBDen.Enabled = false;
             this.cbSBDen.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbSBDen.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbSBDen.FocusedState.Parent = this.cbSBDen;
@@ -479,6 +480,7 @@
             this.guna2Transition1.SetDecoration(this.cbSBDi, Guna.UI2.AnimatorNS.DecorationType.None);
             this.cbSBDi.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbSBDi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSBDi.Enabled = false;
             this.cbSBDi.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbSBDi.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbSBDi.FocusedState.Parent = this.cbSBDi;
