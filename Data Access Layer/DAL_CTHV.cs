@@ -61,5 +61,18 @@ namespace Data_Access_Layer
             }
             return null;
         }
+        public static bool InsertCTHV(CTHV cTHV)
+        {
+            string cmdText = string.Format("INSERT INTO CTHV(MaCB,MaHV,GiaVe,SLGhe,SLGheTrong,SLGheBan) VALUES ({0},{1},{2},{3},{4},{5})", cTHV.maCB,cTHV.TenHV,cTHV.GiaVe,cTHV.SLGhe,cTHV.SLGheTrong,cTHV.SLGheBan);
+            bool insert = DataProvider.ExecuteNonQuery(cmdText);
+            return insert;
+        }
+
+        public static bool UpdateCTHV(CTHV cTHV)
+        {
+            string cmdText = string.Format("UPDATE CTHV SET GiaVe = {0},SLGhe = {1},SLGheTrong = {2},SLGheBan = {3} WHERE MaCB = {4} and MaHV = {5}", cTHV.GiaVe, cTHV.SLGhe, cTHV.SLGheTrong, cTHV.SLGheBan, cTHV.maCB, cTHV.TenHV);
+            bool update = DataProvider.ExecuteNonQuery(cmdText);
+            return update;
+        }
     }
 }

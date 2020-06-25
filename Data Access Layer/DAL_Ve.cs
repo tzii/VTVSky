@@ -158,6 +158,18 @@ namespace Data_Access_Layer
             }
             return null;
         }
+        public static bool InsertVe(Ve ve)
+        {
+            string cmdText = string.Format("INSERT INTO VE(MaCB,TenHK,CMND,DienThoai,ThoiGian,MaHV,GiaVe) VALUES ({0},N'{1}','{2}','{3}','{4}',{5},{6})", ve.maCB, ve.TenHK, ve.CMND, ve.DienThoai, ve.ThoiGian, ve.TenHV, ve.GiaVe);
+            bool insert = DataProvider.ExecuteNonQuery(cmdText);
+            return insert;
+        }
 
+        public static bool UpdateVe(Ve ve)
+        {
+            string cmdText = string.Format("UPDATE VE SET MaCB= {0},TenHK= N'{1}',CMND= '{2}',DienThoai= '{3}',ThoiGian= '{4}',MaHV= {5},GiaVe= {6} WHERE MaVe = {8}", ve.maCB, ve.TenHK, ve.CMND, ve.DienThoai, ve.ThoiGian, ve.TenHV, ve.GiaVe,ve.maVe);
+            bool update = DataProvider.ExecuteNonQuery(cmdText);
+            return update;
+        }
     }
 }

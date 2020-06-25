@@ -70,10 +70,10 @@ namespace Presentation_Layer.FormView
             dgvBookTicket.Columns["TenHV"].HeaderText = "Hạng Vé";
             dgvBookTicket.Columns["GiaVe"].HeaderText = "Giá\n(VND)";
             dgvBookTicket.Columns["strTinhTrang"].HeaderText = "Tình Trạng";
-
+            
             dgvBookTicket.Columns["DienThoai"].DefaultCellStyle.Format = "### ### ### ###";
             dgvBookTicket.Columns["GiaVe"].DefaultCellStyle.Format = "###,###,###";
-
+            
             dgvBookTicket.Columns["strMaVe"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvBookTicket.Columns["strMaCB"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvBookTicket.Columns["CMND"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
