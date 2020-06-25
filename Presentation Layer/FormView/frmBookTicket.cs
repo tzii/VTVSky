@@ -1,6 +1,7 @@
 ﻿using Business_Logic_Layer;
 using Data_Transfer_Objects;
 using Guna.UI2.WinForms.Helpers;
+using Presentation_Layer.FormDigital;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -70,7 +71,8 @@ namespace Presentation_Layer.FormView
             dgvBookTicket.Columns["GiaVe"].HeaderText = "Giá\n(VND)";
             dgvBookTicket.Columns["strTinhTrang"].HeaderText = "Tình Trạng";
 
-            dgvBookTicket.Columns["GiaVe"].DefaultCellStyle.Format = "### ### ###";
+            dgvBookTicket.Columns["DienThoai"].DefaultCellStyle.Format = "### ### ### ###";
+            dgvBookTicket.Columns["GiaVe"].DefaultCellStyle.Format = "###,###,###";
 
             dgvBookTicket.Columns["strMaVe"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvBookTicket.Columns["strMaCB"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -136,7 +138,12 @@ namespace Presentation_Layer.FormView
         }
         public override void Create()
         {
-            //var frm = new f
+            var dialog = new frmPhieuDatChoEditing();
+            DialogResult res = dialog.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+
+            }
         }
         private void btnSearch_Click(object sender, EventArgs e)
         {
