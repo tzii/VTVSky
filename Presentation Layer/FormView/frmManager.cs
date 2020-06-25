@@ -85,7 +85,7 @@ namespace Presentation_Layer.FormView
         private void btnTuyenBay_Click(object sender, EventArgs e)
         {
             var btn = (Guna2Button)sender;
-            if (btn.Checked == true) return;
+            if (btn.Checked == true || AppState.state!= Actions.NOTHING) return;
             ActivateButton(sender);
             ShowChildForm(formTuyenBay);
         }
@@ -93,7 +93,7 @@ namespace Presentation_Layer.FormView
         private void btnAirport_Click(object sender, EventArgs e)
         {
             var btn = (Guna2Button)sender;
-            if (btn.Checked == true) return;
+            if (btn.Checked == true || AppState.state != Actions.NOTHING) return;
             ActivateButton(sender);
             ShowChildForm(formAirports);
         }
@@ -101,7 +101,7 @@ namespace Presentation_Layer.FormView
         private void btnHangVe_Click(object sender, EventArgs e)
         {
             var btn = (Guna2Button)sender;
-            if (btn.Checked == true) return;
+            if (btn.Checked == true || AppState.state != Actions.NOTHING) return;
             ActivateButton(sender);
             ShowChildForm(formHangVe);
         }

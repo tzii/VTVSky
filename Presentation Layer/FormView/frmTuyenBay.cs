@@ -2,6 +2,7 @@
 using Data_Transfer_Objects;
 using Guna.UI2.WinForms.Helpers;
 using Presentation_Layer.FormDigital;
+using Presentation_Layer.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,7 +23,6 @@ namespace Presentation_Layer.FormView
         private List<TuyenBay> tuyenBays;
         private SortableBindingList<TuyenBay> bl;
         private Color lastColor;
-        private Actions action;
         public frmTuyenBay()
         {
             InitializeComponent();
@@ -102,7 +102,7 @@ namespace Presentation_Layer.FormView
         {
             if (dgvTuyenBays.SelectedRows.Count > 0)
             {
-                if (action != Actions.NOTHING)
+                if (AppState.state != Actions.NOTHING)
                 {
                     var dialog = new frmWarning("Cảnh Báo", "Bạn có muốn hủy bỏ chỉnh sửa?");
                     DialogResult res = dialog.ShowDialog();
@@ -141,8 +141,6 @@ namespace Presentation_Layer.FormView
             cbSBDen.DataSource = BLL_SanBay.GetSanBays();
             cbSBDen.DisplayMember = "TenSB";
             cbSBDen.ValueMember = "MaSB";
-
-            action = Actions.NOTHING;
         }
 
         public override void RefreshData()
@@ -160,6 +158,19 @@ namespace Presentation_Layer.FormView
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            if (AppState.state != Actions.NOTHING)
+            {
+                var dialog = new frmWarning("Cảnh Báo", "Bạn có muốn hủy bỏ chỉnh sửa?");
+                DialogResult res = dialog.ShowDialog();
+                if (res == DialogResult.OK)
+                {
+                    DisablePanelEdit();
+                }
+                else if (res == DialogResult.Cancel)
+                {
+                    return;
+                }
+            }
             if (cbSearch.SelectedValue.ToString() == "MaSB") tuyenBays = BLL_TuyenBay.searchMaTB(tbSearch.Text);
             else if (cbSearch.SelectedValue.ToString() == "SBDi") tuyenBays = BLL_TuyenBay.searchTenSBDi(tbSearch.Text);
             else if (cbSearch.SelectedValue.ToString() == "SBDen") tuyenBays = BLL_TuyenBay.searchTenSBDen(tbSearch.Text);
@@ -169,30 +180,42 @@ namespace Presentation_Layer.FormView
         #region panel Edit
         private void ActivePanelEdit(Actions x)
         {
-            action = x;
-            //tbTenSB.Enabled = true;
+            AppState.state = x;
+
+            cbSBDi.Enabled = true;
+            cbSBDen.Enabled = true;
+
             btnAdd.Text = "OK";
             btnEdit.Text = "Cancel";
+
+            btnAdd.Image = null;
+            btnEdit.Image = null;
         }
         private void DisablePanelEdit()
         {
-            action = Actions.NOTHING;
-            //tbTenSB.Enabled = false;
+            AppState.state = Actions.NOTHING;
+
+            cbSBDi.Enabled = false;
+            cbSBDen.Enabled = false;
+
             btnAdd.Text = "Add";
             btnEdit.Text = "Edit";
+
+            btnAdd.Image = Presentation_Layer.Properties.Resources.plus;
+            btnEdit.Image = Presentation_Layer.Properties.Resources.edit;
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (action == Actions.NOTHING)
+            if (AppState.state == Actions.NOTHING)
             {
                 ActivePanelEdit(Actions.ADD);
             }
-            else if (action == Actions.ADD)
+            else if (AppState.state == Actions.ADD)
             {
                 Notification.Show("Add");
                 DisablePanelEdit();
             }
-            else if (action == Actions.EDIT)
+            else if (AppState.state == Actions.EDIT)
             {
                 Notification.Show("Edit");
                 DisablePanelEdit();
@@ -200,7 +223,7 @@ namespace Presentation_Layer.FormView
         }
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (action == Actions.NOTHING)
+            if (AppState.state == Actions.NOTHING)
             {
                 ActivePanelEdit(Actions.EDIT);
             }

@@ -1,6 +1,7 @@
 ﻿using Business_Logic_Layer;
 using Data_Transfer_Objects;
 using Guna.UI2.WinForms.Helpers;
+using Presentation_Layer.FormDigital;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -42,8 +43,8 @@ namespace Presentation_Layer.FormView
         }
         private void CustomDgv()
         {
-            //dgvFlightsList.Columns.Add(ButtonColumn("Detail"));
-            //dgvFlightsList.Columns.Add(ButtonColumn("Edit"));
+            dgvFlightsList.Columns.Add(ButtonColumn("Detail"));
+            dgvFlightsList.Columns.Add(ButtonColumn("Edit"));
             //dgvFlightsList.Columns.Add(ButtonColumn("Delete"));
 
             dgvFlightsList.Columns["MaCB"].Visible = false;
@@ -66,7 +67,7 @@ namespace Presentation_Layer.FormView
             dgvFlightsList.Columns["SoGheTrong"].HeaderText = "Số ghế trống";
             dgvFlightsList.Columns["SoGheDat"].HeaderText = "Số ghế đặt";
 
-            dgvFlightsList.Columns["DonGia"].DefaultCellStyle.Format = "### ### ###";
+            dgvFlightsList.Columns["DonGia"].DefaultCellStyle.Format = "###,###,###";
 
             dgvFlightsList.Columns["strMaCB"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvFlightsList.Columns["DonGia"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -119,14 +120,19 @@ namespace Presentation_Layer.FormView
         }
         public override void RefreshData()
         {
-            //chuyenBays = BLL_ChuyenBay.GetSanBays();
+            chuyenBays = BLL_ChuyenBay.GetChuyenBays();
             bl = new SortableBindingList<ChuyenBay>(chuyenBays);
             dgvFlightsList.DataSource = bl;
             Notification.Show("Làm mới danh sách sân bay");
         }
         public override void Create()
         {
-            //var frm = new f
+            var dialog = new frmFlightEditing();
+            DialogResult res = dialog.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+
+            }
         }
         private void btnSearch_Click(object sender, EventArgs e)
         {

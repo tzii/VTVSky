@@ -22,7 +22,6 @@ namespace Presentation_Layer.FormView
         private List<SanBay> sanBays;
         private SortableBindingList<SanBay> bl;
         private Color lastColor;
-        private Actions action;
         public frmAirports()
         {
             InitializeComponent();
@@ -96,7 +95,7 @@ namespace Presentation_Layer.FormView
         {
             if (dgvAirports.SelectedRows.Count > 0)
             {
-                if (action != Actions.NOTHING)
+                if (AppState.state != Actions.NOTHING)
                 {
                     var dialog = new frmWarning("Cảnh Báo", "Bạn có muốn hủy bỏ chỉnh sửa?");
                     DialogResult res = dialog.ShowDialog();
@@ -125,7 +124,7 @@ namespace Presentation_Layer.FormView
             dgvAirports.DataSource = bl;
             CustomDgv();
 
-            action = Actions.NOTHING;
+            AppState.state = Actions.NOTHING;
         }
 
         public override void RefreshData()
@@ -143,6 +142,19 @@ namespace Presentation_Layer.FormView
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            if (AppState.state != Actions.NOTHING)
+            {
+                var dialog = new frmWarning("Cảnh Báo", "Bạn có muốn hủy bỏ chỉnh sửa?");
+                DialogResult res = dialog.ShowDialog();
+                if (res == DialogResult.OK)
+                {
+                    DisablePanelEdit();
+                }
+                else if (res == DialogResult.Cancel)
+                {
+                    return;
+                }
+            }
             if (cbSearch.SelectedValue.ToString() == "MaSB") sanBays = BLL_SanBay.SearchMaSB(tbSearch.Text);
             else if (cbSearch.SelectedValue.ToString() == "TenSB") sanBays = BLL_SanBay.SearchTenSB(tbSearch.Text);
             bl = new SortableBindingList<SanBay>(sanBays);
@@ -151,30 +163,37 @@ namespace Presentation_Layer.FormView
         #region panel Edit
         private void ActivePanelEdit(Actions x)
         {
-            action = x;
+            AppState.state = x;
             tbTenSB.Enabled = true;
             btnAdd.Text = "OK";
             btnEdit.Text = "Cancel";
+
+            btnAdd.Image = null;
+            btnEdit.Image = null;
+            
         }
         private void DisablePanelEdit()
         {
-            action = Actions.NOTHING;
+            AppState.state = Actions.NOTHING;
             tbTenSB.Enabled = false;
             btnAdd.Text = "Add";
             btnEdit.Text = "Edit";
+
+            btnAdd.Image = Presentation_Layer.Properties.Resources.plus;
+            btnEdit.Image = Presentation_Layer.Properties.Resources.edit;
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (action == Actions.NOTHING)
+            if (AppState.state == Actions.NOTHING)
             {
                 ActivePanelEdit(Actions.ADD);
             }
-            else if (action == Actions.ADD)
+            else if (AppState.state == Actions.ADD)
             {
                 Notification.Show("Add");
                 DisablePanelEdit();
             }
-            else if (action == Actions.EDIT)
+            else if (AppState.state == Actions.EDIT)
             {
                 Notification.Show("Edit");
                 DisablePanelEdit();
@@ -182,7 +201,7 @@ namespace Presentation_Layer.FormView
         }
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (action == Actions.NOTHING)
+            if (AppState.state == Actions.NOTHING)
             {
                 ActivePanelEdit(Actions.EDIT);
             }

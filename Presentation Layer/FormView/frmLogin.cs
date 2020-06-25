@@ -176,7 +176,7 @@ namespace Presentation_Layer.FormView
         {
             loadInforServer();
             User.setDefault();
-
+            AppState.state = Actions.NOTHING;
             pos = 2;
             ls = new List<string>();
             ls.Add("Login");

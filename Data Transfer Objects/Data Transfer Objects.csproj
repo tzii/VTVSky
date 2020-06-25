@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppState.cs" />
     <Compile Include="CBSource.cs" />
     <Compile Include="ChuyenBay.cs" />
     <Compile Include="CTCB.cs" />

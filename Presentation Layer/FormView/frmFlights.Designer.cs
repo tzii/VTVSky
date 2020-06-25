@@ -89,6 +89,7 @@
             this.btnCreateNew.Size = new System.Drawing.Size(160, 31);
             this.btnCreateNew.TabIndex = 2;
             this.btnCreateNew.Text = "Create New";
+            this.btnCreateNew.Click += new System.EventHandler(this.btnCreateNew_Click);
             // 
             // btnChuyenBay
             // 
