@@ -38,5 +38,17 @@ namespace Business_Logic_Layer
             if (tuyenBays == null) return new List<TuyenBay>();
             return tuyenBays;
         }
+        public static bool InsertTuyenBay(TuyenBay tb)
+        {
+            return DAL_TuyenBay.InsertTuyenBay(tb);
+        }
+        public static bool UpdateTuyenBay(TuyenBay tb)
+        {
+            return DAL_TuyenBay.UpdateTuyenBay(tb);
+        }
+        public static bool CheckTuyenbay(TuyenBay tb)
+        {
+            return DAL_TuyenBay.CheckTuyenBay(tb);
+        }
     }
 }

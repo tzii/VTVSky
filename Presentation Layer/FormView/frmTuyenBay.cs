@@ -23,6 +23,16 @@ namespace Presentation_Layer.FormView
         private List<TuyenBay> tuyenBays;
         private SortableBindingList<TuyenBay> bl;
         private Color lastColor;
+        private TuyenBay currentTB
+        {
+            get
+            {
+                int maTB = (int)dgvTuyenBays.SelectedRows[0].Cells["MaTB"].Value;
+                SanBay SBDi = (SanBay)cbSBDi.SelectedItem;
+                SanBay SBDen = (SanBay)cbSBDen.SelectedItem;
+                return new TuyenBay(maTB, SBDi, SBDen);
+            }
+        }
         public frmTuyenBay()
         {
             InitializeComponent();
@@ -68,6 +78,25 @@ namespace Presentation_Layer.FormView
             i = new CBSource("SBDen", "Sân Bay Đến");
             res.Add(i);
             return res;
+        }
+        private void loadEdit()
+        {
+            var sbDi = dgvTuyenBays.SelectedRows[0].Cells["SBDi"].Value as SanBay;
+            var sbDen = dgvTuyenBays.SelectedRows[0].Cells["SBDen"].Value as SanBay;
+            tbMaTB.Text = dgvTuyenBays.SelectedRows[0].Cells["strMaTB"].Value.ToString();
+            cbSBDi.SelectedValue = sbDi.maSB;
+            cbSBDen.SelectedValue = sbDen.maSB;
+        }
+        private void reloadData()
+        {
+            tuyenBays = BLL_TuyenBay.GetTuyenBays();
+            bl = new SortableBindingList<TuyenBay>(tuyenBays);
+            dgvTuyenBays.DataSource = bl;
+        }
+        private bool checkTB()
+        {
+            if ((int)cbSBDi.SelectedValue == (int)cbSBDen.SelectedValue) return false;
+            return true;
         }
         #endregion
         #region Chỉnh sửa hiển thị của dgvTuyenBays
@@ -115,11 +144,7 @@ namespace Presentation_Layer.FormView
                         return;
                     }
                 }
-                var sbDi = dgvTuyenBays.SelectedRows[0].Cells["SBDi"].Value as SanBay;
-                var sbDen = dgvTuyenBays.SelectedRows[0].Cells["SBDen"].Value as SanBay;
-                tbMaTB.Text = dgvTuyenBays.SelectedRows[0].Cells["strMaTB"].Value.ToString();
-                cbSBDi.SelectedValue = sbDi.maSB;
-                cbSBDen.SelectedValue = sbDen.maSB;
+                loadEdit();
             }
         }
         #endregion
@@ -145,9 +170,7 @@ namespace Presentation_Layer.FormView
 
         public override void RefreshData()
         {
-            tuyenBays = BLL_TuyenBay.GetTuyenBays();
-            bl = new SortableBindingList<TuyenBay>(tuyenBays);
-            dgvTuyenBays.DataSource = bl;
+            reloadData();
             Notification.Show("Làm mới danh sách tuyến bay");
         }
         public override void SizeChange()
@@ -212,13 +235,33 @@ namespace Presentation_Layer.FormView
             }
             else if (AppState.state == Actions.ADD)
             {
-                Notification.Show("Add");
+                if (!checkTB())
+                {
+                    var dialog = new frmWarning("Sai Định Dạng", "Sân bay đi phải khác sân bay đến");
+                    dialog.ShowDialog();
+                    return;
+                }
+                if (BLL_TuyenBay.CheckTuyenbay(currentTB))
+                {
+                    var dialog = new frmWarning("Sai Định Dạng", "Tuyến bay này đã tồn tại");
+                    dialog.ShowDialog();
+                    return;
+                }
                 DisablePanelEdit();
+                BLL_TuyenBay.InsertTuyenBay(currentTB);
+                reloadData();
             }
             else if (AppState.state == Actions.EDIT)
             {
-                Notification.Show("Edit");
+                if (!checkTB())
+                {
+                    var dialog = new frmWarning("Sai Định Dạng", "Sân bay đi phải khác sân bay đến");
+                    dialog.ShowDialog();
+                    return;
+                }
                 DisablePanelEdit();
+                BLL_TuyenBay.UpdateTuyenBay(currentTB);
+                reloadData();
             }
         }
         private void btnEdit_Click(object sender, EventArgs e)
@@ -229,6 +272,7 @@ namespace Presentation_Layer.FormView
             }
             else
             {
+                loadEdit();
                 DisablePanelEdit();
             }
         }
