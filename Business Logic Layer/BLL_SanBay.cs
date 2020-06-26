@@ -24,6 +24,10 @@ namespace Business_Logic_Layer
         {
             return DAL_SanBay.InsertSanBay(sanBay);
         }
+        public static bool UpdateSanBay(SanBay sb)
+        {
+            return DAL_SanBay.UpdateSanBay(sb);
+        }
         public static List<SanBay> SearchMaSB(string maSB)
         {
             List<SanBay> sanBays = DAL_SanBay.SearchMaSB(maSB);

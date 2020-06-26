@@ -22,6 +22,15 @@ namespace Presentation_Layer.FormView
         private List<SanBay> sanBays;
         private SortableBindingList<SanBay> bl;
         private Color lastColor;
+        private SanBay currentSB
+        {
+            get
+            {
+                int maSB = (int)dgvAirports.SelectedRows[0].Cells["MaSB"].Value;
+                string tenSB = tbTenSB.Text;
+                return new SanBay(maSB, tenSB);
+            }
+        }
         public frmAirports()
         {
             InitializeComponent();
@@ -61,6 +70,17 @@ namespace Presentation_Layer.FormView
             i = new CBSource("TenSB", "Tên Sân Bay");
             res.Add(i);
             return res;
+        }
+        private void reloadData()
+        {
+            sanBays = BLL_SanBay.GetSanBays();
+            bl = new SortableBindingList<SanBay>(sanBays);
+            dgvAirports.DataSource = bl;
+        }
+        private void loadEdit()
+        {
+            tbMaSB.Text = dgvAirports.SelectedRows[0].Cells["strMaSB"].Value.ToString();
+            tbTenSB.Text = dgvAirports.SelectedRows[0].Cells["TenSB"].Value.ToString();
         }
         #endregion
         #region Chỉnh sửa hiển thị của dgvAirports
@@ -108,8 +128,7 @@ namespace Presentation_Layer.FormView
                         return;
                     }
                 }
-                tbMaSB.Text = dgvAirports.SelectedRows[0].Cells["strMaSB"].Value.ToString();
-                tbTenSB.Text = dgvAirports.SelectedRows[0].Cells["TenSB"].Value.ToString();
+                loadEdit();
             }
         }
         #endregion
@@ -129,9 +148,7 @@ namespace Presentation_Layer.FormView
 
         public override void RefreshData()
         {
-            sanBays = BLL_SanBay.GetSanBays();
-            bl = new SortableBindingList<SanBay>(sanBays);
-            dgvAirports.DataSource = bl;
+            reloadData();
             Notification.Show("Làm mới danh sách sân bay");
         }
         public override void SizeChange()
@@ -165,6 +182,7 @@ namespace Presentation_Layer.FormView
         {
             AppState.state = x;
             tbTenSB.Enabled = true;
+
             btnAdd.Text = "OK";
             btnEdit.Text = "Cancel";
 
@@ -176,6 +194,7 @@ namespace Presentation_Layer.FormView
         {
             AppState.state = Actions.NOTHING;
             tbTenSB.Enabled = false;
+
             btnAdd.Text = "Add";
             btnEdit.Text = "Edit";
 
@@ -190,13 +209,15 @@ namespace Presentation_Layer.FormView
             }
             else if (AppState.state == Actions.ADD)
             {
-                Notification.Show("Add");
                 DisablePanelEdit();
+                BLL_SanBay.InsertSanBay(currentSB);
+                reloadData();
             }
             else if (AppState.state == Actions.EDIT)
             {
-                Notification.Show("Edit");
                 DisablePanelEdit();
+                BLL_SanBay.UpdateSanBay(currentSB);
+                reloadData();
             }
         }
         private void btnEdit_Click(object sender, EventArgs e)
@@ -207,6 +228,7 @@ namespace Presentation_Layer.FormView
             }
             else
             {
+                loadEdit();
                 DisablePanelEdit();
             }
         }
