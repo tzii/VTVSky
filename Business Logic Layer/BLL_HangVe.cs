@@ -32,5 +32,18 @@ namespace Business_Logic_Layer
             if (hangves == null) return new List<HangVe>();
             return hangves;
         }
+        public static bool InsertHangVe(HangVe hangVe)
+        {
+            return DAL_HangVe.InsertHangVe(hangVe);
+        }
+
+        public static bool UpdateHangVe(HangVe hangVe)
+        {
+            return DAL_HangVe.UpdateHangVe(hangVe);
+        }
+        public static bool DeleteHangVe (HangVe hv)
+        {
+            return DAL_HangVe.DeleteHangVe(hv);
+        }
     }
 }

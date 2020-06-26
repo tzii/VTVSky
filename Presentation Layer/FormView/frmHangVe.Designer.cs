@@ -32,7 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            Guna.UI2.AnimatorNS.Animation animation1 = new Guna.UI2.AnimatorNS.Animation();
+            Guna.UI2.AnimatorNS.Animation animation3 = new Guna.UI2.AnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHangVe));
             this.dgvHangVe = new Guna.UI2.WinForms.Guna2DataGridView();
             this.cmt = new Guna.UI.WinForms.GunaContextMenuStrip();
@@ -64,6 +64,7 @@
             this.tbMaHV = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.btnEdit = new Guna.UI2.WinForms.Guna2Button();
+            this.btnDelete = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHangVe)).BeginInit();
             this.cmt.SuspendLayout();
             this.pnContain.SuspendLayout();
@@ -154,6 +155,7 @@
             this.dgvHangVe.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHangVe_CellMouseEnter);
             this.dgvHangVe.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHangVe_CellMouseLeave);
             this.dgvHangVe.SelectionChanged += new System.EventHandler(this.dgvHangVe_SelectionChanged);
+            // 
             // cmt
             // 
             this.guna2Transition1.SetDecoration(this.cmt, Guna.UI2.AnimatorNS.DecorationType.None);
@@ -244,22 +246,22 @@
             // guna2Transition1
             // 
             this.guna2Transition1.Cursor = null;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(0);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 0F;
-            this.guna2Transition1.DefaultAnimation = animation1;
+            animation3.AnimateOnlyDifferences = true;
+            animation3.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.BlindCoeff")));
+            animation3.LeafCoeff = 0F;
+            animation3.MaxTime = 1F;
+            animation3.MinTime = 0F;
+            animation3.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicCoeff")));
+            animation3.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicShift")));
+            animation3.MosaicSize = 0;
+            animation3.Padding = new System.Windows.Forms.Padding(0);
+            animation3.RotateCoeff = 0F;
+            animation3.RotateLimit = 0F;
+            animation3.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.ScaleCoeff")));
+            animation3.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.SlideCoeff")));
+            animation3.TimeCoeff = 0F;
+            animation3.TransparencyCoeff = 0F;
+            this.guna2Transition1.DefaultAnimation = animation3;
             // 
             // tableLayoutPanel1
             // 
@@ -427,6 +429,7 @@
             this.guna2Panel2.Controls.Add(this.tbTenHV);
             this.guna2Panel2.Controls.Add(this.tbMaHV);
             this.guna2Panel2.Controls.Add(this.btnAdd);
+            this.guna2Panel2.Controls.Add(this.btnDelete);
             this.guna2Panel2.Controls.Add(this.btnEdit);
             this.guna2Transition1.SetDecoration(this.guna2Panel2, Guna.UI2.AnimatorNS.DecorationType.None);
             this.guna2Panel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(250)))));
@@ -568,11 +571,11 @@
             this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.HoverState.Parent = this.btnAdd;
             this.btnAdd.Image = global::Presentation_Layer.Properties.Resources.plus;
-            this.btnAdd.Location = new System.Drawing.Point(76, 208);
+            this.btnAdd.Location = new System.Drawing.Point(59, 208);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.ShadowDecoration.Parent = this.btnAdd;
             this.btnAdd.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
-            this.btnAdd.Size = new System.Drawing.Size(126, 36);
+            this.btnAdd.Size = new System.Drawing.Size(100, 36);
             this.btnAdd.TabIndex = 24;
             this.btnAdd.Text = "Add";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -588,14 +591,34 @@
             this.btnEdit.ForeColor = System.Drawing.Color.White;
             this.btnEdit.HoverState.Parent = this.btnEdit;
             this.btnEdit.Image = global::Presentation_Layer.Properties.Resources.edit;
-            this.btnEdit.Location = new System.Drawing.Point(255, 208);
+            this.btnEdit.Location = new System.Drawing.Point(178, 208);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.ShadowDecoration.Parent = this.btnEdit;
             this.btnEdit.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
-            this.btnEdit.Size = new System.Drawing.Size(126, 36);
+            this.btnEdit.Size = new System.Drawing.Size(100, 36);
             this.btnEdit.TabIndex = 24;
             this.btnEdit.Text = "Edit";
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.Transparent;
+            this.btnDelete.BorderRadius = 6;
+            this.btnDelete.CheckedState.Parent = this.btnDelete;
+            this.btnDelete.CustomImages.Parent = this.btnDelete;
+            this.guna2Transition1.SetDecoration(this.btnDelete, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.btnDelete.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.HoverState.Parent = this.btnDelete;
+            this.btnDelete.Image = global::Presentation_Layer.Properties.Resources.edit;
+            this.btnDelete.Location = new System.Drawing.Point(297, 208);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.ShadowDecoration.Parent = this.btnDelete;
+            this.btnDelete.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.btnDelete.Size = new System.Drawing.Size(100, 36);
+            this.btnDelete.TabIndex = 24;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // frmHangVe
             // 
@@ -660,5 +683,6 @@
         private Guna.UI2.WinForms.Guna2TextBox tbTenHV;
         private System.Windows.Forms.Label lbTiLe;
         private Guna.UI2.WinForms.Guna2TextBox tbTiLe;
+        private Guna.UI2.WinForms.Guna2Button btnDelete;
     }
 }

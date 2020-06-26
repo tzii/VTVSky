@@ -22,6 +22,24 @@ namespace Presentation_Layer.FormView
         private List<HangVe> hangVes;
         private SortableBindingList<HangVe> bl;
         private Color lastColor;
+        private HangVe currentHV
+        {
+            get
+            {
+                try
+                {
+                    int maHV = (int)dgvHangVe.SelectedRows[0].Cells["MaHV"].Value;
+                    string tenHV = tbTenHV.Text;
+                    double tiLe = Convert.ToDouble(tbTiLe.Text);
+                    return new HangVe(maHV,tenHV,tiLe);
+                }
+                catch (Exception ex)
+                {
+                    Notification.Show(ex.Message);
+                    return new HangVe();
+                }
+            }
+        }
         public frmHangVe()
         {
             InitializeComponent();
@@ -46,6 +64,7 @@ namespace Presentation_Layer.FormView
         private void CustomDgv()
         {
             dgvHangVe.Columns["MaHV"].Visible = false;
+
             dgvHangVe.Columns["strMaHV"].HeaderText = "Mã";
             dgvHangVe.Columns["strMaHV"].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvHangVe.Columns["strMaHV"].Width = 100;
@@ -62,6 +81,12 @@ namespace Presentation_Layer.FormView
             i = new CBSource("TenHV", "Tên Hạng Vé");
             res.Add(i);
             return res;
+        }
+        private void reloadData()
+        {
+            hangVes = BLL_HangVe.GetHangVes();
+            bl = new SortableBindingList<HangVe>(hangVes);
+            dgvHangVe.DataSource = bl;
         }
         #endregion
         #region Chỉnh sửa hiển thị của dgvHangVe
@@ -109,9 +134,7 @@ namespace Presentation_Layer.FormView
                         return;
                     }
                 }
-                tbMaHV.Text = dgvHangVe.SelectedRows[0].Cells["strMaHV"].Value.ToString();
-                tbTenHV.Text = dgvHangVe.SelectedRows[0].Cells["TenHV"].Value.ToString();
-                tbTiLe.Text = dgvHangVe.SelectedRows[0].Cells["TiLe"].Value.ToString();
+                loadEdit();
             }
         }
         #endregion
@@ -131,9 +154,7 @@ namespace Presentation_Layer.FormView
 
         public override void RefreshData()
         {
-            hangVes = BLL_HangVe.GetHangVes();
-            bl = new SortableBindingList<HangVe>(hangVes);
-            dgvHangVe.DataSource = bl;
+            reloadData();
             Notification.Show("Làm mới danh sách Hạng vé");
         }
         public override void SizeChange()
@@ -167,6 +188,9 @@ namespace Presentation_Layer.FormView
         {
             AppState.state = x;
             tbTenHV.Enabled = true;
+            tbTiLe.Enabled = true;
+            btnDelete.Enabled = false;
+
             btnAdd.Text = "OK";
             btnEdit.Text = "Cancel";
 
@@ -177,6 +201,9 @@ namespace Presentation_Layer.FormView
         {
             AppState.state = Actions.NOTHING;
             tbTenHV.Enabled = false;
+            tbTiLe.Enabled = false;
+            btnDelete.Enabled = true;
+
             btnAdd.Text = "Add";
             btnEdit.Text = "Edit";
 
@@ -189,16 +216,32 @@ namespace Presentation_Layer.FormView
             {
                 ActivePanelEdit(Actions.ADD);
             }
-            else if (AppState.state == Actions.ADD)
+            else
             {
-                Notification.Show("Add");
-                DisablePanelEdit();
+                try
+                {
+                    double x = Convert.ToDouble(tbTiLe.Text);
+                    if (AppState.state == Actions.ADD)
+                    {
+                        DisablePanelEdit();
+                        BLL_HangVe.InsertHangVe(currentHV);
+                        reloadData();
+                    }
+                    else if (AppState.state == Actions.EDIT)
+                    {
+                        DisablePanelEdit();
+                        BLL_HangVe.UpdateHangVe(currentHV);
+                        reloadData();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Notification.Show(ex.Message);
+                    var dialog = new frmWarning("Sai Định Dạng", "Bạn cần nhập đúng định dạng số thập phân trong TiLe");
+                    dialog.ShowDialog();
+                }
             }
-            else if (AppState.state == Actions.EDIT)
-            {
-                Notification.Show("Edit");
-                DisablePanelEdit();
-            }
+            
         }
         private void btnEdit_Click(object sender, EventArgs e)
         {
@@ -208,9 +251,28 @@ namespace Presentation_Layer.FormView
             }
             else
             {
+                loadEdit();
                 DisablePanelEdit();
             }
         }
+        private void loadEdit()
+        {
+            tbMaHV.Text = dgvHangVe.SelectedRows[0].Cells["strMaHV"].Value.ToString();
+            tbTenHV.Text = dgvHangVe.SelectedRows[0].Cells["TenHV"].Value.ToString();
+            tbTiLe.Text = dgvHangVe.SelectedRows[0].Cells["TiLe"].Value.ToString();
+        }
         #endregion
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            var dialog = new frmWarning("Cảnh báo!!!", "Bạn có muốn xóa hạng vé không?");
+            DialogResult res = dialog.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                Notification.Show("Xóa hạng vé thành công");
+                BLL_HangVe.DeleteHangVe(currentHV);
+                reloadData();
+            }
+        }
     }
 }
