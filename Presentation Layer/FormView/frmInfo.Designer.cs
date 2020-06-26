@@ -152,6 +152,7 @@
             this.btnEditQueQuan.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.btnEditQueQuan.Size = new System.Drawing.Size(39, 36);
             this.btnEditQueQuan.TabIndex = 25;
+            this.btnEditQueQuan.Click += new System.EventHandler(this.btnEditQueQuan_Click);
             // 
             // btnEditNgaySinh
             // 
@@ -169,6 +170,7 @@
             this.btnEditNgaySinh.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.btnEditNgaySinh.Size = new System.Drawing.Size(39, 36);
             this.btnEditNgaySinh.TabIndex = 25;
+            this.btnEditNgaySinh.Click += new System.EventHandler(this.btnEditNgaySinh_Click);
             // 
             // btnEditSDT
             // 
@@ -186,6 +188,7 @@
             this.btnEditSDT.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.btnEditSDT.Size = new System.Drawing.Size(39, 36);
             this.btnEditSDT.TabIndex = 25;
+            this.btnEditSDT.Click += new System.EventHandler(this.btnEditSDT_Click);
             // 
             // btnEditHoTen
             // 
@@ -203,6 +206,7 @@
             this.btnEditHoTen.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.btnEditHoTen.Size = new System.Drawing.Size(39, 36);
             this.btnEditHoTen.TabIndex = 25;
+            this.btnEditHoTen.Click += new System.EventHandler(this.btnEditHoTen_Click);
             // 
             // lbQueQuan
             // 

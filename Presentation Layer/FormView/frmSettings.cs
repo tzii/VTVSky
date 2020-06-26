@@ -80,7 +80,7 @@ namespace Presentation_Layer.FormView
         private void btnHeThong_Click(object sender, EventArgs e)
         {
             var btn = (Guna2Button)sender;
-            if (btn.Checked == true) return;
+            if (btn.Checked == true || AppState.state != Actions.NOTHING) return;
             ActivateButton(sender);
             ShowChildForm(formHeThong);
         }
@@ -88,7 +88,7 @@ namespace Presentation_Layer.FormView
         private void btnHoSo_Click(object sender, EventArgs e)
         {
             var btn = (Guna2Button)sender;
-            if (btn.Checked == true) return;
+            if (btn.Checked == true || AppState.state != Actions.NOTHING) return;
             ActivateButton(sender);
             ShowChildForm(formHoSo);
         }
@@ -98,7 +98,5 @@ namespace Presentation_Layer.FormView
         {
             currentChildForm.RefreshData();
         }
-
-
     }
 }

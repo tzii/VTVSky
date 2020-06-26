@@ -169,6 +169,7 @@
             this.btnEditTGHuyDatVe.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.btnEditTGHuyDatVe.Size = new System.Drawing.Size(39, 36);
             this.btnEditTGHuyDatVe.TabIndex = 25;
+            this.btnEditTGHuyDatVe.Click += new System.EventHandler(this.btnEditTGHuyDatVe_Click);
             // 
             // btnEditTGDatVeChamNhat
             // 
@@ -186,6 +187,7 @@
             this.btnEditTGDatVeChamNhat.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.btnEditTGDatVeChamNhat.Size = new System.Drawing.Size(39, 36);
             this.btnEditTGDatVeChamNhat.TabIndex = 25;
+            this.btnEditTGDatVeChamNhat.Click += new System.EventHandler(this.btnEditTGDatVeChamNhat_Click);
             // 
             // btnEditTGDungToiDa
             // 
@@ -203,6 +205,7 @@
             this.btnEditTGDungToiDa.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.btnEditTGDungToiDa.Size = new System.Drawing.Size(39, 36);
             this.btnEditTGDungToiDa.TabIndex = 25;
+            this.btnEditTGDungToiDa.Click += new System.EventHandler(this.btnEditTGDungToiDa_Click);
             // 
             // btnEditTGDungToiThieu
             // 
@@ -220,6 +223,7 @@
             this.btnEditTGDungToiThieu.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.btnEditTGDungToiThieu.Size = new System.Drawing.Size(39, 36);
             this.btnEditTGDungToiThieu.TabIndex = 25;
+            this.btnEditTGDungToiThieu.Click += new System.EventHandler(this.btnEditTGDungToiThieu_Click);
             // 
             // btnEditSLSBTG
             // 
@@ -237,6 +241,7 @@
             this.btnEditSLSBTG.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.btnEditSLSBTG.Size = new System.Drawing.Size(39, 36);
             this.btnEditSLSBTG.TabIndex = 25;
+            this.btnEditSLSBTG.Click += new System.EventHandler(this.btnEditSLSBTG_Click);
             // 
             // btnEditTGBayToiThieu
             // 
@@ -254,6 +259,7 @@
             this.btnEditTGBayToiThieu.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.btnEditTGBayToiThieu.Size = new System.Drawing.Size(39, 36);
             this.btnEditTGBayToiThieu.TabIndex = 25;
+            this.btnEditTGBayToiThieu.Click += new System.EventHandler(this.btnEditTGBayToiThieu_Click);
             // 
             // lbTGHuyDatVe
             // 

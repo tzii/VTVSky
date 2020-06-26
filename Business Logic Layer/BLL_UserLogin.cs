@@ -25,5 +25,21 @@ namespace Business_Logic_Layer
         {
             DAL_UserLogin.LoadUserInfor();
         }
+        public static bool UpdateUserLogin()
+        {
+            return DAL_UserLogin.UpdateUserLogin();
+        }
+        public static bool UpdateUserPer()
+        {
+            return DAL_UserLogin.UpdateUserPer();
+        }
+        public static bool UpdateUserInFor()
+        {
+            return DAL_UserLogin.UpdateUserInFor();
+        }
+        public static bool CheckUsername(string username)
+        {
+            return DAL_UserLogin.CheckUsername(username);
+        }
     }
 }

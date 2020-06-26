@@ -59,7 +59,7 @@ namespace Data_Access_Layer
         }
         public static bool UpdateUserInFor()
         {
-            string cmdText = String.Format("UPDATE USER_INFOR SET Name='{0}',NgaySinh='{1}',QueQuan='{2}',DienThoai='{3}' WHERE ID = {4}", User.Name,User.NgaySinh,User.QueQuan,User.DienThoai, User.id);
+            string cmdText = String.Format("UPDATE USER_INFOR SET Name=N'{0}',NgaySinh='{1}',QueQuan=N'{2}',DienThoai='{3}' WHERE ID = {4}", User.Name,User.NgaySinh.ToString("MM/dd/yyyy"),User.QueQuan,User.DienThoai, User.id);
             bool update = DataProvider.ExecuteNonQuery(cmdText);
             return update;
         }
