@@ -53,5 +53,14 @@ namespace Business_Logic_Layer
             if (Ves == null) return new List<Ve>();
             return Ves;
         }
+        public static bool InsertVe(Ve ve, int maVe)
+        {
+            return DAL_Ve.InsertVe(ve,maVe);
+        }
+
+        public static bool UpdateVe(Ve ve)
+        {
+            return DAL_Ve.UpdateVe(ve);
+        }
     }
 }

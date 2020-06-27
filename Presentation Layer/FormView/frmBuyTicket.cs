@@ -93,11 +93,15 @@ namespace Presentation_Layer.FormView
             res.Add(i);
             i = new CBSource("CMND", "CMND");
             res.Add(i);
-            i = new CBSource("SDT", "Số Điện Thoại");
-            res.Add(i);
             i = new CBSource("TG", "Thời Gian");
             res.Add(i);
             return res;
+        }
+        private void reloadData()
+        {
+            ves = BLL_Ve.GetVes();
+            bl = new SortableBindingList<Ve>(ves);
+            dgvBuyTicket.DataSource = bl;
         }
         #endregion
         private void frmBuyTicket_Load(object sender, EventArgs e)
@@ -137,9 +141,7 @@ namespace Presentation_Layer.FormView
         }
         public override void RefreshData()
         {
-            //ves = BLL_ChuyenBay.GetSanBays();
-            bl = new SortableBindingList<Ve>(ves);
-            dgvBuyTicket.DataSource = bl;
+            reloadData();
             Notification.Show("Làm mới danh sách sân bay");
         }
         public override void Create()
@@ -149,7 +151,12 @@ namespace Presentation_Layer.FormView
             DialogResult res = dialog.ShowDialog();
             if (res == DialogResult.OK)
             {
-
+                int newMave = BLL_IdenMaVe.GetNewMaVe();
+                if (BLL_Ve.InsertVe(dialog.ve, newMave))
+                {
+                    BLL_IdenMaVe.ClearIden();
+                }
+                reloadData();
             }
             AppState.state = Actions.NOTHING;
         }
@@ -171,7 +178,8 @@ namespace Presentation_Layer.FormView
             DialogResult res = dialog.ShowDialog();
             if (res == DialogResult.OK)
             {
-
+                BLL_Ve.UpdateVe(dialog.ve);
+                reloadData();
             }
             AppState.state = Actions.NOTHING;
         }
@@ -201,7 +209,6 @@ namespace Presentation_Layer.FormView
             else if (cbSearch.SelectedValue.ToString() == "MaCB") ves = BLL_Ve.SearchMaCB(tbSearch.Text);
             else if (cbSearch.SelectedValue.ToString() == "TenHK") ves = BLL_Ve.SearchTenHK(tbSearch.Text);
             else if (cbSearch.SelectedValue.ToString() == "CMND") ves = BLL_Ve.SearchCMND(tbSearch.Text);
-            else if (cbSearch.SelectedValue.ToString() == "SDT") ves = BLL_Ve.SearchSDT(tbSearch.Text);
             else if (cbSearch.SelectedValue.ToString() == "TG") ves = BLL_Ve.SearchThoiGian(tbSearch.Text);
             bl = new SortableBindingList<Ve>(ves);
             dgvBuyTicket.DataSource = bl;

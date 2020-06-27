@@ -35,6 +35,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.tbNgayGio = new System.Windows.Forms.Label();
+            this.tbGiaVe = new System.Windows.Forms.Label();
             this.tbMaVe = new System.Windows.Forms.Label();
             this.tbTenHK = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbCMND = new Guna.UI2.WinForms.Guna2TextBox();
@@ -55,8 +57,7 @@
             this.guna2Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.tbGiaVe = new System.Windows.Forms.Label();
-            this.tbNgayGio = new System.Windows.Forms.Label();
+            this.lbNoti = new Guna.UI.WinForms.GunaLabel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -136,6 +137,24 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(800, 264);
             this.panel2.TabIndex = 0;
+            // 
+            // tbNgayGio
+            // 
+            this.tbNgayGio.AutoSize = true;
+            this.tbNgayGio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNgayGio.Location = new System.Drawing.Point(508, 94);
+            this.tbNgayGio.Name = "tbNgayGio";
+            this.tbNgayGio.Size = new System.Drawing.Size(0, 28);
+            this.tbNgayGio.TabIndex = 3;
+            // 
+            // tbGiaVe
+            // 
+            this.tbGiaVe.AutoSize = true;
+            this.tbGiaVe.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbGiaVe.Location = new System.Drawing.Point(508, 38);
+            this.tbGiaVe.Name = "tbGiaVe";
+            this.tbGiaVe.Size = new System.Drawing.Size(0, 28);
+            this.tbGiaVe.TabIndex = 3;
             // 
             // tbMaVe
             // 
@@ -426,23 +445,17 @@
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // tbGiaVe
+            // lbNoti
             // 
-            this.tbGiaVe.AutoSize = true;
-            this.tbGiaVe.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbGiaVe.Location = new System.Drawing.Point(508, 38);
-            this.tbGiaVe.Name = "tbGiaVe";
-            this.tbGiaVe.Size = new System.Drawing.Size(0, 28);
-            this.tbGiaVe.TabIndex = 3;
-            // 
-            // tbNgayGio
-            // 
-            this.tbNgayGio.AutoSize = true;
-            this.tbNgayGio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNgayGio.Location = new System.Drawing.Point(508, 94);
-            this.tbNgayGio.Name = "tbNgayGio";
-            this.tbNgayGio.Size = new System.Drawing.Size(0, 28);
-            this.tbNgayGio.TabIndex = 3;
+            this.lbNoti.AutoSize = true;
+            this.lbNoti.BackColor = System.Drawing.Color.Transparent;
+            this.lbNoti.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lbNoti.ForeColor = System.Drawing.Color.Red;
+            this.lbNoti.Location = new System.Drawing.Point(20, 305);
+            this.lbNoti.Name = "lbNoti";
+            this.lbNoti.Size = new System.Drawing.Size(0, 20);
+            this.lbNoti.TabIndex = 9;
+            this.lbNoti.Visible = false;
             // 
             // frmVeEditing
             // 
@@ -451,6 +464,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(800, 404);
+            this.Controls.Add(this.lbNoti);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.panel2);
@@ -468,6 +482,7 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -500,5 +515,6 @@
         private System.Windows.Forms.Label tbMaVe;
         private System.Windows.Forms.Label tbNgayGio;
         private System.Windows.Forms.Label tbGiaVe;
+        private Guna.UI.WinForms.GunaLabel lbNoti;
     }
 }

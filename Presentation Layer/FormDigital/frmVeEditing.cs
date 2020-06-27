@@ -53,6 +53,7 @@ namespace Presentation_Layer.FormDigital
         public frmVeEditing()
         {
             InitializeComponent();
+            ve = new Ve();
             Loadcb();
             checkState();
         }
@@ -62,7 +63,6 @@ namespace Presentation_Layer.FormDigital
             Loadcb();
             checkState();
             ve = x;
-            Notification.Show(ve.strMaVe);
             tbMaVe.Text = ve.strMaVe;
             cbMaCB.SelectedValue = ve.maCB;
             tbGiaVe.Text = ve.GiaVe.ToString("###,###,### VND");
@@ -85,8 +85,34 @@ namespace Presentation_Layer.FormDigital
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            if (tbTenHK.Text == "")
+            {
+                lbNoti.Text = "Tên khách hàng không được bỏ trống";
+                lbNoti.Show();
+                return;
+            }
+            if (tbCMND.Text == "")
+            {
+                lbNoti.Text = "CMND không được bỏ trống";
+                lbNoti.Show();
+                return;
+            }
+            if (tbDienThoai.Text == "")
+            {
+                lbNoti.Text = "Điện thoại không được bỏ trống";
+                lbNoti.Show();
+                return;
+            }
+
+            ve.maCB = (int)cbMaCB.SelectedValue;
+            ve.GiaVe = Convert.ToInt32(((ChuyenBay)cbMaCB.SelectedItem).DonGia * ((HangVe)cbHangVe.SelectedItem).TiLe);
+            ve.ThoiGian = DateTime.ParseExact(tbNgayGio.Text, "hh:mm tt dd/MM/yyyy", null);
+            ve.TenHK = tbTenHK.Text;
+            ve.HV = cbHangVe.SelectedItem as HangVe;
+            ve.CMND = tbCMND.Text;
+            ve.DienThoai=tbDienThoai.Text;
+
             button1.PerformClick();
-            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

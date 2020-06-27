@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="DAL_CTCB.cs" />
     <Compile Include="DAL_CTHV.cs" />
+    <Compile Include="DAL_IdenMaVe.cs" />
     <Compile Include="DAL_PhieuDatCho.cs" />
     <Compile Include="DAL_HangVe.cs" />
     <Compile Include="DAL_SanBay.cs" />
