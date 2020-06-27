@@ -12,9 +12,22 @@ namespace Business_Logic_Layer
     {
         public static List<CTCB> GetCTCBs(int maCB)
         {
-            var ctcbs = DAL_CTCB.SearchMaCB(maCB);
+            var ctcbs = DAL_CTCB.GetCTCBs(maCB);
             if (ctcbs == null) return new List<CTCB>();
             return ctcbs;
+        }
+        public static bool InsertCTCB(CTCB cTCB, int maCB)
+        {
+            return DAL_CTCB.InsertCTCB(cTCB, maCB);
+        }
+
+        public static bool UpdateCTCB(CTCB cTCB)
+        {
+            return DAL_CTCB.UpdateCTCB(cTCB);
+        }
+        public static bool DeleteCTCB(int maCB)
+        {
+            return DAL_CTCB.DeleteCTCB(maCB);
         }
     }
 }

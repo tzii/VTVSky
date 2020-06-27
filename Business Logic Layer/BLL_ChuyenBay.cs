@@ -34,5 +34,18 @@ namespace Business_Logic_Layer
             if (chuyenBays == null) return new List<ChuyenBay>();
             return chuyenBays;
         }
+        public static bool InsertChuyenBay(ChuyenBay chuyenBay)
+        {
+            return DAL_ChuyenBay.InsertChuyenBay(chuyenBay);
+        }
+
+        public static bool UpdateChuyenBay(ChuyenBay chuyenBay)
+        {
+            return DAL_ChuyenBay.UpdateChuyenBay(chuyenBay);
+        }
+        public static int GetLastMaCB()
+        {
+            return DAL_ChuyenBay.GetLastMaCB();
+        }
     }
 }

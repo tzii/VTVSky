@@ -16,9 +16,25 @@ namespace Business_Logic_Layer
             if (tuyenBays == null) return new List<TuyenBay>();
             return tuyenBays;
         }
+        public static List<SanBay> GetSanBaysFrom(int maSBDi)
+        {
+            var sanBays = DAL_TuyenBay.GetSanBaysFrom(maSBDi);
+            if (sanBays == null) return new List<SanBay>();
+            return sanBays;
+        }
+        public static List<SanBay> GetSanBaysTo(int maSBDen)
+        {
+            var sanBays = DAL_TuyenBay.GetSanBaysTo(maSBDen);
+            if (sanBays == null) return new List<SanBay>();
+            return sanBays;
+        }
         public static TuyenBay GetTuyenBay(int maTB)
         {
             return DAL_TuyenBay.GetTuyenBay(maTB);
+        }
+        public static TuyenBay GetTuyenBay(int maSBDi, int maSBDen)
+        {
+            return DAL_TuyenBay.GetTuyenBay(maSBDi,maSBDen);
         }
         public static List<TuyenBay> searchMaTB (string maTB)
         {

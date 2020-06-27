@@ -48,7 +48,7 @@ namespace Data_Access_Layer
 
         public static List<ChuyenBay> SearchTenSBDi(string tenSBDi)
         {
-            string cmdText = String.Format("select * from CHUYENBAY where MaSBDI like '%{0}%'", tenSBDi == "" ? tenSBDi : DataProvider.ConvertToInt(tenSBDi));
+            string cmdText = String.Format("select * from CHUYENBAY inner join TUYENBAY on CHUYENBAY.MATB = TUYENBAY.MATB inner join SANBAY on TUYENBAY.MASBDI = SANBAY.MASB where SANBAY.TENSB like N'%{0}%'", tenSBDi);
             DataTable dt = DataProvider.ExecuteReader(cmdText);
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -65,7 +65,7 @@ namespace Data_Access_Layer
 
         public static List<ChuyenBay> SearchTenSBDen(string tenSBDen)
         {
-            string cmdText = String.Format("select * from CHUYENBAY where MaSBDen like '%{0}%'", tenSBDen == "" ? tenSBDen : DataProvider.ConvertToInt(tenSBDen));
+            string cmdText = String.Format("select * from CHUYENBAY inner join TUYENBAY on CHUYENBAY.MATB = TUYENBAY.MATB inner join SANBAY on TUYENBAY.MASBDEN = SANBAY.MASB where SANBAY.TENSB like N'%{0}%'", tenSBDen);
             DataTable dt = DataProvider.ExecuteReader(cmdText);
             if (dt != null && dt.Rows.Count > 0)
             {
@@ -97,16 +97,31 @@ namespace Data_Access_Layer
         }
         public static bool InsertChuyenBay(ChuyenBay chuyenBay)
         {
-            string cmdText = string.Format("INSERT INTO CHUYENBAY(MaTB,DonGia,ThoiGian,ThoiLuong,SoGheTrong,SoGheDat) VALUES ({0},{1},'{2}',{3},{4},{5})", chuyenBay.TB,chuyenBay.DonGia,chuyenBay.ThoiGian,chuyenBay.ThoiLuong,chuyenBay.SoGheTrong,chuyenBay.SoGheDat);
+            string cmdText = string.Format("INSERT INTO CHUYENBAY(MaTB,DonGia,ThoiGian,ThoiLuong,SLGheTrong,SLGheDat) VALUES ({0},{1},'{2}',{3},{4},{5})", chuyenBay.TB.maTB,chuyenBay.DonGia,chuyenBay.ThoiGian.ToString("MM/dd/yyyy HH:mm:ss"),chuyenBay.ThoiLuong,chuyenBay.SoGheTrong,chuyenBay.SoGheDat);
             bool insert = DataProvider.ExecuteNonQuery(cmdText);
             return insert;
         }
 
         public static bool UpdateChuyenBay(ChuyenBay chuyenBay)
         {
-            string cmdText = string.Format("UPDATE CHUYENBAY SET MaTB= {0},DonGia= {1},ThoiGian= '{2}',ThoiLuong= {3},SoGheTrong= {4},SoGheDat= {5} WHERE MaCB = {6}", chuyenBay.TB, chuyenBay.DonGia, chuyenBay.ThoiGian, chuyenBay.ThoiLuong, chuyenBay.SoGheTrong, chuyenBay.SoGheDat,chuyenBay.maCB);
+            string cmdText = string.Format("UPDATE CHUYENBAY SET MaTB= {0},DonGia= {1},ThoiGian= '{2}',ThoiLuong= {3},SLGheTrong= {4},SLGheDat= {5} WHERE MaCB = {6}", chuyenBay.TB.maTB, chuyenBay.DonGia, chuyenBay.ThoiGian.ToString("MM/dd/yyyy HH:mm:ss"), chuyenBay.ThoiLuong, chuyenBay.SoGheTrong, chuyenBay.SoGheDat,chuyenBay.maCB);
             bool update = DataProvider.ExecuteNonQuery(cmdText);
             return update;
+        }
+        public static int GetLastMaCB()
+        {
+            string cmdText = string.Format("select top(1) MACB from CHUYENBAY order by MACB desc");
+            string res = DataProvider.ExecuteScalar(cmdText);
+            try
+            {
+                int x = Convert.ToInt32(res);
+                return x;
+            }
+            catch (Exception ex)
+            {
+                Notification.Show(ex.Message);
+                return 0;
+            }
         }
     }
 }

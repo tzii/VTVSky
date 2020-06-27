@@ -25,7 +25,7 @@ namespace Data_Transfer_Objects
         {
             get
             {
-                return HV.strMaHV;
+                return HV.TenHV;
             } 
         }
         public int GiaVe

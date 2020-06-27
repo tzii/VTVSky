@@ -30,7 +30,22 @@ namespace Data_Access_Layer
             }
             return null;
         }
-
+        public static List<SanBay> GetSanBaysExcept(TuyenBay tb)
+        {
+            string cmdText = String.Format("select * from SANBAY where MaSB not in ({0},{1})",tb.SBDi.maSB,tb.SBDen.maSB);
+            DataTable dt = DataProvider.ExecuteReader(cmdText);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                List<SanBay> sanBays = new List<SanBay>();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    SanBay sb = new SanBay((int)dt.Rows[i]["MaSB"], dt.Rows[i]["TenSB"].ToString());
+                    sanBays.Add(sb);
+                }
+                return sanBays;
+            }
+            return null;
+        }
         public static SanBay GetSanBay(int MaSB)
         {
             string cmdText = String.Format("select * from SANBAY Where MaSB={0}",MaSB);

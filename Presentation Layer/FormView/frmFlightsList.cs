@@ -20,6 +20,21 @@ namespace Presentation_Layer.FormView
         private List<ChuyenBay> chuyenBays;
         private SortableBindingList<ChuyenBay> bl;
         private Color lastColor;
+        private ChuyenBay currentCB
+        {
+            get
+            {
+                int maCB = (int)dgvFlightsList.SelectedRows[0].Cells["MaCB"].Value;
+                TuyenBay tb = (TuyenBay)dgvFlightsList.SelectedRows[0].Cells["TB"].Value;
+                int donGia = (int)dgvFlightsList.SelectedRows[0].Cells["DonGia"].Value;
+                DateTime tg = (DateTime)dgvFlightsList.SelectedRows[0].Cells["ThoiGian"].Value;
+                int tl = (int)dgvFlightsList.SelectedRows[0].Cells["ThoiLuong"].Value;
+                int sgTrong = (int)dgvFlightsList.SelectedRows[0].Cells["SoGheTrong"].Value;
+                int sgDat = (int)dgvFlightsList.SelectedRows[0].Cells["SoGheDat"].Value;
+
+                return new ChuyenBay(maCB, tb, donGia, tg, tl, sgTrong, sgDat);
+            }
+        }
         public frmFlightsList()
         {
             InitializeComponent();
@@ -45,12 +60,11 @@ namespace Presentation_Layer.FormView
         {
             dgvFlightsList.Columns.Add(ButtonColumn("Detail"));
             dgvFlightsList.Columns.Add(ButtonColumn("Edit"));
-            //dgvFlightsList.Columns.Add(ButtonColumn("Delete"));
 
             dgvFlightsList.Columns["MaCB"].Visible = false;
             dgvFlightsList.Columns["TB"].Visible = false;
 
-            
+
             dgvFlightsList.Columns["strMaCB"].Width = 100;
             dgvFlightsList.Columns["DonGia"].Width = 100;
             dgvFlightsList.Columns["ThoiGian"].Width = 80;
@@ -75,7 +89,6 @@ namespace Presentation_Layer.FormView
             dgvFlightsList.Columns["ThoiLuong"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvFlightsList.Columns["SoGheTrong"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvFlightsList.Columns["SoGheDat"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-
         }
 
         private List<CBSource> sources()
@@ -88,6 +101,12 @@ namespace Presentation_Layer.FormView
             i = new CBSource("SBDen", "Sân Bay Đến");
             res.Add(i);
             return res;
+        }
+        private void reloadData()
+        {
+            chuyenBays = BLL_ChuyenBay.GetChuyenBays();
+            bl = new SortableBindingList<ChuyenBay>(chuyenBays);
+            dgvFlightsList.DataSource = bl;
         }
         #endregion
         private void frmFlightsList_Load(object sender, EventArgs e)
@@ -107,10 +126,20 @@ namespace Presentation_Layer.FormView
             scrollHelper = new PanelScrollHelper(pnScroll, sb, false);
             scrollHelper.UpdateScrollBar();
         }
-        
+
         private void dgvFlights_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.RowIndex >= 0) dgvFlightsList.Rows[e.RowIndex].Selected = true;
+            if (e.RowIndex < 0) return;
+            dgvFlightsList.Rows[e.RowIndex].Selected = true;
+            if (e.ColumnIndex == 0)
+            {
+                Detail(dgvFlightsList.Rows[e.RowIndex]);
+            }
+            else if (e.ColumnIndex == 1)
+            {
+                Notification.Show("Editing");
+                Edit(dgvFlightsList.Rows[e.RowIndex]);
+            }
         }
 
         private void pnScroll_Resize(object sender, EventArgs e)
@@ -120,26 +149,68 @@ namespace Presentation_Layer.FormView
         }
         public override void RefreshData()
         {
-            chuyenBays = BLL_ChuyenBay.GetChuyenBays();
-            bl = new SortableBindingList<ChuyenBay>(chuyenBays);
-            dgvFlightsList.DataSource = bl;
+            reloadData();
             Notification.Show("Làm mới danh sách sân bay");
         }
+        #region Edit Chuyến Bay
         public override void Create()
         {
+            AppState.state = Actions.ADD;
             var dialog = new frmFlightEditing();
+            DialogResult res = dialog.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                BLL_ChuyenBay.InsertChuyenBay(dialog.chuyenBay);
+                int lastCB = BLL_ChuyenBay.GetLastMaCB();
+                for (int i = 0; i < dialog.ctcbs.Count; i++)
+                {
+                    BLL_CTCB.InsertCTCB(dialog.ctcbs[i], lastCB);
+                }
+                for (int i = 0; i < dialog.cthvs.Count; i++)
+                {
+                    BLL_CTHV.InsertCTHV(dialog.cthvs[i],lastCB);
+                }
+                reloadData();
+            }
+            AppState.state = Actions.NOTHING;
+        }
+        private void Edit(DataGridViewRow row)
+        {
+            AppState.state = Actions.EDIT;
+            var dialog = new frmFlightEditing(currentCB);
+            DialogResult res = dialog.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                BLL_ChuyenBay.UpdateChuyenBay(dialog.chuyenBay);
+                BLL_CTCB.DeleteCTCB(dialog.chuyenBay.maCB);
+                for (int i = 0; i < dialog.ctcbs.Count; i++)
+                {
+                    BLL_CTCB.InsertCTCB(dialog.ctcbs[i], dialog.chuyenBay.maCB);
+                }
+                for (int i = 0; i < dialog.cthvs.Count; i++)
+                {
+                    BLL_CTHV.UpdateCTHV(dialog.cthvs[i]);
+                }
+                reloadData();
+            }
+            AppState.state = Actions.NOTHING;
+        }
+        private void Detail(DataGridViewRow row)
+        {
+            var dialog = new frmFlightEditing(currentCB);
             DialogResult res = dialog.ShowDialog();
             if (res == DialogResult.OK)
             {
 
             }
         }
+        #endregion
         private void btnSearch_Click(object sender, EventArgs e)
         {
             if (cbSearch.SelectedValue.ToString() == "MaCB") chuyenBays = BLL_ChuyenBay.SearchMaCB(tbSearch.Text);
             else if (cbSearch.SelectedValue.ToString() == "SBDi") chuyenBays = BLL_ChuyenBay.SearchTenSBDi(tbSearch.Text);
             else if (cbSearch.SelectedValue.ToString() == "SBDen") chuyenBays = BLL_ChuyenBay.SearchTenSBDen(tbSearch.Text);
-            bl = new SortableBindingList<ChuyenBay> (chuyenBays);
+            bl = new SortableBindingList<ChuyenBay>(chuyenBays);
             dgvFlightsList.DataSource = bl;
         }
         #region Chỉnh sửa hiển thị của dgvAirports
@@ -160,5 +231,6 @@ namespace Presentation_Layer.FormView
             UpdateHeightDgv();
         }
         #endregion
+
     }
 }

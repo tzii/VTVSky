@@ -29,7 +29,38 @@ namespace Data_Access_Layer
             }
             return null;
         }
-
+        public static List<SanBay> GetSanBaysFrom(int maSBDi)
+        {
+            string cmdText = String.Format("select * from SANBAY inner join TUYENBAY on MaSB = MaSBDen where maSBDi = {0}",maSBDi);
+            DataTable dt = DataProvider.ExecuteReader(cmdText);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                List<SanBay> sanBays = new List<SanBay>();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    SanBay sb = new SanBay((int)dt.Rows[i]["MaSB"], dt.Rows[i]["TenSB"].ToString());
+                    sanBays.Add(sb);
+                }
+                return sanBays;
+            }
+            return null;
+        }
+        public static List<SanBay> GetSanBaysTo(int maSBDen)
+        {
+            string cmdText = String.Format("select * from SANBAY inner join TUYENBAY on MaSB = MaSBDi where maSBDen = {0}", maSBDen);
+            DataTable dt = DataProvider.ExecuteReader(cmdText);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                List<SanBay> sanBays = new List<SanBay>();
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    SanBay sb = new SanBay((int)dt.Rows[i]["MaSB"], dt.Rows[i]["TenSB"].ToString());
+                    sanBays.Add(sb);
+                }
+                return sanBays;
+            }
+            return null;
+        }
         public static TuyenBay GetTuyenBay(int MaTB)
         {
             string cmdText = String.Format("select * from TUYENBAY Where MaTB={0}",MaTB);
@@ -41,7 +72,17 @@ namespace Data_Access_Layer
             }
             return null;
         }
-
+        public static TuyenBay GetTuyenBay(int maSBDi, int maSBDen)
+        {
+            string cmdText = String.Format("select * from TUYENBAY Where MaSBDi={0} and MaSBDen = {1}", maSBDi,maSBDen);
+            DataTable dt = DataProvider.ExecuteReader(cmdText);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                TuyenBay tb = new TuyenBay((int)dt.Rows[0]["MaTB"], DAL_SanBay.GetSanBay((int)dt.Rows[0]["MaSBDi"]), DAL_SanBay.GetSanBay((int)dt.Rows[0]["MaSBDen"]));
+                return tb;
+            }
+            return null;
+        }
         public static List<TuyenBay> SearchMaTB(string maTB)
         {
             string cmdText = String.Format("select * from TUYENBAY where MaTB like '%{0}%'", maTB == "" ? maTB : DataProvider.ConvertToInt(maTB));

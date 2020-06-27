@@ -16,9 +16,15 @@ namespace Business_Logic_Layer
             if (sanBays == null) return new List<SanBay>();
             else return sanBays;
         }
+        public static List<SanBay> GetSanBaysExcept(TuyenBay tb)
+        {
+            List<SanBay> sanBays = DAL_SanBay.GetSanBaysExcept(tb);
+            if (sanBays == null) return new List<SanBay>();
+            else return sanBays;
+        }
         public static SanBay GetSanBay(int maSB)
         {
-            return new SanBay();
+            return DAL_SanBay.GetSanBay(maSB);
         }
         public static bool InsertSanBay(SanBay sanBay)
         {

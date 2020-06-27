@@ -43,6 +43,7 @@
             this.nTGBayH = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.nTGBayM = new Guna.UI2.WinForms.Guna2NumericUpDown();
             this.nGiaVe = new Guna.UI2.WinForms.Guna2NumericUpDown();
+            this.btnCC = new Guna.UI2.WinForms.Guna2Button();
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.tbGhiChu = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbMaCB = new Guna.UI2.WinForms.Guna2TextBox();
@@ -63,7 +64,7 @@
             this.lbNgayGio = new Guna.UI.WinForms.GunaLabel();
             this.lbSBDi = new Guna.UI.WinForms.GunaLabel();
             this.lbMaCB = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel14 = new Guna.UI.WinForms.GunaLabel();
+            this.lbNoti = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel10 = new Guna.UI.WinForms.GunaLabel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pnContain = new Guna.UI2.WinForms.Guna2Panel();
@@ -76,12 +77,6 @@
             this.guna2Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SBTG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TGDung = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.MaSB = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nTGDung)).BeginInit();
@@ -154,6 +149,7 @@
             this.panel2.Controls.Add(this.nTGBayH);
             this.panel2.Controls.Add(this.nTGBayM);
             this.panel2.Controls.Add(this.nGiaVe);
+            this.panel2.Controls.Add(this.btnCC);
             this.panel2.Controls.Add(this.btnAdd);
             this.panel2.Controls.Add(this.tbGhiChu);
             this.panel2.Controls.Add(this.tbMaCB);
@@ -174,7 +170,7 @@
             this.panel2.Controls.Add(this.lbNgayGio);
             this.panel2.Controls.Add(this.lbSBDi);
             this.panel2.Controls.Add(this.lbMaCB);
-            this.panel2.Controls.Add(this.gunaLabel14);
+            this.panel2.Controls.Add(this.lbNoti);
             this.panel2.Controls.Add(this.gunaLabel10);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 60);
@@ -188,7 +184,7 @@
             this.dtpGio.CustomFormat = "HH:mm";
             this.dtpGio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpGio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpGio.Location = new System.Drawing.Point(287, 96);
+            this.dtpGio.Location = new System.Drawing.Point(115, 94);
             this.dtpGio.Name = "dtpGio";
             this.dtpGio.ShowUpDown = true;
             this.dtpGio.Size = new System.Drawing.Size(65, 34);
@@ -210,13 +206,12 @@
             this.nTGDung.FocusedState.Parent = this.nTGDung;
             this.nTGDung.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nTGDung.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.nTGDung.Location = new System.Drawing.Point(272, 211);
+            this.nTGDung.Location = new System.Drawing.Point(298, 211);
             this.nTGDung.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nTGDung.Name = "nTGDung";
-            this.nTGDung.ShadowDecoration.Enabled = true;
             this.nTGDung.ShadowDecoration.Parent = this.nTGDung;
             this.nTGDung.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
-            this.nTGDung.Size = new System.Drawing.Size(117, 36);
+            this.nTGDung.Size = new System.Drawing.Size(91, 36);
             this.nTGDung.TabIndex = 7;
             // 
             // nTGBayH
@@ -237,7 +232,6 @@
             this.nTGBayH.Location = new System.Drawing.Point(529, 94);
             this.nTGBayH.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nTGBayH.Name = "nTGBayH";
-            this.nTGBayH.ShadowDecoration.Enabled = true;
             this.nTGBayH.ShadowDecoration.Parent = this.nTGBayH;
             this.nTGBayH.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.nTGBayH.Size = new System.Drawing.Size(80, 36);
@@ -261,7 +255,6 @@
             this.nTGBayM.Location = new System.Drawing.Point(648, 94);
             this.nTGBayM.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nTGBayM.Name = "nTGBayM";
-            this.nTGBayM.ShadowDecoration.Enabled = true;
             this.nTGBayM.ShadowDecoration.Parent = this.nTGBayM;
             this.nTGBayM.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.nTGBayM.Size = new System.Drawing.Size(80, 36);
@@ -295,12 +288,31 @@
             0,
             0});
             this.nGiaVe.Name = "nGiaVe";
-            this.nGiaVe.ShadowDecoration.Enabled = true;
             this.nGiaVe.ShadowDecoration.Parent = this.nGiaVe;
             this.nGiaVe.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.nGiaVe.Size = new System.Drawing.Size(220, 36);
             this.nGiaVe.TabIndex = 1;
             this.nGiaVe.ThousandsSeparator = true;
+            // 
+            // btnCC
+            // 
+            this.btnCC.BackColor = System.Drawing.Color.Transparent;
+            this.btnCC.BorderRadius = 6;
+            this.btnCC.CheckedState.Parent = this.btnCC;
+            this.btnCC.CustomImages.Parent = this.btnCC;
+            this.btnCC.Enabled = false;
+            this.btnCC.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCC.ForeColor = System.Drawing.Color.White;
+            this.btnCC.HoverState.Parent = this.btnCC;
+            this.btnCC.Location = new System.Drawing.Point(713, 211);
+            this.btnCC.Name = "btnCC";
+            this.btnCC.ShadowDecoration.Enabled = true;
+            this.btnCC.ShadowDecoration.Parent = this.btnCC;
+            this.btnCC.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.btnCC.Size = new System.Drawing.Size(79, 36);
+            this.btnCC.TabIndex = 9;
+            this.btnCC.Text = "Cancel";
+            this.btnCC.Click += new System.EventHandler(this.btnCC_Click);
             // 
             // btnAdd
             // 
@@ -311,14 +323,15 @@
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.HoverState.Parent = this.btnAdd;
-            this.btnAdd.Location = new System.Drawing.Point(695, 211);
+            this.btnAdd.Location = new System.Drawing.Point(653, 211);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.ShadowDecoration.Enabled = true;
             this.btnAdd.ShadowDecoration.Parent = this.btnAdd;
             this.btnAdd.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
-            this.btnAdd.Size = new System.Drawing.Size(79, 36);
+            this.btnAdd.Size = new System.Drawing.Size(54, 36);
             this.btnAdd.TabIndex = 9;
             this.btnAdd.Text = "Add";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // tbGhiChu
             // 
@@ -343,10 +356,9 @@
             this.tbGhiChu.PasswordChar = '\0';
             this.tbGhiChu.PlaceholderText = "";
             this.tbGhiChu.SelectedText = "";
-            this.tbGhiChu.ShadowDecoration.Enabled = true;
             this.tbGhiChu.ShadowDecoration.Parent = this.tbGhiChu;
             this.tbGhiChu.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
-            this.tbGhiChu.Size = new System.Drawing.Size(258, 36);
+            this.tbGhiChu.Size = new System.Drawing.Size(216, 36);
             this.tbGhiChu.TabIndex = 8;
             // 
             // tbMaCB
@@ -373,7 +385,6 @@
             this.tbMaCB.PlaceholderText = "";
             this.tbMaCB.SelectedText = "";
             this.tbMaCB.SelectionStart = 6;
-            this.tbMaCB.ShadowDecoration.Enabled = true;
             this.tbMaCB.ShadowDecoration.Parent = this.tbMaCB;
             this.tbMaCB.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.tbMaCB.Size = new System.Drawing.Size(200, 36);
@@ -395,13 +406,13 @@
             this.cbSBTG.HoverState.Parent = this.cbSBTG;
             this.cbSBTG.ItemHeight = 30;
             this.cbSBTG.ItemsAppearance.Parent = this.cbSBTG;
-            this.cbSBTG.Location = new System.Drawing.Point(74, 211);
+            this.cbSBTG.Location = new System.Drawing.Point(26, 211);
             this.cbSBTG.Name = "cbSBTG";
-            this.cbSBTG.ShadowDecoration.Enabled = true;
             this.cbSBTG.ShadowDecoration.Parent = this.cbSBTG;
             this.cbSBTG.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
-            this.cbSBTG.Size = new System.Drawing.Size(191, 36);
+            this.cbSBTG.Size = new System.Drawing.Size(265, 36);
             this.cbSBTG.TabIndex = 6;
+            this.cbSBTG.SelectedIndexChanged += new System.EventHandler(this.cbSBTG_SelectedIndexChanged);
             // 
             // dtpNgay
             // 
@@ -413,11 +424,10 @@
             this.dtpNgay.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpNgay.HoverState.Parent = this.dtpNgay;
-            this.dtpNgay.Location = new System.Drawing.Point(114, 94);
+            this.dtpNgay.Location = new System.Drawing.Point(186, 93);
             this.dtpNgay.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpNgay.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpNgay.Name = "dtpNgay";
-            this.dtpNgay.ShadowDecoration.Enabled = true;
             this.dtpNgay.ShadowDecoration.Parent = this.dtpNgay;
             this.dtpNgay.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.dtpNgay.Size = new System.Drawing.Size(166, 36);
@@ -439,13 +449,13 @@
             this.cbSBDi.HoverState.Parent = this.cbSBDi;
             this.cbSBDi.ItemHeight = 30;
             this.cbSBDi.ItemsAppearance.Parent = this.cbSBDi;
-            this.cbSBDi.Location = new System.Drawing.Point(132, 51);
+            this.cbSBDi.Location = new System.Drawing.Point(104, 51);
             this.cbSBDi.Name = "cbSBDi";
-            this.cbSBDi.ShadowDecoration.Enabled = true;
             this.cbSBDi.ShadowDecoration.Parent = this.cbSBDi;
             this.cbSBDi.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
-            this.cbSBDi.Size = new System.Drawing.Size(220, 36);
+            this.cbSBDi.Size = new System.Drawing.Size(248, 36);
             this.cbSBDi.TabIndex = 2;
+            this.cbSBDi.SelectedIndexChanged += new System.EventHandler(this.cbSBDi_SelectedIndexChanged);
             // 
             // cbSBDen
             // 
@@ -462,13 +472,13 @@
             this.cbSBDen.HoverState.Parent = this.cbSBDen;
             this.cbSBDen.ItemHeight = 30;
             this.cbSBDen.ItemsAppearance.Parent = this.cbSBDen;
-            this.cbSBDen.Location = new System.Drawing.Point(508, 51);
+            this.cbSBDen.Location = new System.Drawing.Point(480, 51);
             this.cbSBDen.Name = "cbSBDen";
-            this.cbSBDen.ShadowDecoration.Enabled = true;
             this.cbSBDen.ShadowDecoration.Parent = this.cbSBDen;
             this.cbSBDen.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
-            this.cbSBDen.Size = new System.Drawing.Size(220, 36);
+            this.cbSBDen.Size = new System.Drawing.Size(248, 36);
             this.cbSBDen.TabIndex = 2;
+            this.cbSBDen.SelectedIndexChanged += new System.EventHandler(this.cbSBDen_SelectedIndexChanged);
             // 
             // nSLGhe2
             // 
@@ -493,7 +503,6 @@
             0,
             0});
             this.nSLGhe2.Name = "nSLGhe2";
-            this.nSLGhe2.ShadowDecoration.Enabled = true;
             this.nSLGhe2.ShadowDecoration.Parent = this.nSLGhe2;
             this.nSLGhe2.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.nSLGhe2.Size = new System.Drawing.Size(150, 36);
@@ -522,7 +531,6 @@
             0,
             0});
             this.nSLGhe1.Name = "nSLGhe1";
-            this.nSLGhe1.ShadowDecoration.Enabled = true;
             this.nSLGhe1.ShadowDecoration.Parent = this.nSLGhe1;
             this.nSLGhe1.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.nSLGhe1.Size = new System.Drawing.Size(150, 36);
@@ -641,17 +649,18 @@
             this.lbMaCB.TabIndex = 0;
             this.lbMaCB.Text = "Mã Chuyến Bay:";
             // 
-            // gunaLabel14
+            // lbNoti
             // 
-            this.gunaLabel14.AutoSize = true;
-            this.gunaLabel14.BackColor = System.Drawing.Color.Transparent;
-            this.gunaLabel14.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel14.ForeColor = System.Drawing.Color.Red;
-            this.gunaLabel14.Location = new System.Drawing.Point(70, 250);
-            this.gunaLabel14.Name = "gunaLabel14";
-            this.gunaLabel14.Size = new System.Drawing.Size(228, 20);
-            this.gunaLabel14.TabIndex = 6;
-            this.gunaLabel14.Text = "Thời gian dừng vi phạm quy định";
+            this.lbNoti.AutoSize = true;
+            this.lbNoti.BackColor = System.Drawing.Color.Transparent;
+            this.lbNoti.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lbNoti.ForeColor = System.Drawing.Color.Red;
+            this.lbNoti.Location = new System.Drawing.Point(70, 250);
+            this.lbNoti.Name = "lbNoti";
+            this.lbNoti.Size = new System.Drawing.Size(228, 20);
+            this.lbNoti.TabIndex = 6;
+            this.lbNoti.Text = "Thời gian dừng vi phạm quy định";
+            this.lbNoti.Visible = false;
             // 
             // gunaLabel10
             // 
@@ -712,15 +721,8 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvCTCB.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvCTCB.ColumnHeadersHeight = 40;
+            this.dgvCTCB.ColumnHeadersHeight = 60;
             this.dgvCTCB.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvCTCB.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.STT,
-            this.SBTG,
-            this.TGDung,
-            this.GhiChu,
-            this.Edit,
-            this.MaSB});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(235)))), ((int)(((byte)(230)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -760,7 +762,7 @@
             this.dgvCTCB.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvCTCB.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dgvCTCB.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvCTCB.ThemeStyle.HeaderStyle.Height = 40;
+            this.dgvCTCB.ThemeStyle.HeaderStyle.Height = 60;
             this.dgvCTCB.ThemeStyle.ReadOnly = true;
             this.dgvCTCB.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(235)))), ((int)(((byte)(230)))));
             this.dgvCTCB.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -769,6 +771,8 @@
             this.dgvCTCB.ThemeStyle.RowsStyle.Height = 24;
             this.dgvCTCB.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(191)))), ((int)(((byte)(173)))));
             this.dgvCTCB.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvCTCB.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCTCB_CellMouseDown);
+            this.dgvCTCB.SelectionChanged += new System.EventHandler(this.dgvCTCB_SelectionChanged);
             // 
             // sb
             // 
@@ -864,62 +868,6 @@
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // STT
-            // 
-            this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.STT.HeaderText = "STT";
-            this.STT.MinimumWidth = 6;
-            this.STT.Name = "STT";
-            this.STT.ReadOnly = true;
-            this.STT.Width = 50;
-            // 
-            // SBTG
-            // 
-            this.SBTG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.SBTG.FillWeight = 20.68965F;
-            this.SBTG.HeaderText = "Sân Bay Trung Gian";
-            this.SBTG.MinimumWidth = 6;
-            this.SBTG.Name = "SBTG";
-            this.SBTG.ReadOnly = true;
-            this.SBTG.Width = 200;
-            // 
-            // TGDung
-            // 
-            this.TGDung.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.TGDung.FillWeight = 258.6207F;
-            this.TGDung.HeaderText = "Thời Gian Dừng";
-            this.TGDung.MinimumWidth = 6;
-            this.TGDung.Name = "TGDung";
-            this.TGDung.ReadOnly = true;
-            this.TGDung.Width = 200;
-            // 
-            // GhiChu
-            // 
-            this.GhiChu.FillWeight = 20.68965F;
-            this.GhiChu.HeaderText = "Ghi Chú";
-            this.GhiChu.MinimumWidth = 6;
-            this.GhiChu.Name = "GhiChu";
-            this.GhiChu.ReadOnly = true;
-            // 
-            // Edit
-            // 
-            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Edit.HeaderText = "";
-            this.Edit.MinimumWidth = 6;
-            this.Edit.Name = "Edit";
-            this.Edit.ReadOnly = true;
-            this.Edit.Text = "Edit";
-            this.Edit.UseColumnTextForButtonValue = true;
-            this.Edit.Width = 50;
-            // 
-            // MaSB
-            // 
-            this.MaSB.HeaderText = "MaSB";
-            this.MaSB.MinimumWidth = 6;
-            this.MaSB.Name = "MaSB";
-            this.MaSB.ReadOnly = true;
-            this.MaSB.Visible = false;
-            // 
             // frmFlightEditing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
@@ -995,16 +943,11 @@
         private Guna.UI.WinForms.GunaLabel gunaLabel11;
         private Guna.UI.WinForms.GunaLabel gunaLabel12;
         private Guna.UI.WinForms.GunaLabel gunaLabel13;
-        private Guna.UI.WinForms.GunaLabel gunaLabel14;
+        private Guna.UI.WinForms.GunaLabel lbNoti;
         private System.Windows.Forms.DateTimePicker dtpGio;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SBTG;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TGDung;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GhiChu;
-        private System.Windows.Forms.DataGridViewButtonColumn Edit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaSB;
+        private Guna.UI2.WinForms.Guna2Button btnCC;
     }
 }

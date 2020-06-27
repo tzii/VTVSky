@@ -8,7 +8,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data_Transfer_Objects
+namespace Data_Access_Layer
 {
     public class DAL_ThamSo
     {
