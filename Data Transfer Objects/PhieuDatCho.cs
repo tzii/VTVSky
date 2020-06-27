@@ -46,11 +46,11 @@ namespace Data_Transfer_Objects
         {
             set
             {
-                CMND = value;
+                cmnd = value;
             }
             get
             {
-                return CMND;
+                return cmnd;
             }
         }
         public string DienThoai

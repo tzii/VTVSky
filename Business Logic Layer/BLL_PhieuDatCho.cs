@@ -63,5 +63,18 @@ namespace Business_Logic_Layer
             if (phieuDatChos == null) return new List<PhieuDatCho>();
             return phieuDatChos;
         }
+        public static bool InsertPhieuDatCho(PhieuDatCho phieuDatCho, int maVe)
+        {
+            return DAL_PhieuDatCho.InsertPhieuDatCho(phieuDatCho, maVe);
+        }
+
+        public static bool UpdatePhieuDatCho(PhieuDatCho phieuDatCho)
+        {
+            return DAL_PhieuDatCho.UpdatePhieuDatCho(phieuDatCho);
+        }
+        public static bool SalePhieuDatCho(PhieuDatCho pdc)
+        {
+            return DAL_PhieuDatCho.SalePhieuDatCho(pdc);
+        }
     }
 }

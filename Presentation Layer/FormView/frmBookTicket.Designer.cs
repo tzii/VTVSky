@@ -34,7 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             Guna.UI2.AnimatorNS.Animation animation1 = new Guna.UI2.AnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBookTicket));
-            this.dgvBookTicket = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.dgvBuyTicket = new Guna.UI2.WinForms.Guna2DataGridView();
             this.cmt = new Guna.UI.WinForms.GunaContextMenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
@@ -42,7 +42,6 @@
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnContain = new Guna.UI2.WinForms.Guna2Panel();
             this.pnView = new System.Windows.Forms.Panel();
             this.pnScroll = new System.Windows.Forms.Panel();
@@ -54,7 +53,10 @@
             this.pnSrcollBar = new System.Windows.Forms.Panel();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Transition1 = new Guna.UI2.WinForms.Guna2Transition();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBookTicket)).BeginInit();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
+            this.saleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cancelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBuyTicket)).BeginInit();
             this.cmt.SuspendLayout();
             this.pnContain.SuspendLayout();
             this.pnView.SuspendLayout();
@@ -63,19 +65,19 @@
             this.pnSrcollBar.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dgvBookTicket
+            // dgvBuyTicket
             // 
-            this.dgvBookTicket.AllowUserToAddRows = false;
-            this.dgvBookTicket.AllowUserToDeleteRows = false;
-            this.dgvBookTicket.AllowUserToResizeColumns = false;
-            this.dgvBookTicket.AllowUserToResizeRows = false;
+            this.dgvBuyTicket.AllowUserToAddRows = false;
+            this.dgvBuyTicket.AllowUserToDeleteRows = false;
+            this.dgvBuyTicket.AllowUserToResizeColumns = false;
+            this.dgvBuyTicket.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(226)))), ((int)(((byte)(218)))));
-            this.dgvBookTicket.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvBookTicket.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvBookTicket.BackgroundColor = System.Drawing.Color.White;
-            this.dgvBookTicket.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvBookTicket.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvBookTicket.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvBuyTicket.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvBuyTicket.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvBuyTicket.BackgroundColor = System.Drawing.Color.White;
+            this.dgvBuyTicket.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvBuyTicket.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvBuyTicket.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(160)))), ((int)(((byte)(133)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -83,11 +85,11 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(160)))), ((int)(((byte)(133)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvBookTicket.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvBookTicket.ColumnHeadersHeight = 60;
-            this.dgvBookTicket.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvBookTicket.ContextMenuStrip = this.cmt;
-            this.guna2Transition1.SetDecoration(this.dgvBookTicket, Guna.UI2.AnimatorNS.DecorationType.None);
+            this.dgvBuyTicket.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvBuyTicket.ColumnHeadersHeight = 60;
+            this.dgvBuyTicket.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvBuyTicket.ContextMenuStrip = this.cmt;
+            this.guna2Transition1.SetDecoration(this.dgvBuyTicket, Guna.UI2.AnimatorNS.DecorationType.None);
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(235)))), ((int)(((byte)(230)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -95,51 +97,51 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(191)))), ((int)(((byte)(173)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvBookTicket.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvBookTicket.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvBookTicket.EnableHeadersVisualStyles = false;
-            this.dgvBookTicket.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(224)))), ((int)(((byte)(216)))));
-            this.dgvBookTicket.Location = new System.Drawing.Point(0, 0);
-            this.dgvBookTicket.Margin = new System.Windows.Forms.Padding(3, 3, 3, 200);
-            this.dgvBookTicket.MultiSelect = false;
-            this.dgvBookTicket.Name = "dgvBookTicket";
-            this.dgvBookTicket.ReadOnly = true;
-            this.dgvBookTicket.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dgvBookTicket.RowHeadersVisible = false;
-            this.dgvBookTicket.RowHeadersWidth = 51;
-            this.dgvBookTicket.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvBookTicket.RowTemplate.Height = 24;
-            this.dgvBookTicket.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBookTicket.ShowCellToolTips = false;
-            this.dgvBookTicket.Size = new System.Drawing.Size(1048, 60);
-            this.dgvBookTicket.TabIndex = 2;
-            this.dgvBookTicket.TabStop = false;
-            this.dgvBookTicket.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.GreenSea;
-            this.dgvBookTicket.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(226)))), ((int)(((byte)(218)))));
-            this.dgvBookTicket.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dgvBookTicket.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dgvBookTicket.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dgvBookTicket.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvBookTicket.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.dgvBookTicket.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(224)))), ((int)(((byte)(216)))));
-            this.dgvBookTicket.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(160)))), ((int)(((byte)(133)))));
-            this.dgvBookTicket.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dgvBookTicket.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvBookTicket.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvBookTicket.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvBookTicket.ThemeStyle.HeaderStyle.Height = 60;
-            this.dgvBookTicket.ThemeStyle.ReadOnly = true;
-            this.dgvBookTicket.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(235)))), ((int)(((byte)(230)))));
-            this.dgvBookTicket.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvBookTicket.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvBookTicket.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.dgvBookTicket.ThemeStyle.RowsStyle.Height = 24;
-            this.dgvBookTicket.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(191)))), ((int)(((byte)(173)))));
-            this.dgvBookTicket.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvBookTicket.DataSourceChanged += new System.EventHandler(this.dgvBookTicket_DataSourceChanged);
-            this.dgvBookTicket.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvBookTicket_CellMouseDown);
-            this.dgvBookTicket.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBookTicket_CellMouseEnter);
-            this.dgvBookTicket.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBookTicket_CellMouseLeave);
+            this.dgvBuyTicket.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvBuyTicket.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvBuyTicket.EnableHeadersVisualStyles = false;
+            this.dgvBuyTicket.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(224)))), ((int)(((byte)(216)))));
+            this.dgvBuyTicket.Location = new System.Drawing.Point(0, 0);
+            this.dgvBuyTicket.Margin = new System.Windows.Forms.Padding(3, 3, 3, 200);
+            this.dgvBuyTicket.MultiSelect = false;
+            this.dgvBuyTicket.Name = "dgvBuyTicket";
+            this.dgvBuyTicket.ReadOnly = true;
+            this.dgvBuyTicket.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvBuyTicket.RowHeadersVisible = false;
+            this.dgvBuyTicket.RowHeadersWidth = 51;
+            this.dgvBuyTicket.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvBuyTicket.RowTemplate.Height = 24;
+            this.dgvBuyTicket.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvBuyTicket.ShowCellToolTips = false;
+            this.dgvBuyTicket.Size = new System.Drawing.Size(1048, 60);
+            this.dgvBuyTicket.TabIndex = 2;
+            this.dgvBuyTicket.TabStop = false;
+            this.dgvBuyTicket.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.GreenSea;
+            this.dgvBuyTicket.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(226)))), ((int)(((byte)(218)))));
+            this.dgvBuyTicket.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvBuyTicket.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvBuyTicket.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvBuyTicket.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvBuyTicket.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dgvBuyTicket.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(182)))), ((int)(((byte)(224)))), ((int)(((byte)(216)))));
+            this.dgvBuyTicket.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(160)))), ((int)(((byte)(133)))));
+            this.dgvBuyTicket.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvBuyTicket.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvBuyTicket.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvBuyTicket.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvBuyTicket.ThemeStyle.HeaderStyle.Height = 60;
+            this.dgvBuyTicket.ThemeStyle.ReadOnly = true;
+            this.dgvBuyTicket.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(235)))), ((int)(((byte)(230)))));
+            this.dgvBuyTicket.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvBuyTicket.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvBuyTicket.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvBuyTicket.ThemeStyle.RowsStyle.Height = 24;
+            this.dgvBuyTicket.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(191)))), ((int)(((byte)(173)))));
+            this.dgvBuyTicket.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvBuyTicket.DataSourceChanged += new System.EventHandler(this.dgvFlightsList_DataSourceChanged);
+            this.dgvBuyTicket.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvFlights_CellMouseDown);
+            this.dgvBuyTicket.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFlightsList_CellMouseEnter);
+            this.dgvBuyTicket.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFlightsList_CellMouseLeave);
             // 
             // cmt
             // 
@@ -152,7 +154,9 @@
             this.toolStripMenuItem4,
             this.editToolStripMenuItem,
             this.editToolStripMenuItem1,
-            this.deleteToolStripMenuItem});
+            this.toolStripMenuItem3,
+            this.saleToolStripMenuItem,
+            this.cancelToolStripMenuItem});
             this.cmt.Name = "cmt";
             this.cmt.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.cmt.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
@@ -163,47 +167,45 @@
             this.cmt.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.cmt.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.cmt.RenderStyle.TextRenderingHint = Guna.UI.WinForms.DrawingTextRenderingHint.SystemDefault;
-            this.cmt.Size = new System.Drawing.Size(156, 136);
+            this.cmt.Size = new System.Drawing.Size(211, 194);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(155, 24);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(210, 24);
             this.toolStripMenuItem1.Text = "Create New";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(207, 6);
             // 
             // refreshToolStripMenuItem
             // 
             this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(155, 24);
+            this.refreshToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.refreshToolStripMenuItem.Text = "Refresh";
+            this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(152, 6);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(207, 6);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(155, 24);
-            this.editToolStripMenuItem.Text = "Detail";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.editToolStripMenuItem.Text = "Sale";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem1
             // 
             this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
-            this.editToolStripMenuItem1.Size = new System.Drawing.Size(155, 24);
-            this.editToolStripMenuItem1.Text = "Edit";
-            // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(155, 24);
-            this.deleteToolStripMenuItem.Text = "Delete";
+            this.editToolStripMenuItem1.Size = new System.Drawing.Size(210, 24);
+            this.editToolStripMenuItem1.Text = "Cancel Ticket";
+            this.editToolStripMenuItem1.Click += new System.EventHandler(this.editToolStripMenuItem1_Click);
             // 
             // pnContain
             // 
@@ -212,7 +214,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnContain.BackColor = System.Drawing.Color.Transparent;
             this.pnContain.BorderRadius = 20;
-            this.pnContain.Controls.Add(this.dgvBookTicket);
+            this.pnContain.Controls.Add(this.dgvBuyTicket);
             this.guna2Transition1.SetDecoration(this.pnContain, Guna.UI2.AnimatorNS.DecorationType.None);
             this.pnContain.Location = new System.Drawing.Point(0, 0);
             this.pnContain.Name = "pnContain";
@@ -366,7 +368,7 @@
             // guna2Elipse1
             // 
             this.guna2Elipse1.BorderRadius = 20;
-            this.guna2Elipse1.TargetControl = this.dgvBookTicket;
+            this.guna2Elipse1.TargetControl = this.dgvBuyTicket;
             // 
             // guna2Transition1
             // 
@@ -388,6 +390,25 @@
             animation1.TransparencyCoeff = 0F;
             this.guna2Transition1.DefaultAnimation = animation1;
             // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(207, 6);
+            // 
+            // saleToolStripMenuItem
+            // 
+            this.saleToolStripMenuItem.Name = "saleToolStripMenuItem";
+            this.saleToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.saleToolStripMenuItem.Text = "Detail";
+            this.saleToolStripMenuItem.Click += new System.EventHandler(this.saleToolStripMenuItem_Click);
+            // 
+            // cancelToolStripMenuItem
+            // 
+            this.cancelToolStripMenuItem.Name = "cancelToolStripMenuItem";
+            this.cancelToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.cancelToolStripMenuItem.Text = "Edit";
+            this.cancelToolStripMenuItem.Click += new System.EventHandler(this.cancelToolStripMenuItem_Click);
+            // 
             // frmBookTicket
             // 
             this.AllowDrop = true;
@@ -404,7 +425,7 @@
             this.Name = "frmBookTicket";
             this.Text = "frmHome";
             this.Load += new System.EventHandler(this.frmBookTicket_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBookTicket)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBuyTicket)).EndInit();
             this.cmt.ResumeLayout(false);
             this.pnContain.ResumeLayout(false);
             this.pnView.ResumeLayout(false);
@@ -417,7 +438,7 @@
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2DataGridView dgvBookTicket;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvBuyTicket;
         private Guna.UI2.WinForms.Guna2Panel pnContain;
         private System.Windows.Forms.Panel pnView;
         private System.Windows.Forms.Panel pnScroll;
@@ -428,7 +449,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2Transition guna2Transition1;
         private System.Windows.Forms.Panel pnSearch;
@@ -437,5 +457,8 @@
         private Guna.UI2.WinForms.Guna2TextBox tbSearch;
         private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem saleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cancelToolStripMenuItem;
     }
 }

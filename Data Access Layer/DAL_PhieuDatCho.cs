@@ -159,19 +159,24 @@ namespace Data_Access_Layer
             return null;
         }
 
-        public static bool InsertPhieuDatCho(PhieuDatCho phieuDatCho)
+        public static bool InsertPhieuDatCho(PhieuDatCho phieuDatCho,int maVe)
         {
-            string cmdText = string.Format("INSERT INTO PHIEUDATCHO(MaCB,TenHK,CMND,DienThoai,ThoiGian,MaHV,GiaVe,TinhTrang) VALUES ({0},N'{1}','{2}','{3}','{4}',{5},{6},'{7}')", phieuDatCho.maCB,phieuDatCho.TenHK,phieuDatCho.CMND,phieuDatCho.DienThoai,phieuDatCho.ThoiGian,phieuDatCho.TenHV,phieuDatCho.GiaVe,phieuDatCho.tinhTrang);
+            string cmdText = string.Format("INSERT INTO PHIEUDATCHO(MaVe,MaCB,TenHK,CMND,DienThoai,ThoiGian,MaHV,GiaVe,TinhTrang) VALUES ({8},{0},N'{1}','{2}','{3}','{4}',{5},{6},{7})", phieuDatCho.maCB,phieuDatCho.TenHK,phieuDatCho.CMND,phieuDatCho.DienThoai,phieuDatCho.ThoiGian.ToString("MM / dd / yyyy HH: mm:ss"), phieuDatCho.HV.maHV,phieuDatCho.GiaVe,1,maVe);
             bool insert = DataProvider.ExecuteNonQuery(cmdText);
             return insert;
         }
 
         public static bool UpdatePhieuDatCho(PhieuDatCho phieuDatCho)
         {
-            string cmdText = string.Format("UPDATE PHIEUDATCHO SET MaCB= {0},TenHK= N'{1}',CMND= '{2}',DienThoai= '{3}',ThoiGian= '{4}',MaHV= {5},GiaVe= {6},TinhTrang= '{7}' WHERE MaVe = {8}", phieuDatCho.maCB, phieuDatCho.TenHK, phieuDatCho.CMND, phieuDatCho.DienThoai, phieuDatCho.ThoiGian, phieuDatCho.TenHV, phieuDatCho.GiaVe, phieuDatCho.tinhTrang,phieuDatCho.maVe);
+            string cmdText = string.Format("UPDATE PHIEUDATCHO SET MaCB= {0},TenHK= N'{1}',CMND= '{2}',DienThoai= '{3}',ThoiGian= '{4}',MaHV= {5},GiaVe= {6},TinhTrang= {7} WHERE MaVe = {8}", phieuDatCho.maCB, phieuDatCho.TenHK, phieuDatCho.CMND, phieuDatCho.DienThoai, phieuDatCho.ThoiGian.ToString("MM / dd / yyyy HH: mm:ss"), phieuDatCho.HV.maHV, phieuDatCho.GiaVe, phieuDatCho.tinhTrang,phieuDatCho.maVe);
             bool update = DataProvider.ExecuteNonQuery(cmdText);
             return update;
         }
-
+        public static bool SalePhieuDatCho(PhieuDatCho pdc)
+        {
+            string cmdText = string.Format("INSERT INTO VE(MaVe,MaCB,TenHK,CMND,DienThoai,ThoiGian,MaHV,GiaVe) VALUES ({7},{0},N'{1}','{2}','{3}','{4}',{5},{6})", pdc.maCB, pdc.TenHK, pdc.CMND, pdc.DienThoai, pdc.ThoiGian.ToString("MM/dd/yyyy HH:mm:ss"), pdc.HV.maHV, pdc.GiaVe, pdc.maVe);
+            bool insert = DataProvider.ExecuteNonQuery(cmdText);
+            return insert;
+        }
     }
 }

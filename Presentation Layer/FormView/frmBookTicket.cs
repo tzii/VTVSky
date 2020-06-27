@@ -17,7 +17,7 @@ namespace Presentation_Layer.FormView
     public partial class frmBookTicket : CustomForm
     {
         private PanelScrollHelper scrollHelper;
-        private List<PhieuDatCho> phieuDatChos;
+        private List<PhieuDatCho> pdcs;
         private SortableBindingList<PhieuDatCho> bl;
         private Color lastColor;
         public frmBookTicket()
@@ -27,7 +27,7 @@ namespace Presentation_Layer.FormView
         #region Other functions
         private void UpdateHeightDgv()
         {
-            pnView.Height = 50 + 60 + 24 * dgvBookTicket.RowCount;
+            pnView.Height = 50 + 60 + 24 * dgvBuyTicket.RowCount;
         }
         private DataGridViewButtonColumn ButtonColumn(string text)
         {
@@ -43,44 +43,49 @@ namespace Presentation_Layer.FormView
         }
         private void CustomDgv()
         {
-            dgvBookTicket.Columns.Add(ButtonColumn("Detail"));
-            dgvBookTicket.Columns.Add(ButtonColumn("Edit"));
-            dgvBookTicket.Columns.Add(ButtonColumn("Delete"));
+            dgvBuyTicket.Columns.Add(ButtonColumn("Detail"));
+            dgvBuyTicket.Columns.Add(ButtonColumn("Edit"));
+            //dgvBuyTicket.Columns.Add(ButtonColumn("Delete"));
 
-            dgvBookTicket.Columns["MaVe"].Visible = false;
-            dgvBookTicket.Columns["MaCB"].Visible = false;
-            dgvBookTicket.Columns["HV"].Visible = false;
-            dgvBookTicket.Columns["TinhTrang"].Visible = false;
+            dgvBuyTicket.Columns["MaVe"].Visible = false;
+            dgvBuyTicket.Columns["MaCB"].Visible = false;
+            dgvBuyTicket.Columns["DienThoai"].Visible = false;
+            dgvBuyTicket.Columns["HV"].Visible = false;
+            dgvBuyTicket.Columns["GiaVe"].Visible = false;
+            dgvBuyTicket.Columns["TinhTrang"].Visible = false;
+            dgvBuyTicket.Columns["GiaVe"].Visible = false;
 
-            dgvBookTicket.Columns["strMaVe"].Width = 80;
-            dgvBookTicket.Columns["strMaCB"].Width = 90;
-            dgvBookTicket.Columns["CMND"].Width = 90;
-            dgvBookTicket.Columns["DienThoai"].Width = 90;
-            dgvBookTicket.Columns["ThoiGian"].Width = 80;
-            dgvBookTicket.Columns["TenHV"].Width = 120;
-            dgvBookTicket.Columns["GiaVe"].Width = 90;
-            dgvBookTicket.Columns["strTinhTrang"].Width = 80;
 
-            dgvBookTicket.Columns["strMaVe"].HeaderText = "Mã Vé";
-            dgvBookTicket.Columns["strMaCB"].HeaderText = "Mã\nChuyến Bay";
-            dgvBookTicket.Columns["TenHK"].HeaderText = "Tên\nHành Khách";
-            dgvBookTicket.Columns["CMND"].HeaderText = "CMND";
-            dgvBookTicket.Columns["DienThoai"].HeaderText = "Số\nĐiện Thoại";
-            dgvBookTicket.Columns["ThoiGian"].HeaderText = "Thời Gian";
-            dgvBookTicket.Columns["TenHV"].HeaderText = "Hạng Vé";
-            dgvBookTicket.Columns["GiaVe"].HeaderText = "Giá\n(VND)";
-            dgvBookTicket.Columns["strTinhTrang"].HeaderText = "Tình Trạng";
-            
-            dgvBookTicket.Columns["DienThoai"].DefaultCellStyle.Format = "### ### ### ###";
-            dgvBookTicket.Columns["GiaVe"].DefaultCellStyle.Format = "###,###,###";
-            
-            dgvBookTicket.Columns["strMaVe"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvBookTicket.Columns["strMaCB"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvBookTicket.Columns["CMND"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvBookTicket.Columns["DienThoai"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvBookTicket.Columns["ThoiGian"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvBookTicket.Columns["GiaVe"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvBookTicket.Columns["strTinhTrang"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvBuyTicket.Columns["strMaVe"].Width = 80;
+            dgvBuyTicket.Columns["strMaCB"].Width = 90;
+            dgvBuyTicket.Columns["CMND"].Width = 90;
+            //dgvBuyTicket.Columns["DienThoai"].Width = 90;
+            dgvBuyTicket.Columns["ThoiGian"].Width = 180;
+            dgvBuyTicket.Columns["TenHV"].Width = 120;
+            //dgvBuyTicket.Columns["GiaVe"].Width = 90;
+            dgvBuyTicket.Columns["strTinhTrang"].Width = 80;
+
+            dgvBuyTicket.Columns["strMaVe"].HeaderText = "Mã Vé";
+            dgvBuyTicket.Columns["strMaCB"].HeaderText = "Mã\nChuyến Bay";
+            dgvBuyTicket.Columns["TenHK"].HeaderText = "Tên\nHành Khách";
+            dgvBuyTicket.Columns["CMND"].HeaderText = "CMND";
+            //dgvBuyTicket.Columns["DienThoai"].HeaderText = "Số\nĐiện Thoại";
+            dgvBuyTicket.Columns["ThoiGian"].HeaderText = "Thời Gian";
+            dgvBuyTicket.Columns["TenHV"].HeaderText = "Hạng Vé";
+            //dgvBuyTicket.Columns["GiaVe"].HeaderText = "Giá\n(VND)";
+            dgvBuyTicket.Columns["strTinhTrang"].HeaderText = "Tình Trạng";
+
+            //dgvBuyTicket.Columns["DienThoai"].DefaultCellStyle.Format = "0";
+            dgvBuyTicket.Columns["ThoiGian"].DefaultCellStyle.Format = "hh:mm tt dd/MM/yyyy";
+            dgvBuyTicket.Columns["GiaVe"].DefaultCellStyle.Format = "###,###,###";
+
+            dgvBuyTicket.Columns["strMaVe"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvBuyTicket.Columns["strMaCB"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvBuyTicket.Columns["CMND"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            //dgvBuyTicket.Columns["DienThoai"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvBuyTicket.Columns["ThoiGian"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            //dgvBuyTicket.Columns["GiaVe"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvBuyTicket.Columns["strTinhTrang"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
         private List<CBSource> sources()
@@ -94,13 +99,15 @@ namespace Presentation_Layer.FormView
             res.Add(i);
             i = new CBSource("CMND", "CMND");
             res.Add(i);
-            i = new CBSource("SDT", "Số Điện Thoại");
-            res.Add(i);
             i = new CBSource("TG", "Thời Gian");
             res.Add(i);
-            i = new CBSource("TT", "Tình Trạng");
-            res.Add(i);
             return res;
+        }
+        private void reloadData()
+        {
+            pdcs = BLL_PhieuDatCho.GetPhieuDatChos();
+            bl = new SortableBindingList<PhieuDatCho>(pdcs);
+            dgvBuyTicket.DataSource = bl;
         }
         #endregion
         private void frmBookTicket_Load(object sender, EventArgs e)
@@ -109,9 +116,9 @@ namespace Presentation_Layer.FormView
             cbSearch.DisplayMember = "Name";
             cbSearch.ValueMember = "ID";
 
-            phieuDatChos = BLL_PhieuDatCho.GetPhieuDatChos();
-            bl = new SortableBindingList<PhieuDatCho>(phieuDatChos);
-            dgvBookTicket.DataSource = bl;
+            pdcs = BLL_PhieuDatCho.GetPhieuDatChos();
+            bl = new SortableBindingList<PhieuDatCho>(pdcs);
+            dgvBuyTicket.DataSource = bl;
             CustomDgv();
 
             //Update scrollbar
@@ -119,9 +126,18 @@ namespace Presentation_Layer.FormView
             scrollHelper.UpdateScrollBar();
         }
 
-        private void dgvBookTicket_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        private void dgvFlights_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.RowIndex >= 0) dgvBookTicket.Rows[e.RowIndex].Selected = true;
+            if (e.RowIndex < 0) return;
+            dgvBuyTicket.Rows[e.RowIndex].Selected = true;
+            if (e.ColumnIndex == 0)
+            {
+                Detail(dgvBuyTicket.Rows[e.RowIndex]);
+            }
+            else if (e.ColumnIndex == 1)
+            {
+                Edit(dgvBuyTicket.Rows[e.RowIndex]);
+            }
         }
 
         private void pnScroll_Resize(object sender, EventArgs e)
@@ -131,14 +147,64 @@ namespace Presentation_Layer.FormView
         }
         public override void RefreshData()
         {
-            phieuDatChos = BLL_PhieuDatCho.GetPhieuDatChos();
-            bl = new SortableBindingList<PhieuDatCho>(phieuDatChos);
-            dgvBookTicket.DataSource = bl;
+            reloadData();
             Notification.Show("Làm mới danh sách sân bay");
         }
         public override void Create()
         {
+            AppState.state = Actions.ADD;
             var dialog = new frmPhieuDatChoEditing();
+            DialogResult res = dialog.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                int newMave = BLL_IdenMaVe.GetNewMaVe();
+                if (BLL_PhieuDatCho.InsertPhieuDatCho(dialog.pdc, newMave))
+                {
+                    BLL_IdenMaVe.ClearIden();
+                }
+                reloadData();
+            }
+            AppState.state = Actions.NOTHING;
+        }
+        private void Edit(DataGridViewRow row)
+        {
+            AppState.state = Actions.EDIT;
+            int maVe = (int)row.Cells["MaVe"].Value;
+            int maCB = (int)row.Cells["MaCB"].Value;
+            string tenHK = (string)row.Cells["TenHK"].Value;
+            string cmnd = (string)row.Cells["CMND"].Value;
+            string dienThoai = (string)row.Cells["DienThoai"].Value;
+            DateTime thoiGian = (DateTime)row.Cells["ThoiGian"].Value;
+            HangVe hv = (HangVe)row.Cells["HV"].Value;
+            int giaVe = (int)row.Cells["GiaVe"].Value;
+            int tt = (int)row.Cells["TinhTrang"].Value;
+
+            PhieuDatCho pdc = new PhieuDatCho(maVe, maCB, tenHK, cmnd, dienThoai, thoiGian, hv, giaVe, tt);
+
+            var dialog = new frmPhieuDatChoEditing(pdc);
+            DialogResult res = dialog.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                BLL_PhieuDatCho.UpdatePhieuDatCho(dialog.pdc);
+                reloadData();
+            }
+            AppState.state = Actions.NOTHING;
+        }
+        private void Detail(DataGridViewRow row)
+        {
+            int maVe = (int)row.Cells["MaVe"].Value;
+            int maCB = (int)row.Cells["MaCB"].Value;
+            string tenHK = (string)row.Cells["TenHK"].Value;
+            string cmnd = (string)row.Cells["CMND"].Value;
+            string dienThoai = (string)row.Cells["DienThoai"].Value;
+            DateTime thoiGian = (DateTime)row.Cells["ThoiGian"].Value;
+            HangVe hv = (HangVe)row.Cells["HV"].Value;
+            int giaVe = (int)row.Cells["GiaVe"].Value;
+            int tt = (int)row.Cells["TinhTrang"].Value;
+
+            PhieuDatCho pdc = new PhieuDatCho(maVe, maCB, tenHK, cmnd, dienThoai, thoiGian, hv, giaVe, tt);
+
+            var dialog = new frmPhieuDatChoEditing(pdc);
             DialogResult res = dialog.ShowDialog();
             if (res == DialogResult.OK)
             {
@@ -147,31 +213,145 @@ namespace Presentation_Layer.FormView
         }
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (cbSearch.SelectedValue.ToString() == "MaVe") phieuDatChos = BLL_PhieuDatCho.SearchMaVe(tbSearch.Text);
-            else if (cbSearch.SelectedValue.ToString() == "MaCB") phieuDatChos = BLL_PhieuDatCho.SearchMaCB(tbSearch.Text);
-            else if (cbSearch.SelectedValue.ToString() == "TenHK") phieuDatChos = BLL_PhieuDatCho.SearchTenHK(tbSearch.Text);
-            else if (cbSearch.SelectedValue.ToString() == "CMND") phieuDatChos = BLL_PhieuDatCho.SearchCMND(tbSearch.Text);
-            else if (cbSearch.SelectedValue.ToString() == "SDT") phieuDatChos = BLL_PhieuDatCho.SearchSDT(tbSearch.Text);
-            else if (cbSearch.SelectedValue.ToString() == "TG") phieuDatChos = BLL_PhieuDatCho.SearchThoiGian(tbSearch.Text);
-            else if (cbSearch.SelectedValue.ToString() == "TT") phieuDatChos = BLL_PhieuDatCho.SearchTinhTrang(tbSearch.Text);
-            bl = new SortableBindingList<PhieuDatCho>(phieuDatChos);
-            dgvBookTicket.DataSource = bl;
+            if (cbSearch.SelectedValue.ToString() == "MaVe") pdcs = BLL_PhieuDatCho.SearchMaVe(tbSearch.Text);
+            else if (cbSearch.SelectedValue.ToString() == "MaCB") pdcs = BLL_PhieuDatCho.SearchMaCB(tbSearch.Text);
+            else if (cbSearch.SelectedValue.ToString() == "TenHK") pdcs = BLL_PhieuDatCho.SearchTenHK(tbSearch.Text);
+            else if (cbSearch.SelectedValue.ToString() == "CMND") pdcs = BLL_PhieuDatCho.SearchCMND(tbSearch.Text);
+            else if (cbSearch.SelectedValue.ToString() == "TG") pdcs = BLL_PhieuDatCho.SearchThoiGian(tbSearch.Text);
+            bl = new SortableBindingList<PhieuDatCho>(pdcs);
+            dgvBuyTicket.DataSource = bl;
         }
-        #region Chỉnh sửa hiển thị của dgvBookTicket
-        private void dgvBookTicket_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        #region Chỉnh sửa hiển thị của dgvAirports
+        private void dgvFlightsList_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0) dgvBookTicket.Rows[e.RowIndex].DefaultCellStyle.BackColor = lastColor;
+            if (e.RowIndex >= 0) dgvBuyTicket.Rows[e.RowIndex].DefaultCellStyle.BackColor = lastColor;
         }
-        private void dgvBookTicket_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        private void dgvFlightsList_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
-            lastColor = dgvBookTicket.Rows[e.RowIndex].DefaultCellStyle.BackColor;
-            dgvBookTicket.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.FromArgb(99, 191, 173);
+            lastColor = dgvBuyTicket.Rows[e.RowIndex].DefaultCellStyle.BackColor;
+            dgvBuyTicket.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.FromArgb(99, 191, 173);
         }
 
-        private void dgvBookTicket_DataSourceChanged(object sender, EventArgs e)
+        private void dgvFlightsList_DataSourceChanged(object sender, EventArgs e)
         {
             UpdateHeightDgv();
+        }
+        #endregion
+        #region Tool strip
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Create();
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvBuyTicket.SelectedRows.Count <= 0) return;
+            var row = dgvBuyTicket.SelectedRows[0];
+            if ((int)row.Cells["TinhTrang"].Value == 2)
+            {
+                Notification.Show("Phiếu đặt chỗ đã bán");
+                var dialog1 = new frmWarning("Thông Báo", "Phiếu đặt chỗ đã bán");
+                dialog1.ShowDialog();
+                return;
+            }
+            else if ((int)row.Cells["TinhTrang"].Value == 3)
+            {
+                Notification.Show("Phiếu đặt chỗ đã hủy không thể bán");
+                var dialog1 = new frmWarning("Thông Báo", "Phiếu đặt chỗ đã hủy không thể bán");
+                dialog1.ShowDialog();
+                return;
+            }
+            int maVe = (int)row.Cells["MaVe"].Value;
+            int maCB = (int)row.Cells["MaCB"].Value;
+            string tenHK = (string)row.Cells["TenHK"].Value;
+            string cmnd = (string)row.Cells["CMND"].Value;
+            string dienThoai = (string)row.Cells["DienThoai"].Value;
+            DateTime thoiGian = (DateTime)row.Cells["ThoiGian"].Value;
+            HangVe hv = (HangVe)row.Cells["HV"].Value;
+            int giaVe = (int)row.Cells["GiaVe"].Value;
+            int tt = (int)row.Cells["TinhTrang"].Value;
+
+            PhieuDatCho pdc = new PhieuDatCho(maVe, maCB, tenHK, cmnd, dienThoai, thoiGian, hv, giaVe, tt);
+            var dialog = new frmWarning("Cảnh Báo!!!", "Bạn có muốn bán vé không?");
+            var res = dialog.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                pdc.tinhTrang = 2;
+                BLL_PhieuDatCho.SalePhieuDatCho(pdc);
+                BLL_PhieuDatCho.UpdatePhieuDatCho(pdc);
+                reloadData();
+            }
+        }
+
+        private void editToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (dgvBuyTicket.SelectedRows.Count <= 0) return;
+            var row = dgvBuyTicket.SelectedRows[0];
+            if ((int)row.Cells["TinhTrang"].Value == 2)
+            {
+                Notification.Show("Phiếu đặt chỗ đã bán không thể hủy");
+                var dialog1 = new frmWarning("Thông Báo", "Phiếu đặt chỗ đã bán không thể hủy");
+                dialog1.ShowDialog();
+                return;
+            }
+            else if ((int)row.Cells["TinhTrang"].Value == 3)
+            {
+                Notification.Show("Phiếu đặt chỗ đã hủy");
+                var dialog1 = new frmWarning("Thông Báo", "Phiếu đặt chỗ đã hủy");
+                dialog1.ShowDialog();
+                return;
+            }
+            int maVe = (int)row.Cells["MaVe"].Value;
+            int maCB = (int)row.Cells["MaCB"].Value;
+            string tenHK = (string)row.Cells["TenHK"].Value;
+            string cmnd = (string)row.Cells["CMND"].Value;
+            string dienThoai = (string)row.Cells["DienThoai"].Value;
+            DateTime thoiGian = (DateTime)row.Cells["ThoiGian"].Value;
+            HangVe hv = (HangVe)row.Cells["HV"].Value;
+            int giaVe = (int)row.Cells["GiaVe"].Value;
+            int tt = (int)row.Cells["TinhTrang"].Value;
+
+            PhieuDatCho pdc = new PhieuDatCho(maVe, maCB, tenHK, cmnd, dienThoai, thoiGian, hv, giaVe, tt);
+            var dialog = new frmWarning("Cảnh Báo!!!", "Bạn có muốn hủy phiếu đặt ghế không?");
+            var res = dialog.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                pdc.tinhTrang = 3;
+                BLL_PhieuDatCho.UpdatePhieuDatCho(pdc);
+                reloadData();
+            }
+        }
+
+        private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void saleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvBuyTicket.SelectedRows.Count <= 0) return;
+            Detail(dgvBuyTicket.SelectedRows[0]);
+        }
+
+        private void cancelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvBuyTicket.SelectedRows.Count <= 0) return;
+            if ((int)dgvBuyTicket.SelectedRows[0].Cells["TinhTrang"].Value ==2)
+            {
+                Notification.Show("Phiếu đặt chỗ đã bán không thể chỉnh sửa");
+                var dialog = new frmWarning("Thông Báo", "Phiếu đặt chỗ đã bán không thể chỉnh sửa");
+                dialog.ShowDialog();
+                return;
+            }
+            else if ((int)dgvBuyTicket.SelectedRows[0].Cells["TinhTrang"].Value == 3)
+            {
+                Notification.Show("Phiếu đặt chỗ đã hủy không thể chỉnh sửa");
+                var dialog = new frmWarning("Thông Báo", "Phiếu đặt chỗ đã hủy không thể chỉnh sửa");
+                dialog.ShowDialog();
+                return;
+            }
+            Edit(dgvBuyTicket.SelectedRows[0]);
         }
         #endregion
     }
