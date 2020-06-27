@@ -361,5 +361,9 @@
   <ItemGroup>
     <None Include="Resources\database.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Lib\Guna.UI.dll" />
+    <Content Include="Lib\Guna.UI2.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
