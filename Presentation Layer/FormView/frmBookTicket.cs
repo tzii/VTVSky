@@ -150,6 +150,7 @@ namespace Presentation_Layer.FormView
             reloadData();
             Notification.Show("Làm mới danh sách sân bay");
         }
+        #region Thao tác với phiếu đặt
         public override void Create()
         {
             AppState.state = Actions.ADD;
@@ -168,6 +169,27 @@ namespace Presentation_Layer.FormView
         }
         private void Edit(DataGridViewRow row)
         {
+            if ((int)row.Cells["TinhTrang"].Value == 1 && (((DateTime)row.Cells["ThoiGian"].Value) - DateTime.Now).Hours < ThamSo.TGHuyDatVe)
+            {
+                Notification.Show("Phiếu đặt chỗ đã quá thời gian");
+                var dialog1 = new frmWarning("Thông Báo", "Phiếu đặt chỗ đã quá thời gian\n-->Tiến hành hủy");
+                dialog1.ShowDialog();
+                return;
+            }
+            else if ((int)row.Cells["TinhTrang"].Value == 2)
+            {
+                Notification.Show("Phiếu đặt chỗ đã bán không thể chỉnh sửa");
+                var dialog1 = new frmWarning("Thông Báo", "Phiếu đặt chỗ đã bán không thể chỉnh sửa");
+                dialog1.ShowDialog();
+                return;
+            }
+            else if ((int)row.Cells["TinhTrang"].Value == 3)
+            {
+                Notification.Show("Phiếu đặt chỗ đã hủy không thể chỉnh sửa");
+                var dialog1 = new frmWarning("Thông Báo", "Phiếu đặt chỗ đã hủy không thể chỉnh sửa");
+                dialog1.ShowDialog();
+                return;
+            }
             AppState.state = Actions.EDIT;
             int maVe = (int)row.Cells["MaVe"].Value;
             int maCB = (int)row.Cells["MaCB"].Value;
@@ -211,6 +233,87 @@ namespace Presentation_Layer.FormView
 
             }
         }
+        private  void Sale(DataGridViewRow row)
+        {
+            if ((int)row.Cells["TinhTrang"].Value == 1 && (((DateTime)row.Cells["ThoiGian"].Value)- DateTime.Now).Hours < ThamSo.TGHuyDatVe)
+            {
+                Notification.Show("Phiếu đặt chỗ đã quá thời gian");
+                var dialog1 = new frmWarning("Thông Báo", "Phiếu đặt chỗ đã quá thời gian\n-->Tiến hành hủy");
+                dialog1.ShowDialog();
+                return;
+            }
+            else if ((int)row.Cells["TinhTrang"].Value == 2)
+            {
+                Notification.Show("Phiếu đặt chỗ đã bán");
+                var dialog1 = new frmWarning("Thông Báo", "Phiếu đặt chỗ đã bán");
+                dialog1.ShowDialog();
+                return;
+            }
+            else if ((int)row.Cells["TinhTrang"].Value == 3)
+            {
+                Notification.Show("Phiếu đặt chỗ đã hủy không thể bán");
+                var dialog1 = new frmWarning("Thông Báo", "Phiếu đặt chỗ đã hủy không thể bán");
+                dialog1.ShowDialog();
+                return;
+            }
+            int maVe = (int)row.Cells["MaVe"].Value;
+            int maCB = (int)row.Cells["MaCB"].Value;
+            string tenHK = (string)row.Cells["TenHK"].Value;
+            string cmnd = (string)row.Cells["CMND"].Value;
+            string dienThoai = (string)row.Cells["DienThoai"].Value;
+            DateTime thoiGian = (DateTime)row.Cells["ThoiGian"].Value;
+            HangVe hv = (HangVe)row.Cells["HV"].Value;
+            int giaVe = (int)row.Cells["GiaVe"].Value;
+            int tt = (int)row.Cells["TinhTrang"].Value;
+
+            PhieuDatCho pdc = new PhieuDatCho(maVe, maCB, tenHK, cmnd, dienThoai, thoiGian, hv, giaVe, tt);
+            var dialog = new frmWarning("Cảnh Báo!!!", "Bạn có muốn bán vé không?");
+            var res = dialog.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                pdc.tinhTrang = 2;
+                BLL_PhieuDatCho.SalePhieuDatCho(pdc);
+                BLL_PhieuDatCho.UpdatePhieuDatCho(pdc);
+                reloadData();
+            }
+        }
+        private void cancel(DataGridViewRow row)
+        {
+            if ((int)row.Cells["TinhTrang"].Value == 2)
+            {
+                Notification.Show("Phiếu đặt chỗ đã bán không thể hủy");
+                var dialog1 = new frmWarning("Thông Báo", "Phiếu đặt chỗ đã bán không thể hủy");
+                dialog1.ShowDialog();
+                return;
+            }
+            else if ((int)row.Cells["TinhTrang"].Value == 3)
+            {
+                Notification.Show("Phiếu đặt chỗ đã hủy");
+                var dialog1 = new frmWarning("Thông Báo", "Phiếu đặt chỗ đã hủy");
+                dialog1.ShowDialog();
+                return;
+            }
+            int maVe = (int)row.Cells["MaVe"].Value;
+            int maCB = (int)row.Cells["MaCB"].Value;
+            string tenHK = (string)row.Cells["TenHK"].Value;
+            string cmnd = (string)row.Cells["CMND"].Value;
+            string dienThoai = (string)row.Cells["DienThoai"].Value;
+            DateTime thoiGian = (DateTime)row.Cells["ThoiGian"].Value;
+            HangVe hv = (HangVe)row.Cells["HV"].Value;
+            int giaVe = (int)row.Cells["GiaVe"].Value;
+            int tt = (int)row.Cells["TinhTrang"].Value;
+
+            PhieuDatCho pdc = new PhieuDatCho(maVe, maCB, tenHK, cmnd, dienThoai, thoiGian, hv, giaVe, tt);
+            var dialog = new frmWarning("Cảnh Báo!!!", "Bạn có muốn hủy phiếu đặt ghế không?");
+            var res = dialog.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                pdc.tinhTrang = 3;
+                BLL_PhieuDatCho.UpdatePhieuDatCho(pdc);
+                reloadData();
+            }
+        }
+        #endregion
         private void btnSearch_Click(object sender, EventArgs e)
         {
             if (cbSearch.SelectedValue.ToString() == "MaVe") pdcs = BLL_PhieuDatCho.SearchMaVe(tbSearch.Text);
@@ -247,80 +350,14 @@ namespace Presentation_Layer.FormView
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (dgvBuyTicket.SelectedRows.Count <= 0) return;
-            var row = dgvBuyTicket.SelectedRows[0];
-            if ((int)row.Cells["TinhTrang"].Value == 2)
-            {
-                Notification.Show("Phiếu đặt chỗ đã bán");
-                var dialog1 = new frmWarning("Thông Báo", "Phiếu đặt chỗ đã bán");
-                dialog1.ShowDialog();
-                return;
-            }
-            else if ((int)row.Cells["TinhTrang"].Value == 3)
-            {
-                Notification.Show("Phiếu đặt chỗ đã hủy không thể bán");
-                var dialog1 = new frmWarning("Thông Báo", "Phiếu đặt chỗ đã hủy không thể bán");
-                dialog1.ShowDialog();
-                return;
-            }
-            int maVe = (int)row.Cells["MaVe"].Value;
-            int maCB = (int)row.Cells["MaCB"].Value;
-            string tenHK = (string)row.Cells["TenHK"].Value;
-            string cmnd = (string)row.Cells["CMND"].Value;
-            string dienThoai = (string)row.Cells["DienThoai"].Value;
-            DateTime thoiGian = (DateTime)row.Cells["ThoiGian"].Value;
-            HangVe hv = (HangVe)row.Cells["HV"].Value;
-            int giaVe = (int)row.Cells["GiaVe"].Value;
-            int tt = (int)row.Cells["TinhTrang"].Value;
-
-            PhieuDatCho pdc = new PhieuDatCho(maVe, maCB, tenHK, cmnd, dienThoai, thoiGian, hv, giaVe, tt);
-            var dialog = new frmWarning("Cảnh Báo!!!", "Bạn có muốn bán vé không?");
-            var res = dialog.ShowDialog();
-            if (res == DialogResult.OK)
-            {
-                pdc.tinhTrang = 2;
-                BLL_PhieuDatCho.SalePhieuDatCho(pdc);
-                BLL_PhieuDatCho.UpdatePhieuDatCho(pdc);
-                reloadData();
-            }
+            Sale(dgvBuyTicket.SelectedRows[0]);
         }
 
         private void editToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             if (dgvBuyTicket.SelectedRows.Count <= 0) return;
-            var row = dgvBuyTicket.SelectedRows[0];
-            if ((int)row.Cells["TinhTrang"].Value == 2)
-            {
-                Notification.Show("Phiếu đặt chỗ đã bán không thể hủy");
-                var dialog1 = new frmWarning("Thông Báo", "Phiếu đặt chỗ đã bán không thể hủy");
-                dialog1.ShowDialog();
-                return;
-            }
-            else if ((int)row.Cells["TinhTrang"].Value == 3)
-            {
-                Notification.Show("Phiếu đặt chỗ đã hủy");
-                var dialog1 = new frmWarning("Thông Báo", "Phiếu đặt chỗ đã hủy");
-                dialog1.ShowDialog();
-                return;
-            }
-            int maVe = (int)row.Cells["MaVe"].Value;
-            int maCB = (int)row.Cells["MaCB"].Value;
-            string tenHK = (string)row.Cells["TenHK"].Value;
-            string cmnd = (string)row.Cells["CMND"].Value;
-            string dienThoai = (string)row.Cells["DienThoai"].Value;
-            DateTime thoiGian = (DateTime)row.Cells["ThoiGian"].Value;
-            HangVe hv = (HangVe)row.Cells["HV"].Value;
-            int giaVe = (int)row.Cells["GiaVe"].Value;
-            int tt = (int)row.Cells["TinhTrang"].Value;
-
-            PhieuDatCho pdc = new PhieuDatCho(maVe, maCB, tenHK, cmnd, dienThoai, thoiGian, hv, giaVe, tt);
-            var dialog = new frmWarning("Cảnh Báo!!!", "Bạn có muốn hủy phiếu đặt ghế không?");
-            var res = dialog.ShowDialog();
-            if (res == DialogResult.OK)
-            {
-                pdc.tinhTrang = 3;
-                BLL_PhieuDatCho.UpdatePhieuDatCho(pdc);
-                reloadData();
-            }
+            cancel(dgvBuyTicket.SelectedRows[0]);
+            
         }
 
         private void refreshToolStripMenuItem_Click(object sender, EventArgs e)
@@ -337,20 +374,6 @@ namespace Presentation_Layer.FormView
         private void cancelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (dgvBuyTicket.SelectedRows.Count <= 0) return;
-            if ((int)dgvBuyTicket.SelectedRows[0].Cells["TinhTrang"].Value ==2)
-            {
-                Notification.Show("Phiếu đặt chỗ đã bán không thể chỉnh sửa");
-                var dialog = new frmWarning("Thông Báo", "Phiếu đặt chỗ đã bán không thể chỉnh sửa");
-                dialog.ShowDialog();
-                return;
-            }
-            else if ((int)dgvBuyTicket.SelectedRows[0].Cells["TinhTrang"].Value == 3)
-            {
-                Notification.Show("Phiếu đặt chỗ đã hủy không thể chỉnh sửa");
-                var dialog = new frmWarning("Thông Báo", "Phiếu đặt chỗ đã hủy không thể chỉnh sửa");
-                dialog.ShowDialog();
-                return;
-            }
             Edit(dgvBuyTicket.SelectedRows[0]);
         }
         #endregion

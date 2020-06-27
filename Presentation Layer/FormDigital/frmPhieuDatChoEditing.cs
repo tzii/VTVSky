@@ -91,6 +91,12 @@ namespace Presentation_Layer.FormDigital
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            if ((((ChuyenBay)cbMaCB.SelectedItem).ThoiGian - DateTime.Now).Days < ThamSo.TGDatVeChamNhat)
+            {
+                lbNoti.Text = "Chỉ được đặt vé chậm nhất trước "+ThamSo.TGDatVeChamNhat+" ngày trước ngày xuất phát";
+                lbNoti.Show();
+                return;
+            }
             if (tbTenHK.Text == "")
             {
                 lbNoti.Text = "Tên khách hàng không được bỏ trống";
