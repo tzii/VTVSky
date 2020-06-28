@@ -88,6 +88,15 @@ namespace Presentation_Layer.FormView
             bl = new SortableBindingList<HangVe>(hangVes);
             dgvHangVe.DataSource = bl;
         }
+        private void checkPer()
+        {
+            if (User.Per == "STAFF")
+            {
+                btnAdd.Enabled = false;
+                btnEdit.Enabled = false;
+                btnDelete.Enabled = false;
+            }
+        }
         #endregion
         #region Chỉnh sửa hiển thị của dgvHangVe
         private void dgvHangVe_DataSourceChanged(object sender, EventArgs e)
@@ -148,7 +157,7 @@ namespace Presentation_Layer.FormView
             bl = new SortableBindingList<HangVe>(hangVes);
             dgvHangVe.DataSource = bl;
             CustomDgv();
-
+            checkPer();
             AppState.state = Actions.NOTHING;
         }
 

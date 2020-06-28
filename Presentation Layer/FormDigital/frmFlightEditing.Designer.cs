@@ -74,7 +74,6 @@
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.btnOK = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -195,12 +194,12 @@
             this.nTGDung.BackColor = System.Drawing.Color.Transparent;
             this.nTGDung.BorderRadius = 6;
             this.nTGDung.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.nTGDung.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.nTGDung.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.nTGDung.DisabledState.BorderColor = System.Drawing.SystemColors.Control;
+            this.nTGDung.DisabledState.FillColor = System.Drawing.SystemColors.Control;
             this.nTGDung.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.nTGDung.DisabledState.Parent = this.nTGDung;
-            this.nTGDung.DisabledState.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(177)))), ((int)(((byte)(177)))));
-            this.nTGDung.DisabledState.UpDownButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(203)))), ((int)(((byte)(203)))));
+            this.nTGDung.DisabledState.UpDownButtonFillColor = System.Drawing.SystemColors.Control;
+            this.nTGDung.DisabledState.UpDownButtonForeColor = System.Drawing.SystemColors.Control;
             this.nTGDung.Enabled = false;
             this.nTGDung.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.nTGDung.FocusedState.Parent = this.nTGDung;
@@ -209,6 +208,7 @@
             this.nTGDung.Location = new System.Drawing.Point(298, 211);
             this.nTGDung.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nTGDung.Name = "nTGDung";
+            this.nTGDung.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.nTGDung.ShadowDecoration.Parent = this.nTGDung;
             this.nTGDung.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.nTGDung.Size = new System.Drawing.Size(91, 36);
@@ -219,12 +219,12 @@
             this.nTGBayH.BackColor = System.Drawing.Color.Transparent;
             this.nTGBayH.BorderRadius = 6;
             this.nTGBayH.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.nTGBayH.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.nTGBayH.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.nTGBayH.DisabledState.BorderColor = System.Drawing.SystemColors.Control;
+            this.nTGBayH.DisabledState.FillColor = System.Drawing.SystemColors.Control;
             this.nTGBayH.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.nTGBayH.DisabledState.Parent = this.nTGBayH;
-            this.nTGBayH.DisabledState.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(177)))), ((int)(((byte)(177)))));
-            this.nTGBayH.DisabledState.UpDownButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(203)))), ((int)(((byte)(203)))));
+            this.nTGBayH.DisabledState.UpDownButtonFillColor = System.Drawing.SystemColors.Control;
+            this.nTGBayH.DisabledState.UpDownButtonForeColor = System.Drawing.SystemColors.Control;
             this.nTGBayH.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.nTGBayH.FocusedState.Parent = this.nTGBayH;
             this.nTGBayH.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -232,6 +232,7 @@
             this.nTGBayH.Location = new System.Drawing.Point(529, 94);
             this.nTGBayH.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nTGBayH.Name = "nTGBayH";
+            this.nTGBayH.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.nTGBayH.ShadowDecoration.Parent = this.nTGBayH;
             this.nTGBayH.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.nTGBayH.Size = new System.Drawing.Size(80, 36);
@@ -242,12 +243,12 @@
             this.nTGBayM.BackColor = System.Drawing.Color.Transparent;
             this.nTGBayM.BorderRadius = 6;
             this.nTGBayM.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.nTGBayM.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.nTGBayM.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.nTGBayM.DisabledState.BorderColor = System.Drawing.SystemColors.Control;
+            this.nTGBayM.DisabledState.FillColor = System.Drawing.SystemColors.Control;
             this.nTGBayM.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.nTGBayM.DisabledState.Parent = this.nTGBayM;
-            this.nTGBayM.DisabledState.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(177)))), ((int)(((byte)(177)))));
-            this.nTGBayM.DisabledState.UpDownButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(203)))), ((int)(((byte)(203)))));
+            this.nTGBayM.DisabledState.UpDownButtonFillColor = System.Drawing.SystemColors.Control;
+            this.nTGBayM.DisabledState.UpDownButtonForeColor = System.Drawing.SystemColors.Control;
             this.nTGBayM.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.nTGBayM.FocusedState.Parent = this.nTGBayM;
             this.nTGBayM.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -255,6 +256,7 @@
             this.nTGBayM.Location = new System.Drawing.Point(648, 94);
             this.nTGBayM.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nTGBayM.Name = "nTGBayM";
+            this.nTGBayM.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.nTGBayM.ShadowDecoration.Parent = this.nTGBayM;
             this.nTGBayM.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.nTGBayM.Size = new System.Drawing.Size(80, 36);
@@ -265,12 +267,12 @@
             this.nGiaVe.BackColor = System.Drawing.Color.Transparent;
             this.nGiaVe.BorderRadius = 6;
             this.nGiaVe.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.nGiaVe.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.nGiaVe.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.nGiaVe.DisabledState.BorderColor = System.Drawing.SystemColors.Control;
+            this.nGiaVe.DisabledState.FillColor = System.Drawing.SystemColors.Control;
             this.nGiaVe.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.nGiaVe.DisabledState.Parent = this.nGiaVe;
-            this.nGiaVe.DisabledState.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(177)))), ((int)(((byte)(177)))));
-            this.nGiaVe.DisabledState.UpDownButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(203)))), ((int)(((byte)(203)))));
+            this.nGiaVe.DisabledState.UpDownButtonFillColor = System.Drawing.SystemColors.Control;
+            this.nGiaVe.DisabledState.UpDownButtonForeColor = System.Drawing.SystemColors.Control;
             this.nGiaVe.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.nGiaVe.FocusedState.Parent = this.nGiaVe;
             this.nGiaVe.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -339,8 +341,8 @@
             this.tbGhiChu.BorderRadius = 6;
             this.tbGhiChu.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbGhiChu.DefaultText = "";
-            this.tbGhiChu.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tbGhiChu.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbGhiChu.DisabledState.BorderColor = System.Drawing.SystemColors.Control;
+            this.tbGhiChu.DisabledState.FillColor = System.Drawing.SystemColors.Control;
             this.tbGhiChu.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbGhiChu.DisabledState.Parent = this.tbGhiChu;
             this.tbGhiChu.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -367,11 +369,11 @@
             this.tbMaCB.BorderRadius = 6;
             this.tbMaCB.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbMaCB.DefaultText = "######";
-            this.tbMaCB.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tbMaCB.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tbMaCB.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbMaCB.DisabledState.BorderColor = System.Drawing.SystemColors.Control;
+            this.tbMaCB.DisabledState.FillColor = System.Drawing.SystemColors.Control;
+            this.tbMaCB.DisabledState.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tbMaCB.DisabledState.Parent = this.tbMaCB;
-            this.tbMaCB.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbMaCB.DisabledState.PlaceholderForeColor = System.Drawing.SystemColors.ControlText;
             this.tbMaCB.Enabled = false;
             this.tbMaCB.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbMaCB.FocusedState.Parent = this.tbMaCB;
@@ -421,6 +423,7 @@
             this.dtpNgay.BorderRadius = 6;
             this.dtpNgay.CheckedState.Parent = this.dtpNgay;
             this.dtpNgay.CustomFormat = "dd/MM/yyyy";
+            this.dtpNgay.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(220)))), ((int)(((byte)(230)))));
             this.dtpNgay.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpNgay.HoverState.Parent = this.dtpNgay;
@@ -485,12 +488,12 @@
             this.nSLGhe2.BackColor = System.Drawing.Color.Transparent;
             this.nSLGhe2.BorderRadius = 6;
             this.nSLGhe2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.nSLGhe2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.nSLGhe2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.nSLGhe2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.nSLGhe2.DisabledState.BorderColor = System.Drawing.SystemColors.Control;
+            this.nSLGhe2.DisabledState.FillColor = System.Drawing.SystemColors.Control;
+            this.nSLGhe2.DisabledState.ForeColor = System.Drawing.SystemColors.Control;
             this.nSLGhe2.DisabledState.Parent = this.nSLGhe2;
-            this.nSLGhe2.DisabledState.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(177)))), ((int)(((byte)(177)))));
-            this.nSLGhe2.DisabledState.UpDownButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(203)))), ((int)(((byte)(203)))));
+            this.nSLGhe2.DisabledState.UpDownButtonFillColor = System.Drawing.SystemColors.Control;
+            this.nSLGhe2.DisabledState.UpDownButtonForeColor = System.Drawing.SystemColors.Control;
             this.nSLGhe2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.nSLGhe2.FocusedState.Parent = this.nSLGhe2;
             this.nSLGhe2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -513,12 +516,12 @@
             this.nSLGhe1.BackColor = System.Drawing.Color.Transparent;
             this.nSLGhe1.BorderRadius = 6;
             this.nSLGhe1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.nSLGhe1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.nSLGhe1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.nSLGhe1.DisabledState.BorderColor = System.Drawing.SystemColors.Control;
+            this.nSLGhe1.DisabledState.FillColor = System.Drawing.SystemColors.Control;
             this.nSLGhe1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.nSLGhe1.DisabledState.Parent = this.nSLGhe1;
-            this.nSLGhe1.DisabledState.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(177)))), ((int)(((byte)(177)))));
-            this.nSLGhe1.DisabledState.UpDownButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(203)))), ((int)(((byte)(203)))));
+            this.nSLGhe1.DisabledState.UpDownButtonFillColor = System.Drawing.SystemColors.Control;
+            this.nSLGhe1.DisabledState.UpDownButtonForeColor = System.Drawing.SystemColors.Control;
             this.nSLGhe1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.nSLGhe1.FocusedState.Parent = this.nSLGhe1;
             this.nSLGhe1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -844,10 +847,6 @@
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
-            // guna2Elipse3
-            // 
-            this.guna2Elipse3.TargetControl = this.dtpGio;
-            // 
             // button1
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
@@ -945,7 +944,6 @@
         private Guna.UI.WinForms.GunaLabel gunaLabel13;
         private Guna.UI.WinForms.GunaLabel lbNoti;
         private System.Windows.Forms.DateTimePicker dtpGio;
-        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private Guna.UI2.WinForms.Guna2Button btnCC;

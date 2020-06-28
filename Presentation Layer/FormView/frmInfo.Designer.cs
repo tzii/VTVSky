@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pnView = new System.Windows.Forms.Panel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
@@ -46,6 +47,7 @@
             this.tbNgaySinh = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbHoTen = new Guna.UI2.WinForms.Guna2TextBox();
             this.pnEdit = new System.Windows.Forms.Panel();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.pnView.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
@@ -123,6 +125,7 @@
             this.tbDienThoai.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbDienThoai.FocusedState.Parent = this.tbDienThoai;
             this.tbDienThoai.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDienThoai.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tbDienThoai.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbDienThoai.HoverState.Parent = this.tbDienThoai;
             this.tbDienThoai.Location = new System.Drawing.Point(135, 291);
@@ -256,14 +259,17 @@
             // pbAvatar
             // 
             this.pbAvatar.AutoRoundedCorners = true;
+            this.pbAvatar.BackgroundImage = global::Presentation_Layer.Properties.Resources.profile;
+            this.pbAvatar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbAvatar.BorderRadius = 74;
-            this.pbAvatar.FillColor = System.Drawing.Color.Red;
+            this.pbAvatar.FillColor = System.Drawing.Color.Transparent;
             this.pbAvatar.Location = new System.Drawing.Point(152, 16);
             this.pbAvatar.Name = "pbAvatar";
             this.pbAvatar.ShadowDecoration.Parent = this.pbAvatar;
             this.pbAvatar.Size = new System.Drawing.Size(150, 150);
             this.pbAvatar.TabIndex = 1;
             this.pbAvatar.TabStop = false;
+            this.pbAvatar.UseTransparentBackground = true;
             // 
             // tbQueQuan
             // 
@@ -279,6 +285,7 @@
             this.tbQueQuan.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbQueQuan.FocusedState.Parent = this.tbQueQuan;
             this.tbQueQuan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbQueQuan.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tbQueQuan.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbQueQuan.HoverState.Parent = this.tbQueQuan;
             this.tbQueQuan.Location = new System.Drawing.Point(135, 383);
@@ -307,6 +314,7 @@
             this.tbNgaySinh.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbNgaySinh.FocusedState.Parent = this.tbNgaySinh;
             this.tbNgaySinh.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbNgaySinh.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tbNgaySinh.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbNgaySinh.HoverState.Parent = this.tbNgaySinh;
             this.tbNgaySinh.Location = new System.Drawing.Point(135, 337);
@@ -334,6 +342,7 @@
             this.tbHoTen.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbHoTen.FocusedState.Parent = this.tbHoTen;
             this.tbHoTen.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbHoTen.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tbHoTen.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbHoTen.HoverState.Parent = this.tbHoTen;
             this.tbHoTen.Location = new System.Drawing.Point(135, 245);
@@ -355,6 +364,11 @@
             this.pnEdit.Name = "pnEdit";
             this.pnEdit.Size = new System.Drawing.Size(600, 570);
             this.pnEdit.TabIndex = 5;
+            // 
+            // guna2Elipse1
+            // 
+            this.guna2Elipse1.BorderRadius = 74;
+            this.guna2Elipse1.TargetControl = this.pbAvatar;
             // 
             // frmInfo
             // 
@@ -398,5 +412,6 @@
         private Guna.UI2.WinForms.Guna2Button btnEditQueQuan;
         private Guna.UI2.WinForms.Guna2Button btnEditNgaySinh;
         private Guna.UI2.WinForms.Guna2Button btnEditSDT;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
     }
 }

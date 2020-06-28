@@ -98,6 +98,14 @@ namespace Presentation_Layer.FormView
             if ((int)cbSBDi.SelectedValue == (int)cbSBDen.SelectedValue) return false;
             return true;
         }
+        private void checkPer()
+        {
+            if (User.Per== "STAFF")
+            {
+                btnAdd.Enabled = false;
+                btnEdit.Enabled = false;
+            }
+        }
         #endregion
         #region Chỉnh sửa hiển thị của dgvTuyenBays
         private void dgvTuyenBays_DataSourceChanged(object sender, EventArgs e)
@@ -166,6 +174,8 @@ namespace Presentation_Layer.FormView
             cbSBDen.DataSource = BLL_SanBay.GetSanBays();
             cbSBDen.DisplayMember = "TenSB";
             cbSBDen.ValueMember = "MaSB";
+
+            checkPer();
         }
 
         public override void RefreshData()

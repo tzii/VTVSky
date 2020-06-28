@@ -59,6 +59,7 @@
             this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
             this.btnRefresh.HoverState.Parent = this.btnRefresh;
+            this.btnRefresh.Image = global::Presentation_Layer.Properties.Resources.refresh;
             this.btnRefresh.Location = new System.Drawing.Point(1010, 7);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.ShadowDecoration.BorderRadius = 14;

@@ -139,6 +139,7 @@
             this.tbSLSBTG.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbSLSBTG.FocusedState.Parent = this.tbSLSBTG;
             this.tbSLSBTG.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbSLSBTG.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tbSLSBTG.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbSLSBTG.HoverState.Parent = this.tbSLSBTG;
             this.tbSLSBTG.Location = new System.Drawing.Point(320, 138);
@@ -266,18 +267,18 @@
             this.lbTGHuyDatVe.AutoSize = true;
             this.lbTGHuyDatVe.Location = new System.Drawing.Point(18, 338);
             this.lbTGHuyDatVe.Name = "lbTGHuyDatVe";
-            this.lbTGHuyDatVe.Size = new System.Drawing.Size(289, 28);
+            this.lbTGHuyDatVe.Size = new System.Drawing.Size(283, 28);
             this.lbTGHuyDatVe.TabIndex = 2;
-            this.lbTGHuyDatVe.Text = "Thời gian hủy vé chậm nhất (m):";
+            this.lbTGHuyDatVe.Text = "Thời gian hủy vé chậm nhất (h):";
             // 
             // lbTGDatVeChamNhat
             // 
             this.lbTGDatVeChamNhat.AutoSize = true;
             this.lbTGDatVeChamNhat.Location = new System.Drawing.Point(18, 288);
             this.lbTGDatVeChamNhat.Name = "lbTGDatVeChamNhat";
-            this.lbTGDatVeChamNhat.Size = new System.Drawing.Size(286, 28);
+            this.lbTGDatVeChamNhat.Size = new System.Drawing.Size(281, 28);
             this.lbTGDatVeChamNhat.TabIndex = 2;
-            this.lbTGDatVeChamNhat.Text = "Thời gian đặt vé chậm nhất (m):";
+            this.lbTGDatVeChamNhat.Text = "Thời gian đặt vé chậm nhất (d):";
             // 
             // bTGDungToiDa
             // 
@@ -340,6 +341,7 @@
             this.tbTGHuyDatVe.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbTGHuyDatVe.FocusedState.Parent = this.tbTGHuyDatVe;
             this.tbTGHuyDatVe.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTGHuyDatVe.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tbTGHuyDatVe.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbTGHuyDatVe.HoverState.Parent = this.tbTGHuyDatVe;
             this.tbTGHuyDatVe.Location = new System.Drawing.Point(320, 330);
@@ -368,6 +370,7 @@
             this.tbTGDatVeChamNhat.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbTGDatVeChamNhat.FocusedState.Parent = this.tbTGDatVeChamNhat;
             this.tbTGDatVeChamNhat.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTGDatVeChamNhat.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tbTGDatVeChamNhat.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbTGDatVeChamNhat.HoverState.Parent = this.tbTGDatVeChamNhat;
             this.tbTGDatVeChamNhat.Location = new System.Drawing.Point(320, 280);
@@ -396,6 +399,7 @@
             this.tbTGDungToiDa.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbTGDungToiDa.FocusedState.Parent = this.tbTGDungToiDa;
             this.tbTGDungToiDa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTGDungToiDa.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tbTGDungToiDa.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbTGDungToiDa.HoverState.Parent = this.tbTGDungToiDa;
             this.tbTGDungToiDa.Location = new System.Drawing.Point(320, 230);
@@ -424,6 +428,7 @@
             this.tbTGDungToiThieu.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbTGDungToiThieu.FocusedState.Parent = this.tbTGDungToiThieu;
             this.tbTGDungToiThieu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTGDungToiThieu.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tbTGDungToiThieu.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbTGDungToiThieu.HoverState.Parent = this.tbTGDungToiThieu;
             this.tbTGDungToiThieu.Location = new System.Drawing.Point(320, 184);
@@ -452,6 +457,7 @@
             this.tbTGBayToiThieu.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbTGBayToiThieu.FocusedState.Parent = this.tbTGBayToiThieu;
             this.tbTGBayToiThieu.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbTGBayToiThieu.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tbTGBayToiThieu.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbTGBayToiThieu.HoverState.Parent = this.tbTGBayToiThieu;
             this.tbTGBayToiThieu.Location = new System.Drawing.Point(320, 92);
@@ -549,6 +555,7 @@
             this.tbServerName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbServerName.FocusedState.Parent = this.tbServerName;
             this.tbServerName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbServerName.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tbServerName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbServerName.HoverState.Parent = this.tbServerName;
             this.tbServerName.Location = new System.Drawing.Point(151, 92);

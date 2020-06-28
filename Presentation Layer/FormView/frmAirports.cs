@@ -82,6 +82,14 @@ namespace Presentation_Layer.FormView
             tbMaSB.Text = dgvAirports.SelectedRows[0].Cells["strMaSB"].Value.ToString();
             tbTenSB.Text = dgvAirports.SelectedRows[0].Cells["TenSB"].Value.ToString();
         }
+        private void checkPer()
+        {
+            if (User.Per == "STAFF")
+            {
+                btnAdd.Enabled = false;
+                btnEdit.Enabled = false;
+            }
+        }
         #endregion
         #region Chỉnh sửa hiển thị của dgvAirports
         private void dgvAirports_DataSourceChanged(object sender, EventArgs e)
@@ -142,7 +150,7 @@ namespace Presentation_Layer.FormView
             bl = new SortableBindingList<SanBay>(sanBays);
             dgvAirports.DataSource = bl;
             CustomDgv();
-
+            checkPer();
             AppState.state = Actions.NOTHING;
         }
 

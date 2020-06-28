@@ -57,7 +57,7 @@
             // 
             this.lbHours.BackColor = System.Drawing.Color.Transparent;
             this.lbHours.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbHours.Font = new System.Drawing.Font("Digital-7", 40.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbHours.Font = new System.Drawing.Font("Anurati", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbHours.Location = new System.Drawing.Point(0, 0);
             this.lbHours.Name = "lbHours";
             this.lbHours.Size = new System.Drawing.Size(1100, 125);
