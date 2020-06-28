@@ -35,5 +35,9 @@ namespace Business_Logic_Layer
         {
             return DAL_CTHV.DeleteCTHV(maCB);
         }
+        public static bool CheckGhe(int maCB, int MaHV)
+        {
+            return DAL_CTHV.CheckGhe(maCB, MaHV);
+        }
     }
 }

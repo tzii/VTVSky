@@ -44,7 +44,7 @@ namespace Presentation_Layer.FormView
         private void CustomDgv()
         {
             dgvBuyTicket.Columns.Add(ButtonColumn("Detail"));
-            dgvBuyTicket.Columns.Add(ButtonColumn("Edit"));
+            //dgvBuyTicket.Columns.Add(ButtonColumn("Edit"));
             //dgvBuyTicket.Columns.Add(ButtonColumn("Delete"));
 
             dgvBuyTicket.Columns["MaVe"].Visible = false;

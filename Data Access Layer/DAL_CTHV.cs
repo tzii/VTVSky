@@ -91,5 +91,16 @@ namespace Data_Access_Layer
             bool update = DataProvider.ExecuteNonQuery(cmdText);
             return update;
         }
+        public static bool CheckGhe(int maCB,int maHV)
+        {
+            string cmdText = string.Format("select * from CTHV where MaCB = {0} and MAHV = {1}", maCB,maHV);
+            DataTable dt = DataProvider.ExecuteReader(cmdText);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                if ((int)dt.Rows[0]["SLGheTrong"] > 0) return true;
+                return false;
+            }
+            return false;
+        }
     }
 }

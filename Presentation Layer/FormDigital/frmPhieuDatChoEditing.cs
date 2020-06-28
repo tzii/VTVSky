@@ -91,6 +91,18 @@ namespace Presentation_Layer.FormDigital
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            if (!BLL_ChuyenBay.CheckGhe((int)cbMaCB.SelectedValue))
+            {
+                lbNoti.Text = "Chuyến bay này đã hết ghế";
+                lbNoti.Show();
+                return;
+            }
+            if (!BLL_CTHV.CheckGhe((int)cbMaCB.SelectedValue,(int)cbHangVe.SelectedValue))
+            {
+                lbNoti.Text = "Hạng vé này đã hết ghế";
+                lbNoti.Show();
+                return;
+            }
             if ((((ChuyenBay)cbMaCB.SelectedItem).ThoiGian - DateTime.Now).Days < ThamSo.TGDatVeChamNhat)
             {
                 lbNoti.Text = "Chỉ được đặt vé chậm nhất trước "+ThamSo.TGDatVeChamNhat+" ngày trước ngày xuất phát";

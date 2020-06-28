@@ -97,7 +97,7 @@ namespace Data_Access_Layer
         }
         public static bool InsertChuyenBay(ChuyenBay chuyenBay)
         {
-            string cmdText = string.Format("INSERT INTO CHUYENBAY(MaTB,DonGia,ThoiGian,ThoiLuong,SLGheTrong,SLGheDat) VALUES ({0},{1},'{2}',{3},{4},{5})", chuyenBay.TB.maTB,chuyenBay.DonGia,chuyenBay.ThoiGian.ToString("MM/dd/yyyy HH:mm:ss"),chuyenBay.ThoiLuong,chuyenBay.SoGheTrong,chuyenBay.SoGheDat);
+            string cmdText = string.Format("INSERT INTO CHUYENBAY(MaTB,DonGia,ThoiGian,ThoiLuong,SLGheTrong,SLGheDat) VALUES ({0},{1},'{2}',{3},{4},{5})", chuyenBay.TB.maTB,chuyenBay.DonGia,chuyenBay.ThoiGian.ToString("MM/dd/yyyy HH:mm:ss"),chuyenBay.ThoiLuong,0,chuyenBay.SoGheDat);
             bool insert = DataProvider.ExecuteNonQuery(cmdText);
             return insert;
         }
@@ -122,6 +122,17 @@ namespace Data_Access_Layer
                 Notification.Show(ex.Message);
                 return 0;
             }
+        }
+        public static bool CheckGhe(int maCB)
+        {
+            string cmdText = string.Format("select * from CHUYENBAY where MaCB = {0}",maCB);
+            DataTable dt = DataProvider.ExecuteReader(cmdText);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                if ((int)dt.Rows[0]["SLGheTrong"] > 0) return true;
+                return false;
+            }
+            return false;
         }
     }
 }

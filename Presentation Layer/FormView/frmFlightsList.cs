@@ -59,7 +59,7 @@ namespace Presentation_Layer.FormView
         private void CustomDgv()
         {
             dgvFlightsList.Columns.Add(ButtonColumn("Detail"));
-            dgvFlightsList.Columns.Add(ButtonColumn("Edit"));
+            //dgvFlightsList.Columns.Add(ButtonColumn("Edit"));
 
             dgvFlightsList.Columns["MaCB"].Visible = false;
             dgvFlightsList.Columns["TB"].Visible = false;

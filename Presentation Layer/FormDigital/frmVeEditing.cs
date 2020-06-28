@@ -85,6 +85,18 @@ namespace Presentation_Layer.FormDigital
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            if (!BLL_ChuyenBay.CheckGhe((int)cbMaCB.SelectedValue))
+            {
+                lbNoti.Text = "Chuyến bay này đã hết ghế";
+                lbNoti.Show();
+                return;
+            }
+            if (!BLL_CTHV.CheckGhe((int)cbMaCB.SelectedValue, (int)cbHangVe.SelectedValue))
+            {
+                lbNoti.Text = "Hạng vé này đã hết ghế";
+                lbNoti.Show();
+                return;
+            }
             if (tbTenHK.Text == "")
             {
                 lbNoti.Text = "Tên khách hàng không được bỏ trống";

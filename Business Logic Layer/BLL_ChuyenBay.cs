@@ -47,5 +47,9 @@ namespace Business_Logic_Layer
         {
             return DAL_ChuyenBay.GetLastMaCB();
         }
+        public static bool CheckGhe(int maCB)
+        {
+            return DAL_ChuyenBay.CheckGhe(maCB);
+        }
     }
 }

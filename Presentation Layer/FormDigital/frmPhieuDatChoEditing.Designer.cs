@@ -331,6 +331,7 @@
             this.cbMaCB.ItemHeight = 30;
             this.cbMaCB.ItemsAppearance.Parent = this.cbMaCB;
             this.cbMaCB.Location = new System.Drawing.Point(152, 86);
+            this.cbMaCB.MaxLength = 12;
             this.cbMaCB.Name = "cbMaCB";
             this.cbMaCB.ShadowDecoration.Parent = this.cbMaCB;
             this.cbMaCB.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
