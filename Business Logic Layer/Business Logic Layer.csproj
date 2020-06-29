@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL_BCNam.cs" />
     <Compile Include="BLL_BCThang.cs" />
     <Compile Include="BLL_ChuyenBay.cs" />
     <Compile Include="BLL_CTCB.cs" />

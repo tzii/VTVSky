@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data_Transfer_Objects;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -7,7 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Data_Transfer_Objects
+namespace Data_Access_Layer
 {
     public class DataProvider
     {

@@ -230,6 +230,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\DSBCNam.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSBCNam.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Report\DSBCThang.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -256,6 +261,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormView\frmAirports.resx">
       <DependentUpon>frmAirports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormView\frmBCNam.resx">
+      <DependentUpon>frmBCNam.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormView\frmBCThang.resx">
       <DependentUpon>frmBCThang.cs</DependentUpon>
@@ -317,6 +325,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Report\rpBCNam.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report\rpBCThang.rdlc">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -335,6 +346,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Report\DSBCNam.xsc">
+      <DependentUpon>DSBCNam.xsd</DependentUpon>
+    </None>
+    <None Include="Report\DSBCNam.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSBCNam.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\DSBCNam.xss">
+      <DependentUpon>DSBCNam.xsd</DependentUpon>
+    </None>
     <None Include="Report\DSBCThang.xsc">
       <DependentUpon>DSBCThang.xsd</DependentUpon>
     </None>
