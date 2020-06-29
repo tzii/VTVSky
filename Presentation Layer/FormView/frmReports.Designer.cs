@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnRefresh = new Guna.UI2.WinForms.Guna2Button();
-            this.btnCreateNew = new Guna.UI2.WinForms.Guna2GradientButton();
             this.btnBCNam = new Guna.UI2.WinForms.Guna2Button();
             this.btnBCThang = new Guna.UI2.WinForms.Guna2Button();
             this.pnDesktop = new System.Windows.Forms.Panel();
@@ -40,8 +38,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.btnRefresh);
-            this.panel1.Controls.Add(this.btnCreateNew);
             this.panel1.Controls.Add(this.btnBCNam);
             this.panel1.Controls.Add(this.btnBCThang);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -49,48 +45,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1100, 45);
             this.panel1.TabIndex = 0;
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRefresh.AutoRoundedCorners = true;
-            this.btnRefresh.BackColor = System.Drawing.Color.Transparent;
-            this.btnRefresh.BorderRadius = 14;
-            this.btnRefresh.CheckedState.Parent = this.btnRefresh;
-            this.btnRefresh.CustomImages.Parent = this.btnRefresh;
-            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.HoverState.Parent = this.btnRefresh;
-            this.btnRefresh.Location = new System.Drawing.Point(1010, 7);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.ShadowDecoration.BorderRadius = 14;
-            this.btnRefresh.ShadowDecoration.Enabled = true;
-            this.btnRefresh.ShadowDecoration.Parent = this.btnRefresh;
-            this.btnRefresh.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
-            this.btnRefresh.Size = new System.Drawing.Size(31, 31);
-            this.btnRefresh.TabIndex = 3;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
-            // btnCreateNew
-            // 
-            this.btnCreateNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCreateNew.Animated = true;
-            this.btnCreateNew.BackColor = System.Drawing.Color.Transparent;
-            this.btnCreateNew.BorderRadius = 8;
-            this.btnCreateNew.CheckedState.Parent = this.btnCreateNew;
-            this.btnCreateNew.CustomImages.Parent = this.btnCreateNew;
-            this.btnCreateNew.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateNew.ForeColor = System.Drawing.Color.White;
-            this.btnCreateNew.HoverState.Parent = this.btnCreateNew;
-            this.btnCreateNew.Location = new System.Drawing.Point(832, 7);
-            this.btnCreateNew.Name = "btnCreateNew";
-            this.btnCreateNew.ShadowDecoration.BorderRadius = 8;
-            this.btnCreateNew.ShadowDecoration.Enabled = true;
-            this.btnCreateNew.ShadowDecoration.Parent = this.btnCreateNew;
-            this.btnCreateNew.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
-            this.btnCreateNew.Size = new System.Drawing.Size(160, 31);
-            this.btnCreateNew.TabIndex = 2;
-            this.btnCreateNew.Text = "Create New";
             // 
             // btnBCNam
             // 
@@ -172,7 +126,5 @@
         private Guna.UI2.WinForms.Guna2Button btnBCThang;
         private Guna.UI2.WinForms.Guna2Button btnBCNam;
         private System.Windows.Forms.Panel pnDesktop;
-        private Guna.UI2.WinForms.Guna2GradientButton btnCreateNew;
-        private Guna.UI2.WinForms.Guna2Button btnRefresh;
     }
 }

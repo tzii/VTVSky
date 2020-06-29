@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSBCThang" targetNamespace="http://tempuri.org/DSBCThang.xsd" xmlns:mstns="http://tempuri.org/DSBCThang.xsd" xmlns="http://tempuri.org/DSBCThang.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSBCThang" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DSBCThang" msprop:Generator_UserDSName="DSBCThang">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="CTBCTHANG" msprop:Generator_TableClassName="CTBCTHANGDataTable" msprop:Generator_TableVarName="tableCTBCTHANG" msprop:Generator_TablePropName="CTBCTHANG" msprop:Generator_RowDeletingName="CTBCTHANGRowDeleting" msprop:Generator_RowChangingName="CTBCTHANGRowChanging" msprop:Generator_RowEvHandlerName="CTBCTHANGRowChangeEventHandler" msprop:Generator_RowDeletedName="CTBCTHANGRowDeleted" msprop:Generator_UserTableName="CTBCTHANG" msprop:Generator_RowChangedName="CTBCTHANGRowChanged" msprop:Generator_RowEvArgName="CTBCTHANGRowChangeEvent" msprop:Generator_RowClassName="CTBCTHANGRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="THANG" msprop:Generator_ColumnVarNameInTable="columnTHANG" msprop:Generator_ColumnPropNameInRow="THANG" msprop:Generator_ColumnPropNameInTable="THANGColumn" msprop:Generator_UserColumnName="THANG" type="xs:int" minOccurs="0" />
+              <xs:element name="NAM" msprop:Generator_ColumnVarNameInTable="columnNAM" msprop:Generator_ColumnPropNameInRow="NAM" msprop:Generator_ColumnPropNameInTable="NAMColumn" msprop:Generator_UserColumnName="NAM" type="xs:int" minOccurs="0" />
+              <xs:element name="MACB" msprop:Generator_ColumnVarNameInTable="columnMACB" msprop:Generator_ColumnPropNameInRow="MACB" msprop:Generator_ColumnPropNameInTable="MACBColumn" msprop:Generator_UserColumnName="MACB" type="xs:int" minOccurs="0" />
+              <xs:element name="SLVE" msprop:Generator_ColumnVarNameInTable="columnSLVE" msprop:Generator_ColumnPropNameInRow="SLVE" msprop:Generator_ColumnPropNameInTable="SLVEColumn" msprop:Generator_UserColumnName="SLVE" type="xs:int" minOccurs="0" />
+              <xs:element name="DOANHTHU" msprop:Generator_ColumnVarNameInTable="columnDOANHTHU" msprop:Generator_ColumnPropNameInRow="DOANHTHU" msprop:Generator_ColumnPropNameInTable="DOANHTHUColumn" msprop:Generator_UserColumnName="DOANHTHU" type="xs:long" minOccurs="0" />
+              <xs:element name="DOANHTHUPRED" msprop:Generator_ColumnVarNameInTable="columnDOANHTHUPRED" msprop:Generator_ColumnPropNameInRow="DOANHTHUPRED" msprop:Generator_ColumnPropNameInTable="DOANHTHUPREDColumn" msprop:Generator_UserColumnName="DOANHTHUPRED" type="xs:long" minOccurs="0" />
+              <xs:element name="TILE" msprop:Generator_ColumnVarNameInTable="columnTILE" msprop:Generator_ColumnPropNameInRow="TILE" msprop:Generator_ColumnPropNameInTable="TILEColumn" msprop:Generator_UserColumnName="TILE" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

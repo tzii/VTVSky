@@ -92,5 +92,23 @@ namespace Data_Transfer_Objects
                 return "";
             }
         }
+        public static DataSet getDataSet(string cmdText)
+        {
+            SqlConnection conn = Connection();
+            conn.Open();
+            try
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter(cmdText, conn);
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                Notification.Show(ex.Message);
+                return null;
+            }
+        }
     }
 }
