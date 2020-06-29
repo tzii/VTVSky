@@ -193,15 +193,21 @@ namespace Presentation_Layer.FormDigital
             chuyenBay.ThoiLuong = Convert.ToInt32(nTGBayH.Value * 60 + nTGBayM.Value);
             chuyenBay.SoGheTrong = Convert.ToInt32(nSLGhe1.Value + nSLGhe2.Value);
             
-            if (chuyenBay.DonGia ==0)
+            if (chuyenBay.DonGia <=10000)
             {
-                lbNoti.Text = "Giá vé phải lớn hơn 0";
+                lbNoti.Text = "Giá vé phải lớn hơn 10000";
                 lbNoti.Visible = true;
                 return;
             }
             if (chuyenBay.TB == null)
             {
                 lbNoti.Text = "Bạn cần phải chọn sân bay đi và sân bay đến";
+                lbNoti.Visible = true;
+                return;
+            }
+            if (chuyenBay.ThoiGian < DateTime.Now)
+            {
+                lbNoti.Text = "Thời gian xuất phát không hợp lệ";
                 lbNoti.Visible = true;
                 return;
             }
@@ -256,14 +262,13 @@ namespace Presentation_Layer.FormDigital
 
         private void cbSBDi_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (onloading) return;
+            //if (onloading) return;
             dsSBDen = BLL_TuyenBay.GetSanBaysFrom((int)cbSBDi.SelectedValue);
             cbSBDen.DataSource = dsSBDen;
-
         }
         private void cbSBDen_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (onloading) return;
+            //if (onloading) return;
             sbtgs = BLL_SanBay.GetSanBaysExcept(currentTB);
             cbSBTG.DataSource = sbtgs;
         }

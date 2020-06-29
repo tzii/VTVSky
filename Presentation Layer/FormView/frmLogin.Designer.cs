@@ -112,7 +112,7 @@
             // 
             this.lbDB.AutoSize = true;
             this.lbDB.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.lbDB.Location = new System.Drawing.Point(751, 563);
+            this.lbDB.Location = new System.Drawing.Point(539, 563);
             this.lbDB.Name = "lbDB";
             this.lbDB.Size = new System.Drawing.Size(93, 28);
             this.lbDB.TabIndex = 3;
