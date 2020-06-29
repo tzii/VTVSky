@@ -7,9 +7,10 @@ using System.Windows.Forms;
 
 namespace Presentation_Layer
 {
-    public class CustomForm: Form
+    public class CustomForm : Form
     {
         public virtual void RefreshData() { }
         public virtual void Create() { }
+        public virtual void SizeChange() { }
     }
 }

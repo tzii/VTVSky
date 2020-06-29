@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data_Access_Layer
+namespace Data_Transfer_Objects
 {
-    class DAL_DatCho
+    public class AppState
     {
+        public static Actions state;
     }
 }

@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Business_Logic_Layer</RootNamespace>
     <AssemblyName>Business Logic Layer</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,14 +42,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL_BCNam.cs" />
+    <Compile Include="BLL_BCThang.cs" />
     <Compile Include="BLL_ChuyenBay.cs" />
     <Compile Include="BLL_CTCB.cs" />
     <Compile Include="BLL_CTHV.cs" />
+    <Compile Include="BLL_IdenMaVe.cs" />
+    <Compile Include="BLL_PhieuDatCho.cs" />
     <Compile Include="BLL_SanBay.cs" />
     <Compile Include="BLL_UserLogin.cs" />
     <Compile Include="BLL_HangVe.cs" />
     <Compile Include="BLL_ThamSo.cs" />
     <Compile Include="BLL_TuyenBay.cs" />
+    <Compile Include="BLL_Ve.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

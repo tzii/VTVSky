@@ -8,14 +8,13 @@ namespace Data_Transfer_Objects
 {
     public class CTHV
     {
-        private int maCB;
-        private HangVe hv;
+        public int maCB { set; get; }
+        public HangVe HV { set; get; }
         private int giaVe;
         private int slGhe;
         private int slGheTrong;
         private int slGheBan;
-
-        public string MaCB
+        public string strMaCB
         {
             get
             {
@@ -26,7 +25,7 @@ namespace Data_Transfer_Objects
         {
             get
             {
-                return hv.MaHV;
+                return HV.TenHV;
             } 
         }
         public int GiaVe
@@ -77,7 +76,7 @@ namespace Data_Transfer_Objects
         public CTHV(int _maCB,HangVe _hv,int _giaVe,int _slGhe,int _slGheTrong, int _slGheBan)
         {
             maCB = _maCB;
-            hv = _hv;
+            HV = _hv;
             giaVe = _giaVe;
             slGhe = _slGhe;
             slGheTrong = _slGheTrong;
@@ -88,10 +87,6 @@ namespace Data_Transfer_Objects
             string res = "CB000000";
             string s = x.ToString();
             return res.Remove(res.Length - s.Length) + s;
-        }
-        public int getMaCB()
-        {
-            return maCB;
         }
     }
 }

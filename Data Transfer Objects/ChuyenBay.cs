@@ -9,14 +9,14 @@ namespace Data_Transfer_Objects
 {
     public class ChuyenBay
     {
-        private int maCB;
-        public TuyenBay TB;
+        public int maCB { set; get; }
+        public TuyenBay TB { set; get; }
+        private int donGia;
         private DateTime thoiGian;
         private int thoiLuong;
         private int soGheTrong;
         private int soGheDat;
-        private int donGia;
-        public string MaCB 
+        public string strMaCB 
         {
             get
             {
@@ -27,6 +27,7 @@ namespace Data_Transfer_Objects
         {
             get
             {
+                if (TB == null) return "#";
                 return TB.TenSBDi;
             }
         }
@@ -34,7 +35,19 @@ namespace Data_Transfer_Objects
         {
             get
             {
+                if (TB == null) return "#";
                 return TB.TenSBDen;
+            }
+        }
+        public int DonGia
+        {
+            set
+            {
+                donGia = value;
+            }
+            get
+            {
+                return donGia;
             }
         }
         public DateTime ThoiGian 
@@ -82,25 +95,21 @@ namespace Data_Transfer_Objects
             }
         }
         public ChuyenBay() { }
-        public ChuyenBay(int _maCB,TuyenBay _tb,DateTime _thoiGian,int _thoiLuong, int _soGheTrong, int _soGheDat)
+        public ChuyenBay(int _maCB,TuyenBay _tb, int _donGia, DateTime _thoiGian,int _thoiLuong, int _soGheTrong, int _soGheDat)
         {
             maCB = _maCB;
             TB = _tb;
+            donGia = _donGia;
             thoiGian = _thoiGian;
             thoiLuong = _thoiLuong;
             soGheTrong = _soGheTrong;
             soGheDat = _soGheDat;
         }
-
         private string ConvertToString(int x)
         {
             string res = "CB000000";
             string s = x.ToString();
             return res.Remove(res.Length - s.Length) + s;
-        }
-        public int getMaCB()
-        {
-            return maCB;
         }
     }
 }

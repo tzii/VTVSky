@@ -29,35 +29,38 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.pnStatusBar = new System.Windows.Forms.Panel();
             this.lbNoti = new System.Windows.Forms.Label();
-            this.pbNoti = new System.Windows.Forms.PictureBox();
             this.resizeControl = new Guna.UI2.WinForms.Guna2ResizeBox();
-            this.pnControl = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnSetting = new Guna.UI2.WinForms.Guna2Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pnDrag = new System.Windows.Forms.Panel();
+            this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
+            this.btnMaximize = new Guna.UI2.WinForms.Guna2Button();
+            this.btnClose = new Guna.UI2.WinForms.Guna2Button();
+            this.lbChildForm = new Guna.UI.WinForms.GunaLabel();
+            this.DragPanel = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.pnDesktop = new System.Windows.Forms.Panel();
+            this.pnShadow = new System.Windows.Forms.Panel();
+            this.pnShadow1 = new System.Windows.Forms.Panel();
+            this.pnControl1 = new System.Windows.Forms.Panel();
+            this.pnControl = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.pbChildForm = new System.Windows.Forms.PictureBox();
+            this.btnSetting = new Guna.UI2.WinForms.Guna2Button();
             this.btnReports = new Guna.UI2.WinForms.Guna2Button();
             this.btnTickets = new Guna.UI2.WinForms.Guna2Button();
             this.btnFlights = new Guna.UI2.WinForms.Guna2Button();
             this.btnManager = new Guna.UI2.WinForms.Guna2Button();
             this.btnHome = new Guna.UI2.WinForms.Guna2Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pnDrag = new System.Windows.Forms.Panel();
-            this.btnMinimize = new Guna.UI2.WinForms.Guna2Button();
-            this.btnMaximize = new Guna.UI2.WinForms.Guna2Button();
-            this.btnClose = new Guna.UI2.WinForms.Guna2Button();
-            this.pbChildForm = new System.Windows.Forms.PictureBox();
-            this.lbChildForm = new Guna.UI.WinForms.GunaLabel();
-            this.DragPanel = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.pnDesktop = new System.Windows.Forms.Panel();
-            this.pnShadow = new System.Windows.Forms.Panel();
-            this.pnShadow1 = new System.Windows.Forms.Panel();
+            this.pbNoti = new System.Windows.Forms.PictureBox();
             this.pnStatusBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbNoti)).BeginInit();
-            this.pnControl.SuspendLayout();
             this.pnDrag.SuspendLayout();
+            this.pnControl1.SuspendLayout();
+            this.pnControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbChildForm)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNoti)).BeginInit();
             this.SuspendLayout();
             // 
             // pnStatusBar
@@ -75,21 +78,11 @@
             // lbNoti
             // 
             this.lbNoti.AutoSize = true;
-            this.lbNoti.Location = new System.Drawing.Point(36, 3);
+            this.lbNoti.Location = new System.Drawing.Point(31, 3);
             this.lbNoti.Name = "lbNoti";
             this.lbNoti.Size = new System.Drawing.Size(65, 28);
             this.lbNoti.TabIndex = 2;
             this.lbNoti.Text = "Ready";
-            // 
-            // pbNoti
-            // 
-            this.pbNoti.BackgroundImage = global::Presentation_Layer.Properties.Resources.Home;
-            this.pbNoti.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbNoti.Location = new System.Drawing.Point(0, 2);
-            this.pbNoti.Name = "pbNoti";
-            this.pbNoti.Size = new System.Drawing.Size(30, 20);
-            this.pbNoti.TabIndex = 1;
-            this.pbNoti.TabStop = false;
             // 
             // resizeControl
             // 
@@ -102,25 +95,8 @@
             this.resizeControl.Name = "resizeControl";
             this.resizeControl.Size = new System.Drawing.Size(20, 25);
             this.resizeControl.TabIndex = 0;
+            this.resizeControl.TabStop = false;
             this.resizeControl.TargetControl = this;
-            // 
-            // pnControl
-            // 
-            this.pnControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
-            this.pnControl.Controls.Add(this.panel2);
-            this.pnControl.Controls.Add(this.btnSetting);
-            this.pnControl.Controls.Add(this.panel1);
-            this.pnControl.Controls.Add(this.btnReports);
-            this.pnControl.Controls.Add(this.btnTickets);
-            this.pnControl.Controls.Add(this.btnFlights);
-            this.pnControl.Controls.Add(this.btnManager);
-            this.pnControl.Controls.Add(this.btnHome);
-            this.pnControl.Controls.Add(this.panel3);
-            this.pnControl.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnControl.Location = new System.Drawing.Point(0, 0);
-            this.pnControl.Name = "pnControl";
-            this.pnControl.Size = new System.Drawing.Size(200, 675);
-            this.pnControl.TabIndex = 1;
             // 
             // panel2
             // 
@@ -129,6 +105,188 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(8, 45);
             this.panel2.TabIndex = 8;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 665);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 10);
+            this.panel1.TabIndex = 7;
+            // 
+            // pnDrag
+            // 
+            this.pnDrag.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
+            this.pnDrag.Controls.Add(this.btnMinimize);
+            this.pnDrag.Controls.Add(this.btnMaximize);
+            this.pnDrag.Controls.Add(this.btnClose);
+            this.pnDrag.Controls.Add(this.pbChildForm);
+            this.pnDrag.Controls.Add(this.lbChildForm);
+            this.pnDrag.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnDrag.Location = new System.Drawing.Point(200, 0);
+            this.pnDrag.Name = "pnDrag";
+            this.pnDrag.Size = new System.Drawing.Size(1100, 60);
+            this.pnDrag.TabIndex = 2;
+            // 
+            // btnMinimize
+            // 
+            this.btnMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMinimize.Animated = true;
+            this.btnMinimize.AutoRoundedCorners = true;
+            this.btnMinimize.BackColor = System.Drawing.Color.Transparent;
+            this.btnMinimize.BorderRadius = 14;
+            this.btnMinimize.CheckedState.Parent = this.btnMinimize;
+            this.btnMinimize.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnMinimize.CustomImages.Parent = this.btnMinimize;
+            this.btnMinimize.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnMinimize.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnMinimize.ForeColor = System.Drawing.Color.White;
+            this.btnMinimize.HoverState.Parent = this.btnMinimize;
+            this.btnMinimize.Location = new System.Drawing.Point(995, 3);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.ShadowDecoration.BorderRadius = 19;
+            this.btnMinimize.ShadowDecoration.Enabled = true;
+            this.btnMinimize.ShadowDecoration.Parent = this.btnMinimize;
+            this.btnMinimize.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.btnMinimize.Size = new System.Drawing.Size(30, 30);
+            this.btnMinimize.TabIndex = 4;
+            this.btnMinimize.TabStop = false;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
+            // 
+            // btnMaximize
+            // 
+            this.btnMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMaximize.Animated = true;
+            this.btnMaximize.AutoRoundedCorners = true;
+            this.btnMaximize.BackColor = System.Drawing.Color.Transparent;
+            this.btnMaximize.BorderRadius = 14;
+            this.btnMaximize.CheckedState.Parent = this.btnMaximize;
+            this.btnMaximize.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnMaximize.CustomImages.Parent = this.btnMaximize;
+            this.btnMaximize.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnMaximize.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnMaximize.ForeColor = System.Drawing.Color.White;
+            this.btnMaximize.HoverState.Parent = this.btnMaximize;
+            this.btnMaximize.Location = new System.Drawing.Point(1031, 3);
+            this.btnMaximize.Name = "btnMaximize";
+            this.btnMaximize.ShadowDecoration.BorderRadius = 19;
+            this.btnMaximize.ShadowDecoration.Enabled = true;
+            this.btnMaximize.ShadowDecoration.Parent = this.btnMaximize;
+            this.btnMaximize.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.btnMaximize.Size = new System.Drawing.Size(30, 30);
+            this.btnMaximize.TabIndex = 4;
+            this.btnMaximize.TabStop = false;
+            this.btnMaximize.Click += new System.EventHandler(this.btnMaximize_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Animated = true;
+            this.btnClose.AutoRoundedCorners = true;
+            this.btnClose.BackColor = System.Drawing.Color.Transparent;
+            this.btnClose.BorderRadius = 14;
+            this.btnClose.CheckedState.Parent = this.btnClose;
+            this.btnClose.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnClose.CustomImages.Parent = this.btnClose;
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnClose.ForeColor = System.Drawing.Color.White;
+            this.btnClose.HoverState.FillColor = System.Drawing.Color.Firebrick;
+            this.btnClose.HoverState.Parent = this.btnClose;
+            this.btnClose.Location = new System.Drawing.Point(1067, 3);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.ShadowDecoration.BorderRadius = 19;
+            this.btnClose.ShadowDecoration.Enabled = true;
+            this.btnClose.ShadowDecoration.Parent = this.btnClose;
+            this.btnClose.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
+            this.btnClose.Size = new System.Drawing.Size(30, 30);
+            this.btnClose.TabIndex = 4;
+            this.btnClose.TabStop = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // lbChildForm
+            // 
+            this.lbChildForm.AutoSize = true;
+            this.lbChildForm.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbChildForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(7)))), ((int)(((byte)(7)))));
+            this.lbChildForm.Location = new System.Drawing.Point(57, 20);
+            this.lbChildForm.Name = "lbChildForm";
+            this.lbChildForm.Size = new System.Drawing.Size(96, 38);
+            this.lbChildForm.TabIndex = 2;
+            this.lbChildForm.Text = "Home";
+            // 
+            // DragPanel
+            // 
+            this.DragPanel.TargetControl = this.pnDrag;
+            this.DragPanel.UseTransparentDrag = true;
+            // 
+            // pnDesktop
+            // 
+            this.pnDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.pnDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnDesktop.Location = new System.Drawing.Point(200, 60);
+            this.pnDesktop.Name = "pnDesktop";
+            this.pnDesktop.Size = new System.Drawing.Size(1100, 615);
+            this.pnDesktop.TabIndex = 3;
+            // 
+            // pnShadow
+            // 
+            this.pnShadow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pnShadow.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnShadow.Location = new System.Drawing.Point(200, 60);
+            this.pnShadow.Name = "pnShadow";
+            this.pnShadow.Size = new System.Drawing.Size(3, 615);
+            this.pnShadow.TabIndex = 0;
+            // 
+            // pnShadow1
+            // 
+            this.pnShadow1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pnShadow1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnShadow1.Location = new System.Drawing.Point(203, 60);
+            this.pnShadow1.Name = "pnShadow1";
+            this.pnShadow1.Size = new System.Drawing.Size(1097, 3);
+            this.pnShadow1.TabIndex = 0;
+            // 
+            // pnControl1
+            // 
+            this.pnControl1.BackColor = System.Drawing.Color.Transparent;
+            this.pnControl1.Controls.Add(this.panel2);
+            this.pnControl1.Controls.Add(this.btnSetting);
+            this.pnControl1.Controls.Add(this.panel1);
+            this.pnControl1.Controls.Add(this.btnReports);
+            this.pnControl1.Controls.Add(this.btnTickets);
+            this.pnControl1.Controls.Add(this.btnFlights);
+            this.pnControl1.Controls.Add(this.btnManager);
+            this.pnControl1.Controls.Add(this.btnHome);
+            this.pnControl1.Controls.Add(this.panel3);
+            this.pnControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnControl1.Location = new System.Drawing.Point(0, 0);
+            this.pnControl1.Name = "pnControl1";
+            this.pnControl1.Size = new System.Drawing.Size(200, 675);
+            this.pnControl1.TabIndex = 9;
+            // 
+            // pnControl
+            // 
+            this.pnControl.Controls.Add(this.pnControl1);
+            this.pnControl.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnControl.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
+            this.pnControl.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(90)))), ((int)(((byte)(130)))));
+            this.pnControl.Location = new System.Drawing.Point(0, 0);
+            this.pnControl.Name = "pnControl";
+            this.pnControl.ShadowDecoration.Parent = this.pnControl;
+            this.pnControl.Size = new System.Drawing.Size(200, 675);
+            this.pnControl.TabIndex = 9;
+            // 
+            // pbChildForm
+            // 
+            this.pbChildForm.BackgroundImage = global::Presentation_Layer.Properties.Resources.Home;
+            this.pbChildForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbChildForm.Location = new System.Drawing.Point(16, 10);
+            this.pbChildForm.Name = "pbChildForm";
+            this.pbChildForm.Size = new System.Drawing.Size(40, 40);
+            this.pbChildForm.TabIndex = 3;
+            this.pbChildForm.TabStop = false;
             // 
             // btnSetting
             // 
@@ -155,14 +313,6 @@
             this.btnSetting.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnSetting.TextOffset = new System.Drawing.Point(20, 0);
             this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 665);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 10);
-            this.panel1.TabIndex = 7;
             // 
             // btnReports
             // 
@@ -297,154 +447,24 @@
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
+            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(200, 207);
             this.panel3.TabIndex = 0;
             // 
-            // pnDrag
+            // pbNoti
             // 
-            this.pnDrag.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(248)))), ((int)(((byte)(248)))));
-            this.pnDrag.Controls.Add(this.btnMinimize);
-            this.pnDrag.Controls.Add(this.btnMaximize);
-            this.pnDrag.Controls.Add(this.btnClose);
-            this.pnDrag.Controls.Add(this.pbChildForm);
-            this.pnDrag.Controls.Add(this.lbChildForm);
-            this.pnDrag.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnDrag.Location = new System.Drawing.Point(200, 0);
-            this.pnDrag.Name = "pnDrag";
-            this.pnDrag.Size = new System.Drawing.Size(1100, 60);
-            this.pnDrag.TabIndex = 2;
-            // 
-            // btnMinimize
-            // 
-            this.btnMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMinimize.Animated = true;
-            this.btnMinimize.AutoRoundedCorners = true;
-            this.btnMinimize.BackColor = System.Drawing.Color.Transparent;
-            this.btnMinimize.BorderRadius = 14;
-            this.btnMinimize.CheckedState.Parent = this.btnMinimize;
-            this.btnMinimize.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btnMinimize.CustomImages.Parent = this.btnMinimize;
-            this.btnMinimize.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnMinimize.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnMinimize.ForeColor = System.Drawing.Color.White;
-            this.btnMinimize.HoverState.Parent = this.btnMinimize;
-            this.btnMinimize.Location = new System.Drawing.Point(995, 3);
-            this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.ShadowDecoration.BorderRadius = 19;
-            this.btnMinimize.ShadowDecoration.Enabled = true;
-            this.btnMinimize.ShadowDecoration.Parent = this.btnMinimize;
-            this.btnMinimize.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
-            this.btnMinimize.Size = new System.Drawing.Size(30, 30);
-            this.btnMinimize.TabIndex = 4;
-            this.btnMinimize.TabStop = false;
-            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
-            // 
-            // btnMaximize
-            // 
-            this.btnMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMaximize.Animated = true;
-            this.btnMaximize.AutoRoundedCorners = true;
-            this.btnMaximize.BackColor = System.Drawing.Color.Transparent;
-            this.btnMaximize.BorderRadius = 14;
-            this.btnMaximize.CheckedState.Parent = this.btnMaximize;
-            this.btnMaximize.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btnMaximize.CustomImages.Parent = this.btnMaximize;
-            this.btnMaximize.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnMaximize.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnMaximize.ForeColor = System.Drawing.Color.White;
-            this.btnMaximize.HoverState.Parent = this.btnMaximize;
-            this.btnMaximize.Location = new System.Drawing.Point(1031, 3);
-            this.btnMaximize.Name = "btnMaximize";
-            this.btnMaximize.ShadowDecoration.BorderRadius = 19;
-            this.btnMaximize.ShadowDecoration.Enabled = true;
-            this.btnMaximize.ShadowDecoration.Parent = this.btnMaximize;
-            this.btnMaximize.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
-            this.btnMaximize.Size = new System.Drawing.Size(30, 30);
-            this.btnMaximize.TabIndex = 4;
-            this.btnMaximize.TabStop = false;
-            this.btnMaximize.Click += new System.EventHandler(this.btnMaximize_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Animated = true;
-            this.btnClose.AutoRoundedCorners = true;
-            this.btnClose.BackColor = System.Drawing.Color.Transparent;
-            this.btnClose.BorderRadius = 14;
-            this.btnClose.CheckedState.Parent = this.btnClose;
-            this.btnClose.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btnClose.CustomImages.Parent = this.btnClose;
-            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.HoverState.FillColor = System.Drawing.Color.Firebrick;
-            this.btnClose.HoverState.Parent = this.btnClose;
-            this.btnClose.Location = new System.Drawing.Point(1067, 3);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.ShadowDecoration.BorderRadius = 19;
-            this.btnClose.ShadowDecoration.Enabled = true;
-            this.btnClose.ShadowDecoration.Parent = this.btnClose;
-            this.btnClose.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
-            this.btnClose.Size = new System.Drawing.Size(30, 30);
-            this.btnClose.TabIndex = 4;
-            this.btnClose.TabStop = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // pbChildForm
-            // 
-            this.pbChildForm.BackgroundImage = global::Presentation_Layer.Properties.Resources.Home;
-            this.pbChildForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbChildForm.Location = new System.Drawing.Point(16, 10);
-            this.pbChildForm.Name = "pbChildForm";
-            this.pbChildForm.Size = new System.Drawing.Size(40, 40);
-            this.pbChildForm.TabIndex = 3;
-            this.pbChildForm.TabStop = false;
-            // 
-            // lbChildForm
-            // 
-            this.lbChildForm.AutoSize = true;
-            this.lbChildForm.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbChildForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(7)))), ((int)(((byte)(7)))));
-            this.lbChildForm.Location = new System.Drawing.Point(57, 20);
-            this.lbChildForm.Name = "lbChildForm";
-            this.lbChildForm.Size = new System.Drawing.Size(96, 38);
-            this.lbChildForm.TabIndex = 2;
-            this.lbChildForm.Text = "Home";
-            // 
-            // DragPanel
-            // 
-            this.DragPanel.TargetControl = this.pnDrag;
-            this.DragPanel.UseTransparentDrag = true;
-            // 
-            // pnDesktop
-            // 
-            this.pnDesktop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.pnDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnDesktop.Location = new System.Drawing.Point(200, 60);
-            this.pnDesktop.Name = "pnDesktop";
-            this.pnDesktop.Size = new System.Drawing.Size(1100, 615);
-            this.pnDesktop.TabIndex = 3;
-            // 
-            // pnShadow
-            // 
-            this.pnShadow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.pnShadow.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnShadow.Location = new System.Drawing.Point(200, 60);
-            this.pnShadow.Name = "pnShadow";
-            this.pnShadow.Size = new System.Drawing.Size(3, 615);
-            this.pnShadow.TabIndex = 0;
-            // 
-            // pnShadow1
-            // 
-            this.pnShadow1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.pnShadow1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnShadow1.Location = new System.Drawing.Point(203, 60);
-            this.pnShadow1.Name = "pnShadow1";
-            this.pnShadow1.Size = new System.Drawing.Size(1097, 3);
-            this.pnShadow1.TabIndex = 0;
+            this.pbNoti.BackgroundImage = global::Presentation_Layer.Properties.Resources.coding;
+            this.pbNoti.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbNoti.Location = new System.Drawing.Point(0, 2);
+            this.pbNoti.Name = "pbNoti";
+            this.pbNoti.Size = new System.Drawing.Size(30, 20);
+            this.pbNoti.TabIndex = 1;
+            this.pbNoti.TabStop = false;
             // 
             // frmMain
             // 
@@ -465,14 +485,17 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "v";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMain_FormClosed);
             this.Load += new System.EventHandler(this.frmMain_Load);
+            this.ResizeEnd += new System.EventHandler(this.frmMain_ResizeEnd);
             this.pnStatusBar.ResumeLayout(false);
             this.pnStatusBar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbNoti)).EndInit();
-            this.pnControl.ResumeLayout(false);
             this.pnDrag.ResumeLayout(false);
             this.pnDrag.PerformLayout();
+            this.pnControl1.ResumeLayout(false);
+            this.pnControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbChildForm)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbNoti)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -480,7 +503,6 @@
         #endregion
 
         private System.Windows.Forms.Panel pnStatusBar;
-        private System.Windows.Forms.Panel pnControl;
         private System.Windows.Forms.Panel pnDrag;
         private Guna.UI2.WinForms.Guna2DragControl DragPanel;
         private System.Windows.Forms.Panel panel3;
@@ -503,5 +525,7 @@
         private System.Windows.Forms.Panel pnShadow1;
         public System.Windows.Forms.PictureBox pbNoti;
         public System.Windows.Forms.Label lbNoti;
+        private System.Windows.Forms.Panel pnControl1;
+        private Guna.UI2.WinForms.Guna2GradientPanel pnControl;
     }
 }

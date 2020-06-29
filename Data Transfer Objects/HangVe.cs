@@ -8,10 +8,10 @@ namespace Data_Transfer_Objects
 {
     public class HangVe
     {
-        private int maHV;
+        public int maHV { set; get; }
         private string tenHV;
-        private float tiLe;
-        public string MaHV
+        private double tiLe;
+        public string strMaHV
         {
             get
             {
@@ -29,7 +29,7 @@ namespace Data_Transfer_Objects
                 return tenHV;
             }
         }
-        public float TiLe
+        public double TiLe
         {
             set
             {
@@ -41,7 +41,7 @@ namespace Data_Transfer_Objects
             }
         }
         public HangVe() { }
-        public HangVe(int _maHV, string _tenHV, float _tiLe)
+        public HangVe(int _maHV, string _tenHV, double _tiLe)
         {
             maHV = _maHV;
             tenHV = _tenHV;
@@ -52,10 +52,6 @@ namespace Data_Transfer_Objects
             string res = "HV000000";
             string s = x.ToString();
             return res.Remove(res.Length - s.Length) + s;
-        }
-        public int getMaHV()
-        {
-            return maHV;
         }
     }
 }

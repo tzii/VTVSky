@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data_Transfer_Objects;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -7,13 +8,15 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Data_Transfer_Objects
+namespace Data_Access_Layer
 {
     public class DataProvider
     {
         private static SqlConnection Connection()
         {
-            string connectionString = @"Server=tcp:vtvsky.database.windows.net,1433;Initial Catalog=CNPM;Persist Security Info=False;User ID=vtvsky;Password=maituanvu1!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+
+            string connectionString = String.Format("Server={0};Database={1};Trusted_Connection=True;", Server.ServerName, Server.DBName);
+            if (Server.ServerName != "(local)") connectionString = String.Format("Server={0},1433;Initial Catalog={1};Persist Security Info=False;User ID={2};Password={3};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;", Server.ServerName, Server.DBName, Server.Login, Server.Password);
             SqlConnection conn = new SqlConnection(connectionString);
             return conn;
         }
@@ -34,7 +37,7 @@ namespace Data_Transfer_Objects
             catch (Exception ex)
             {
                 conn.Close();
-                Notification.Show(ex.Message);
+                Notification.Show(ex.Message,Status.WARNING);
                 return null;
             }
         }
@@ -54,7 +57,7 @@ namespace Data_Transfer_Objects
             catch (NullReferenceException ex)
             {
                 conn.Close();
-                Notification.Show(ex.Message);
+                Notification.Show(ex.Message,Status.WARNING);
                 return null;
             }
         }
@@ -73,7 +76,7 @@ namespace Data_Transfer_Objects
             catch (Exception ex)
             {
                 conn.Close();
-                Notification.Show(ex.Message);
+                Notification.Show(ex.Message, Status.WARNING);
                 return false;
             }
         }
@@ -86,8 +89,26 @@ namespace Data_Transfer_Objects
             }
             catch (Exception ex)
             {
-                Notification.Show(ex.Message);
+                Notification.Show(ex.Message, Status.WARNING);
                 return "";
+            }
+        }
+        public static DataSet getDataSet(string cmdText)
+        {
+            SqlConnection conn = Connection();
+            conn.Open();
+            try
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter(cmdText, conn);
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                Notification.Show(ex.Message, Status.WARNING);
+                return null;
             }
         }
     }

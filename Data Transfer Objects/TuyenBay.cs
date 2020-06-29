@@ -8,10 +8,10 @@ namespace Data_Transfer_Objects
 {
     public class TuyenBay
     {
-        private int maTB;
-        public SanBay SBDi;
-        public SanBay SBDen;
-        public string MaTB 
+        public int maTB { set; get; }
+        public SanBay SBDi { set; get; }
+        public SanBay SBDen { set; get; }
+        public string strMaTB 
         {
             get
             {
@@ -22,6 +22,7 @@ namespace Data_Transfer_Objects
         {
             get
             {
+                if (SBDi == null) return "#";
                 return SBDi.TenSB;
             }
         }
@@ -29,10 +30,10 @@ namespace Data_Transfer_Objects
         {
             get
             {
+                if (SBDen == null) return "#";
                 return SBDen.TenSB;
             }
         }
-        
         public TuyenBay() { } 
         public TuyenBay(int _maTB,SanBay _sbDi, SanBay _sbDen)
         {
@@ -45,10 +46,6 @@ namespace Data_Transfer_Objects
             string res = "TB000000";
             string s = x.ToString();
             return res.Remove(res.Length - s.Length) + s;
-        }
-        public int getMaTB()
-        {
-            return maTB;
         }
     }
 }

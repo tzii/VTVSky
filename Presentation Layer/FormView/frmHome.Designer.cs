@@ -57,7 +57,7 @@
             // 
             this.lbHours.BackColor = System.Drawing.Color.Transparent;
             this.lbHours.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbHours.Font = new System.Drawing.Font("Digital-7", 40.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbHours.Font = new System.Drawing.Font("Anurati", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbHours.Location = new System.Drawing.Point(0, 0);
             this.lbHours.Name = "lbHours";
             this.lbHours.Size = new System.Drawing.Size(1100, 125);
@@ -82,7 +82,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BackgroundImage = global::Presentation_Layer.Properties.Resources.background;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1100, 615);
             this.Controls.Add(this.lbDay1);
             this.Controls.Add(this.lbDay);

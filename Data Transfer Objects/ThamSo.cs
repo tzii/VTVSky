@@ -9,11 +9,11 @@ namespace Data_Transfer_Objects
 {
     public class ThamSo
     {
-        public static int TGBayToiThieu { set; get; }
-        public static int SLSBTG { set; get; }
-        public static int TGDungToiThieu { set; get; }
-        public static int TGDungToiDa { set; get; }
-        public static int TGDatVeChamNhat { set; get; }
-        public static int TGHuyDatVe { set; get; }
+        public static int TGBayToiThieu;
+        public static int SLSBTG;
+        public static int TGDungToiThieu;
+        public static int TGDungToiDa;
+        public static int TGDatVeChamNhat;
+        public static int TGHuyDatVe;
     }
 }

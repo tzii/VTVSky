@@ -1,6 +1,8 @@
 ﻿using Business_Logic_Layer;
+using Data_Transfer_Objects;
 using Guna.UI2.AnimatorNS;
 using Microsoft.VisualBasic;
+using Presentation_Layer.FormDigital;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -59,6 +61,41 @@ namespace Presentation_Layer.FormView
             btnLogin.Checked = false;
             btnLogin.Text = ls[0];
         }
+        private bool checkDB()
+        {
+            if (Presentation_Layer.Properties.Settings.Default.ServerName == "(local)" && Presentation_Layer.Properties.Settings.Default.DatabaseName != "") return true;
+            if (Presentation_Layer.Properties.Settings.Default.ServerName == "") return false;
+            if (Presentation_Layer.Properties.Settings.Default.ServerLogin == "") return false;
+            if (Presentation_Layer.Properties.Settings.Default.ServerPassword == "") return false;
+            if (Presentation_Layer.Properties.Settings.Default.DatabaseName == "") return false;
+            return true;
+        }
+        private void showDBSetup(bool _noti)
+        {
+            var a = Presentation_Layer.Properties.Settings.Default.ServerName;
+            var b = Presentation_Layer.Properties.Settings.Default.ServerLogin;
+            var c = Presentation_Layer.Properties.Settings.Default.ServerPassword;
+            var d = Presentation_Layer.Properties.Settings.Default.DatabaseName;
+            var dbSetup = new frmServerSetup(a, b, c, d, _noti);
+            DialogResult res = dbSetup.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                Presentation_Layer.Properties.Settings.Default.ServerName = dbSetup.serverName;
+                Presentation_Layer.Properties.Settings.Default.ServerLogin = dbSetup.login;
+                Presentation_Layer.Properties.Settings.Default.ServerPassword = dbSetup.password;
+                Presentation_Layer.Properties.Settings.Default.DatabaseName = dbSetup.dbName;
+                Presentation_Layer.Properties.Settings.Default.Save();
+
+                loadInforServer();
+            }
+        }
+        private void loadInforServer()
+        {
+            Server.ServerName = Presentation_Layer.Properties.Settings.Default.ServerName;
+            Server.Login = Presentation_Layer.Properties.Settings.Default.ServerLogin;
+            Server.Password = Presentation_Layer.Properties.Settings.Default.ServerPassword;
+            Server.DBName = Presentation_Layer.Properties.Settings.Default.DatabaseName;
+        }
         #endregion
         public frmLogin()
         {
@@ -73,6 +110,11 @@ namespace Presentation_Layer.FormView
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            if (!checkDB())
+            {
+                showDBSetup(true);
+                return;
+            }
             if (btnLogin.Checked) return;
             btnLogin.Checked = true;
             btnLogin.Text = ls[1];
@@ -93,28 +135,7 @@ namespace Presentation_Layer.FormView
                 return;
             }
             timer.Start();
-            if (tbPassword.Text != BLL_UserLogin.GetPassword(tbUsername.Text))
-            {
-                saveLogin(tbUsername.Text, "", false);
-                lbNoti.Text = "Sai tài khoản hoặc mật khẩu";
-                lbNoti.Show();
-                timer.Stop();
-                btnLogin.Checked = false;
-                btnLogin.Text = ls[0];
-            }
-            else
-            {
-
-                if (checkBox.Checked) saveLogin(tbUsername.Text, tbPassword.Text, checkBox.Checked);
-                else saveLogin(tbUsername.Text, "", checkBox.Checked);
-
-                //lbNoti.Text = "Đăng nhập thành công!";
-                //lbNoti.Show();
-                frmMain frm = new frmMain();
-                frm.Show();
-                this.BringToFront();
-                backgroundWorker.RunWorkerAsync();
-            }
+            backgroundWorker1.RunWorkerAsync();
         }
         private bool InvalidInfo()
         {
@@ -125,7 +146,7 @@ namespace Presentation_Layer.FormView
             if (Regex.IsMatch(tbUsername.Text, patternUsername) && Regex.IsMatch(tbPassword.Text, patternPassword)) return true;
             return false;
         }
-
+        #region Xử lí BackgroundWorker
         private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             Thread.Sleep(1000);
@@ -133,7 +154,7 @@ namespace Presentation_Layer.FormView
             while (i >= 0)
             {
                 backgroundWorker.ReportProgress(i);
-                Thread.Sleep(50);
+                Thread.Sleep(25);
                 i -= 5;
             }
 
@@ -149,10 +170,14 @@ namespace Presentation_Layer.FormView
         {
             timer.Stop();
         }
+        #endregion
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            pos = 1;
+            loadInforServer();
+            User.setDefault();
+            AppState.state = Actions.NOTHING;
+            pos = 2;
             ls = new List<string>();
             ls.Add("Login");
             ls.Add("Login .");
@@ -168,6 +193,54 @@ namespace Presentation_Layer.FormView
         {
             btnLogin.Text = ls[pos];
             pos = (pos + 1) % ls.Count;
+        }
+        #region Xử lí backgroundworker1
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            if (tbPassword.Text != BLL_UserLogin.GetPassword(tbUsername.Text))
+            {
+                saveLogin(tbUsername.Text, "", false);
+                backgroundWorker1.ReportProgress(0);
+
+            }
+            else
+            {
+
+                if (checkBox.Checked) saveLogin(tbUsername.Text, tbPassword.Text, checkBox.Checked);
+                else saveLogin(tbUsername.Text, "", checkBox.Checked);
+                backgroundWorker1.ReportProgress(1);
+            }
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            if (e.ProgressPercentage == 0)
+            {
+                lbNoti.Text = "Sai tài khoản hoặc mật khẩu";
+                lbNoti.Show();
+                timer.Stop();
+                btnLogin.Checked = false;
+                btnLogin.Text = ls[0];
+            }
+            else if (e.ProgressPercentage == 1)
+            {
+                BLL_UserLogin.LoadUserLogin(tbUsername.Text, tbPassword.Text);
+                BLL_UserLogin.LoadUserPer();
+                BLL_UserLogin.LoadUserInfor();
+                BLL_ThamSo.LoadThamSo();
+                lbNoti.Text = "Đăng nhập thành công!";
+                lbNoti.Show();
+                frmMain frm = new frmMain();
+                frm.Show();
+                this.BringToFront();
+                backgroundWorker.RunWorkerAsync();
+            }
+        }
+        #endregion
+
+        private void lbDB_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            showDBSetup(false);
         }
     }
 }

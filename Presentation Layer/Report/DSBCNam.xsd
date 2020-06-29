@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSBCNam" targetNamespace="http://tempuri.org/DSBCNam.xsd" xmlns:mstns="http://tempuri.org/DSBCNam.xsd" xmlns="http://tempuri.org/DSBCNam.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSBCNam" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DSBCNam" msprop:Generator_UserDSName="DSBCNam">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="BCTHANG" msprop:Generator_TableClassName="BCTHANGDataTable" msprop:Generator_TableVarName="tableBCTHANG" msprop:Generator_TablePropName="BCTHANG" msprop:Generator_RowDeletingName="BCTHANGRowDeleting" msprop:Generator_RowChangingName="BCTHANGRowChanging" msprop:Generator_RowEvHandlerName="BCTHANGRowChangeEventHandler" msprop:Generator_RowDeletedName="BCTHANGRowDeleted" msprop:Generator_UserTableName="BCTHANG" msprop:Generator_RowChangedName="BCTHANGRowChanged" msprop:Generator_RowEvArgName="BCTHANGRowChangeEvent" msprop:Generator_RowClassName="BCTHANGRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="THANG" msprop:Generator_ColumnVarNameInTable="columnTHANG" msprop:Generator_ColumnPropNameInRow="THANG" msprop:Generator_ColumnPropNameInTable="THANGColumn" msprop:Generator_UserColumnName="THANG" type="xs:int" minOccurs="0" />
+              <xs:element name="NAM" msprop:Generator_ColumnVarNameInTable="columnNAM" msprop:Generator_ColumnPropNameInRow="NAM" msprop:Generator_ColumnPropNameInTable="NAMColumn" msprop:Generator_UserColumnName="NAM" type="xs:int" minOccurs="0" />
+              <xs:element name="SLCB" msprop:Generator_ColumnVarNameInTable="columnSLCB" msprop:Generator_ColumnPropNameInRow="SLCB" msprop:Generator_ColumnPropNameInTable="SLCBColumn" msprop:Generator_UserColumnName="SLCB" type="xs:int" minOccurs="0" />
+              <xs:element name="SLVE" msprop:Generator_ColumnVarNameInTable="columnSLVE" msprop:Generator_ColumnPropNameInRow="SLVE" msprop:Generator_ColumnPropNameInTable="SLVEColumn" msprop:Generator_UserColumnName="SLVE" type="xs:int" minOccurs="0" />
+              <xs:element name="DOANHTHU" msprop:Generator_ColumnVarNameInTable="columnDOANHTHU" msprop:Generator_ColumnPropNameInRow="DOANHTHU" msprop:Generator_ColumnPropNameInTable="DOANHTHUColumn" msprop:Generator_UserColumnName="DOANHTHU" type="xs:long" minOccurs="0" />
+              <xs:element name="DOANHTHUPRED" msprop:Generator_ColumnVarNameInTable="columnDOANHTHUPRED" msprop:Generator_ColumnPropNameInRow="DOANHTHUPRED" msprop:Generator_ColumnPropNameInTable="DOANHTHUPREDColumn" msprop:Generator_UserColumnName="DOANHTHUPRED" type="xs:long" minOccurs="0" />
+              <xs:element name="TILE" msprop:Generator_ColumnVarNameInTable="columnTILE" msprop:Generator_ColumnPropNameInRow="TILE" msprop:Generator_ColumnPropNameInTable="TILEColumn" msprop:Generator_UserColumnName="TILE" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

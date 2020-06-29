@@ -24,6 +24,15 @@ namespace Presentation_Layer.FormDigital
             btnOK.DialogResult = DialogResult.OK;
             btnCancel.DialogResult = DialogResult.Cancel;
         }
+        public frmWarning(string _title, string _message,bool cancel)
+        {
+            InitializeComponent();
+            lbTitle.Text = _title;
+            lbMessage.Text = _message;
+            btnOK.DialogResult = DialogResult.OK;
+            btnCancel.DialogResult = DialogResult.Cancel;
+            btnCancel.Enabled = cancel;
+        }
         private void frmWarning_Load(object sender, EventArgs e)
         {
             guna2ShadowForm1.SetShadowForm(this);
