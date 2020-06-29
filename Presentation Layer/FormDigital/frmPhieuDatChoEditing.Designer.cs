@@ -328,6 +328,7 @@
             this.cbMaCB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbMaCB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbMaCB.HoverState.Parent = this.cbMaCB;
+            this.cbMaCB.IntegralHeight = false;
             this.cbMaCB.ItemHeight = 30;
             this.cbMaCB.ItemsAppearance.Parent = this.cbMaCB;
             this.cbMaCB.Location = new System.Drawing.Point(152, 86);
@@ -353,6 +354,7 @@
             this.cbHangVe.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbHangVe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbHangVe.HoverState.Parent = this.cbHangVe;
+            this.cbHangVe.IntegralHeight = false;
             this.cbHangVe.ItemHeight = 30;
             this.cbHangVe.ItemsAppearance.Parent = this.cbHangVe;
             this.cbHangVe.Location = new System.Drawing.Point(508, 142);

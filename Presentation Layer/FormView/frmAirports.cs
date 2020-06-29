@@ -58,7 +58,6 @@ namespace Presentation_Layer.FormView
             dgvAirports.Columns["strMaSB"].HeaderText = "Mã";
             dgvAirports.Columns["strMaSB"].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvAirports.Columns["strMaSB"].Width = 100;
-
             dgvAirports.Columns["TenSB"].HeaderText = "Tên Sân Bay";
         }
 
@@ -157,7 +156,7 @@ namespace Presentation_Layer.FormView
         public override void RefreshData()
         {
             reloadData();
-            Notification.Show("Làm mới danh sách sân bay");
+            Notification.Show("Làm mới danh sách sân bay",Status.SUCCESS);
         }
         public override void SizeChange()
         {
@@ -196,7 +195,8 @@ namespace Presentation_Layer.FormView
 
             btnAdd.Image = null;
             btnEdit.Image = null;
-            
+
+            this.AcceptButton = btnAdd;
         }
         private void DisablePanelEdit()
         {
@@ -206,6 +206,7 @@ namespace Presentation_Layer.FormView
             btnAdd.Text = "Add";
             btnEdit.Text = "Edit";
 
+            this.AcceptButton = btnSearch;
             btnAdd.Image = Presentation_Layer.Properties.Resources.plus;
             btnEdit.Image = Presentation_Layer.Properties.Resources.edit;
         }
@@ -218,13 +219,13 @@ namespace Presentation_Layer.FormView
             else if (AppState.state == Actions.ADD)
             {
                 DisablePanelEdit();
-                BLL_SanBay.InsertSanBay(currentSB);
+                if (BLL_SanBay.InsertSanBay(currentSB)) Notification.Show("Thêm chuyến bay thành công", Status.SUCCESS);
                 reloadData();
             }
             else if (AppState.state == Actions.EDIT)
             {
                 DisablePanelEdit();
-                BLL_SanBay.UpdateSanBay(currentSB);
+                if (BLL_SanBay.UpdateSanBay(currentSB)) Notification.Show("Chỉnh sửa chuyến bay thành công", Status.SUCCESS);
                 reloadData();
             }
         }

@@ -451,9 +451,10 @@
             this.cbSBDen.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbSBDen.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbSBDen.FocusedState.Parent = this.cbSBDen;
-            this.cbSBDen.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSBDen.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.cbSBDen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbSBDen.HoverState.Parent = this.cbSBDen;
+            this.cbSBDen.IntegralHeight = false;
             this.cbSBDen.ItemHeight = 30;
             this.cbSBDen.ItemsAppearance.Parent = this.cbSBDen;
             this.cbSBDen.Location = new System.Drawing.Point(159, 142);
@@ -484,9 +485,10 @@
             this.cbSBDi.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbSBDi.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbSBDi.FocusedState.Parent = this.cbSBDi;
-            this.cbSBDi.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSBDi.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbSBDi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbSBDi.HoverState.Parent = this.cbSBDi;
+            this.cbSBDi.IntegralHeight = false;
             this.cbSBDi.ItemHeight = 30;
             this.cbSBDi.ItemsAppearance.Parent = this.cbSBDi;
             this.cbSBDi.Location = new System.Drawing.Point(159, 86);
@@ -589,6 +591,7 @@
             // 
             // frmTuyenBay
             // 
+            this.AcceptButton = this.btnSearch;
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

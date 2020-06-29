@@ -348,6 +348,7 @@
             this.cbSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cbSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.cbSearch.HoverState.Parent = this.cbSearch;
+            this.cbSearch.IntegralHeight = false;
             this.cbSearch.ItemHeight = 30;
             this.cbSearch.ItemsAppearance.Parent = this.cbSearch;
             this.cbSearch.Location = new System.Drawing.Point(20, 86);
@@ -561,6 +562,7 @@
             // 
             // frmAirports
             // 
+            this.AcceptButton = this.btnSearch;
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

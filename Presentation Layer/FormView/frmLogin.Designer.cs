@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.btnLogin = new Guna.UI2.WinForms.Guna2GradientButton();
             this.DragForm = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
@@ -44,6 +45,7 @@
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.guna2DragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox1)).BeginInit();
@@ -178,15 +180,17 @@
             // gunaCirclePictureBox1
             // 
             this.gunaCirclePictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.gunaCirclePictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.gunaCirclePictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.gunaCirclePictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gunaCirclePictureBox1.BackgroundImage")));
+            this.gunaCirclePictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.gunaCirclePictureBox1.BaseColor = System.Drawing.Color.Transparent;
-            this.gunaCirclePictureBox1.Location = new System.Drawing.Point(634, 129);
+            this.gunaCirclePictureBox1.Location = new System.Drawing.Point(574, 60);
             this.gunaCirclePictureBox1.Name = "gunaCirclePictureBox1";
-            this.gunaCirclePictureBox1.Size = new System.Drawing.Size(120, 120);
+            this.gunaCirclePictureBox1.Size = new System.Drawing.Size(240, 240);
             this.gunaCirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.gunaCirclePictureBox1.TabIndex = 2;
             this.gunaCirclePictureBox1.TabStop = false;
-            this.gunaCirclePictureBox1.UseTransfarantBackground = false;
+            this.gunaCirclePictureBox1.UseTransfarantBackground = true;
             // 
             // tbPassword
             // 
@@ -292,6 +296,10 @@
             this.guna2DragControl1.TargetControl = this.pbBG;
             this.guna2DragControl1.UseTransparentDrag = true;
             // 
+            // guna2DragControl2
+            // 
+            this.guna2DragControl2.TargetControl = this.gunaCirclePictureBox1;
+            // 
             // frmLogin
             // 
             this.AcceptButton = this.btnLogin;
@@ -333,6 +341,7 @@
         private System.Windows.Forms.PictureBox pbBG;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private System.Windows.Forms.LinkLabel lbDB;
+        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl2;
     }
 }
 

@@ -279,7 +279,7 @@
             this.pnSearch.Location = new System.Drawing.Point(0, 0);
             this.pnSearch.Name = "pnSearch";
             this.pnSearch.Size = new System.Drawing.Size(1100, 100);
-            this.pnSearch.TabIndex = 5;
+            this.pnSearch.TabIndex = 0;
             // 
             // cbSearch
             // 
@@ -302,7 +302,7 @@
             this.cbSearch.ShadowDecoration.Parent = this.cbSearch;
             this.cbSearch.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.cbSearch.Size = new System.Drawing.Size(286, 36);
-            this.cbSearch.TabIndex = 22;
+            this.cbSearch.TabIndex = 1;
             // 
             // tbSearch
             // 
@@ -332,7 +332,7 @@
             this.tbSearch.ShadowDecoration.Parent = this.tbSearch;
             this.tbSearch.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.tbSearch.Size = new System.Drawing.Size(424, 36);
-            this.tbSearch.TabIndex = 21;
+            this.tbSearch.TabIndex = 0;
             // 
             // btnSearch
             // 
@@ -350,7 +350,7 @@
             this.btnSearch.ShadowDecoration.Parent = this.btnSearch;
             this.btnSearch.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 3, 3);
             this.btnSearch.Size = new System.Drawing.Size(126, 36);
-            this.btnSearch.TabIndex = 20;
+            this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Search";
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 

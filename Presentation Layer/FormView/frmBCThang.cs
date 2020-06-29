@@ -23,17 +23,24 @@ namespace Presentation_Layer.FormView
         private void frmBCThang_Load(object sender, EventArgs e)
         {
             this.rpvBCThang.RefreshReport();
+            cbNam.DisplayMember = "Name";
+            cbNam.ValueMember = "ID";
+
+            cbThang.DisplayMember = "Name";
+            cbThang.ValueMember = "ID";
+
+            cbNam.DataSource = BLL_BCThang.GetNams();
         }
 
         private void btnBaoCao_Click(object sender, EventArgs e)
         {
             try
             {
-                int thang = Convert.ToInt32(tbThang.Text);
-                int nam = Convert.ToInt32(tbNam.Text);
+                int thang = Convert.ToInt32(cbThang.SelectedValue);
+                int nam = Convert.ToInt32(cbNam.SelectedValue);
                 DataSet ds = BLL_BCThang.GetDataSet(thang, nam);
                 rpvBCThang.LocalReport.ReportPath = "Report/rpBCThang.rdlc";
-                
+
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     ReportDataSource rds = new ReportDataSource();
@@ -42,12 +49,18 @@ namespace Presentation_Layer.FormView
                     rpvBCThang.LocalReport.DataSources.Clear();
                     rpvBCThang.LocalReport.DataSources.Add(rds);
                     rpvBCThang.RefreshReport();
+                    Notification.Show("Hiển thị báo cáo tháng " + thang + " năm " + nam,Status.SUCCESS);
                 }
             }
             catch (Exception ex)
             {
-                Notification.Show(ex.Message);
+                Notification.Show(ex.Message,Status.WARNING);
             }
+        }
+
+        private void cbNam_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbThang.DataSource = BLL_BCThang.GetThangs(Convert.ToInt32(cbNam.SelectedValue));
         }
     }
 }

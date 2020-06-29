@@ -137,7 +137,6 @@ namespace Presentation_Layer.FormView
             }
             else if (e.ColumnIndex == 1)
             {
-                Notification.Show("Editing");
                 Edit(dgvFlightsList.Rows[e.RowIndex]);
             }
         }
@@ -150,7 +149,7 @@ namespace Presentation_Layer.FormView
         public override void RefreshData()
         {
             reloadData();
-            Notification.Show("Làm mới danh sách sân bay");
+            Notification.Show("Làm mới danh sách sân bay",Status.SUCCESS);
         }
         #region Edit Chuyến Bay
         public override void Create()
@@ -160,17 +159,20 @@ namespace Presentation_Layer.FormView
             DialogResult res = dialog.ShowDialog();
             if (res == DialogResult.OK)
             {
-                BLL_ChuyenBay.InsertChuyenBay(dialog.chuyenBay);
-                int lastCB = BLL_ChuyenBay.GetLastMaCB();
-                for (int i = 0; i < dialog.ctcbs.Count; i++)
+                if (BLL_ChuyenBay.InsertChuyenBay(dialog.chuyenBay))
                 {
-                    BLL_CTCB.InsertCTCB(dialog.ctcbs[i], lastCB);
+                    int lastCB = BLL_ChuyenBay.GetLastMaCB();
+                    for (int i = 0; i < dialog.ctcbs.Count; i++)
+                    {
+                        BLL_CTCB.InsertCTCB(dialog.ctcbs[i], lastCB);
+                    }
+                    for (int i = 0; i < dialog.cthvs.Count; i++)
+                    {
+                        BLL_CTHV.InsertCTHV(dialog.cthvs[i], lastCB);
+                    }
+                    reloadData();
+                    Notification.Show("Thêm chuyến bay thành công", Status.SUCCESS);
                 }
-                for (int i = 0; i < dialog.cthvs.Count; i++)
-                {
-                    BLL_CTHV.InsertCTHV(dialog.cthvs[i],lastCB);
-                }
-                reloadData();
             }
             AppState.state = Actions.NOTHING;
         }

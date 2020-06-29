@@ -22,13 +22,16 @@ namespace Presentation_Layer.FormView
         private void frmBCNam_Load(object sender, EventArgs e)
         {
             this.rpvBCThang.RefreshReport();
+            cbNam.DisplayMember = "Name";
+            cbNam.ValueMember = "ID";
+            cbNam.DataSource = BLL_BCThang.GetNams();
         }
 
         private void btnBaoCao_Click(object sender, EventArgs e)
         {
             try
             {
-                int nam = Convert.ToInt32(tbNam.Text);
+                int nam = Convert.ToInt32(cbNam.SelectedValue); 
                 DataSet ds = BLL_BCNam.GetDataSet(nam);
                 rpvBCThang.LocalReport.ReportPath = "Report/rpBCNam.rdlc";
 
@@ -40,11 +43,12 @@ namespace Presentation_Layer.FormView
                     rpvBCThang.LocalReport.DataSources.Clear();
                     rpvBCThang.LocalReport.DataSources.Add(rds);
                     rpvBCThang.RefreshReport();
+                    Notification.Show("Hiển thị báo cáo năm " + nam);
                 }
             }
             catch (Exception ex)
             {
-                Notification.Show(ex.Message);
+                Notification.Show(ex.Message,Status.WARNING);
             }
         }
     }

@@ -68,7 +68,6 @@ namespace Presentation_Layer.FormDigital
         {
             if (AppState.state != Actions.EDIT && AppState.state != Actions.ADD)
             {
-                Notification.Show(AppState.state.ToString());
                 nGiaVe.Enabled = false;
                 cbSBDi.Enabled = false;
                 cbSBDen.Enabled = false;
@@ -297,7 +296,6 @@ namespace Presentation_Layer.FormDigital
         {
             if (e.ColumnIndex == 0 && state == Actions.NOTHING)
             {
-                Notification.Show(ctcbs[0].TGDung + "");
                 state = Actions.EDIT;
                 activeEdit();
             }
@@ -317,7 +315,7 @@ namespace Presentation_Layer.FormDigital
         {
             if (state == Actions.NOTHING)
             {
-                if (ctcbs.Count > ThamSo.SLSBTG)
+                if (ctcbs.Count >= ThamSo.SLSBTG)
                 {
                     lbNoti.Text = "Số lượng sân bay trung gian là " + ThamSo.SLSBTG;
                     lbNoti.Visible = true;
@@ -370,7 +368,6 @@ namespace Presentation_Layer.FormDigital
                 ctcbs = listctcb;
                 dgvCTCB.DataSource = ctcbs;
                 dgvCTCB.Refresh();
-                Notification.Show(dgvCTCB.RowCount + "");
                 disableEdit();
             }
         }
@@ -379,15 +376,7 @@ namespace Presentation_Layer.FormDigital
         {
             if (dgvCTCB.SelectedRows != null && dgvCTCB.SelectedRows.Count > 0)
             {
-                try
-                {
-                    //cbSBTG.SelectedValue = ((SanBay)dgvCTCB.SelectedRows[0].Cells["SBTG"].Value).maSB;
-                }
-                catch (Exception ex)
-                {
-                    Notification.Show(ex.Message);
-
-                }
+                cbSBTG.SelectedValue = ((SanBay)dgvCTCB.SelectedRows[0].Cells["SBTG"].Value).maSB;
                 nTGDung.Value = (int)dgvCTCB.SelectedRows[0].Cells["TGDung"].Value;
                 tbGhiChu.Text = dgvCTCB.SelectedRows[0].Cells["GhiChu"].Value.ToString();
             }

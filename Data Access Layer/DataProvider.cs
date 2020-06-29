@@ -37,7 +37,7 @@ namespace Data_Access_Layer
             catch (Exception ex)
             {
                 conn.Close();
-                Notification.Show(ex.Message);
+                Notification.Show(ex.Message,Status.WARNING);
                 return null;
             }
         }
@@ -57,7 +57,7 @@ namespace Data_Access_Layer
             catch (NullReferenceException ex)
             {
                 conn.Close();
-                Notification.Show(ex.Message);
+                Notification.Show(ex.Message,Status.WARNING);
                 return null;
             }
         }
@@ -76,7 +76,7 @@ namespace Data_Access_Layer
             catch (Exception ex)
             {
                 conn.Close();
-                Notification.Show(ex.Message);
+                Notification.Show(ex.Message, Status.WARNING);
                 return false;
             }
         }
@@ -89,7 +89,7 @@ namespace Data_Access_Layer
             }
             catch (Exception ex)
             {
-                Notification.Show(ex.Message);
+                Notification.Show(ex.Message, Status.WARNING);
                 return "";
             }
         }
@@ -107,7 +107,7 @@ namespace Data_Access_Layer
             catch (Exception ex)
             {
                 conn.Close();
-                Notification.Show(ex.Message);
+                Notification.Show(ex.Message, Status.WARNING);
                 return null;
             }
         }

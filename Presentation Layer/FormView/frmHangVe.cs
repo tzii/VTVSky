@@ -35,7 +35,7 @@ namespace Presentation_Layer.FormView
                 }
                 catch (Exception ex)
                 {
-                    Notification.Show(ex.Message);
+                    Notification.Show(ex.Message, Status.WARNING);
                     return new HangVe();
                 }
             }
@@ -164,7 +164,7 @@ namespace Presentation_Layer.FormView
         public override void RefreshData()
         {
             reloadData();
-            Notification.Show("Làm mới danh sách Hạng vé");
+            Notification.Show("Làm mới danh sách Hạng vé", Status.SUCCESS);
         }
         public override void SizeChange()
         {
@@ -205,6 +205,8 @@ namespace Presentation_Layer.FormView
 
             btnAdd.Image = null;
             btnEdit.Image = null;
+
+            this.AcceptButton = btnAdd;
         }
         private void DisablePanelEdit()
         {
@@ -218,6 +220,8 @@ namespace Presentation_Layer.FormView
 
             btnAdd.Image = Presentation_Layer.Properties.Resources.plus;
             btnEdit.Image = Presentation_Layer.Properties.Resources.edit;
+
+            this.AcceptButton = btnSearch;
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -233,19 +237,19 @@ namespace Presentation_Layer.FormView
                     if (AppState.state == Actions.ADD)
                     {
                         DisablePanelEdit();
-                        BLL_HangVe.InsertHangVe(currentHV);
+                        if (BLL_HangVe.InsertHangVe(currentHV)) Notification.Show("Thêm hạng vé thành công", Status.SUCCESS);
                         reloadData();
                     }
                     else if (AppState.state == Actions.EDIT)
                     {
                         DisablePanelEdit();
-                        BLL_HangVe.UpdateHangVe(currentHV);
+                        if (BLL_HangVe.UpdateHangVe(currentHV)) Notification.Show("Chỉnh sửa hạng vé thành công", Status.SUCCESS);
                         reloadData();
                     }
                 }
                 catch (Exception ex)
                 {
-                    Notification.Show(ex.Message);
+                    Notification.Show(ex.Message, Status.WARNING);
                     var dialog = new frmWarning("Sai Định Dạng", "Bạn cần nhập đúng định dạng số thập phân trong TiLe");
                     dialog.ShowDialog();
                 }
@@ -270,7 +274,6 @@ namespace Presentation_Layer.FormView
             tbTenHV.Text = dgvHangVe.SelectedRows[0].Cells["TenHV"].Value.ToString();
             tbTiLe.Text = dgvHangVe.SelectedRows[0].Cells["TiLe"].Value.ToString();
         }
-        #endregion
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -278,10 +281,11 @@ namespace Presentation_Layer.FormView
             DialogResult res = dialog.ShowDialog();
             if (res == DialogResult.OK)
             {
-                Notification.Show("Xóa hạng vé thành công");
-                BLL_HangVe.DeleteHangVe(currentHV);
+                Notification.Show("Xóa hạng vé thành công",Status.SUCCESS);
+                if (BLL_HangVe.DeleteHangVe(currentHV)) Notification.Show("Xóa hạng vé thành công", Status.SUCCESS);
                 reloadData();
             }
         }
+        #endregion
     }
 }

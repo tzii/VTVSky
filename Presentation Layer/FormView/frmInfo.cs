@@ -51,6 +51,8 @@ namespace Presentation_Layer.FormView
                 currentEditButton.Image = Presentation_Layer.Properties.Resources.accept;
                 AppState.state = Actions.EDIT;
                 tbHoTen.Enabled = true;
+
+                this.AcceptButton = sender as Guna2Button;
             }
             else if (AppState.state == Actions.EDIT && currentEditButton == sender as Guna2Button)
             {
@@ -62,12 +64,13 @@ namespace Presentation_Layer.FormView
                     currentEditButton = null;
                     AppState.state = Actions.NOTHING;
                     User.Name = x;
-                    BLL_UserLogin.UpdateUserInFor();
+                    if (BLL_UserLogin.UpdateUserInFor()) Notification.Show("Cập nhật thông tin thành công", Status.SUCCESS);
+
+                    this.AcceptButton = null;
                 }
                 catch (Exception ex)
                 {
-                    Notification.Show(ex.Message);
-                    //showWarning();
+                    Notification.Show(ex.Message, Status.WARNING);
                 }
             }
         }
@@ -80,6 +83,8 @@ namespace Presentation_Layer.FormView
                 currentEditButton.Image = Presentation_Layer.Properties.Resources.accept;
                 AppState.state = Actions.EDIT;
                 tbDienThoai.Enabled = true;
+
+                this.AcceptButton = sender as Guna2Button;
             }
             else if (AppState.state == Actions.EDIT && currentEditButton == sender as Guna2Button)
             {
@@ -94,18 +99,19 @@ namespace Presentation_Layer.FormView
                         currentEditButton = null;
                         AppState.state = Actions.NOTHING;
                         User.DienThoai = x;
-                        BLL_UserLogin.UpdateUserInFor();
+                        if (BLL_UserLogin.UpdateUserInFor()) Notification.Show("Cập nhật thông tin thành công", Status.SUCCESS);
+
+                        this.AcceptButton = null;
                     }
                     else
                     {
-                        Notification.Show("Sai định dạng số điện thoại");
+                        Notification.Show("Sai định dạng số điện thoại", Status.WARNING);
                         showWarning("Sai Định Dạng", "Bạn cần nhập đúng định dạng số điện thoại");
                     }
                 }
                 catch (Exception ex)
                 {
-                    Notification.Show(ex.Message);
-                    //showWarning();
+                    Notification.Show(ex.Message, Status.WARNING);
                 }
             }
         }
@@ -118,6 +124,8 @@ namespace Presentation_Layer.FormView
                 currentEditButton.Image = Presentation_Layer.Properties.Resources.accept;
                 AppState.state = Actions.EDIT;
                 tbNgaySinh.Enabled = true;
+
+                this.AcceptButton = sender as Guna2Button;
             }
             else if (AppState.state == Actions.EDIT && currentEditButton == sender as Guna2Button)
             {
@@ -132,17 +140,19 @@ namespace Presentation_Layer.FormView
                         currentEditButton = null;
                         AppState.state = Actions.NOTHING;
                         User.NgaySinh = DateTime.ParseExact(x, "dd/MM/yyyy", null);
-                        BLL_UserLogin.UpdateUserInFor();
+                        if (BLL_UserLogin.UpdateUserInFor()) Notification.Show("Cập nhật thông tin thành công", Status.SUCCESS);
+
+                        this.AcceptButton = null;
                     }
                     else
                     {
-                        Notification.Show("Sai định dạng ngày tháng");
+                        Notification.Show("Sai định dạng ngày tháng", Status.WARNING);
                         showWarning("Sai Định Dạng", "Bạn cần nhập đúng định dạng ngày tháng");
                     }
                 }
                 catch (Exception ex)
                 {
-                    Notification.Show(ex.Message);
+                    Notification.Show(ex.Message, Status.WARNING);
                     showWarning("Sai Định Dạng", "Bạn cần nhập đúng định dạng ngày tháng");
                 }
             }
@@ -156,6 +166,8 @@ namespace Presentation_Layer.FormView
                 currentEditButton.Image = Presentation_Layer.Properties.Resources.accept;
                 AppState.state = Actions.EDIT;
                 tbQueQuan.Enabled = true;
+
+                this.AcceptButton = sender as Guna2Button;
             }
             else if (AppState.state == Actions.EDIT && currentEditButton == sender as Guna2Button)
             {
@@ -167,12 +179,13 @@ namespace Presentation_Layer.FormView
                     currentEditButton = null;
                     AppState.state = Actions.NOTHING;
                     User.QueQuan = x;
-                    BLL_UserLogin.UpdateUserInFor();
+                    if (BLL_UserLogin.UpdateUserInFor()) Notification.Show("Cập nhật thông tin thành công", Status.SUCCESS);
+
+                    this.AcceptButton = null;
                 }
                 catch (Exception ex)
                 {
-                    Notification.Show(ex.Message);
-                    //showWarning();
+                    Notification.Show(ex.Message, Status.WARNING);
                 }
             }
         }
@@ -182,7 +195,7 @@ namespace Presentation_Layer.FormView
         {
             if (AppState.state != Actions.NOTHING) return;
             BLL_UserLogin.LoadUserInfor();
-            Notification.Show("Tải lại thông tin người dùng");
+            Notification.Show("Tải lại thông tin người dùng",Status.SUCCESS);
             reload();
         }
     }

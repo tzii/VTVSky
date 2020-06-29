@@ -181,7 +181,7 @@ namespace Presentation_Layer.FormView
         public override void RefreshData()
         {
             reloadData();
-            Notification.Show("Làm mới danh sách tuyến bay");
+            Notification.Show("Làm mới danh sách tuyến bay",Status.SUCCESS);
         }
         public override void SizeChange()
         {
@@ -223,6 +223,8 @@ namespace Presentation_Layer.FormView
 
             btnAdd.Image = null;
             btnEdit.Image = null;
+
+            this.AcceptButton = btnAdd;
         }
         private void DisablePanelEdit()
         {
@@ -236,6 +238,8 @@ namespace Presentation_Layer.FormView
 
             btnAdd.Image = Presentation_Layer.Properties.Resources.plus;
             btnEdit.Image = Presentation_Layer.Properties.Resources.edit;
+
+            this.AcceptButton = btnSearch;
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -258,7 +262,7 @@ namespace Presentation_Layer.FormView
                     return;
                 }
                 DisablePanelEdit();
-                BLL_TuyenBay.InsertTuyenBay(currentTB);
+                if (BLL_TuyenBay.InsertTuyenBay(currentTB)) Notification.Show("Thêm tuyến bay thành công", Status.SUCCESS);
                 reloadData();
             }
             else if (AppState.state == Actions.EDIT)
@@ -270,7 +274,7 @@ namespace Presentation_Layer.FormView
                     return;
                 }
                 DisablePanelEdit();
-                BLL_TuyenBay.UpdateTuyenBay(currentTB);
+                if (BLL_TuyenBay.UpdateTuyenBay(currentTB)) Notification.Show("Chỉnh sửa tuyến bay thành công", Status.SUCCESS);
                 reloadData();
             }
         }

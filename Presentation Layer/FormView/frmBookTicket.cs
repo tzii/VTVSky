@@ -148,7 +148,7 @@ namespace Presentation_Layer.FormView
         public override void RefreshData()
         {
             reloadData();
-            Notification.Show("Làm mới danh sách sân bay");
+            Notification.Show("Làm mới danh sách sân bay",Status.SUCCESS);
         }
         #region Thao tác với phiếu đặt
         public override void Create()
@@ -161,6 +161,7 @@ namespace Presentation_Layer.FormView
                 int newMave = BLL_IdenMaVe.GetNewMaVe();
                 if (BLL_PhieuDatCho.InsertPhieuDatCho(dialog.pdc, newMave))
                 {
+                    Notification.Show("Thêm phiếu đặt chỗ thành công", Status.SUCCESS);
                     BLL_IdenMaVe.ClearIden();
                 }
                 reloadData();
@@ -171,21 +172,21 @@ namespace Presentation_Layer.FormView
         {
             if ((int)row.Cells["TinhTrang"].Value == 1 && (((DateTime)row.Cells["ThoiGian"].Value) - DateTime.Now).Hours < ThamSo.TGHuyDatVe)
             {
-                Notification.Show("Phiếu đặt chỗ đã quá thời gian");
+                Notification.Show("Phiếu đặt chỗ đã quá thời gian",Status.WARNING);
                 var dialog1 = new frmWarning("Thông Báo", "Phiếu đặt chỗ đã quá thời gian\n-->Tiến hành hủy");
                 dialog1.ShowDialog();
                 return;
             }
             else if ((int)row.Cells["TinhTrang"].Value == 2)
             {
-                Notification.Show("Phiếu đặt chỗ đã bán không thể chỉnh sửa");
+                Notification.Show("Phiếu đặt chỗ đã bán không thể chỉnh sửa", Status.WARNING);
                 var dialog1 = new frmWarning("Thông Báo", "Phiếu đặt chỗ đã bán không thể chỉnh sửa");
                 dialog1.ShowDialog();
                 return;
             }
             else if ((int)row.Cells["TinhTrang"].Value == 3)
             {
-                Notification.Show("Phiếu đặt chỗ đã hủy không thể chỉnh sửa");
+                Notification.Show("Phiếu đặt chỗ đã hủy không thể chỉnh sửa", Status.WARNING);
                 var dialog1 = new frmWarning("Thông Báo", "Phiếu đặt chỗ đã hủy không thể chỉnh sửa");
                 dialog1.ShowDialog();
                 return;
@@ -207,7 +208,7 @@ namespace Presentation_Layer.FormView
             DialogResult res = dialog.ShowDialog();
             if (res == DialogResult.OK)
             {
-                BLL_PhieuDatCho.UpdatePhieuDatCho(dialog.pdc);
+                if (BLL_PhieuDatCho.UpdatePhieuDatCho(dialog.pdc)) Notification.Show("Chỉnh sửa phiếu đặt chỗ thành công", Status.SUCCESS);
                 reloadData();
             }
             AppState.state = Actions.NOTHING;
@@ -237,21 +238,21 @@ namespace Presentation_Layer.FormView
         {
             if ((int)row.Cells["TinhTrang"].Value == 1 && (((DateTime)row.Cells["ThoiGian"].Value)- DateTime.Now).Hours < ThamSo.TGHuyDatVe)
             {
-                Notification.Show("Phiếu đặt chỗ đã quá thời gian");
+                Notification.Show("Phiếu đặt chỗ đã quá thời gian", Status.WARNING);
                 var dialog1 = new frmWarning("Thông Báo", "Phiếu đặt chỗ đã quá thời gian\n-->Tiến hành hủy");
                 dialog1.ShowDialog();
                 return;
             }
             else if ((int)row.Cells["TinhTrang"].Value == 2)
             {
-                Notification.Show("Phiếu đặt chỗ đã bán");
+                Notification.Show("Phiếu đặt chỗ đã bán", Status.WARNING);
                 var dialog1 = new frmWarning("Thông Báo", "Phiếu đặt chỗ đã bán");
                 dialog1.ShowDialog();
                 return;
             }
             else if ((int)row.Cells["TinhTrang"].Value == 3)
             {
-                Notification.Show("Phiếu đặt chỗ đã hủy không thể bán");
+                Notification.Show("Phiếu đặt chỗ đã hủy không thể bán", Status.WARNING);
                 var dialog1 = new frmWarning("Thông Báo", "Phiếu đặt chỗ đã hủy không thể bán");
                 dialog1.ShowDialog();
                 return;
@@ -272,7 +273,7 @@ namespace Presentation_Layer.FormView
             if (res == DialogResult.OK)
             {
                 pdc.tinhTrang = 2;
-                BLL_PhieuDatCho.SalePhieuDatCho(pdc);
+                if (BLL_PhieuDatCho.SalePhieuDatCho(pdc)) Notification.Show("Bán vé thành công", Status.SUCCESS);
                 BLL_PhieuDatCho.UpdatePhieuDatCho(pdc);
                 reloadData();
             }
@@ -281,14 +282,14 @@ namespace Presentation_Layer.FormView
         {
             if ((int)row.Cells["TinhTrang"].Value == 2)
             {
-                Notification.Show("Phiếu đặt chỗ đã bán không thể hủy");
+                Notification.Show("Phiếu đặt chỗ đã bán không thể hủy", Status.WARNING);
                 var dialog1 = new frmWarning("Thông Báo", "Phiếu đặt chỗ đã bán không thể hủy");
                 dialog1.ShowDialog();
                 return;
             }
             else if ((int)row.Cells["TinhTrang"].Value == 3)
             {
-                Notification.Show("Phiếu đặt chỗ đã hủy");
+                Notification.Show("Phiếu đặt chỗ đã hủy", Status.WARNING);
                 var dialog1 = new frmWarning("Thông Báo", "Phiếu đặt chỗ đã hủy");
                 dialog1.ShowDialog();
                 return;
@@ -309,7 +310,7 @@ namespace Presentation_Layer.FormView
             if (res == DialogResult.OK)
             {
                 pdc.tinhTrang = 3;
-                BLL_PhieuDatCho.UpdatePhieuDatCho(pdc);
+                if (BLL_PhieuDatCho.UpdatePhieuDatCho(pdc)) Notification.Show("Hủy phiếu đặt chỗ thành công", Status.SUCCESS);
                 reloadData();
             }
         }

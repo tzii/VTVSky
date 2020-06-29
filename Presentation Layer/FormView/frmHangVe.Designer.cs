@@ -625,6 +625,7 @@
             // 
             // frmHangVe
             // 
+            this.AcceptButton = this.btnSearch;
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

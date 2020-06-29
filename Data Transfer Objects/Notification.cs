@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data_Transfer_Objects.Properties;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,8 @@ namespace Data_Transfer_Objects
         private static int last;
         public static void Show(string _message, Status _status)
         {
+            if (_status == Status.SUCCESS) pbNoti.BackgroundImage = Resources.tick;
+            else if (_status == Status.WARNING) pbNoti.BackgroundImage = Resources.close;
             Random ran = new Random();
             Thread th = new Thread(() => ShowNoti(_message, ran.Next(1, 1000)));
             th.IsBackground = true;
@@ -35,12 +38,16 @@ namespace Data_Transfer_Objects
                 last = x;
             }
             Thread.Sleep(10000);
-            if (last == x) lbNoti.Text = "Ready";
+            if (last == x)
+            {
+                lbNoti.Text = "Ready";
+                pbNoti.BackgroundImage = Resources.coding;
+            }
         }
     }
     public enum Status
     {
-        ACCESS,
+        SUCCESS,
         WARNING
     }
     public enum Actions

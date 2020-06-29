@@ -142,7 +142,7 @@ namespace Presentation_Layer.FormView
         public override void RefreshData()
         {
             reloadData();
-            Notification.Show("Làm mới danh sách sân bay");
+            Notification.Show("Làm mới danh sách sân bay", Status.SUCCESS);
         }
         public override void Create()
         {
@@ -154,6 +154,7 @@ namespace Presentation_Layer.FormView
                 int newMave = BLL_IdenMaVe.GetNewMaVe();
                 if (BLL_Ve.InsertVe(dialog.ve, newMave))
                 {
+                    Notification.Show("Bán vé thành công", Status.SUCCESS);
                     BLL_IdenMaVe.ClearIden();
                 }
                 reloadData();
@@ -178,7 +179,7 @@ namespace Presentation_Layer.FormView
             DialogResult res = dialog.ShowDialog();
             if (res == DialogResult.OK)
             {
-                BLL_Ve.UpdateVe(dialog.ve);
+                if (BLL_Ve.UpdateVe(dialog.ve)) Notification.Show("Chỉnh sửa vé thành công", Status.SUCCESS);
                 reloadData();
             }
             AppState.state = Actions.NOTHING;

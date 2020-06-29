@@ -57,7 +57,7 @@
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
@@ -428,10 +428,8 @@
   <ItemGroup>
     <Content Include="Lib\Guna.UI.dll" />
     <Content Include="Lib\Guna.UI2.dll" />
-    <Content Include="Lib\x64\msvcr120.dll" />
-    <Content Include="Lib\x64\SqlServerSpatial140.dll" />
-    <Content Include="Lib\x86\msvcr120.dll" />
-    <Content Include="Lib\x86\SqlServerSpatial140.dll" />
+    <None Include="Resources\Logo.png" />
+    <None Include="Resources\coding.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -448,6 +446,5 @@
     <None Include="Resources\profile.png" />
     <None Include="Resources\person.png" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

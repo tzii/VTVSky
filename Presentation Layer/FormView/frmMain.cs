@@ -40,7 +40,6 @@ namespace Presentation_Layer.FormView
                 WindowState = FormWindowState.Maximized;
                 resizeControl.Hide();
                 currentChildForm.SizeChange();
-                Notification.Show(pnDesktop.Size.ToString());
             }
             else if (WindowState == FormWindowState.Maximized)
             {
@@ -59,7 +58,7 @@ namespace Presentation_Layer.FormView
         private void btnHome_Click(object sender, EventArgs e)
         {
             var btn = (Guna2Button)sender;
-            if (btn.Checked == true) return;
+            if (btn.Checked == true || AppState.state != Actions.NOTHING) return;
             ActivateButton(sender);
             ShowChildForm(new frmHome());
         }
@@ -67,7 +66,7 @@ namespace Presentation_Layer.FormView
         private void btnManager_Click(object sender, EventArgs e)
         {
             var btn = (Guna2Button)sender;
-            if (btn.Checked == true) return;
+            if (btn.Checked == true || AppState.state != Actions.NOTHING) return;
             ActivateButton(sender);
             ShowChildForm(new frmManager());
         }
@@ -75,7 +74,7 @@ namespace Presentation_Layer.FormView
         private void btnFlights_Click(object sender, EventArgs e)
         {
             var btn = (Guna2Button)sender;
-            if (btn.Checked == true) return;
+            if (btn.Checked == true || AppState.state != Actions.NOTHING) return;
             ActivateButton(sender);
             ShowChildForm(new frmFlights());
         }
@@ -83,7 +82,7 @@ namespace Presentation_Layer.FormView
         private void btnTickets_Click(object sender, EventArgs e)
         {
             var btn = (Guna2Button)sender;
-            if (btn.Checked == true) return;
+            if (btn.Checked == true || AppState.state != Actions.NOTHING) return;
             ActivateButton(sender);
             ShowChildForm(new frmTickets());
         }
@@ -91,7 +90,7 @@ namespace Presentation_Layer.FormView
         private void btnReports_Click(object sender, EventArgs e)
         {
             var btn = (Guna2Button)sender;
-            if (btn.Checked == true) return;
+            if (btn.Checked == true || AppState.state != Actions.NOTHING) return;
             ActivateButton(sender);
             ShowChildForm(new frmReports());
         }
@@ -99,7 +98,7 @@ namespace Presentation_Layer.FormView
         private void btnSetting_Click(object sender, EventArgs e)
         {
             var btn = (Guna2Button)sender;
-            if (btn.Checked == true) return;
+            if (btn.Checked == true || AppState.state != Actions.NOTHING) return;
             ActivateButton(sender);
             ShowChildForm(new frmSettings());
         }
@@ -161,6 +160,7 @@ namespace Presentation_Layer.FormView
         private void frmMain_Load(object sender, EventArgs e)
         {
             Notification.lbNoti = lbNoti;
+            Notification.pbNoti = pbNoti;
             ActivateButton(btnHome);
             ShowChildForm(new frmHome());
         }

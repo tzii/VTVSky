@@ -119,7 +119,7 @@ namespace Data_Access_Layer
             }
             catch (Exception ex)
             {
-                Notification.Show(ex.Message);
+                Notification.Show(ex.Message,Status.WARNING);
                 return 0;
             }
         }

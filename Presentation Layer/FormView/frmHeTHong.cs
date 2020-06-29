@@ -91,6 +91,8 @@ namespace Presentation_Layer.FormView
                 currentEditButton.Image = Presentation_Layer.Properties.Resources.accept;
                 AppState.state = Actions.EDIT;
                 tbTGBayToiThieu.Enabled = true;
+
+                this.AcceptButton = sender as Guna2Button;
             }
             else if (AppState.state == Actions.EDIT && currentEditButton == sender as Guna2Button)
             {
@@ -102,11 +104,13 @@ namespace Presentation_Layer.FormView
                     currentEditButton = null;
                     AppState.state = Actions.NOTHING;
                     ThamSo.TGBayToiThieu = x;
-                    BLL_ThamSo.UpdateThamSo();
+                    if (BLL_ThamSo.UpdateThamSo()) Notification.Show("Chỉnh sửa quy định thành công", Status.SUCCESS);
+
+                    this.AcceptButton = null;
                 }
                 catch(Exception ex)
                 {
-                    Notification.Show(ex.Message);
+                    Notification.Show(ex.Message,Status.WARNING);
                     showWarning();
                 }
             }
@@ -120,6 +124,8 @@ namespace Presentation_Layer.FormView
                 currentEditButton.Image = Presentation_Layer.Properties.Resources.accept;
                 AppState.state = Actions.EDIT;
                 tbSLSBTG.Enabled = true;
+
+                this.AcceptButton = sender as Guna2Button;
             }
             else if (AppState.state == Actions.EDIT && currentEditButton == sender as Guna2Button)
             {
@@ -131,11 +137,13 @@ namespace Presentation_Layer.FormView
                     currentEditButton = null;
                     AppState.state = Actions.NOTHING;
                     ThamSo.SLSBTG = x;
-                    BLL_ThamSo.UpdateThamSo();
+                    if (BLL_ThamSo.UpdateThamSo()) Notification.Show("Chỉnh sửa quy định thành công", Status.SUCCESS);
+
+                    this.AcceptButton = null;
                 }
                 catch (Exception ex)
                 {
-                    Notification.Show(ex.Message);
+                    Notification.Show(ex.Message, Status.WARNING);
                     showWarning();
                 }
             }
@@ -149,6 +157,8 @@ namespace Presentation_Layer.FormView
                 currentEditButton.Image = Presentation_Layer.Properties.Resources.accept;
                 AppState.state = Actions.EDIT;
                 tbTGDungToiThieu.Enabled = true;
+
+                this.AcceptButton = sender as Guna2Button;
             }
             else if (AppState.state == Actions.EDIT && currentEditButton == sender as Guna2Button)
             {
@@ -160,11 +170,13 @@ namespace Presentation_Layer.FormView
                     currentEditButton = null;
                     AppState.state = Actions.NOTHING;
                     ThamSo.TGDungToiThieu = x;
-                    BLL_ThamSo.UpdateThamSo();
+                    if (BLL_ThamSo.UpdateThamSo()) Notification.Show("Chỉnh sửa quy định thành công", Status.SUCCESS);
+
+                    this.AcceptButton = null;
                 }
                 catch (Exception ex)
                 {
-                    Notification.Show(ex.Message);
+                    Notification.Show(ex.Message, Status.WARNING);
                     showWarning();
                 }
             }
@@ -178,6 +190,8 @@ namespace Presentation_Layer.FormView
                 currentEditButton.Image = Presentation_Layer.Properties.Resources.accept;
                 AppState.state = Actions.EDIT;
                 tbTGDungToiDa.Enabled = true;
+
+                this.AcceptButton = sender as Guna2Button;
             }
             else if (AppState.state == Actions.EDIT && currentEditButton == sender as Guna2Button)
             {
@@ -189,11 +203,13 @@ namespace Presentation_Layer.FormView
                     currentEditButton = null;
                     AppState.state = Actions.NOTHING;
                     ThamSo.TGDungToiDa = x;
-                    BLL_ThamSo.UpdateThamSo();
+                    if (BLL_ThamSo.UpdateThamSo()) Notification.Show("Chỉnh sửa quy định thành công", Status.SUCCESS);
+
+                    this.AcceptButton = null;
                 }
                 catch (Exception ex)
                 {
-                    Notification.Show(ex.Message);
+                    Notification.Show(ex.Message, Status.WARNING);
                     showWarning();
                 }
             }
@@ -207,6 +223,8 @@ namespace Presentation_Layer.FormView
                 currentEditButton.Image = Presentation_Layer.Properties.Resources.accept;
                 AppState.state = Actions.EDIT;
                 tbTGDatVeChamNhat.Enabled = true;
+
+                this.AcceptButton = sender as Guna2Button;
             }
             else if (AppState.state == Actions.EDIT && currentEditButton == sender as Guna2Button)
             {
@@ -218,11 +236,13 @@ namespace Presentation_Layer.FormView
                     currentEditButton = null;
                     AppState.state = Actions.NOTHING;
                     ThamSo.TGDatVeChamNhat = x;
-                    BLL_ThamSo.UpdateThamSo();
+                    if (BLL_ThamSo.UpdateThamSo()) Notification.Show("Chỉnh sửa quy định thành công", Status.SUCCESS);
+
+                    this.AcceptButton = null;
                 }
                 catch (Exception ex)
                 {
-                    Notification.Show(ex.Message);
+                    Notification.Show(ex.Message, Status.WARNING);
                     showWarning();
                 }
             }
@@ -236,6 +256,8 @@ namespace Presentation_Layer.FormView
                 currentEditButton.Image = Presentation_Layer.Properties.Resources.accept;
                 AppState.state = Actions.EDIT;
                 tbTGHuyDatVe.Enabled = true;
+
+                this.AcceptButton = sender as Guna2Button;
             }
             else if (AppState.state == Actions.EDIT && currentEditButton == sender as Guna2Button)
             {
@@ -247,11 +269,13 @@ namespace Presentation_Layer.FormView
                     currentEditButton = null;
                     AppState.state = Actions.NOTHING;
                     ThamSo.TGHuyDatVe = x;
-                    BLL_ThamSo.UpdateThamSo();
+                    if (BLL_ThamSo.UpdateThamSo()) Notification.Show("Chỉnh sửa quy định thành công", Status.SUCCESS);
+
+                    this.AcceptButton = null;
                 }
                 catch (Exception ex)
                 {
-                    Notification.Show(ex.Message);
+                    Notification.Show(ex.Message, Status.WARNING);
                     showWarning();
                 }
             }
@@ -261,7 +285,7 @@ namespace Presentation_Layer.FormView
         {
             if (AppState.state != Actions.NOTHING) return;
             BLL_ThamSo.LoadThamSo();
-            Notification.Show("Tải lại cài đặt hệ thống");
+            Notification.Show("Tải lại cài đặt hệ thống",Status.SUCCESS);
             reload();
         }
     }
