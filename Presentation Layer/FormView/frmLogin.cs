@@ -154,7 +154,7 @@ namespace Presentation_Layer.FormView
             while (i >= 0)
             {
                 backgroundWorker.ReportProgress(i);
-                Thread.Sleep(50);
+                Thread.Sleep(25);
                 i -= 5;
             }
 
